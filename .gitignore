@@ -1,0 +1,16 @@
+# object file
+*.o
+*.obj
+*.elf
+
+# shared objects
+*.so
+*.dylib
+
+# debug file
+*.dSYM/
+
+# vim temp file
+*~
+*.swp
+*.swo
