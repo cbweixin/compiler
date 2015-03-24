@@ -26,6 +26,7 @@ unget_token(Token *token)
 }
 
 double parse_expression(void);
+double parse_line(void);
 
 static double
 parse_primary_expression()
@@ -124,6 +125,7 @@ parse_line(void)
     return value;
 }
 
+#if 0
 int
 main(int argc, char **argv)
 {
@@ -138,3 +140,4 @@ main(int argc, char **argv)
 
     return 0;
 }
+#endif 
