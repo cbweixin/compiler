@@ -9,7 +9,7 @@ CC = clang
 #HEADER_PATH = -I ~/Desktop/github/compiler/greatest
 HEADER_PATH = -I ../../../compiler/greatest
 
-LINKED_OBJECTS = test_cases_token.o fileToTest.o parser.o
+LINKED_OBJECTS = test_cases_token.o test_cases_parser.o fileToTest.o parser.o
 
 all: clean test.run
 
@@ -24,6 +24,9 @@ clean:
 
 test_cases_token.o:
 		${CC} ${HEADER_PATH} ${CFLAGS} ${LDFLAGS} -g -o $@ -c test_cases_token.c
+
+test_cases_parser.o:
+		${CC} ${HEADER_PATH} ${CFLAGS} ${LDFLAGS} -g -o $@ -c test_cases_parser.c
 
 fileToTest.o:
 		${CC} ${HEADER_PATH} ${CFLAGS} ${LDFLAGS} -pthread -g -o $@ -c ../lexicalanalyzer.c

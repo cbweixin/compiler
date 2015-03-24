@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "token.h"
+#include "parser.h"
 
 #define LINE_BUF_SIZE (1024)
 

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#include "../../..//greatest/greatest.h"
+#include "../../../greatest/greatest.h"
 #include "../token.h"
 
 SUITE(test_cases);
