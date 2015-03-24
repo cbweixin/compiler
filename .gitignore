@@ -9,6 +9,9 @@
 
 # debug file
 *.dSYM/
+#
+# execute file
+*.run
 
 # vim temp file
 *~
