@@ -1,0 +1,4 @@
+command alias bfl breakpoint set -f %1 -l %2
+bfl parser.c 38
+bfl parser.c 81
+bfl parser.c 111

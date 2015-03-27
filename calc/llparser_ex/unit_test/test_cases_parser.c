@@ -10,8 +10,12 @@ SUITE(test_cases2);
 
 TEST test_parse_line1(void)
 {
-        ASSERT(1>0);
-        PASS();
+    char st_line[50] = "(1+2)*3+4\n";
+    set_line(st_line);
+    double value = parse_line();
+    ASSERT_EQ(13, value);
+
+    PASS();
 }
 
 SUITE(test_cases2)

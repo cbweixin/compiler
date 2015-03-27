@@ -104,7 +104,7 @@ TEST test_get_token2(void)
             }
             else if( i== 1 )
             {
-        //        printf("kind..%d, str..%s\n", token.kind, token.str);
+                //        printf("kind..%d, str..%s\n", token.kind, token.str);
                 ASSERT_EQ(1,token.kind);
                 ASSERT_STR_EQ("1",token.str);
             }
@@ -249,10 +249,10 @@ TEST test_get_token4(void)
         }
         else
         {
-             printf("kind..%d, str..%s\n", token.kind, token.str);
+            printf("kind..%d, str..%s\n", token.kind, token.str);
         }
 
-            i++;
+        i++;
     }
     ASSERT(1>0);
     PASS();
@@ -276,10 +276,10 @@ TEST test_get_token5(void)
         }
         else
         {
-             printf("kind..%d, str..%s\n", token.kind, token.str);
+            printf("kind..%d, str..%s\n", token.kind, token.str);
         }
 
-            i++;
+        i++;
     }
     ASSERTm("if you saw this test passed, it is wrong, the code has error", 1<0);
     PASS();
@@ -302,10 +302,10 @@ TEST test_get_token6(void)
         }
         else
         {
-             printf("kind..%d, str..%s\n", token.kind, token.str);
+            printf("kind..%d, str..%s\n", token.kind, token.str);
         }
 
-            i++;
+        i++;
     }
     ASSERTm("if you saw this test passed, it is wrong, the code has error", 1<0);
     PASS();
