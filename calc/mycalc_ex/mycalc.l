@@ -24,6 +24,11 @@ yywrap(void)
     return DOUBLE_LITERAL;
 }
 [ \t] ;
+"q" {
+    fprintf(stdout, "quit.\n");
+    exit(0);
+
+}
 . {
     fprintf(stderr, "lexical error.\n");
     exit(1);
