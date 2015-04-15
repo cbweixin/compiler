@@ -1,6 +1,7 @@
 TARGET = crowbar
 CC=gcc
-OBJS = \
+BUILD_DIR=./build
+_OBJS = \
   lex.yy.o\
   y.tab.o\
   main.o\
@@ -14,8 +15,11 @@ OBJS = \
   native.o\
   error.o\
   error_message.o\
-  ./memory/mem.o\
-  ./debug/dbg.o
+  mem.o\
+  dbg.o
+# % is the pattern, stands for all the file in _OBJS, for all elem in _OBJS, 
+# add "./build/" to the front
+OBJS = $(patsubst %, $(BUILD_DIR)/%, $(_OBJS))
 CFLAGS = -c -g -Wall -Wswitch-enum -ansi -pedantic -DDEBUG
 INCLUDES = \
 
@@ -24,22 +28,23 @@ $(TARGET):$(OBJS)
 	cd ./debug; $(MAKE);
 	$(CC) $(OBJS) -o $@ -lm
 clean:
-	rm -f *.o lex.yy.c y.tab.c y.tab.h *~
+	rm -f $(TARGET) $(BUILD_DIR)/*.o lex.yy.c y.tab.c y.tab.h y.output *~
 y.tab.h : crowbar.y
 	bison --yacc -dv crowbar.y
 y.tab.c : crowbar.y
 	bison --yacc -dv crowbar.y
 lex.yy.c : crowbar.l crowbar.y y.tab.h
 	flex crowbar.l
-y.tab.o: y.tab.c crowbar.h MEM.h
-	$(CC) -c -g $*.c $(INCLUDES)
-lex.yy.o: lex.yy.c crowbar.h MEM.h
-	$(CC) -c -g $*.c $(INCLUDES)
-.c.o:
-	$(CC) $(CFLAGS) $*.c $(INCLUDES)
-./memory/mem.o:
+$(BUILD_DIR)/y.tab.o: y.tab.c crowbar.h MEM.h
+	$(CC) -c -g -o $@ $< $(INCLUDES)
+$(BUILD_DIR)/lex.yy.o: lex.yy.c crowbar.h MEM.h
+	$(CC) -c -g -o $@ $< $(INCLUDES)
+#.c.o:
+$(BUILD_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -o $@ $< $(INCLUDES)
+$(BUILD_DIR)/mem.o:
 	cd ./memory; $(MAKE);
-./debug/dbg.o:
+$(BUILD_DIR)/dbg.o:
 	cd ./debug; $(MAKE);
 ############################################################
 create.o: create.c MEM.h DBG.h crowbar.h CRB.h CRB_dev.h
