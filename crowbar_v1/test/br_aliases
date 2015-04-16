@@ -1,0 +1,11 @@
+command alias bfl breakpoint set -f %1 -l %2
+bfl main.c 21
+bfl create.c 121
+bfl create.c 152
+bfl create.c 207
+bfl execute.c 298
+bfl eval.c 746
+bfl eval.c 683
+bfl eval.c 656
+bfl eval.c 587
+
