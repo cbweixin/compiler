@@ -1,0 +1,361 @@
+\hypertarget{error_8c}{}\section{error.\+c File Reference}
+\label{error_8c}\index{error.\+c@{error.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}M\+E\+M.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\+B\+G.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crowbar.\+h\char`\"{}}\\*
+Include dependency graph for error.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_v_string}{V\+String}
+\item 
+struct \hyperlink{struct_message_argument}{Message\+Argument}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{error_8c_a0816785df93b0bebb51bd3889135cab0}{clear\+\_\+v\+\_\+string} (\hyperlink{struct_v_string}{V\+String} $\ast$v)
+\item 
+int \hyperlink{error_8c_ac7e9bd08d068851e31a5b6d408004638}{my\+\_\+strlen} (char $\ast$str)
+\item 
+static void \hyperlink{error_8c_ac47c3cc1355dfa5ac6e250683381a6f0}{add\+\_\+string} (\hyperlink{struct_v_string}{V\+String} $\ast$v, char $\ast$str)
+\item 
+static void \hyperlink{error_8c_ab3c18369b9fff4277439cec44fdbd002}{add\+\_\+character} (\hyperlink{struct_v_string}{V\+String} $\ast$v, int ch)
+\item 
+static void \hyperlink{error_8c_af8e5dc7031de55a51ea433a46f1734b6}{create\+\_\+message\+\_\+argument} (\hyperlink{struct_message_argument}{Message\+Argument} $\ast$arg, va\+\_\+list ap)
+\item 
+static void \hyperlink{error_8c_ad7105cbb9467f70c251b8541842c25ea}{search\+\_\+argument} (\hyperlink{struct_message_argument}{Message\+Argument} $\ast$arg\+\_\+list, char $\ast$arg\+\_\+name, \hyperlink{struct_message_argument}{Message\+Argument} $\ast$arg)
+\item 
+static void \hyperlink{error_8c_a8e20da369644405f7331f2cdf7d5b834}{format\+\_\+message} (\hyperlink{struct_message_format}{Message\+Format} $\ast$format, \hyperlink{struct_v_string}{V\+String} $\ast$v, va\+\_\+list ap)
+\item 
+void \hyperlink{error_8c_a55439ce228411bbdb845262236939908}{self\+\_\+check} ()
+\item 
+void \hyperlink{error_8c_a5cb58b7f7f477624703151c7301ae55b}{crb\+\_\+compile\+\_\+error} (\hyperlink{crowbar_8h_a2b4aff2a569557fee1e5a909df7ae411}{Compile\+Error} id,...)
+\item 
+void \hyperlink{error_8c_aa159c26774b9ecac10e28b0c0227cbfc}{crb\+\_\+runtime\+\_\+error} (int line\+\_\+number, \hyperlink{crowbar_8h_a487e220f8e254baa5581e34d35933c26}{Runtime\+Error} id,...)
+\item 
+int \hyperlink{error_8c_a4317975290378450c32dc6933c7f05dc}{yyerror} (char const $\ast$str)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{error_8c_a35b96d819f6a8f8638894c429e68b02a}{yytext}
+\item 
+\hyperlink{struct_message_format}{Message\+Format} \hyperlink{error_8c_a3fd9f0632665a8969194d8230496b662}{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format} \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{struct_message_format}{Message\+Format} \hyperlink{error_8c_a05777b8f423208c1edefc73dedf245b8}{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{error_8c_ab3c18369b9fff4277439cec44fdbd002}{}\index{error.\+c@{error.\+c}!add\+\_\+character@{add\+\_\+character}}
+\index{add\+\_\+character@{add\+\_\+character}!error.\+c@{error.\+c}}
+\subsubsection[{add\+\_\+character(\+V\+String $\ast$v, int ch)}]{\setlength{\rightskip}{0pt plus 5cm}static void add\+\_\+character (
+\begin{DoxyParamCaption}
+\item[{{\bf V\+String} $\ast$}]{v, }
+\item[{int}]{ch}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{error_8c_ab3c18369b9fff4277439cec44fdbd002}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{error_8c_ab3c18369b9fff4277439cec44fdbd002_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_ab3c18369b9fff4277439cec44fdbd002_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_ac47c3cc1355dfa5ac6e250683381a6f0}{}\index{error.\+c@{error.\+c}!add\+\_\+string@{add\+\_\+string}}
+\index{add\+\_\+string@{add\+\_\+string}!error.\+c@{error.\+c}}
+\subsubsection[{add\+\_\+string(\+V\+String $\ast$v, char $\ast$str)}]{\setlength{\rightskip}{0pt plus 5cm}static void add\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{{\bf V\+String} $\ast$}]{v, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{error_8c_ac47c3cc1355dfa5ac6e250683381a6f0}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{error_8c_ac47c3cc1355dfa5ac6e250683381a6f0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_ac47c3cc1355dfa5ac6e250683381a6f0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_a0816785df93b0bebb51bd3889135cab0}{}\index{error.\+c@{error.\+c}!clear\+\_\+v\+\_\+string@{clear\+\_\+v\+\_\+string}}
+\index{clear\+\_\+v\+\_\+string@{clear\+\_\+v\+\_\+string}!error.\+c@{error.\+c}}
+\subsubsection[{clear\+\_\+v\+\_\+string(\+V\+String $\ast$v)}]{\setlength{\rightskip}{0pt plus 5cm}static void clear\+\_\+v\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{{\bf V\+String} $\ast$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{error_8c_a0816785df93b0bebb51bd3889135cab0}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a0816785df93b0bebb51bd3889135cab0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_a5cb58b7f7f477624703151c7301ae55b}{}\index{error.\+c@{error.\+c}!crb\+\_\+compile\+\_\+error@{crb\+\_\+compile\+\_\+error}}
+\index{crb\+\_\+compile\+\_\+error@{crb\+\_\+compile\+\_\+error}!error.\+c@{error.\+c}}
+\subsubsection[{crb\+\_\+compile\+\_\+error(\+Compile\+Error id,...)}]{\setlength{\rightskip}{0pt plus 5cm}void crb\+\_\+compile\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{{\bf Compile\+Error}}]{id, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{error_8c_a5cb58b7f7f477624703151c7301ae55b}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a5cb58b7f7f477624703151c7301ae55b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a5cb58b7f7f477624703151c7301ae55b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_aa159c26774b9ecac10e28b0c0227cbfc}{}\index{error.\+c@{error.\+c}!crb\+\_\+runtime\+\_\+error@{crb\+\_\+runtime\+\_\+error}}
+\index{crb\+\_\+runtime\+\_\+error@{crb\+\_\+runtime\+\_\+error}!error.\+c@{error.\+c}}
+\subsubsection[{crb\+\_\+runtime\+\_\+error(int line\+\_\+number, Runtime\+Error id,...)}]{\setlength{\rightskip}{0pt plus 5cm}void crb\+\_\+runtime\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{int}]{line\+\_\+number, }
+\item[{{\bf Runtime\+Error}}]{id, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{error_8c_aa159c26774b9ecac10e28b0c0227cbfc}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_aa159c26774b9ecac10e28b0c0227cbfc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_aa159c26774b9ecac10e28b0c0227cbfc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_af8e5dc7031de55a51ea433a46f1734b6}{}\index{error.\+c@{error.\+c}!create\+\_\+message\+\_\+argument@{create\+\_\+message\+\_\+argument}}
+\index{create\+\_\+message\+\_\+argument@{create\+\_\+message\+\_\+argument}!error.\+c@{error.\+c}}
+\subsubsection[{create\+\_\+message\+\_\+argument(\+Message\+Argument $\ast$arg, va\+\_\+list ap)}]{\setlength{\rightskip}{0pt plus 5cm}static void create\+\_\+message\+\_\+argument (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Argument} $\ast$}]{arg, }
+\item[{va\+\_\+list}]{ap}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{error_8c_af8e5dc7031de55a51ea433a46f1734b6}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_af8e5dc7031de55a51ea433a46f1734b6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_a8e20da369644405f7331f2cdf7d5b834}{}\index{error.\+c@{error.\+c}!format\+\_\+message@{format\+\_\+message}}
+\index{format\+\_\+message@{format\+\_\+message}!error.\+c@{error.\+c}}
+\subsubsection[{format\+\_\+message(\+Message\+Format $\ast$format, V\+String $\ast$v, va\+\_\+list ap)}]{\setlength{\rightskip}{0pt plus 5cm}static void format\+\_\+message (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Format} $\ast$}]{format, }
+\item[{{\bf V\+String} $\ast$}]{v, }
+\item[{va\+\_\+list}]{ap}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{error_8c_a8e20da369644405f7331f2cdf7d5b834}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a8e20da369644405f7331f2cdf7d5b834_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a8e20da369644405f7331f2cdf7d5b834_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_ac7e9bd08d068851e31a5b6d408004638}{}\index{error.\+c@{error.\+c}!my\+\_\+strlen@{my\+\_\+strlen}}
+\index{my\+\_\+strlen@{my\+\_\+strlen}!error.\+c@{error.\+c}}
+\subsubsection[{my\+\_\+strlen(char $\ast$str)}]{\setlength{\rightskip}{0pt plus 5cm}int my\+\_\+strlen (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{error_8c_ac7e9bd08d068851e31a5b6d408004638}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_ac7e9bd08d068851e31a5b6d408004638_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_ad7105cbb9467f70c251b8541842c25ea}{}\index{error.\+c@{error.\+c}!search\+\_\+argument@{search\+\_\+argument}}
+\index{search\+\_\+argument@{search\+\_\+argument}!error.\+c@{error.\+c}}
+\subsubsection[{search\+\_\+argument(\+Message\+Argument $\ast$arg\+\_\+list, char $\ast$arg\+\_\+name, Message\+Argument $\ast$arg)}]{\setlength{\rightskip}{0pt plus 5cm}static void search\+\_\+argument (
+\begin{DoxyParamCaption}
+\item[{{\bf Message\+Argument} $\ast$}]{arg\+\_\+list, }
+\item[{char $\ast$}]{arg\+\_\+name, }
+\item[{{\bf Message\+Argument} $\ast$}]{arg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{error_8c_ad7105cbb9467f70c251b8541842c25ea}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_ad7105cbb9467f70c251b8541842c25ea_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_a55439ce228411bbdb845262236939908}{}\index{error.\+c@{error.\+c}!self\+\_\+check@{self\+\_\+check}}
+\index{self\+\_\+check@{self\+\_\+check}!error.\+c@{error.\+c}}
+\subsubsection[{self\+\_\+check()}]{\setlength{\rightskip}{0pt plus 5cm}void self\+\_\+check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{error_8c_a55439ce228411bbdb845262236939908}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a55439ce228411bbdb845262236939908_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{error_8c_a4317975290378450c32dc6933c7f05dc}{}\index{error.\+c@{error.\+c}!yyerror@{yyerror}}
+\index{yyerror@{yyerror}!error.\+c@{error.\+c}}
+\subsubsection[{yyerror(char const $\ast$str)}]{\setlength{\rightskip}{0pt plus 5cm}int yyerror (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{error_8c_a4317975290378450c32dc6933c7f05dc}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a4317975290378450c32dc6933c7f05dc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{error_8c_a4317975290378450c32dc6933c7f05dc_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{error_8c_a3fd9f0632665a8969194d8230496b662}{}\index{error.\+c@{error.\+c}!crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format}}
+\index{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format}!error.\+c@{error.\+c}}
+\subsubsection[{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Format} crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format\mbox{[}$\,$\mbox{]}}\label{error_8c_a3fd9f0632665a8969194d8230496b662}
+\hypertarget{error_8c_a05777b8f423208c1edefc73dedf245b8}{}\index{error.\+c@{error.\+c}!crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format}}
+\index{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format}!error.\+c@{error.\+c}}
+\subsubsection[{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Format} crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format\mbox{[}$\,$\mbox{]}}\label{error_8c_a05777b8f423208c1edefc73dedf245b8}
+\hypertarget{error_8c_a35b96d819f6a8f8638894c429e68b02a}{}\index{error.\+c@{error.\+c}!yytext@{yytext}}
+\index{yytext@{yytext}!error.\+c@{error.\+c}}
+\subsubsection[{yytext}]{\setlength{\rightskip}{0pt plus 5cm}char $\ast$ yytext}\label{error_8c_a35b96d819f6a8f8638894c429e68b02a}

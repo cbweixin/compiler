@@ -1,0 +1,10 @@
+<map id="isatty" name="isatty">
+<area shape="rect" id="node2" href="$lex_8yy_8c.html#af4a399540c15d953f8b01085bfdc93ea" title="yy_init_buffer" alt="" coords="106,81,206,107"/>
+<area shape="rect" id="node3" href="$lex_8yy_8c.html#ab657ddef65d43cc3ab8dfc2cad0ac5b8" title="yyrestart" alt="" coords="423,56,495,81"/>
+<area shape="rect" id="node7" href="$lex_8yy_8c.html#a5bc6f1a5f7812508f425b08283f13ae8" title="yy_create_buffer" alt="" coords="254,107,375,132"/>
+<area shape="rect" id="node4" href="$lex_8yy_8c.html#a3b3b5f60f720da3f621223997266498c" title="yy_get_next_buffer" alt="" coords="543,5,678,31"/>
+<area shape="rect" id="node6" href="$lex_8yy_8c.html#a171692544b8e065853e387755849a433" title="input" alt="" coords="726,55,777,80"/>
+<area shape="rect" id="node5" href="$lex_8yy_8c.html#a8fdafe3be7e00ce3d4f0cb50a9a5eb39" title="while" alt="" coords="726,5,777,31"/>
+<area shape="rect" id="node8" href="$lex_8yy_8c.html#ad4a65b873df5c05570846b5413b41dfd" title="if" alt="" coords="439,107,478,132"/>
+<area shape="rect" id="node9" href="$lex_8yy_8c.html#a9c46d0a9effdc2638e26871310104f0a" title="yyunput" alt="" coords="576,107,644,132"/>
+</map>

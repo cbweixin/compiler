@@ -1,0 +1,8 @@
+<map id="check_native_pointer" name="check_native_pointer">
+<area shape="rect" id="node2" href="$native_8c.html#a892791ade3f1367b740e1c1865ebaba3" title="crb_nv_fclose_proc" alt="" coords="201,5,338,31"/>
+<area shape="rect" id="node6" href="$native_8c.html#a36549d790976cc75ec50e868672f135c" title="crb_nv_fgets_proc" alt="" coords="204,55,335,80"/>
+<area shape="rect" id="node7" href="$native_8c.html#adca22eca0878132bd9828eca844fd7cc" title="crb_nv_fputs_proc" alt="" coords="204,104,335,129"/>
+<area shape="rect" id="node3" href="$interface_8c.html#a764313115b50c6b71d2b15bb0d37a491" title="add_native_functions" alt="" coords="386,55,533,80"/>
+<area shape="rect" id="node4" href="$interface_8c.html#ad3220c824ee390ae66a6fd09f25b1b40" title="CRB_create_interpreter" alt="" coords="581,55,743,80"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="791,55,841,80"/>
+</map>

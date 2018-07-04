@@ -1,0 +1,5 @@
+<map id="MEM_malloc_func" name="MEM_malloc_func">
+<area shape="rect" id="node2" href="$memory_8c.html#a548f63493f73a5f24aad1b815c0012e2" title="MEM_create_controller" alt="" coords="196,5,355,31"/>
+<area shape="rect" id="node3" href="$storage_8c.html#aabe82ed6b660debcba2fd8360838e073" title="MEM_open_storage_func" alt="" coords="189,55,363,80"/>
+<area shape="rect" id="node4" href="$storage_8c.html#ac91908fc1cabc1f8bb0bd8d0750ad65a" title="MEM_storage_malloc_func" alt="" coords="184,104,367,129"/>
+</map>

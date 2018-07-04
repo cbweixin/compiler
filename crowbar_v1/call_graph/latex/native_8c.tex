@@ -1,0 +1,276 @@
+\hypertarget{native_8c}{}\section{native.\+c File Reference}
+\label{native_8c}\index{native.\+c@{native.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}M\+E\+M.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\+B\+G.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}C\+R\+B\+\_\+dev.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crowbar.\+h\char`\"{}}\\*
+Include dependency graph for native.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{native_8c_aab89fcd6afabeb833eb3a29f5f127089}{N\+A\+T\+I\+V\+E\+\_\+\+L\+I\+B\+\_\+\+N\+A\+M\+E}~\char`\"{}crowbar.\+lang.\+file\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{native_8c_afd9b29acf8ee4de629e9fd2e2a350cff}{crb\+\_\+nv\+\_\+print\+\_\+proc} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter, int arg\+\_\+count, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$args)
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{native_8c_a5da1be103895e1c7986c85986ce15734}{crb\+\_\+nv\+\_\+fopen\+\_\+proc} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter, int arg\+\_\+count, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$args)
+\item 
+static \hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} \hyperlink{native_8c_a1abbb089a34d593323cdc9f59e7b9ed4}{check\+\_\+native\+\_\+pointer} (\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$value)
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{native_8c_a892791ade3f1367b740e1c1865ebaba3}{crb\+\_\+nv\+\_\+fclose\+\_\+proc} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter, int arg\+\_\+count, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$args)
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{native_8c_a36549d790976cc75ec50e868672f135c}{crb\+\_\+nv\+\_\+fgets\+\_\+proc} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter, int arg\+\_\+count, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$args)
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{native_8c_adca22eca0878132bd9828eca844fd7cc}{crb\+\_\+nv\+\_\+fputs\+\_\+proc} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter, int arg\+\_\+count, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$args)
+\item 
+void \hyperlink{native_8c_a15793da7ec5f0624c516c7f3e6bc54b5}{crb\+\_\+add\+\_\+std\+\_\+fp} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_c_r_b___native_pointer_info}{C\+R\+B\+\_\+\+Native\+Pointer\+Info} \hyperlink{native_8c_a98a6a5ce78759be3869409f9f960bfb6}{st\+\_\+native\+\_\+lib\+\_\+info}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{native_8c_aab89fcd6afabeb833eb3a29f5f127089}{}\index{native.\+c@{native.\+c}!N\+A\+T\+I\+V\+E\+\_\+\+L\+I\+B\+\_\+\+N\+A\+M\+E@{N\+A\+T\+I\+V\+E\+\_\+\+L\+I\+B\+\_\+\+N\+A\+M\+E}}
+\index{N\+A\+T\+I\+V\+E\+\_\+\+L\+I\+B\+\_\+\+N\+A\+M\+E@{N\+A\+T\+I\+V\+E\+\_\+\+L\+I\+B\+\_\+\+N\+A\+M\+E}!native.\+c@{native.\+c}}
+\subsubsection[{N\+A\+T\+I\+V\+E\+\_\+\+L\+I\+B\+\_\+\+N\+A\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+A\+T\+I\+V\+E\+\_\+\+L\+I\+B\+\_\+\+N\+A\+M\+E~\char`\"{}crowbar.\+lang.\+file\char`\"{}}\label{native_8c_aab89fcd6afabeb833eb3a29f5f127089}
+
+
+\subsection{Function Documentation}
+\hypertarget{native_8c_a1abbb089a34d593323cdc9f59e7b9ed4}{}\index{native.\+c@{native.\+c}!check\+\_\+native\+\_\+pointer@{check\+\_\+native\+\_\+pointer}}
+\index{check\+\_\+native\+\_\+pointer@{check\+\_\+native\+\_\+pointer}!native.\+c@{native.\+c}}
+\subsubsection[{check\+\_\+native\+\_\+pointer(\+C\+R\+B\+\_\+\+Value $\ast$value)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Boolean} check\+\_\+native\+\_\+pointer (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{native_8c_a1abbb089a34d593323cdc9f59e7b9ed4}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a1abbb089a34d593323cdc9f59e7b9ed4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{native_8c_a15793da7ec5f0624c516c7f3e6bc54b5}{}\index{native.\+c@{native.\+c}!crb\+\_\+add\+\_\+std\+\_\+fp@{crb\+\_\+add\+\_\+std\+\_\+fp}}
+\index{crb\+\_\+add\+\_\+std\+\_\+fp@{crb\+\_\+add\+\_\+std\+\_\+fp}!native.\+c@{native.\+c}}
+\subsubsection[{crb\+\_\+add\+\_\+std\+\_\+fp(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter)}]{\setlength{\rightskip}{0pt plus 5cm}void crb\+\_\+add\+\_\+std\+\_\+fp (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter}
+\end{DoxyParamCaption}
+)}\label{native_8c_a15793da7ec5f0624c516c7f3e6bc54b5}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a15793da7ec5f0624c516c7f3e6bc54b5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a15793da7ec5f0624c516c7f3e6bc54b5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{native_8c_a892791ade3f1367b740e1c1865ebaba3}{}\index{native.\+c@{native.\+c}!crb\+\_\+nv\+\_\+fclose\+\_\+proc@{crb\+\_\+nv\+\_\+fclose\+\_\+proc}}
+\index{crb\+\_\+nv\+\_\+fclose\+\_\+proc@{crb\+\_\+nv\+\_\+fclose\+\_\+proc}!native.\+c@{native.\+c}}
+\subsubsection[{crb\+\_\+nv\+\_\+fclose\+\_\+proc(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter, int arg\+\_\+count, C\+R\+B\+\_\+\+Value $\ast$args)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+nv\+\_\+fclose\+\_\+proc (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter, }
+\item[{int}]{arg\+\_\+count, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{native_8c_a892791ade3f1367b740e1c1865ebaba3}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a892791ade3f1367b740e1c1865ebaba3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a892791ade3f1367b740e1c1865ebaba3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{native_8c_a36549d790976cc75ec50e868672f135c}{}\index{native.\+c@{native.\+c}!crb\+\_\+nv\+\_\+fgets\+\_\+proc@{crb\+\_\+nv\+\_\+fgets\+\_\+proc}}
+\index{crb\+\_\+nv\+\_\+fgets\+\_\+proc@{crb\+\_\+nv\+\_\+fgets\+\_\+proc}!native.\+c@{native.\+c}}
+\subsubsection[{crb\+\_\+nv\+\_\+fgets\+\_\+proc(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter, int arg\+\_\+count, C\+R\+B\+\_\+\+Value $\ast$args)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+nv\+\_\+fgets\+\_\+proc (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter, }
+\item[{int}]{arg\+\_\+count, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{native_8c_a36549d790976cc75ec50e868672f135c}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a36549d790976cc75ec50e868672f135c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a36549d790976cc75ec50e868672f135c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{native_8c_a5da1be103895e1c7986c85986ce15734}{}\index{native.\+c@{native.\+c}!crb\+\_\+nv\+\_\+fopen\+\_\+proc@{crb\+\_\+nv\+\_\+fopen\+\_\+proc}}
+\index{crb\+\_\+nv\+\_\+fopen\+\_\+proc@{crb\+\_\+nv\+\_\+fopen\+\_\+proc}!native.\+c@{native.\+c}}
+\subsubsection[{crb\+\_\+nv\+\_\+fopen\+\_\+proc(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter, int arg\+\_\+count, C\+R\+B\+\_\+\+Value $\ast$args)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+nv\+\_\+fopen\+\_\+proc (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter, }
+\item[{int}]{arg\+\_\+count, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{native_8c_a5da1be103895e1c7986c85986ce15734}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a5da1be103895e1c7986c85986ce15734_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_a5da1be103895e1c7986c85986ce15734_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{native_8c_adca22eca0878132bd9828eca844fd7cc}{}\index{native.\+c@{native.\+c}!crb\+\_\+nv\+\_\+fputs\+\_\+proc@{crb\+\_\+nv\+\_\+fputs\+\_\+proc}}
+\index{crb\+\_\+nv\+\_\+fputs\+\_\+proc@{crb\+\_\+nv\+\_\+fputs\+\_\+proc}!native.\+c@{native.\+c}}
+\subsubsection[{crb\+\_\+nv\+\_\+fputs\+\_\+proc(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter, int arg\+\_\+count, C\+R\+B\+\_\+\+Value $\ast$args)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+nv\+\_\+fputs\+\_\+proc (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter, }
+\item[{int}]{arg\+\_\+count, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{native_8c_adca22eca0878132bd9828eca844fd7cc}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_adca22eca0878132bd9828eca844fd7cc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_adca22eca0878132bd9828eca844fd7cc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{native_8c_afd9b29acf8ee4de629e9fd2e2a350cff}{}\index{native.\+c@{native.\+c}!crb\+\_\+nv\+\_\+print\+\_\+proc@{crb\+\_\+nv\+\_\+print\+\_\+proc}}
+\index{crb\+\_\+nv\+\_\+print\+\_\+proc@{crb\+\_\+nv\+\_\+print\+\_\+proc}!native.\+c@{native.\+c}}
+\subsubsection[{crb\+\_\+nv\+\_\+print\+\_\+proc(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter, int arg\+\_\+count, C\+R\+B\+\_\+\+Value $\ast$args)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+nv\+\_\+print\+\_\+proc (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter, }
+\item[{int}]{arg\+\_\+count, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{native_8c_afd9b29acf8ee4de629e9fd2e2a350cff}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_afd9b29acf8ee4de629e9fd2e2a350cff_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{native_8c_afd9b29acf8ee4de629e9fd2e2a350cff_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{native_8c_a98a6a5ce78759be3869409f9f960bfb6}{}\index{native.\+c@{native.\+c}!st\+\_\+native\+\_\+lib\+\_\+info@{st\+\_\+native\+\_\+lib\+\_\+info}}
+\index{st\+\_\+native\+\_\+lib\+\_\+info@{st\+\_\+native\+\_\+lib\+\_\+info}!native.\+c@{native.\+c}}
+\subsubsection[{st\+\_\+native\+\_\+lib\+\_\+info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Native\+Pointer\+Info} st\+\_\+native\+\_\+lib\+\_\+info\hspace{0.3cm}{\ttfamily [static]}}\label{native_8c_a98a6a5ce78759be3869409f9f960bfb6}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \hyperlink{native_8c_aab89fcd6afabeb833eb3a29f5f127089}{NATIVE\_LIB\_NAME}
+\}
+\end{DoxyCode}

@@ -1,0 +1,16 @@
+<map id="StatementList_tag" name="StatementList_tag">
+<area shape="rect" id="node6" href="$struct_block.html" title="Block" alt="" coords="298,92,352,117"/>
+<area shape="rect" id="node2" href="$struct_statement__tag.html" title="Statement_tag" alt="" coords="1126,321,1234,347"/>
+<area shape="rect" id="node3" href="$struct_global_statement.html" title="GlobalStatement" alt="" coords="884,732,1004,757"/>
+<area shape="rect" id="node4" href="$struct_identifier_list__tag.html" title="IdentifierList_tag" alt="" coords="559,821,678,847"/>
+<area shape="rect" id="node5" href="$struct_while_statement.html" title="WhileStatement" alt="" coords="561,143,676,168"/>
+<area shape="rect" id="node13" href="$struct_for_statement.html" title="ForStatement" alt="" coords="567,93,669,119"/>
+<area shape="rect" id="node14" href="$struct_if_statement.html" title="IfStatement" alt="" coords="899,321,989,347"/>
+<area shape="rect" id="node15" href="$struct_elsif__tag.html" title="Elsif_tag" alt="" coords="582,321,655,347"/>
+<area shape="rect" id="node7" href="$struct_expression__tag.html" title="Expression_tag" alt="" coords="268,491,381,516"/>
+<area shape="rect" id="node8" href="$struct_assign_expression.html" title="AssignExpression" alt="" coords="555,535,682,560"/>
+<area shape="rect" id="node10" href="$struct_argument_list__tag.html" title="ArgumentList_tag" alt="" coords="555,735,681,760"/>
+<area shape="rect" id="node11" href="$struct_binary_expression.html" title="BinaryExpression" alt="" coords="556,379,681,404"/>
+<area shape="rect" id="node12" href="$struct_return_statement.html" title="ReturnStatement" alt="" coords="717,857,839,883"/>
+<area shape="rect" id="node9" href="$struct_function_call_expression.html" title="FunctionCallExpression" alt="" coords="863,660,1025,685"/>
+</map>

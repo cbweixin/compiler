@@ -1,0 +1,13 @@
+<map id="alloc_statement" name="alloc_statement">
+<area shape="rect" id="node2" href="$crowbar_8h.html#a5c31f8632625e7685c71e62a3313eec9" title="crb_create_global_statement" alt="" coords="168,5,361,31"/>
+<area shape="rect" id="node6" href="$crowbar_8h.html#a018cc91ca378066f1a551a1a68719d1d" title="crb_create_if_statement" alt="" coords="183,55,347,80"/>
+<area shape="rect" id="node7" href="$crowbar_8h.html#a2a1fe3376bf9c5516473f02eac1c98db" title="crb_create_while_statement" alt="" coords="171,104,359,129"/>
+<area shape="rect" id="node8" href="$crowbar_8h.html#a60bf6e95f9b6cc5d599b5f77bd1daf6d" title="crb_create_for_statement" alt="" coords="178,153,351,179"/>
+<area shape="rect" id="node9" href="$crowbar_8h.html#abf390d7fd73007944e727bf36cbaec4c" title="crb_create_expression\l_statement" alt="" coords="187,203,343,241"/>
+<area shape="rect" id="node10" href="$crowbar_8h.html#a2a395ba31c3b2b6bf031e09e65a060f3" title="crb_create_return_statement" alt="" coords="168,265,361,291"/>
+<area shape="rect" id="node11" href="$crowbar_8h.html#a4955c08c1840c5e95d46ca639d2497f9" title="crb_create_break_statement" alt="" coords="169,315,360,340"/>
+<area shape="rect" id="node12" href="$crowbar_8h.html#a850b208585e46095529c372c99ae6cf9" title="crb_create_continue\l_statement" alt="" coords="194,364,336,403"/>
+<area shape="rect" id="node3" href="$y_8tab_8c.html#acd8617a8f2ac0de8bc1cc032cf449e19" title="yyparse" alt="" coords="409,181,477,207"/>
+<area shape="rect" id="node4" href="$interface_8c.html#a141508c6454f35d4362e762b4006d9ee" title="CRB_compile" alt="" coords="525,181,628,207"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="676,181,726,207"/>
+</map>

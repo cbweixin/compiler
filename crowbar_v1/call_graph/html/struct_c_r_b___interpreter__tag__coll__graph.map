@@ -1,0 +1,27 @@
+<map id="CRB_Interpreter_tag" name="CRB_Interpreter_tag">
+<area shape="rect" id="node2" href="$struct_variable__tag.html" title="Variable_tag" alt="" coords="1179,55,1275,81"/>
+<area shape="rect" id="node3" href="$struct_c_r_b___value.html" title="CRB_Value" alt="" coords="942,55,1032,81"/>
+<area shape="rect" id="node4" href="$struct_c_r_b___string__tag.html" title="CRB_String_tag" alt="" coords="649,55,767,81"/>
+<area shape="rect" id="node5" href="$struct_c_r_b___native_pointer.html" title="CRB_NativePointer" alt="" coords="639,6,776,31"/>
+<area shape="rect" id="node6" href="$struct_c_r_b___native_pointer_info.html" title="CRB_NativePointerInfo" alt="" coords="298,6,457,31"/>
+<area shape="rect" id="node7" href="$struct_function_definition__tag.html" title="FunctionDefinition_tag" alt="" coords="300,106,454,131"/>
+<area shape="rect" id="node8" href="$struct_parameter_list__tag.html" title="ParameterList_tag" alt="" coords="5,79,136,105"/>
+<area shape="rect" id="node9" href="$struct_block.html" title="Block" alt="" coords="44,233,97,258"/>
+<area shape="rect" id="node14" href="$struct_while_statement.html" title="WhileStatement" alt="" coords="320,442,435,467"/>
+<area shape="rect" id="node21" href="$struct_for_statement.html" title="ForStatement" alt="" coords="326,491,428,517"/>
+<area shape="rect" id="node22" href="$struct_if_statement.html" title="IfStatement" alt="" coords="663,357,753,382"/>
+<area shape="rect" id="node23" href="$struct_elsif__tag.html" title="Elsif_tag" alt="" coords="341,330,414,355"/>
+<area shape="rect" id="node10" href="$struct_statement_list__tag.html" title="StatementList_tag" alt="" coords="1163,194,1291,219"/>
+<area shape="rect" id="node11" href="$struct_statement__tag.html" title="Statement_tag" alt="" coords="933,503,1041,529"/>
+<area shape="rect" id="node12" href="$struct_global_statement.html" title="GlobalStatement" alt="" coords="647,649,768,674"/>
+<area shape="rect" id="node13" href="$struct_identifier_list__tag.html" title="IdentifierList_tag" alt="" coords="318,679,437,705"/>
+<area shape="rect" id="node15" href="$struct_expression__tag.html" title="Expression_tag" alt="" coords="14,638,127,663"/>
+<area shape="rect" id="node16" href="$struct_assign_expression.html" title="AssignExpression" alt="" coords="314,541,441,566"/>
+<area shape="rect" id="node18" href="$struct_argument_list__tag.html" title="ArgumentList_tag" alt="" coords="314,879,440,905"/>
+<area shape="rect" id="node19" href="$struct_binary_expression.html" title="BinaryExpression" alt="" coords="315,929,440,954"/>
+<area shape="rect" id="node20" href="$struct_return_statement.html" title="ReturnStatement" alt="" coords="481,722,603,747"/>
+<area shape="rect" id="node17" href="$struct_function_call_expression.html" title="FunctionCallExpression" alt="" coords="627,781,788,806"/>
+<area shape="rect" id="node24" href="$struct_m_e_m___storage__tag.html" title="MEM_Storage_tag" alt="" coords="1161,418,1293,443"/>
+<area shape="rect" id="node25" href="$struct_memory_page__tag.html" title="MemoryPage_tag" alt="" coords="924,710,1050,735"/>
+<area shape="rect" id="node26" href="$union_cell.html" title="Cell" alt="" coords="686,830,730,855"/>
+</map>

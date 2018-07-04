@@ -1,0 +1,7 @@
+<map id="yy_create_buffer" name="yy_create_buffer">
+<area shape="rect" id="node2" href="$lex_8yy_8c.html#a7da304d8ef6c688c0835d35296fe61c2" title="yyalloc" alt="" coords="193,5,255,31"/>
+<area shape="rect" id="node3" href="$lex_8yy_8c.html#af4a399540c15d953f8b01085bfdc93ea" title="yy_init_buffer" alt="" coords="174,55,274,80"/>
+<area shape="rect" id="node4" href="$lex_8yy_8c.html#a2f59cc88e85e5455c62e4ef7ce095ea8" title="yy_flush_buffer" alt="" coords="322,29,434,55"/>
+<area shape="rect" id="node6" href="$lex_8yy_8c.html#ab4155ffea05dab2dafae68fd88a0517f" title="isatty" alt="" coords="352,79,404,104"/>
+<area shape="rect" id="node5" href="$lex_8yy_8c.html#ac6bf96bd2d347c04367b8111abcd0dca" title="yy_load_buffer_state" alt="" coords="482,29,627,55"/>
+</map>

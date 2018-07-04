@@ -1,0 +1,280 @@
+\hypertarget{util_8c}{}\section{util.\+c File Reference}
+\label{util_8c}\index{util.\+c@{util.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}M\+E\+M.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\+B\+G.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crowbar.\+h\char`\"{}}\\*
+Include dependency graph for util.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$ \hyperlink{util_8c_ab77643d55a3706343943e894fc5df4e9}{crb\+\_\+get\+\_\+current\+\_\+interpreter} (void)
+\item 
+void \hyperlink{util_8c_afb38fe23671ba8b4fa47c08b506f675c}{crb\+\_\+set\+\_\+current\+\_\+interpreter} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter)
+\item 
+\hyperlink{crowbar_8h_ae6685df239452173440b6042201dbd9f}{Function\+Definition} $\ast$ \hyperlink{util_8c_ab62b41ce3ced1140833e43b5ed76d250}{crb\+\_\+search\+\_\+function} (char $\ast$name)
+\item 
+void $\ast$ \hyperlink{util_8c_a8dfd4f4888177a9a82f347010ecac09d}{crb\+\_\+malloc} (size\+\_\+t size)
+\item 
+void $\ast$ \hyperlink{util_8c_a13eadc21cf4a6f1e21fda87e141a03b9}{crb\+\_\+execute\+\_\+malloc} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, size\+\_\+t size)
+\item 
+\hyperlink{crowbar_8h_a070c86ad7ae39536aed471927d04dee4}{Variable} $\ast$ \hyperlink{util_8c_ad3e75008e18ec29e25ee6181b6c2a09b}{crb\+\_\+search\+\_\+local\+\_\+variable} (\hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, char $\ast$identifier)
+\item 
+\hyperlink{crowbar_8h_a070c86ad7ae39536aed471927d04dee4}{Variable} $\ast$ \hyperlink{util_8c_aa3e03c7d2dd6775555957918c3f46b6e}{crb\+\_\+search\+\_\+global\+\_\+variable} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, char $\ast$identifier)
+\item 
+void \hyperlink{util_8c_a3630e7543cdc7e86f92fb576bb10fa3f}{crb\+\_\+add\+\_\+local\+\_\+variable} (\hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, char $\ast$identifier, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$value)
+\item 
+void \hyperlink{util_8c_aa4e2d1a292b2c1d9cacba9e06ecdc022}{C\+R\+B\+\_\+add\+\_\+global\+\_\+variable} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, char $\ast$identifier, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$value)
+\item 
+char $\ast$ \hyperlink{util_8c_a7d49ff6b624f0bfa9e49734c7191fae0}{crb\+\_\+get\+\_\+operator\+\_\+string} (\hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} type)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$ \hyperlink{util_8c_a43d0a1cc30e566b134b3d80f8f28bb04}{st\+\_\+current\+\_\+interpreter}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{util_8c_aa4e2d1a292b2c1d9cacba9e06ecdc022}{}\index{util.\+c@{util.\+c}!C\+R\+B\+\_\+add\+\_\+global\+\_\+variable@{C\+R\+B\+\_\+add\+\_\+global\+\_\+variable}}
+\index{C\+R\+B\+\_\+add\+\_\+global\+\_\+variable@{C\+R\+B\+\_\+add\+\_\+global\+\_\+variable}!util.\+c@{util.\+c}}
+\subsubsection[{C\+R\+B\+\_\+add\+\_\+global\+\_\+variable(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, char $\ast$identifier, C\+R\+B\+\_\+\+Value $\ast$value)}]{\setlength{\rightskip}{0pt plus 5cm}void C\+R\+B\+\_\+add\+\_\+global\+\_\+variable (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{char $\ast$}]{identifier, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{value}
+\end{DoxyParamCaption}
+)}\label{util_8c_aa4e2d1a292b2c1d9cacba9e06ecdc022}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_aa4e2d1a292b2c1d9cacba9e06ecdc022_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_aa4e2d1a292b2c1d9cacba9e06ecdc022_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_a3630e7543cdc7e86f92fb576bb10fa3f}{}\index{util.\+c@{util.\+c}!crb\+\_\+add\+\_\+local\+\_\+variable@{crb\+\_\+add\+\_\+local\+\_\+variable}}
+\index{crb\+\_\+add\+\_\+local\+\_\+variable@{crb\+\_\+add\+\_\+local\+\_\+variable}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+add\+\_\+local\+\_\+variable(\+Local\+Environment $\ast$env, char $\ast$identifier, C\+R\+B\+\_\+\+Value $\ast$value)}]{\setlength{\rightskip}{0pt plus 5cm}void crb\+\_\+add\+\_\+local\+\_\+variable (
+\begin{DoxyParamCaption}
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{char $\ast$}]{identifier, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{value}
+\end{DoxyParamCaption}
+)}\label{util_8c_a3630e7543cdc7e86f92fb576bb10fa3f}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_a3630e7543cdc7e86f92fb576bb10fa3f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_a13eadc21cf4a6f1e21fda87e141a03b9}{}\index{util.\+c@{util.\+c}!crb\+\_\+execute\+\_\+malloc@{crb\+\_\+execute\+\_\+malloc}}
+\index{crb\+\_\+execute\+\_\+malloc@{crb\+\_\+execute\+\_\+malloc}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+execute\+\_\+malloc(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ crb\+\_\+execute\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{util_8c_a13eadc21cf4a6f1e21fda87e141a03b9}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_a13eadc21cf4a6f1e21fda87e141a03b9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_ab77643d55a3706343943e894fc5df4e9}{}\index{util.\+c@{util.\+c}!crb\+\_\+get\+\_\+current\+\_\+interpreter@{crb\+\_\+get\+\_\+current\+\_\+interpreter}}
+\index{crb\+\_\+get\+\_\+current\+\_\+interpreter@{crb\+\_\+get\+\_\+current\+\_\+interpreter}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+get\+\_\+current\+\_\+interpreter(void)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Interpreter}$\ast$ crb\+\_\+get\+\_\+current\+\_\+interpreter (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{util_8c_ab77643d55a3706343943e894fc5df4e9}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_ab77643d55a3706343943e894fc5df4e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_a7d49ff6b624f0bfa9e49734c7191fae0}{}\index{util.\+c@{util.\+c}!crb\+\_\+get\+\_\+operator\+\_\+string@{crb\+\_\+get\+\_\+operator\+\_\+string}}
+\index{crb\+\_\+get\+\_\+operator\+\_\+string@{crb\+\_\+get\+\_\+operator\+\_\+string}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+get\+\_\+operator\+\_\+string(\+Expression\+Type type)}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ crb\+\_\+get\+\_\+operator\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression\+Type}}]{type}
+\end{DoxyParamCaption}
+)}\label{util_8c_a7d49ff6b624f0bfa9e49734c7191fae0}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_a7d49ff6b624f0bfa9e49734c7191fae0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_a8dfd4f4888177a9a82f347010ecac09d}{}\index{util.\+c@{util.\+c}!crb\+\_\+malloc@{crb\+\_\+malloc}}
+\index{crb\+\_\+malloc@{crb\+\_\+malloc}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+malloc(size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ crb\+\_\+malloc (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{util_8c_a8dfd4f4888177a9a82f347010ecac09d}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{util_8c_a8dfd4f4888177a9a82f347010ecac09d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_a8dfd4f4888177a9a82f347010ecac09d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_ab62b41ce3ced1140833e43b5ed76d250}{}\index{util.\+c@{util.\+c}!crb\+\_\+search\+\_\+function@{crb\+\_\+search\+\_\+function}}
+\index{crb\+\_\+search\+\_\+function@{crb\+\_\+search\+\_\+function}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+search\+\_\+function(char $\ast$name)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Function\+Definition}$\ast$ crb\+\_\+search\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}\label{util_8c_ab62b41ce3ced1140833e43b5ed76d250}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_ab62b41ce3ced1140833e43b5ed76d250_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_ab62b41ce3ced1140833e43b5ed76d250_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_aa3e03c7d2dd6775555957918c3f46b6e}{}\index{util.\+c@{util.\+c}!crb\+\_\+search\+\_\+global\+\_\+variable@{crb\+\_\+search\+\_\+global\+\_\+variable}}
+\index{crb\+\_\+search\+\_\+global\+\_\+variable@{crb\+\_\+search\+\_\+global\+\_\+variable}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+search\+\_\+global\+\_\+variable(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, char $\ast$identifier)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Variable}$\ast$ crb\+\_\+search\+\_\+global\+\_\+variable (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{char $\ast$}]{identifier}
+\end{DoxyParamCaption}
+)}\label{util_8c_aa3e03c7d2dd6775555957918c3f46b6e}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_aa3e03c7d2dd6775555957918c3f46b6e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_ad3e75008e18ec29e25ee6181b6c2a09b}{}\index{util.\+c@{util.\+c}!crb\+\_\+search\+\_\+local\+\_\+variable@{crb\+\_\+search\+\_\+local\+\_\+variable}}
+\index{crb\+\_\+search\+\_\+local\+\_\+variable@{crb\+\_\+search\+\_\+local\+\_\+variable}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+search\+\_\+local\+\_\+variable(\+Local\+Environment $\ast$env, char $\ast$identifier)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Variable}$\ast$ crb\+\_\+search\+\_\+local\+\_\+variable (
+\begin{DoxyParamCaption}
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{char $\ast$}]{identifier}
+\end{DoxyParamCaption}
+)}\label{util_8c_ad3e75008e18ec29e25ee6181b6c2a09b}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_ad3e75008e18ec29e25ee6181b6c2a09b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{util_8c_afb38fe23671ba8b4fa47c08b506f675c}{}\index{util.\+c@{util.\+c}!crb\+\_\+set\+\_\+current\+\_\+interpreter@{crb\+\_\+set\+\_\+current\+\_\+interpreter}}
+\index{crb\+\_\+set\+\_\+current\+\_\+interpreter@{crb\+\_\+set\+\_\+current\+\_\+interpreter}!util.\+c@{util.\+c}}
+\subsubsection[{crb\+\_\+set\+\_\+current\+\_\+interpreter(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter)}]{\setlength{\rightskip}{0pt plus 5cm}void crb\+\_\+set\+\_\+current\+\_\+interpreter (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter}
+\end{DoxyParamCaption}
+)}\label{util_8c_afb38fe23671ba8b4fa47c08b506f675c}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{util_8c_afb38fe23671ba8b4fa47c08b506f675c_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{util_8c_a43d0a1cc30e566b134b3d80f8f28bb04}{}\index{util.\+c@{util.\+c}!st\+\_\+current\+\_\+interpreter@{st\+\_\+current\+\_\+interpreter}}
+\index{st\+\_\+current\+\_\+interpreter@{st\+\_\+current\+\_\+interpreter}!util.\+c@{util.\+c}}
+\subsubsection[{st\+\_\+current\+\_\+interpreter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Interpreter}$\ast$ st\+\_\+current\+\_\+interpreter\hspace{0.3cm}{\ttfamily [static]}}\label{util_8c_a43d0a1cc30e566b134b3d80f8f28bb04}

@@ -1,0 +1,140 @@
+\hypertarget{storage_8c}{}\section{memory/storage.c File Reference}
+\label{storage_8c}\index{memory/storage.\+c@{memory/storage.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\\*
+Include dependency graph for storage.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{storage_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{union_cell}{Cell}
+\item 
+struct \hyperlink{struct_memory_page__tag}{Memory\+Page\+\_\+tag}
+\item 
+struct \hyperlink{struct_m_e_m___storage__tag}{M\+E\+M\+\_\+\+Storage\+\_\+tag}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{storage_8c_a7a4127f14f16563da90eb3c836bc404f}{C\+E\+L\+L\+\_\+\+S\+I\+Z\+E}~(sizeof(\hyperlink{union_cell}{Cell}))
+\item 
+\#define \hyperlink{storage_8c_aa2f776dcebe2f31589b20e618ebe94fd}{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+Z\+E}~(1024)  /$\ast$ cell num $\ast$/
+\item 
+\#define \hyperlink{storage_8c_a04f8ae6c69d4205cd95f069eb9f0e609}{larger}(a,  b)~(((a) $>$ (b)) ? (a) \+: (b))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_memory_page__tag}{Memory\+Page\+\_\+tag} \hyperlink{storage_8c_a31c6e94af9eeb36193cee36cacecf667}{Memory\+Page}
+\item 
+typedef \hyperlink{storage_8c_a31c6e94af9eeb36193cee36cacecf667}{Memory\+Page} $\ast$ \hyperlink{storage_8c_af4620055f96a48dc7cf903128aa4e665}{Memory\+Page\+List}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{M\+E\+M\+\_\+\+Storage} \hyperlink{storage_8c_aabe82ed6b660debcba2fd8360838e073}{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, int page\+\_\+size)
+\item 
+void $\ast$ \hyperlink{storage_8c_ac91908fc1cabc1f8bb0bd8d0750ad65a}{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, \hyperlink{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{M\+E\+M\+\_\+\+Storage} storage, size\+\_\+t size)
+\item 
+void \hyperlink{storage_8c_a62d74f8e61f48b22bbac8c0568e01e06}{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, \hyperlink{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{M\+E\+M\+\_\+\+Storage} storage)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{storage_8c_a7a4127f14f16563da90eb3c836bc404f}{}\index{storage.\+c@{storage.\+c}!C\+E\+L\+L\+\_\+\+S\+I\+Z\+E@{C\+E\+L\+L\+\_\+\+S\+I\+Z\+E}}
+\index{C\+E\+L\+L\+\_\+\+S\+I\+Z\+E@{C\+E\+L\+L\+\_\+\+S\+I\+Z\+E}!storage.\+c@{storage.\+c}}
+\subsubsection[{C\+E\+L\+L\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+E\+L\+L\+\_\+\+S\+I\+Z\+E~(sizeof({\bf Cell}))}\label{storage_8c_a7a4127f14f16563da90eb3c836bc404f}
+\hypertarget{storage_8c_aa2f776dcebe2f31589b20e618ebe94fd}{}\index{storage.\+c@{storage.\+c}!D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+Z\+E@{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+Z\+E}}
+\index{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+Z\+E@{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+Z\+E}!storage.\+c@{storage.\+c}}
+\subsubsection[{D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+A\+G\+E\+\_\+\+S\+I\+Z\+E~(1024)  /$\ast$ cell num $\ast$/}\label{storage_8c_aa2f776dcebe2f31589b20e618ebe94fd}
+\hypertarget{storage_8c_a04f8ae6c69d4205cd95f069eb9f0e609}{}\index{storage.\+c@{storage.\+c}!larger@{larger}}
+\index{larger@{larger}!storage.\+c@{storage.\+c}}
+\subsubsection[{larger}]{\setlength{\rightskip}{0pt plus 5cm}\#define larger(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(((a) $>$ (b)) ? (a) \+: (b))}\label{storage_8c_a04f8ae6c69d4205cd95f069eb9f0e609}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{storage_8c_a31c6e94af9eeb36193cee36cacecf667}{}\index{storage.\+c@{storage.\+c}!Memory\+Page@{Memory\+Page}}
+\index{Memory\+Page@{Memory\+Page}!storage.\+c@{storage.\+c}}
+\subsubsection[{Memory\+Page}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Memory\+Page\+\_\+tag} {\bf Memory\+Page}}\label{storage_8c_a31c6e94af9eeb36193cee36cacecf667}
+\hypertarget{storage_8c_af4620055f96a48dc7cf903128aa4e665}{}\index{storage.\+c@{storage.\+c}!Memory\+Page\+List@{Memory\+Page\+List}}
+\index{Memory\+Page\+List@{Memory\+Page\+List}!storage.\+c@{storage.\+c}}
+\subsubsection[{Memory\+Page\+List}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Memory\+Page}$\ast$ {\bf Memory\+Page\+List}}\label{storage_8c_af4620055f96a48dc7cf903128aa4e665}
+
+
+\subsection{Function Documentation}
+\hypertarget{storage_8c_a62d74f8e61f48b22bbac8c0568e01e06}{}\index{storage.\+c@{storage.\+c}!M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func}}
+\index{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func}!storage.\+c@{storage.\+c}}
+\subsubsection[{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, M\+E\+M\+\_\+\+Storage storage)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{{\bf M\+E\+M\+\_\+\+Storage}}]{storage}
+\end{DoxyParamCaption}
+)}\label{storage_8c_a62d74f8e61f48b22bbac8c0568e01e06}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{storage_8c_a62d74f8e61f48b22bbac8c0568e01e06_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{storage_8c_aabe82ed6b660debcba2fd8360838e073}{}\index{storage.\+c@{storage.\+c}!M\+E\+M\+\_\+open\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func}}
+\index{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func}!storage.\+c@{storage.\+c}}
+\subsubsection[{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, int page\+\_\+size)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+M\+\_\+\+Storage} M\+E\+M\+\_\+open\+\_\+storage\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{int}]{page\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{storage_8c_aabe82ed6b660debcba2fd8360838e073}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{storage_8c_aabe82ed6b660debcba2fd8360838e073_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{storage_8c_ac91908fc1cabc1f8bb0bd8d0750ad65a}{}\index{storage.\+c@{storage.\+c}!M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func}}
+\index{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func}!storage.\+c@{storage.\+c}}
+\subsubsection[{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, M\+E\+M\+\_\+\+Storage storage, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{{\bf M\+E\+M\+\_\+\+Storage}}]{storage, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{storage_8c_ac91908fc1cabc1f8bb0bd8d0750ad65a}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{storage_8c_ac91908fc1cabc1f8bb0bd8d0750ad65a_cgraph}
+\end{center}
+\end{figure}
+
+

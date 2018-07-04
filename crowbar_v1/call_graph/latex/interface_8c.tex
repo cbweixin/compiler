@@ -1,0 +1,258 @@
+\hypertarget{interface_8c}{}\section{interface.\+c File Reference}
+\label{interface_8c}\index{interface.\+c@{interface.\+c}}
+{\ttfamily \#include \char`\"{}M\+E\+M.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\+B\+G.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crowbar.\+h\char`\"{}}\\*
+Include dependency graph for interface.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{interface_8c_a093c5871694a9984065f189d076c93c0}{G\+L\+O\+B\+A\+L\+\_\+\+V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+D\+E\+F\+I\+N\+E}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{interface_8c_a764313115b50c6b71d2b15bb0d37a491}{add\+\_\+native\+\_\+functions} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter)
+\item 
+\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$ \hyperlink{interface_8c_ad3220c824ee390ae66a6fd09f25b1b40}{C\+R\+B\+\_\+create\+\_\+interpreter} (void)
+\item 
+void \hyperlink{interface_8c_a141508c6454f35d4362e762b4006d9ee}{C\+R\+B\+\_\+compile} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{interface_8c_a09ed7f3ac7d3b3bb6bd00e2f1a69d2b2}{C\+R\+B\+\_\+interpret} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter)
+\item 
+static void \hyperlink{interface_8c_a27caa44f9dab308546a0878ea33c7436}{release\+\_\+global\+\_\+strings} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter)
+\item 
+void \hyperlink{interface_8c_a0bbde3973064ac8ff4aa073fd5183b3a}{C\+R\+B\+\_\+dispose\+\_\+interpreter} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter)
+\item 
+void \hyperlink{interface_8c_a940149828fe093b31374c316022a981a}{C\+R\+B\+\_\+add\+\_\+native\+\_\+function} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$interpreter, char $\ast$name, \hyperlink{_c_r_b__dev_8h_af310ef1ce709cc9c2e7d1e3bf43b76ec}{C\+R\+B\+\_\+\+Native\+Function\+Proc} $\ast$proc)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{interface_8c_a093c5871694a9984065f189d076c93c0}{}\index{interface.\+c@{interface.\+c}!G\+L\+O\+B\+A\+L\+\_\+\+V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+D\+E\+F\+I\+N\+E@{G\+L\+O\+B\+A\+L\+\_\+\+V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+D\+E\+F\+I\+N\+E}}
+\index{G\+L\+O\+B\+A\+L\+\_\+\+V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+D\+E\+F\+I\+N\+E@{G\+L\+O\+B\+A\+L\+\_\+\+V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+D\+E\+F\+I\+N\+E}!interface.\+c@{interface.\+c}}
+\subsubsection[{G\+L\+O\+B\+A\+L\+\_\+\+V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+D\+E\+F\+I\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+L\+O\+B\+A\+L\+\_\+\+V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+D\+E\+F\+I\+N\+E}\label{interface_8c_a093c5871694a9984065f189d076c93c0}
+
+
+\subsection{Function Documentation}
+\hypertarget{interface_8c_a764313115b50c6b71d2b15bb0d37a491}{}\index{interface.\+c@{interface.\+c}!add\+\_\+native\+\_\+functions@{add\+\_\+native\+\_\+functions}}
+\index{add\+\_\+native\+\_\+functions@{add\+\_\+native\+\_\+functions}!interface.\+c@{interface.\+c}}
+\subsubsection[{add\+\_\+native\+\_\+functions(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter)}]{\setlength{\rightskip}{0pt plus 5cm}static void add\+\_\+native\+\_\+functions (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{interface_8c_a764313115b50c6b71d2b15bb0d37a491}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a764313115b50c6b71d2b15bb0d37a491_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a764313115b50c6b71d2b15bb0d37a491_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8c_a940149828fe093b31374c316022a981a}{}\index{interface.\+c@{interface.\+c}!C\+R\+B\+\_\+add\+\_\+native\+\_\+function@{C\+R\+B\+\_\+add\+\_\+native\+\_\+function}}
+\index{C\+R\+B\+\_\+add\+\_\+native\+\_\+function@{C\+R\+B\+\_\+add\+\_\+native\+\_\+function}!interface.\+c@{interface.\+c}}
+\subsubsection[{C\+R\+B\+\_\+add\+\_\+native\+\_\+function(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter, char $\ast$name, C\+R\+B\+\_\+\+Native\+Function\+Proc $\ast$proc)}]{\setlength{\rightskip}{0pt plus 5cm}void C\+R\+B\+\_\+add\+\_\+native\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter, }
+\item[{char $\ast$}]{name, }
+\item[{{\bf C\+R\+B\+\_\+\+Native\+Function\+Proc} $\ast$}]{proc}
+\end{DoxyParamCaption}
+)}\label{interface_8c_a940149828fe093b31374c316022a981a}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a940149828fe093b31374c316022a981a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a940149828fe093b31374c316022a981a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8c_a141508c6454f35d4362e762b4006d9ee}{}\index{interface.\+c@{interface.\+c}!C\+R\+B\+\_\+compile@{C\+R\+B\+\_\+compile}}
+\index{C\+R\+B\+\_\+compile@{C\+R\+B\+\_\+compile}!interface.\+c@{interface.\+c}}
+\subsubsection[{C\+R\+B\+\_\+compile(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter, F\+I\+L\+E $\ast$fp)}]{\setlength{\rightskip}{0pt plus 5cm}void C\+R\+B\+\_\+compile (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{interface_8c_a141508c6454f35d4362e762b4006d9ee}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a141508c6454f35d4362e762b4006d9ee_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{interface_8c_a141508c6454f35d4362e762b4006d9ee_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8c_ad3220c824ee390ae66a6fd09f25b1b40}{}\index{interface.\+c@{interface.\+c}!C\+R\+B\+\_\+create\+\_\+interpreter@{C\+R\+B\+\_\+create\+\_\+interpreter}}
+\index{C\+R\+B\+\_\+create\+\_\+interpreter@{C\+R\+B\+\_\+create\+\_\+interpreter}!interface.\+c@{interface.\+c}}
+\subsubsection[{C\+R\+B\+\_\+create\+\_\+interpreter(void)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Interpreter}$\ast$ C\+R\+B\+\_\+create\+\_\+interpreter (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{interface_8c_ad3220c824ee390ae66a6fd09f25b1b40}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_ad3220c824ee390ae66a6fd09f25b1b40_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{interface_8c_ad3220c824ee390ae66a6fd09f25b1b40_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8c_a0bbde3973064ac8ff4aa073fd5183b3a}{}\index{interface.\+c@{interface.\+c}!C\+R\+B\+\_\+dispose\+\_\+interpreter@{C\+R\+B\+\_\+dispose\+\_\+interpreter}}
+\index{C\+R\+B\+\_\+dispose\+\_\+interpreter@{C\+R\+B\+\_\+dispose\+\_\+interpreter}!interface.\+c@{interface.\+c}}
+\subsubsection[{C\+R\+B\+\_\+dispose\+\_\+interpreter(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter)}]{\setlength{\rightskip}{0pt plus 5cm}void C\+R\+B\+\_\+dispose\+\_\+interpreter (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter}
+\end{DoxyParamCaption}
+)}\label{interface_8c_a0bbde3973064ac8ff4aa073fd5183b3a}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a0bbde3973064ac8ff4aa073fd5183b3a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{interface_8c_a0bbde3973064ac8ff4aa073fd5183b3a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8c_a09ed7f3ac7d3b3bb6bd00e2f1a69d2b2}{}\index{interface.\+c@{interface.\+c}!C\+R\+B\+\_\+interpret@{C\+R\+B\+\_\+interpret}}
+\index{C\+R\+B\+\_\+interpret@{C\+R\+B\+\_\+interpret}!interface.\+c@{interface.\+c}}
+\subsubsection[{C\+R\+B\+\_\+interpret(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter)}]{\setlength{\rightskip}{0pt plus 5cm}void C\+R\+B\+\_\+interpret (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter}
+\end{DoxyParamCaption}
+)}\label{interface_8c_a09ed7f3ac7d3b3bb6bd00e2f1a69d2b2}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a09ed7f3ac7d3b3bb6bd00e2f1a69d2b2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{interface_8c_a09ed7f3ac7d3b3bb6bd00e2f1a69d2b2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{interface_8c_a27caa44f9dab308546a0878ea33c7436}{}\index{interface.\+c@{interface.\+c}!release\+\_\+global\+\_\+strings@{release\+\_\+global\+\_\+strings}}
+\index{release\+\_\+global\+\_\+strings@{release\+\_\+global\+\_\+strings}!interface.\+c@{interface.\+c}}
+\subsubsection[{release\+\_\+global\+\_\+strings(\+C\+R\+B\+\_\+\+Interpreter $\ast$interpreter)}]{\setlength{\rightskip}{0pt plus 5cm}static void release\+\_\+global\+\_\+strings (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{interpreter}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{interface_8c_a27caa44f9dab308546a0878ea33c7436}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{interface_8c_a27caa44f9dab308546a0878ea33c7436_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_8c_a27caa44f9dab308546a0878ea33c7436_icgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,6 @@
+<map id="BinaryExpression" name="BinaryExpression">
+<area shape="rect" id="node2" href="$struct_expression__tag.html" title="Expression_tag" alt="" coords="147,105,260,131"/>
+<area shape="rect" id="node3" href="$struct_assign_expression.html" title="AssignExpression" alt="" coords="5,192,133,217"/>
+<area shape="rect" id="node5" href="$struct_argument_list__tag.html" title="ArgumentList_tag" alt="" coords="177,192,303,217"/>
+<area shape="rect" id="node4" href="$struct_function_call_expression.html" title="FunctionCallExpression" alt="" coords="260,279,422,304"/>
+</map>

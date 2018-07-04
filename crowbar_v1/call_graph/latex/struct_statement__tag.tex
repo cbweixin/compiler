@@ -1,0 +1,69 @@
+\hypertarget{struct_statement__tag}{}\section{Statement\+\_\+tag Struct Reference}
+\label{struct_statement__tag}\index{Statement\+\_\+tag@{Statement\+\_\+tag}}
+
+
+{\ttfamily \#include $<$crowbar.\+h$>$}
+
+
+
+Collaboration diagram for Statement\+\_\+tag\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_statement__tag__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{crowbar_8h_a5f5d0dfd807d2356ecc3cdabf71b3d53}{Statement\+Type} \hyperlink{struct_statement__tag_abe1b2488e3a8c4277078f8c1b7c86482}{type}
+\item 
+int \hyperlink{struct_statement__tag_a96dcb197dafe54cf45fcf2d5123f7ab3}{line\+\_\+number}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$ \hyperlink{struct_statement__tag_abb838fa3163c91f43a36d1ba87674c87}{expression\_s}\\
+\>\hyperlink{struct_global_statement}{GlobalStatement} \hyperlink{struct_statement__tag_a0a05cf3ddbe6aa28a52c97cb17aebc53}{global\_s}\\
+\>\hyperlink{struct_if_statement}{IfStatement} \hyperlink{struct_statement__tag_a0e4d01f350eb7ea2e195c82638d38ec4}{if\_s}\\
+\>\hyperlink{struct_while_statement}{WhileStatement} \hyperlink{struct_statement__tag_ad897c318f35e7476a81dcf1eb2275f89}{while\_s}\\
+\>\hyperlink{struct_for_statement}{ForStatement} \hyperlink{struct_statement__tag_a3299f7bafe47d4b9a2ab4a23f30de671}{for\_s}\\
+\>\hyperlink{struct_return_statement}{ReturnStatement} \hyperlink{struct_statement__tag_afe3a97a689d2ac59f84600f220cdad1e}{return\_s}\\
+\} \hyperlink{struct_statement__tag_a33748df145380d0099e0941d3c937265}{u}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_statement__tag_abb838fa3163c91f43a36d1ba87674c87}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!expression\+\_\+s@{expression\+\_\+s}}
+\index{expression\+\_\+s@{expression\+\_\+s}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{expression\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression}$\ast$ Statement\+\_\+tag\+::expression\+\_\+s}\label{struct_statement__tag_abb838fa3163c91f43a36d1ba87674c87}
+\hypertarget{struct_statement__tag_a3299f7bafe47d4b9a2ab4a23f30de671}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!for\+\_\+s@{for\+\_\+s}}
+\index{for\+\_\+s@{for\+\_\+s}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{for\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf For\+Statement} Statement\+\_\+tag\+::for\+\_\+s}\label{struct_statement__tag_a3299f7bafe47d4b9a2ab4a23f30de671}
+\hypertarget{struct_statement__tag_a0a05cf3ddbe6aa28a52c97cb17aebc53}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!global\+\_\+s@{global\+\_\+s}}
+\index{global\+\_\+s@{global\+\_\+s}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{global\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Global\+Statement} Statement\+\_\+tag\+::global\+\_\+s}\label{struct_statement__tag_a0a05cf3ddbe6aa28a52c97cb17aebc53}
+\hypertarget{struct_statement__tag_a0e4d01f350eb7ea2e195c82638d38ec4}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!if\+\_\+s@{if\+\_\+s}}
+\index{if\+\_\+s@{if\+\_\+s}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{if\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf If\+Statement} Statement\+\_\+tag\+::if\+\_\+s}\label{struct_statement__tag_a0e4d01f350eb7ea2e195c82638d38ec4}
+\hypertarget{struct_statement__tag_a96dcb197dafe54cf45fcf2d5123f7ab3}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!line\+\_\+number@{line\+\_\+number}}
+\index{line\+\_\+number@{line\+\_\+number}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{line\+\_\+number}]{\setlength{\rightskip}{0pt plus 5cm}int Statement\+\_\+tag\+::line\+\_\+number}\label{struct_statement__tag_a96dcb197dafe54cf45fcf2d5123f7ab3}
+\hypertarget{struct_statement__tag_afe3a97a689d2ac59f84600f220cdad1e}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!return\+\_\+s@{return\+\_\+s}}
+\index{return\+\_\+s@{return\+\_\+s}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{return\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Return\+Statement} Statement\+\_\+tag\+::return\+\_\+s}\label{struct_statement__tag_afe3a97a689d2ac59f84600f220cdad1e}
+\hypertarget{struct_statement__tag_abe1b2488e3a8c4277078f8c1b7c86482}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!type@{type}}
+\index{type@{type}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statement\+Type} Statement\+\_\+tag\+::type}\label{struct_statement__tag_abe1b2488e3a8c4277078f8c1b7c86482}
+\hypertarget{struct_statement__tag_a33748df145380d0099e0941d3c937265}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!u@{u}}
+\index{u@{u}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Statement\+\_\+tag\+::u}\label{struct_statement__tag_a33748df145380d0099e0941d3c937265}
+\hypertarget{struct_statement__tag_ad897c318f35e7476a81dcf1eb2275f89}{}\index{Statement\+\_\+tag@{Statement\+\_\+tag}!while\+\_\+s@{while\+\_\+s}}
+\index{while\+\_\+s@{while\+\_\+s}!Statement\+\_\+tag@{Statement\+\_\+tag}}
+\subsubsection[{while\+\_\+s}]{\setlength{\rightskip}{0pt plus 5cm}{\bf While\+Statement} Statement\+\_\+tag\+::while\+\_\+s}\label{struct_statement__tag_ad897c318f35e7476a81dcf1eb2275f89}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{crowbar_8h}{crowbar.\+h}\end{DoxyCompactItemize}

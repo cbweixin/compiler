@@ -1,0 +1,302 @@
+\hypertarget{memory_8c}{}\section{memory/memory.c File Reference}
+\label{memory_8c}\index{memory/memory.\+c@{memory/memory.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}memory.\+h\char`\"{}}\\*
+Include dependency graph for memory.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{memory_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{union_align}{Align}
+\item 
+struct \hyperlink{struct_header_struct}{Header\+Struct}
+\item 
+union \hyperlink{union_header__tag}{Header\+\_\+tag}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{memory_8c_a017f486cae1059db631df5f5c360d9f5}{M\+A\+R\+K\+\_\+\+S\+I\+Z\+E}~(4)
+\item 
+\#define \hyperlink{memory_8c_a65d1ea18e1cbfa27d9d1952f05e31e60}{A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}~(sizeof(\hyperlink{union_align}{Align}))
+\item 
+\#define \hyperlink{memory_8c_ab75b2a40fa6b1bb08d9d06b69468469e}{revalue\+\_\+up\+\_\+align}(val)  ~((val) ? (((val) -\/ 1) / \hyperlink{memory_8c_a65d1ea18e1cbfa27d9d1952f05e31e60}{A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E} + 1) \+: 0)
+\item 
+\#define \hyperlink{memory_8c_ad1b52843007ad984fe47a9e236305e74}{H\+E\+A\+D\+E\+R\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}~(\hyperlink{memory_8c_ab75b2a40fa6b1bb08d9d06b69468469e}{revalue\+\_\+up\+\_\+align}(sizeof(\hyperlink{struct_header_struct}{Header\+Struct})))
+\item 
+\#define \hyperlink{memory_8c_abeb214368f7f34cff98de9047aa6eb2f}{M\+A\+R\+K}~(0x\+C\+D)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{memory_8c_a56de03b07ec1925939f4c4132f80e130}{default\+\_\+error\+\_\+handler} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, char $\ast$msg)
+\item 
+static void \hyperlink{memory_8c_a8bf8cec79f9381177e5a173b012bebd4}{error\+\_\+handler} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, char $\ast$msg)
+\item 
+\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} \hyperlink{memory_8c_a548f63493f73a5f24aad1b815c0012e2}{M\+E\+M\+\_\+create\+\_\+controller} (void)
+\item 
+void $\ast$ \hyperlink{memory_8c_ad8ec74655bfd804df1dbfb9eb86debed}{M\+E\+M\+\_\+malloc\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, size\+\_\+t size)
+\item 
+void $\ast$ \hyperlink{memory_8c_af603a986e48a437f160f5f2f2dd0482c}{M\+E\+M\+\_\+realloc\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, void $\ast$ptr, size\+\_\+t size)
+\item 
+char $\ast$ \hyperlink{memory_8c_a774244c6363979b4e8702f09bdb21360}{M\+E\+M\+\_\+strdup\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, char $\ast$str)
+\item 
+void \hyperlink{memory_8c_af5a2561c0715fea210e7b83d5e506ab1}{M\+E\+M\+\_\+free\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, void $\ast$ptr)
+\item 
+void \hyperlink{memory_8c_a9a3c83d2c94377f42c890e51ced47928}{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, \hyperlink{_m_e_m_8h_ade0991d07952a94a24685337fad1ca80}{M\+E\+M\+\_\+\+Error\+Handler} handler)
+\item 
+void \hyperlink{memory_8c_a992f775eae9dce8fa70435ff1d3253f2}{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, \hyperlink{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8ca}{M\+E\+M\+\_\+\+Fail\+Mode} mode)
+\item 
+void \hyperlink{memory_8c_a194d9cdde02537c4c729e46ec90a34b2}{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{memory_8c_afc2a58343efc869617a0d6e51d844301}{M\+E\+M\+\_\+check\+\_\+block\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, void $\ast$p)
+\item 
+void \hyperlink{memory_8c_a6fb765ac9495dd8dd295ba90235a18e7}{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static struct \hyperlink{struct_m_e_m___controller__tag}{M\+E\+M\+\_\+\+Controller\+\_\+tag} \hyperlink{memory_8c_a56f213e4625e3d3f496e779d1b58ed8c}{st\+\_\+default\+\_\+controller}
+\item 
+\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} \hyperlink{memory_8c_a4b46ae32bec7a147a5142a31148e1950}{mem\+\_\+default\+\_\+controller} = \&\hyperlink{memory_8c_a56f213e4625e3d3f496e779d1b58ed8c}{st\+\_\+default\+\_\+controller}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{memory_8c_a65d1ea18e1cbfa27d9d1952f05e31e60}{}\index{memory.\+c@{memory.\+c}!A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E@{A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}}
+\index{A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E@{A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}!memory.\+c@{memory.\+c}}
+\subsubsection[{A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E~(sizeof({\bf Align}))}\label{memory_8c_a65d1ea18e1cbfa27d9d1952f05e31e60}
+\hypertarget{memory_8c_ad1b52843007ad984fe47a9e236305e74}{}\index{memory.\+c@{memory.\+c}!H\+E\+A\+D\+E\+R\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E@{H\+E\+A\+D\+E\+R\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}}
+\index{H\+E\+A\+D\+E\+R\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E@{H\+E\+A\+D\+E\+R\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}!memory.\+c@{memory.\+c}}
+\subsubsection[{H\+E\+A\+D\+E\+R\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+E\+A\+D\+E\+R\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E~({\bf revalue\+\_\+up\+\_\+align}(sizeof({\bf Header\+Struct})))}\label{memory_8c_ad1b52843007ad984fe47a9e236305e74}
+\hypertarget{memory_8c_abeb214368f7f34cff98de9047aa6eb2f}{}\index{memory.\+c@{memory.\+c}!M\+A\+R\+K@{M\+A\+R\+K}}
+\index{M\+A\+R\+K@{M\+A\+R\+K}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+A\+R\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+R\+K~(0x\+C\+D)}\label{memory_8c_abeb214368f7f34cff98de9047aa6eb2f}
+\hypertarget{memory_8c_a017f486cae1059db631df5f5c360d9f5}{}\index{memory.\+c@{memory.\+c}!M\+A\+R\+K\+\_\+\+S\+I\+Z\+E@{M\+A\+R\+K\+\_\+\+S\+I\+Z\+E}}
+\index{M\+A\+R\+K\+\_\+\+S\+I\+Z\+E@{M\+A\+R\+K\+\_\+\+S\+I\+Z\+E}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+A\+R\+K\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+R\+K\+\_\+\+S\+I\+Z\+E~(4)}\label{memory_8c_a017f486cae1059db631df5f5c360d9f5}
+\hypertarget{memory_8c_ab75b2a40fa6b1bb08d9d06b69468469e}{}\index{memory.\+c@{memory.\+c}!revalue\+\_\+up\+\_\+align@{revalue\+\_\+up\+\_\+align}}
+\index{revalue\+\_\+up\+\_\+align@{revalue\+\_\+up\+\_\+align}!memory.\+c@{memory.\+c}}
+\subsubsection[{revalue\+\_\+up\+\_\+align}]{\setlength{\rightskip}{0pt plus 5cm}\#define revalue\+\_\+up\+\_\+align(
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((val) ? (((val) -\/ 1) / {\bf A\+L\+I\+G\+N\+\_\+\+S\+I\+Z\+E} + 1) \+: 0)}\label{memory_8c_ab75b2a40fa6b1bb08d9d06b69468469e}
+
+
+\subsection{Function Documentation}
+\hypertarget{memory_8c_a56de03b07ec1925939f4c4132f80e130}{}\index{memory.\+c@{memory.\+c}!default\+\_\+error\+\_\+handler@{default\+\_\+error\+\_\+handler}}
+\index{default\+\_\+error\+\_\+handler@{default\+\_\+error\+\_\+handler}!memory.\+c@{memory.\+c}}
+\subsubsection[{default\+\_\+error\+\_\+handler(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, char $\ast$msg)}]{\setlength{\rightskip}{0pt plus 5cm}static void default\+\_\+error\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{memory_8c_a56de03b07ec1925939f4c4132f80e130}
+\hypertarget{memory_8c_a8bf8cec79f9381177e5a173b012bebd4}{}\index{memory.\+c@{memory.\+c}!error\+\_\+handler@{error\+\_\+handler}}
+\index{error\+\_\+handler@{error\+\_\+handler}!memory.\+c@{memory.\+c}}
+\subsubsection[{error\+\_\+handler(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, char $\ast$msg)}]{\setlength{\rightskip}{0pt plus 5cm}static void error\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{memory_8c_a8bf8cec79f9381177e5a173b012bebd4}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a8bf8cec79f9381177e5a173b012bebd4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a6fb765ac9495dd8dd295ba90235a18e7}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func}}
+\index{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a6fb765ac9495dd8dd295ba90235a18e7}
+\hypertarget{memory_8c_afc2a58343efc869617a0d6e51d844301}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+check\+\_\+block\+\_\+func@{M\+E\+M\+\_\+check\+\_\+block\+\_\+func}}
+\index{M\+E\+M\+\_\+check\+\_\+block\+\_\+func@{M\+E\+M\+\_\+check\+\_\+block\+\_\+func}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+check\+\_\+block\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, void $\ast$p)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+check\+\_\+block\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}\label{memory_8c_afc2a58343efc869617a0d6e51d844301}
+\hypertarget{memory_8c_a548f63493f73a5f24aad1b815c0012e2}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+create\+\_\+controller@{M\+E\+M\+\_\+create\+\_\+controller}}
+\index{M\+E\+M\+\_\+create\+\_\+controller@{M\+E\+M\+\_\+create\+\_\+controller}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+create\+\_\+controller(void)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+M\+\_\+\+Controller} M\+E\+M\+\_\+create\+\_\+controller (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a548f63493f73a5f24aad1b815c0012e2}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_a548f63493f73a5f24aad1b815c0012e2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a194d9cdde02537c4c729e46ec90a34b2}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func}}
+\index{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, F\+I\+L\+E $\ast$fp)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a194d9cdde02537c4c729e46ec90a34b2}
+\hypertarget{memory_8c_af5a2561c0715fea210e7b83d5e506ab1}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+free\+\_\+func@{M\+E\+M\+\_\+free\+\_\+func}}
+\index{M\+E\+M\+\_\+free\+\_\+func@{M\+E\+M\+\_\+free\+\_\+func}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+free\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, void $\ast$ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+free\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\label{memory_8c_af5a2561c0715fea210e7b83d5e506ab1}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{memory_8c_af5a2561c0715fea210e7b83d5e506ab1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_ad8ec74655bfd804df1dbfb9eb86debed}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+malloc\+\_\+func}}
+\index{M\+E\+M\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+malloc\+\_\+func}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+malloc\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ M\+E\+M\+\_\+malloc\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{memory_8c_ad8ec74655bfd804df1dbfb9eb86debed}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{memory_8c_ad8ec74655bfd804df1dbfb9eb86debed_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory_8c_ad8ec74655bfd804df1dbfb9eb86debed_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_af603a986e48a437f160f5f2f2dd0482c}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+realloc\+\_\+func@{M\+E\+M\+\_\+realloc\+\_\+func}}
+\index{M\+E\+M\+\_\+realloc\+\_\+func@{M\+E\+M\+\_\+realloc\+\_\+func}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+realloc\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, void $\ast$ptr, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ M\+E\+M\+\_\+realloc\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{void $\ast$}]{ptr, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{memory_8c_af603a986e48a437f160f5f2f2dd0482c}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{memory_8c_af603a986e48a437f160f5f2f2dd0482c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{memory_8c_a9a3c83d2c94377f42c890e51ced47928}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+set\+\_\+error\+\_\+handler@{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler}}
+\index{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler@{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler(\+M\+E\+M\+\_\+\+Controller controller, M\+E\+M\+\_\+\+Error\+Handler handler)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+set\+\_\+error\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{{\bf M\+E\+M\+\_\+\+Error\+Handler}}]{handler}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a9a3c83d2c94377f42c890e51ced47928}
+\hypertarget{memory_8c_a992f775eae9dce8fa70435ff1d3253f2}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode@{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode}}
+\index{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode@{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode(\+M\+E\+M\+\_\+\+Controller controller, M\+E\+M\+\_\+\+Fail\+Mode mode)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{{\bf M\+E\+M\+\_\+\+Fail\+Mode}}]{mode}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a992f775eae9dce8fa70435ff1d3253f2}
+\hypertarget{memory_8c_a774244c6363979b4e8702f09bdb21360}{}\index{memory.\+c@{memory.\+c}!M\+E\+M\+\_\+strdup\+\_\+func@{M\+E\+M\+\_\+strdup\+\_\+func}}
+\index{M\+E\+M\+\_\+strdup\+\_\+func@{M\+E\+M\+\_\+strdup\+\_\+func}!memory.\+c@{memory.\+c}}
+\subsubsection[{M\+E\+M\+\_\+strdup\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, char $\ast$str)}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ M\+E\+M\+\_\+strdup\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{memory_8c_a774244c6363979b4e8702f09bdb21360}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{memory_8c_a774244c6363979b4e8702f09bdb21360_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{memory_8c_a4b46ae32bec7a147a5142a31148e1950}{}\index{memory.\+c@{memory.\+c}!mem\+\_\+default\+\_\+controller@{mem\+\_\+default\+\_\+controller}}
+\index{mem\+\_\+default\+\_\+controller@{mem\+\_\+default\+\_\+controller}!memory.\+c@{memory.\+c}}
+\subsubsection[{mem\+\_\+default\+\_\+controller}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+M\+\_\+\+Controller} mem\+\_\+default\+\_\+controller = \&{\bf st\+\_\+default\+\_\+controller}}\label{memory_8c_a4b46ae32bec7a147a5142a31148e1950}
+\hypertarget{memory_8c_a56f213e4625e3d3f496e779d1b58ed8c}{}\index{memory.\+c@{memory.\+c}!st\+\_\+default\+\_\+controller@{st\+\_\+default\+\_\+controller}}
+\index{st\+\_\+default\+\_\+controller@{st\+\_\+default\+\_\+controller}!memory.\+c@{memory.\+c}}
+\subsubsection[{st\+\_\+default\+\_\+controller}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf M\+E\+M\+\_\+\+Controller\+\_\+tag} st\+\_\+default\+\_\+controller\hspace{0.3cm}{\ttfamily [static]}}\label{memory_8c_a56f213e4625e3d3f496e779d1b58ed8c}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    NULL,
+    \hyperlink{memory_8c_a56de03b07ec1925939f4c4132f80e130}{default\_error\_handler},
+    \hyperlink{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8caad3aa1476bdc2802676e19269e6458da7}{MEM\_FAIL\_AND\_EXIT}
+\}
+\end{DoxyCode}

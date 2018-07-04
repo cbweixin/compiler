@@ -1,0 +1,848 @@
+\hypertarget{eval_8c}{}\section{eval.\+c File Reference}
+\label{eval_8c}\index{eval.\+c@{eval.\+c}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}M\+E\+M.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\+B\+G.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crowbar.\+h\char`\"{}}\\*
+Include dependency graph for eval.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_ab71261316460ed1a0b0d1f301d968824}{eval\+\_\+boolean\+\_\+expression} (\hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} boolean\+\_\+value)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a85c6df9dda1c9ccfc0a9cfd5aa08c585}{eval\+\_\+int\+\_\+expression} (int int\+\_\+value)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a71f8bbc7c4d6d0f746a76b05ae3512ad}{eval\+\_\+double\+\_\+expression} (double double\+\_\+value)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a81902aa7e22b59bf39605b832a148fd8}{eval\+\_\+string\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, char $\ast$string\+\_\+value)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a56e3fd0ea6a10351a389e96c51979f06}{eval\+\_\+null\+\_\+expression} (void)
+\item 
+static void \hyperlink{eval_8c_a7d3f1132b77aa3685c38686c40c6faf6}{refer\+\_\+if\+\_\+string} (\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$v)
+\item 
+static void \hyperlink{eval_8c_ad866d0eed1304ecb0a5c122348d7868a}{release\+\_\+if\+\_\+string} (\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$v)
+\item 
+static \hyperlink{crowbar_8h_a070c86ad7ae39536aed471927d04dee4}{Variable} $\ast$ \hyperlink{eval_8c_a3ca63b4a167250b5049650ce45cfdb64}{search\+\_\+global\+\_\+variable\+\_\+from\+\_\+env} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, char $\ast$name)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a6a4ab2dfe2a13af246f2e9bf711ec300}{eval\+\_\+identifier\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$expr)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a5689d0eaa567e0c960ed1353aa4ac486}{eval\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$expr)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a66220540c668924730014dc6c36bb90f}{eval\+\_\+assign\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, char $\ast$identifier, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$expression)
+\item 
+static \hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} \hyperlink{eval_8c_a6e07100a1fc9aa16cc8ec807fd9bf2c4}{eval\+\_\+binary\+\_\+boolean} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} operator, \hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} left, \hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} right, int line\+\_\+number)
+\item 
+static void \hyperlink{eval_8c_ad60692ec4567e5ac644cf75067ee8dbd}{eval\+\_\+binary\+\_\+int} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} operator, int left, int right, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$result, int line\+\_\+number)
+\item 
+static void \hyperlink{eval_8c_aa76b440b292fa3a4421256f77490c576}{eval\+\_\+binary\+\_\+double} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} operator, double left, double right, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$result, int line\+\_\+number)
+\item 
+static \hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} \hyperlink{eval_8c_a777134360481f7f906b8fd345bce95cc}{eval\+\_\+compare\+\_\+string} (\hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} operator, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$left, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$right, int line\+\_\+number)
+\item 
+static \hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} \hyperlink{eval_8c_abb1b3bac3d256c08b6333cede99c662b}{eval\+\_\+binary\+\_\+null} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} operator, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$left, \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} $\ast$right, int line\+\_\+number)
+\item 
+\hyperlink{_c_r_b__dev_8h_a0372b51b327f3425e983d9924fc713f8}{C\+R\+B\+\_\+\+String} $\ast$ \hyperlink{eval_8c_a64f1f55bc777dd4e024f6ae4ffbbc369}{chain\+\_\+string} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{_c_r_b__dev_8h_a0372b51b327f3425e983d9924fc713f8}{C\+R\+B\+\_\+\+String} $\ast$left, \hyperlink{_c_r_b__dev_8h_a0372b51b327f3425e983d9924fc713f8}{C\+R\+B\+\_\+\+String} $\ast$right)
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_ae2503a7ae3e4d83af9a08cd78524e860}{crb\+\_\+eval\+\_\+binary\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} operator, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$left, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$right)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_aaeb8a19ee9e4c2648c1ec782433fcc0a}{eval\+\_\+logical\+\_\+and\+\_\+or\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} operator, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$left, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$right)
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a366eef4ddf6e0e12e33d365ef80fe598}{crb\+\_\+eval\+\_\+minus\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$operand)
+\item 
+static \hyperlink{struct_local_environment}{Local\+Environment} $\ast$ \hyperlink{eval_8c_a15862377c28d67b97a6e893275a637ab}{alloc\+\_\+local\+\_\+environment} ()
+\item 
+static void \hyperlink{eval_8c_a9101c529eeeb471abaedbc19f53dd918}{dispose\+\_\+local\+\_\+environment} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a032f9e484c0f96ce5155eefd986d6863}{call\+\_\+native\+\_\+function} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$expr, \hyperlink{_c_r_b__dev_8h_af310ef1ce709cc9c2e7d1e3bf43b76ec}{C\+R\+B\+\_\+\+Native\+Function\+Proc} $\ast$proc)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_ad202936740084e0250264b62d370e6da}{call\+\_\+crowbar\+\_\+function} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$expr, \hyperlink{crowbar_8h_ae6685df239452173440b6042201dbd9f}{Function\+Definition} $\ast$func)
+\item 
+static \hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_a4fa23cedb3092f2eff48974d5266239d}{eval\+\_\+function\+\_\+call\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$expr)
+\item 
+\hyperlink{struct_c_r_b___value}{C\+R\+B\+\_\+\+Value} \hyperlink{eval_8c_ab5789d9ee6b8a0144fcb291329632a15}{crb\+\_\+eval\+\_\+expression} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$expr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{eval_8c_a15862377c28d67b97a6e893275a637ab}{}\index{eval.\+c@{eval.\+c}!alloc\+\_\+local\+\_\+environment@{alloc\+\_\+local\+\_\+environment}}
+\index{alloc\+\_\+local\+\_\+environment@{alloc\+\_\+local\+\_\+environment}!eval.\+c@{eval.\+c}}
+\subsubsection[{alloc\+\_\+local\+\_\+environment()}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Local\+Environment}$\ast$ alloc\+\_\+local\+\_\+environment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a15862377c28d67b97a6e893275a637ab}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a15862377c28d67b97a6e893275a637ab_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_ad202936740084e0250264b62d370e6da}{}\index{eval.\+c@{eval.\+c}!call\+\_\+crowbar\+\_\+function@{call\+\_\+crowbar\+\_\+function}}
+\index{call\+\_\+crowbar\+\_\+function@{call\+\_\+crowbar\+\_\+function}!eval.\+c@{eval.\+c}}
+\subsubsection[{call\+\_\+crowbar\+\_\+function(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression $\ast$expr, Function\+Definition $\ast$func)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} call\+\_\+crowbar\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression} $\ast$}]{expr, }
+\item[{{\bf Function\+Definition} $\ast$}]{func}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_ad202936740084e0250264b62d370e6da}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ad202936740084e0250264b62d370e6da_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ad202936740084e0250264b62d370e6da_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a032f9e484c0f96ce5155eefd986d6863}{}\index{eval.\+c@{eval.\+c}!call\+\_\+native\+\_\+function@{call\+\_\+native\+\_\+function}}
+\index{call\+\_\+native\+\_\+function@{call\+\_\+native\+\_\+function}!eval.\+c@{eval.\+c}}
+\subsubsection[{call\+\_\+native\+\_\+function(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression $\ast$expr, C\+R\+B\+\_\+\+Native\+Function\+Proc $\ast$proc)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} call\+\_\+native\+\_\+function (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression} $\ast$}]{expr, }
+\item[{{\bf C\+R\+B\+\_\+\+Native\+Function\+Proc} $\ast$}]{proc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a032f9e484c0f96ce5155eefd986d6863}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a032f9e484c0f96ce5155eefd986d6863_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a032f9e484c0f96ce5155eefd986d6863_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a64f1f55bc777dd4e024f6ae4ffbbc369}{}\index{eval.\+c@{eval.\+c}!chain\+\_\+string@{chain\+\_\+string}}
+\index{chain\+\_\+string@{chain\+\_\+string}!eval.\+c@{eval.\+c}}
+\subsubsection[{chain\+\_\+string(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, C\+R\+B\+\_\+\+String $\ast$left, C\+R\+B\+\_\+\+String $\ast$right)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+String}$\ast$ chain\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf C\+R\+B\+\_\+\+String} $\ast$}]{left, }
+\item[{{\bf C\+R\+B\+\_\+\+String} $\ast$}]{right}
+\end{DoxyParamCaption}
+)}\label{eval_8c_a64f1f55bc777dd4e024f6ae4ffbbc369}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a64f1f55bc777dd4e024f6ae4ffbbc369_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a64f1f55bc777dd4e024f6ae4ffbbc369_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_ae2503a7ae3e4d83af9a08cd78524e860}{}\index{eval.\+c@{eval.\+c}!crb\+\_\+eval\+\_\+binary\+\_\+expression@{crb\+\_\+eval\+\_\+binary\+\_\+expression}}
+\index{crb\+\_\+eval\+\_\+binary\+\_\+expression@{crb\+\_\+eval\+\_\+binary\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{crb\+\_\+eval\+\_\+binary\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression\+Type operator, Expression $\ast$left, Expression $\ast$right)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+eval\+\_\+binary\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression\+Type}}]{operator, }
+\item[{{\bf Expression} $\ast$}]{left, }
+\item[{{\bf Expression} $\ast$}]{right}
+\end{DoxyParamCaption}
+)}\label{eval_8c_ae2503a7ae3e4d83af9a08cd78524e860}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ae2503a7ae3e4d83af9a08cd78524e860_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ae2503a7ae3e4d83af9a08cd78524e860_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_ab5789d9ee6b8a0144fcb291329632a15}{}\index{eval.\+c@{eval.\+c}!crb\+\_\+eval\+\_\+expression@{crb\+\_\+eval\+\_\+expression}}
+\index{crb\+\_\+eval\+\_\+expression@{crb\+\_\+eval\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{crb\+\_\+eval\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression $\ast$expr)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+eval\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression} $\ast$}]{expr}
+\end{DoxyParamCaption}
+)}\label{eval_8c_ab5789d9ee6b8a0144fcb291329632a15}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ab5789d9ee6b8a0144fcb291329632a15_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ab5789d9ee6b8a0144fcb291329632a15_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a366eef4ddf6e0e12e33d365ef80fe598}{}\index{eval.\+c@{eval.\+c}!crb\+\_\+eval\+\_\+minus\+\_\+expression@{crb\+\_\+eval\+\_\+minus\+\_\+expression}}
+\index{crb\+\_\+eval\+\_\+minus\+\_\+expression@{crb\+\_\+eval\+\_\+minus\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{crb\+\_\+eval\+\_\+minus\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression $\ast$operand)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Value} crb\+\_\+eval\+\_\+minus\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression} $\ast$}]{operand}
+\end{DoxyParamCaption}
+)}\label{eval_8c_a366eef4ddf6e0e12e33d365ef80fe598}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a366eef4ddf6e0e12e33d365ef80fe598_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a366eef4ddf6e0e12e33d365ef80fe598_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a9101c529eeeb471abaedbc19f53dd918}{}\index{eval.\+c@{eval.\+c}!dispose\+\_\+local\+\_\+environment@{dispose\+\_\+local\+\_\+environment}}
+\index{dispose\+\_\+local\+\_\+environment@{dispose\+\_\+local\+\_\+environment}!eval.\+c@{eval.\+c}}
+\subsubsection[{dispose\+\_\+local\+\_\+environment(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env)}]{\setlength{\rightskip}{0pt plus 5cm}static void dispose\+\_\+local\+\_\+environment (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a9101c529eeeb471abaedbc19f53dd918}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a9101c529eeeb471abaedbc19f53dd918_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a9101c529eeeb471abaedbc19f53dd918_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a66220540c668924730014dc6c36bb90f}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+assign\+\_\+expression@{eval\+\_\+assign\+\_\+expression}}
+\index{eval\+\_\+assign\+\_\+expression@{eval\+\_\+assign\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+assign\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, char $\ast$identifier, Expression $\ast$expression)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+assign\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{char $\ast$}]{identifier, }
+\item[{{\bf Expression} $\ast$}]{expression}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a66220540c668924730014dc6c36bb90f}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a66220540c668924730014dc6c36bb90f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a66220540c668924730014dc6c36bb90f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a6e07100a1fc9aa16cc8ec807fd9bf2c4}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+binary\+\_\+boolean@{eval\+\_\+binary\+\_\+boolean}}
+\index{eval\+\_\+binary\+\_\+boolean@{eval\+\_\+binary\+\_\+boolean}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+binary\+\_\+boolean(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Expression\+Type operator, C\+R\+B\+\_\+\+Boolean left, C\+R\+B\+\_\+\+Boolean right, int line\+\_\+number)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Boolean} eval\+\_\+binary\+\_\+boolean (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Expression\+Type}}]{operator, }
+\item[{{\bf C\+R\+B\+\_\+\+Boolean}}]{left, }
+\item[{{\bf C\+R\+B\+\_\+\+Boolean}}]{right, }
+\item[{int}]{line\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a6e07100a1fc9aa16cc8ec807fd9bf2c4}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a6e07100a1fc9aa16cc8ec807fd9bf2c4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a6e07100a1fc9aa16cc8ec807fd9bf2c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_aa76b440b292fa3a4421256f77490c576}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+binary\+\_\+double@{eval\+\_\+binary\+\_\+double}}
+\index{eval\+\_\+binary\+\_\+double@{eval\+\_\+binary\+\_\+double}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+binary\+\_\+double(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Expression\+Type operator, double left, double right, C\+R\+B\+\_\+\+Value $\ast$result, int line\+\_\+number)}]{\setlength{\rightskip}{0pt plus 5cm}static void eval\+\_\+binary\+\_\+double (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Expression\+Type}}]{operator, }
+\item[{double}]{left, }
+\item[{double}]{right, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{result, }
+\item[{int}]{line\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_aa76b440b292fa3a4421256f77490c576}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_aa76b440b292fa3a4421256f77490c576_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_ad60692ec4567e5ac644cf75067ee8dbd}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+binary\+\_\+int@{eval\+\_\+binary\+\_\+int}}
+\index{eval\+\_\+binary\+\_\+int@{eval\+\_\+binary\+\_\+int}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+binary\+\_\+int(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Expression\+Type operator, int left, int right, C\+R\+B\+\_\+\+Value $\ast$result, int line\+\_\+number)}]{\setlength{\rightskip}{0pt plus 5cm}static void eval\+\_\+binary\+\_\+int (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Expression\+Type}}]{operator, }
+\item[{int}]{left, }
+\item[{int}]{right, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{result, }
+\item[{int}]{line\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_ad60692ec4567e5ac644cf75067ee8dbd}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ad60692ec4567e5ac644cf75067ee8dbd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_abb1b3bac3d256c08b6333cede99c662b}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+binary\+\_\+null@{eval\+\_\+binary\+\_\+null}}
+\index{eval\+\_\+binary\+\_\+null@{eval\+\_\+binary\+\_\+null}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+binary\+\_\+null(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Expression\+Type operator, C\+R\+B\+\_\+\+Value $\ast$left, C\+R\+B\+\_\+\+Value $\ast$right, int line\+\_\+number)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Boolean} eval\+\_\+binary\+\_\+null (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Expression\+Type}}]{operator, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{left, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{right, }
+\item[{int}]{line\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_abb1b3bac3d256c08b6333cede99c662b}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_abb1b3bac3d256c08b6333cede99c662b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_abb1b3bac3d256c08b6333cede99c662b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_ab71261316460ed1a0b0d1f301d968824}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+boolean\+\_\+expression@{eval\+\_\+boolean\+\_\+expression}}
+\index{eval\+\_\+boolean\+\_\+expression@{eval\+\_\+boolean\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+boolean\+\_\+expression(\+C\+R\+B\+\_\+\+Boolean boolean\+\_\+value)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+boolean\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Boolean}}]{boolean\+\_\+value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_ab71261316460ed1a0b0d1f301d968824}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ab71261316460ed1a0b0d1f301d968824_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a777134360481f7f906b8fd345bce95cc}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+compare\+\_\+string@{eval\+\_\+compare\+\_\+string}}
+\index{eval\+\_\+compare\+\_\+string@{eval\+\_\+compare\+\_\+string}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+compare\+\_\+string(\+Expression\+Type operator, C\+R\+B\+\_\+\+Value $\ast$left, C\+R\+B\+\_\+\+Value $\ast$right, int line\+\_\+number)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Boolean} eval\+\_\+compare\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{{\bf Expression\+Type}}]{operator, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{left, }
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{right, }
+\item[{int}]{line\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a777134360481f7f906b8fd345bce95cc}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a777134360481f7f906b8fd345bce95cc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a777134360481f7f906b8fd345bce95cc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a71f8bbc7c4d6d0f746a76b05ae3512ad}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+double\+\_\+expression@{eval\+\_\+double\+\_\+expression}}
+\index{eval\+\_\+double\+\_\+expression@{eval\+\_\+double\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+double\+\_\+expression(double double\+\_\+value)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+double\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{double}]{double\+\_\+value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a71f8bbc7c4d6d0f746a76b05ae3512ad}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a71f8bbc7c4d6d0f746a76b05ae3512ad_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a5689d0eaa567e0c960ed1353aa4ac486}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+expression@{eval\+\_\+expression}}
+\index{eval\+\_\+expression@{eval\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression $\ast$expr)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression} $\ast$}]{expr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a5689d0eaa567e0c960ed1353aa4ac486}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a5689d0eaa567e0c960ed1353aa4ac486_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a5689d0eaa567e0c960ed1353aa4ac486_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a4fa23cedb3092f2eff48974d5266239d}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+function\+\_\+call\+\_\+expression@{eval\+\_\+function\+\_\+call\+\_\+expression}}
+\index{eval\+\_\+function\+\_\+call\+\_\+expression@{eval\+\_\+function\+\_\+call\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+function\+\_\+call\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression $\ast$expr)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+function\+\_\+call\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression} $\ast$}]{expr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a4fa23cedb3092f2eff48974d5266239d}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a4fa23cedb3092f2eff48974d5266239d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a4fa23cedb3092f2eff48974d5266239d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a6a4ab2dfe2a13af246f2e9bf711ec300}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+identifier\+\_\+expression@{eval\+\_\+identifier\+\_\+expression}}
+\index{eval\+\_\+identifier\+\_\+expression@{eval\+\_\+identifier\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+identifier\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression $\ast$expr)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+identifier\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression} $\ast$}]{expr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a6a4ab2dfe2a13af246f2e9bf711ec300}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a6a4ab2dfe2a13af246f2e9bf711ec300_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a6a4ab2dfe2a13af246f2e9bf711ec300_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a85c6df9dda1c9ccfc0a9cfd5aa08c585}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+int\+\_\+expression@{eval\+\_\+int\+\_\+expression}}
+\index{eval\+\_\+int\+\_\+expression@{eval\+\_\+int\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+int\+\_\+expression(int int\+\_\+value)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+int\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{int}]{int\+\_\+value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a85c6df9dda1c9ccfc0a9cfd5aa08c585}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a85c6df9dda1c9ccfc0a9cfd5aa08c585_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_aaeb8a19ee9e4c2648c1ec782433fcc0a}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+logical\+\_\+and\+\_\+or\+\_\+expression@{eval\+\_\+logical\+\_\+and\+\_\+or\+\_\+expression}}
+\index{eval\+\_\+logical\+\_\+and\+\_\+or\+\_\+expression@{eval\+\_\+logical\+\_\+and\+\_\+or\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+logical\+\_\+and\+\_\+or\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Expression\+Type operator, Expression $\ast$left, Expression $\ast$right)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+logical\+\_\+and\+\_\+or\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Expression\+Type}}]{operator, }
+\item[{{\bf Expression} $\ast$}]{left, }
+\item[{{\bf Expression} $\ast$}]{right}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_aaeb8a19ee9e4c2648c1ec782433fcc0a}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_aaeb8a19ee9e4c2648c1ec782433fcc0a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_aaeb8a19ee9e4c2648c1ec782433fcc0a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a56e3fd0ea6a10351a389e96c51979f06}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+null\+\_\+expression@{eval\+\_\+null\+\_\+expression}}
+\index{eval\+\_\+null\+\_\+expression@{eval\+\_\+null\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+null\+\_\+expression(void)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+null\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a56e3fd0ea6a10351a389e96c51979f06}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a56e3fd0ea6a10351a389e96c51979f06_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a81902aa7e22b59bf39605b832a148fd8}{}\index{eval.\+c@{eval.\+c}!eval\+\_\+string\+\_\+expression@{eval\+\_\+string\+\_\+expression}}
+\index{eval\+\_\+string\+\_\+expression@{eval\+\_\+string\+\_\+expression}!eval.\+c@{eval.\+c}}
+\subsubsection[{eval\+\_\+string\+\_\+expression(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, char $\ast$string\+\_\+value)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf C\+R\+B\+\_\+\+Value} eval\+\_\+string\+\_\+expression (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{char $\ast$}]{string\+\_\+value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a81902aa7e22b59bf39605b832a148fd8}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a81902aa7e22b59bf39605b832a148fd8_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a81902aa7e22b59bf39605b832a148fd8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a7d3f1132b77aa3685c38686c40c6faf6}{}\index{eval.\+c@{eval.\+c}!refer\+\_\+if\+\_\+string@{refer\+\_\+if\+\_\+string}}
+\index{refer\+\_\+if\+\_\+string@{refer\+\_\+if\+\_\+string}!eval.\+c@{eval.\+c}}
+\subsubsection[{refer\+\_\+if\+\_\+string(\+C\+R\+B\+\_\+\+Value $\ast$v)}]{\setlength{\rightskip}{0pt plus 5cm}static void refer\+\_\+if\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a7d3f1132b77aa3685c38686c40c6faf6}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{eval_8c_a7d3f1132b77aa3685c38686c40c6faf6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a7d3f1132b77aa3685c38686c40c6faf6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_ad866d0eed1304ecb0a5c122348d7868a}{}\index{eval.\+c@{eval.\+c}!release\+\_\+if\+\_\+string@{release\+\_\+if\+\_\+string}}
+\index{release\+\_\+if\+\_\+string@{release\+\_\+if\+\_\+string}!eval.\+c@{eval.\+c}}
+\subsubsection[{release\+\_\+if\+\_\+string(\+C\+R\+B\+\_\+\+Value $\ast$v)}]{\setlength{\rightskip}{0pt plus 5cm}static void release\+\_\+if\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Value} $\ast$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_ad866d0eed1304ecb0a5c122348d7868a}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{eval_8c_ad866d0eed1304ecb0a5c122348d7868a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_ad866d0eed1304ecb0a5c122348d7868a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{eval_8c_a3ca63b4a167250b5049650ce45cfdb64}{}\index{eval.\+c@{eval.\+c}!search\+\_\+global\+\_\+variable\+\_\+from\+\_\+env@{search\+\_\+global\+\_\+variable\+\_\+from\+\_\+env}}
+\index{search\+\_\+global\+\_\+variable\+\_\+from\+\_\+env@{search\+\_\+global\+\_\+variable\+\_\+from\+\_\+env}!eval.\+c@{eval.\+c}}
+\subsubsection[{search\+\_\+global\+\_\+variable\+\_\+from\+\_\+env(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, char $\ast$name)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Variable}$\ast$ search\+\_\+global\+\_\+variable\+\_\+from\+\_\+env (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{eval_8c_a3ca63b4a167250b5049650ce45cfdb64}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a3ca63b4a167250b5049650ce45cfdb64_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{eval_8c_a3ca63b4a167250b5049650ce45cfdb64_icgraph}
+\end{center}
+\end{figure}
+
+

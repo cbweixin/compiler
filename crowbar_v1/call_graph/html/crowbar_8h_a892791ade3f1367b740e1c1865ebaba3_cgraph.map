@@ -1,0 +1,12 @@
+<map id="crb_nv_fclose_proc" name="crb_nv_fclose_proc">
+<area shape="rect" id="node2" href="$crowbar_8h.html#aa159c26774b9ecac10e28b0c0227cbfc" title="crb_runtime_error" alt="" coords="200,55,328,80"/>
+<area shape="rect" id="node11" href="$native_8c.html#a1abbb089a34d593323cdc9f59e7b9ed4" title="check_native_pointer" alt="" coords="190,104,338,129"/>
+<area shape="rect" id="node3" href="$error_8c.html#a55439ce228411bbdb845262236939908" title="self_check" alt="" coords="404,5,488,31"/>
+<area shape="rect" id="node4" href="$error_8c.html#a0816785df93b0bebb51bd3889135cab0" title="clear_v_string" alt="" coords="394,55,498,80"/>
+<area shape="rect" id="node5" href="$error_8c.html#a8e20da369644405f7331f2cdf7d5b834" title="format_message" alt="" coords="386,104,506,129"/>
+<area shape="rect" id="node6" href="$error_8c.html#af8e5dc7031de55a51ea433a46f1734b6" title="create_message_argument" alt="" coords="554,29,738,55"/>
+<area shape="rect" id="node7" href="$error_8c.html#ab3c18369b9fff4277439cec44fdbd002" title="add_character" alt="" coords="593,79,699,104"/>
+<area shape="rect" id="node9" href="$error_8c.html#ad7105cbb9467f70c251b8541842c25ea" title="search_argument" alt="" coords="584,128,709,153"/>
+<area shape="rect" id="node10" href="$error_8c.html#ac47c3cc1355dfa5ac6e250683381a6f0" title="add_string" alt="" coords="604,177,688,203"/>
+<area shape="rect" id="node8" href="$error_8c.html#ac7e9bd08d068851e31a5b6d408004638" title="my_strlen" alt="" coords="786,128,865,153"/>
+</map>

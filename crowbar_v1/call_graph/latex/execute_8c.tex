@@ -1,0 +1,382 @@
+\hypertarget{execute_8c}{}\section{execute.\+c File Reference}
+\label{execute_8c}\index{execute.\+c@{execute.\+c}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}M\+E\+M.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\+B\+G.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crowbar.\+h\char`\"{}}\\*
+Include dependency graph for execute.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_a7a1f6c51d6452467e482b452c99bf89f}{execute\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_a602bcfa85c257f41bbbca832de0280d5}{execute\+\_\+expression\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_af52b8ef49dd1d0e5589051ee6394f9ef}{execute\+\_\+global\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_abcd969b9b9694bab1bbb7bb14a9fd4a1}{execute\+\_\+elsif} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a8d2ba32155a8a8a5a87e93c564061f1d}{Elsif} $\ast$elsif\+\_\+list, \hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{C\+R\+B\+\_\+\+Boolean} $\ast$executed)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_aeeaaae66a368229e7c601069bc8b272d}{execute\+\_\+if\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_a867057aa1c041fddaf6a6f4a8398bdab}{execute\+\_\+while\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_aca44e1fc18fd7fb724307f50e5ccec45}{execute\+\_\+for\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_a1b2df8caeaacc2cbedd214c5925632e4}{execute\+\_\+return\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_a643c2ba1959ad201aef9c66b0dc8d061}{execute\+\_\+break\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+static \hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_a7a6f39c41cd5f24becab8a9befbad761}{execute\+\_\+continue\+\_\+statement} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a16fe74a7a87df7652e815d139b3349d2}{Statement} $\ast$statement)
+\item 
+\hyperlink{struct_statement_result}{Statement\+Result} \hyperlink{execute_8c_a2944712570c766dac398a6601b74106e}{crb\+\_\+execute\+\_\+statement\+\_\+list} (\hyperlink{_c_r_b_8h_a5b6eeccc92c5aa79d6051a9f80ecb710}{C\+R\+B\+\_\+\+Interpreter} $\ast$inter, \hyperlink{struct_local_environment}{Local\+Environment} $\ast$env, \hyperlink{crowbar_8h_a8bffae51ec8146f480c3c14c61b4ff93}{Statement\+List} $\ast$list)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{execute_8c_a2944712570c766dac398a6601b74106e}{}\index{execute.\+c@{execute.\+c}!crb\+\_\+execute\+\_\+statement\+\_\+list@{crb\+\_\+execute\+\_\+statement\+\_\+list}}
+\index{crb\+\_\+execute\+\_\+statement\+\_\+list@{crb\+\_\+execute\+\_\+statement\+\_\+list}!execute.\+c@{execute.\+c}}
+\subsubsection[{crb\+\_\+execute\+\_\+statement\+\_\+list(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement\+List $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statement\+Result} crb\+\_\+execute\+\_\+statement\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement\+List} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{execute_8c_a2944712570c766dac398a6601b74106e}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a2944712570c766dac398a6601b74106e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a2944712570c766dac398a6601b74106e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_a643c2ba1959ad201aef9c66b0dc8d061}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+break\+\_\+statement@{execute\+\_\+break\+\_\+statement}}
+\index{execute\+\_\+break\+\_\+statement@{execute\+\_\+break\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+break\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+break\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_a643c2ba1959ad201aef9c66b0dc8d061}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a643c2ba1959ad201aef9c66b0dc8d061_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_a7a6f39c41cd5f24becab8a9befbad761}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+continue\+\_\+statement@{execute\+\_\+continue\+\_\+statement}}
+\index{execute\+\_\+continue\+\_\+statement@{execute\+\_\+continue\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+continue\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+continue\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_a7a6f39c41cd5f24becab8a9befbad761}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a7a6f39c41cd5f24becab8a9befbad761_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_abcd969b9b9694bab1bbb7bb14a9fd4a1}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+elsif@{execute\+\_\+elsif}}
+\index{execute\+\_\+elsif@{execute\+\_\+elsif}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+elsif(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Elsif $\ast$elsif\+\_\+list, C\+R\+B\+\_\+\+Boolean $\ast$executed)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+elsif (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Elsif} $\ast$}]{elsif\+\_\+list, }
+\item[{{\bf C\+R\+B\+\_\+\+Boolean} $\ast$}]{executed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_abcd969b9b9694bab1bbb7bb14a9fd4a1}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_abcd969b9b9694bab1bbb7bb14a9fd4a1_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_abcd969b9b9694bab1bbb7bb14a9fd4a1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_a602bcfa85c257f41bbbca832de0280d5}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+expression\+\_\+statement@{execute\+\_\+expression\+\_\+statement}}
+\index{execute\+\_\+expression\+\_\+statement@{execute\+\_\+expression\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+expression\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+expression\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_a602bcfa85c257f41bbbca832de0280d5}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a602bcfa85c257f41bbbca832de0280d5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a602bcfa85c257f41bbbca832de0280d5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_aca44e1fc18fd7fb724307f50e5ccec45}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+for\+\_\+statement@{execute\+\_\+for\+\_\+statement}}
+\index{execute\+\_\+for\+\_\+statement@{execute\+\_\+for\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+for\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+for\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_aca44e1fc18fd7fb724307f50e5ccec45}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_aca44e1fc18fd7fb724307f50e5ccec45_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_aca44e1fc18fd7fb724307f50e5ccec45_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_af52b8ef49dd1d0e5589051ee6394f9ef}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+global\+\_\+statement@{execute\+\_\+global\+\_\+statement}}
+\index{execute\+\_\+global\+\_\+statement@{execute\+\_\+global\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+global\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+global\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_af52b8ef49dd1d0e5589051ee6394f9ef}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_af52b8ef49dd1d0e5589051ee6394f9ef_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_af52b8ef49dd1d0e5589051ee6394f9ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_aeeaaae66a368229e7c601069bc8b272d}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+if\+\_\+statement@{execute\+\_\+if\+\_\+statement}}
+\index{execute\+\_\+if\+\_\+statement@{execute\+\_\+if\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+if\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+if\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_aeeaaae66a368229e7c601069bc8b272d}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_aeeaaae66a368229e7c601069bc8b272d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_aeeaaae66a368229e7c601069bc8b272d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_a1b2df8caeaacc2cbedd214c5925632e4}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+return\+\_\+statement@{execute\+\_\+return\+\_\+statement}}
+\index{execute\+\_\+return\+\_\+statement@{execute\+\_\+return\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+return\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+return\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_a1b2df8caeaacc2cbedd214c5925632e4}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a1b2df8caeaacc2cbedd214c5925632e4_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a1b2df8caeaacc2cbedd214c5925632e4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_a7a1f6c51d6452467e482b452c99bf89f}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+statement@{execute\+\_\+statement}}
+\index{execute\+\_\+statement@{execute\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_a7a1f6c51d6452467e482b452c99bf89f}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a7a1f6c51d6452467e482b452c99bf89f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a7a1f6c51d6452467e482b452c99bf89f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{execute_8c_a867057aa1c041fddaf6a6f4a8398bdab}{}\index{execute.\+c@{execute.\+c}!execute\+\_\+while\+\_\+statement@{execute\+\_\+while\+\_\+statement}}
+\index{execute\+\_\+while\+\_\+statement@{execute\+\_\+while\+\_\+statement}!execute.\+c@{execute.\+c}}
+\subsubsection[{execute\+\_\+while\+\_\+statement(\+C\+R\+B\+\_\+\+Interpreter $\ast$inter, Local\+Environment $\ast$env, Statement $\ast$statement)}]{\setlength{\rightskip}{0pt plus 5cm}static {\bf Statement\+Result} execute\+\_\+while\+\_\+statement (
+\begin{DoxyParamCaption}
+\item[{{\bf C\+R\+B\+\_\+\+Interpreter} $\ast$}]{inter, }
+\item[{{\bf Local\+Environment} $\ast$}]{env, }
+\item[{{\bf Statement} $\ast$}]{statement}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\label{execute_8c_a867057aa1c041fddaf6a6f4a8398bdab}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a867057aa1c041fddaf6a6f4a8398bdab_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{execute_8c_a867057aa1c041fddaf6a6f4a8398bdab_icgraph}
+\end{center}
+\end{figure}
+
+

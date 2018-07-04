@@ -1,0 +1,445 @@
+\hypertarget{_m_e_m_8h}{}\section{M\+E\+M.\+h File Reference}
+\label{_m_e_m_8h}\index{M\+E\+M.\+h@{M\+E\+M.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+Include dependency graph for M\+E\+M.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{_m_e_m_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_e_m_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}~\hyperlink{memory_8c_a4b46ae32bec7a147a5142a31148e1950}{mem\+\_\+default\+\_\+controller}
+\item 
+\#define \hyperlink{_m_e_m_8h_a2f83eff1e62e0cdaca9c36e0f5e245cc}{M\+E\+M\+\_\+malloc}(size)
+\item 
+\#define \hyperlink{_m_e_m_8h_ac8f17dbb97f969ba4eb33de1f9a23182}{M\+E\+M\+\_\+realloc}(ptr,  size)~(\hyperlink{memory_8c_af603a986e48a437f160f5f2f2dd0482c}{M\+E\+M\+\_\+realloc\+\_\+func}(\hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, ptr, size))
+\item 
+\#define \hyperlink{_m_e_m_8h_a05d669041b5ee7fae71f0f1b458fed36}{M\+E\+M\+\_\+strdup}(str)~(\hyperlink{memory_8c_a774244c6363979b4e8702f09bdb21360}{M\+E\+M\+\_\+strdup\+\_\+func}(\hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, str))
+\item 
+\#define \hyperlink{_m_e_m_8h_aa59f909d3f9a6701bd65b2eb5571d788}{M\+E\+M\+\_\+open\+\_\+storage}(page\+\_\+size)
+\item 
+\#define \hyperlink{_m_e_m_8h_aa2970d2050089e5e2812c5e216fb1e40}{M\+E\+M\+\_\+storage\+\_\+malloc}(storage,  size)
+\item 
+\#define \hyperlink{_m_e_m_8h_aa3c7dc9e16ea500c12b11d8bcbbb709d}{M\+E\+M\+\_\+free}(ptr)~(\hyperlink{memory_8c_af5a2561c0715fea210e7b83d5e506ab1}{M\+E\+M\+\_\+free\+\_\+func}(\hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, ptr))
+\item 
+\#define \hyperlink{_m_e_m_8h_a0fc1a272cfd39196dbda65ce5d5db89b}{M\+E\+M\+\_\+dispose\+\_\+storage}(storage)~(\hyperlink{storage_8c_a62d74f8e61f48b22bbac8c0568e01e06}{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func}(\hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, storage))
+\item 
+\#define \hyperlink{_m_e_m_8h_acf0d984a977a3b490c5edc1c30e5795f}{M\+E\+M\+\_\+dump\+\_\+blocks}(fp)~((void)0)
+\item 
+\#define \hyperlink{_m_e_m_8h_a3d8360ac444b0c5f6cca2f52ddd0aac9}{M\+E\+M\+\_\+check\+\_\+block}(p)~((void)0)
+\item 
+\#define \hyperlink{_m_e_m_8h_a3165c3bb7940e4f10fe2023e16ac3ef4}{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks}()~((void)0)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_m_e_m___controller__tag}{M\+E\+M\+\_\+\+Controller\+\_\+tag} $\ast$ \hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller}
+\item 
+typedef void($\ast$ \hyperlink{_m_e_m_8h_ade0991d07952a94a24685337fad1ca80}{M\+E\+M\+\_\+\+Error\+Handler}) (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller}, char $\ast$, int, char $\ast$)
+\item 
+typedef struct \hyperlink{struct_m_e_m___storage__tag}{M\+E\+M\+\_\+\+Storage\+\_\+tag} $\ast$ \hyperlink{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{M\+E\+M\+\_\+\+Storage}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8ca}{M\+E\+M\+\_\+\+Fail\+Mode} \{ \hyperlink{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8caad3aa1476bdc2802676e19269e6458da7}{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+E\+X\+I\+T}, 
+\hyperlink{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8caa719c8750ef744e7c6137bf784c546e68}{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+R\+E\+T\+U\+R\+N}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} \hyperlink{_m_e_m_8h_a548f63493f73a5f24aad1b815c0012e2}{M\+E\+M\+\_\+create\+\_\+controller} (void)
+\item 
+void $\ast$ \hyperlink{_m_e_m_8h_ad8ec74655bfd804df1dbfb9eb86debed}{M\+E\+M\+\_\+malloc\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, size\+\_\+t size)
+\item 
+void $\ast$ \hyperlink{_m_e_m_8h_af603a986e48a437f160f5f2f2dd0482c}{M\+E\+M\+\_\+realloc\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, void $\ast$ptr, size\+\_\+t size)
+\item 
+char $\ast$ \hyperlink{_m_e_m_8h_a774244c6363979b4e8702f09bdb21360}{M\+E\+M\+\_\+strdup\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, char $\ast$str)
+\item 
+\hyperlink{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{M\+E\+M\+\_\+\+Storage} \hyperlink{_m_e_m_8h_aabe82ed6b660debcba2fd8360838e073}{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, int page\+\_\+size)
+\item 
+void $\ast$ \hyperlink{_m_e_m_8h_ac91908fc1cabc1f8bb0bd8d0750ad65a}{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, \hyperlink{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{M\+E\+M\+\_\+\+Storage} storage, size\+\_\+t size)
+\item 
+void \hyperlink{_m_e_m_8h_af5a2561c0715fea210e7b83d5e506ab1}{M\+E\+M\+\_\+free\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, void $\ast$ptr)
+\item 
+void \hyperlink{_m_e_m_8h_a62d74f8e61f48b22bbac8c0568e01e06}{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, \hyperlink{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{M\+E\+M\+\_\+\+Storage} storage)
+\item 
+void \hyperlink{_m_e_m_8h_a9a3c83d2c94377f42c890e51ced47928}{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, \hyperlink{_m_e_m_8h_ade0991d07952a94a24685337fad1ca80}{M\+E\+M\+\_\+\+Error\+Handler} handler)
+\item 
+void \hyperlink{_m_e_m_8h_a992f775eae9dce8fa70435ff1d3253f2}{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, \hyperlink{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8ca}{M\+E\+M\+\_\+\+Fail\+Mode} mode)
+\item 
+void \hyperlink{_m_e_m_8h_a194d9cdde02537c4c729e46ec90a34b2}{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, F\+I\+L\+E $\ast$fp)
+\item 
+void \hyperlink{_m_e_m_8h_afc2a58343efc869617a0d6e51d844301}{M\+E\+M\+\_\+check\+\_\+block\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line, void $\ast$p)
+\item 
+void \hyperlink{_m_e_m_8h_a6fb765ac9495dd8dd295ba90235a18e7}{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func} (\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} controller, char $\ast$filename, int line)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{M\+E\+M\+\_\+\+Controller} \hyperlink{_m_e_m_8h_a4b46ae32bec7a147a5142a31148e1950}{mem\+\_\+default\+\_\+controller}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_m_e_m_8h_a3165c3bb7940e4f10fe2023e16ac3ef4}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks@{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks}}
+\index{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks@{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~((void)0)}\label{_m_e_m_8h_a3165c3bb7940e4f10fe2023e16ac3ef4}
+\hypertarget{_m_e_m_8h_a3d8360ac444b0c5f6cca2f52ddd0aac9}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+check\+\_\+block@{M\+E\+M\+\_\+check\+\_\+block}}
+\index{M\+E\+M\+\_\+check\+\_\+block@{M\+E\+M\+\_\+check\+\_\+block}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+check\+\_\+block}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+check\+\_\+block(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~((void)0)}\label{_m_e_m_8h_a3d8360ac444b0c5f6cca2f52ddd0aac9}
+\hypertarget{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R@{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}}
+\index{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R@{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R~{\bf mem\+\_\+default\+\_\+controller}}\label{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}
+\hypertarget{_m_e_m_8h_a0fc1a272cfd39196dbda65ce5d5db89b}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+dispose\+\_\+storage@{M\+E\+M\+\_\+dispose\+\_\+storage}}
+\index{M\+E\+M\+\_\+dispose\+\_\+storage@{M\+E\+M\+\_\+dispose\+\_\+storage}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+dispose\+\_\+storage}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+dispose\+\_\+storage(
+\begin{DoxyParamCaption}
+\item[{}]{storage}
+\end{DoxyParamCaption}
+)~({\bf M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func}({\bf M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, storage))}\label{_m_e_m_8h_a0fc1a272cfd39196dbda65ce5d5db89b}
+\hypertarget{_m_e_m_8h_acf0d984a977a3b490c5edc1c30e5795f}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+dump\+\_\+blocks@{M\+E\+M\+\_\+dump\+\_\+blocks}}
+\index{M\+E\+M\+\_\+dump\+\_\+blocks@{M\+E\+M\+\_\+dump\+\_\+blocks}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+dump\+\_\+blocks}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+dump\+\_\+blocks(
+\begin{DoxyParamCaption}
+\item[{}]{fp}
+\end{DoxyParamCaption}
+)~((void)0)}\label{_m_e_m_8h_acf0d984a977a3b490c5edc1c30e5795f}
+\hypertarget{_m_e_m_8h_aa3c7dc9e16ea500c12b11d8bcbbb709d}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+free@{M\+E\+M\+\_\+free}}
+\index{M\+E\+M\+\_\+free@{M\+E\+M\+\_\+free}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+free}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+free(
+\begin{DoxyParamCaption}
+\item[{}]{ptr}
+\end{DoxyParamCaption}
+)~({\bf M\+E\+M\+\_\+free\+\_\+func}({\bf M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, ptr))}\label{_m_e_m_8h_aa3c7dc9e16ea500c12b11d8bcbbb709d}
+\hypertarget{_m_e_m_8h_a2f83eff1e62e0cdaca9c36e0f5e245cc}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+malloc@{M\+E\+M\+\_\+malloc}}
+\index{M\+E\+M\+\_\+malloc@{M\+E\+M\+\_\+malloc}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+malloc(
+\begin{DoxyParamCaption}
+\item[{}]{size}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a2f83eff1e62e0cdaca9c36e0f5e245cc}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(\hyperlink{_m_e_m_8h_ad8ec74655bfd804df1dbfb9eb86debed}{MEM\_malloc\_func}(\hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{MEM\_CURRENT\_CONTROLLER},\(\backslash\)
+                   \_\_FILE\_\_, \_\_LINE\_\_, size))
+\end{DoxyCode}
+\hypertarget{_m_e_m_8h_aa59f909d3f9a6701bd65b2eb5571d788}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+open\+\_\+storage@{M\+E\+M\+\_\+open\+\_\+storage}}
+\index{M\+E\+M\+\_\+open\+\_\+storage@{M\+E\+M\+\_\+open\+\_\+storage}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+open\+\_\+storage}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+open\+\_\+storage(
+\begin{DoxyParamCaption}
+\item[{}]{page\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_aa59f909d3f9a6701bd65b2eb5571d788}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(\hyperlink{_m_e_m_8h_aabe82ed6b660debcba2fd8360838e073}{MEM\_open\_storage\_func}(\hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{MEM\_CURRENT\_CONTROLLER},\(\backslash\)
+                         \_\_FILE\_\_, \_\_LINE\_\_, page\_size))
+\end{DoxyCode}
+\hypertarget{_m_e_m_8h_ac8f17dbb97f969ba4eb33de1f9a23182}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+realloc@{M\+E\+M\+\_\+realloc}}
+\index{M\+E\+M\+\_\+realloc@{M\+E\+M\+\_\+realloc}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+realloc}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+realloc(
+\begin{DoxyParamCaption}
+\item[{}]{ptr, }
+\item[{}]{size}
+\end{DoxyParamCaption}
+)~({\bf M\+E\+M\+\_\+realloc\+\_\+func}({\bf M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, ptr, size))}\label{_m_e_m_8h_ac8f17dbb97f969ba4eb33de1f9a23182}
+\hypertarget{_m_e_m_8h_aa2970d2050089e5e2812c5e216fb1e40}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+storage\+\_\+malloc@{M\+E\+M\+\_\+storage\+\_\+malloc}}
+\index{M\+E\+M\+\_\+storage\+\_\+malloc@{M\+E\+M\+\_\+storage\+\_\+malloc}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+storage\+\_\+malloc}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+storage\+\_\+malloc(
+\begin{DoxyParamCaption}
+\item[{}]{storage, }
+\item[{}]{size}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_aa2970d2050089e5e2812c5e216fb1e40}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(\hyperlink{_m_e_m_8h_ac91908fc1cabc1f8bb0bd8d0750ad65a}{MEM\_storage\_malloc\_func}(\hyperlink{_m_e_m_8h_ae65587425a66b2c1403bc7f28ce13af7}{MEM\_CURRENT\_CONTROLLER},\(\backslash\)
+                           \_\_FILE\_\_, \_\_LINE\_\_, storage, size))
+\end{DoxyCode}
+\hypertarget{_m_e_m_8h_a05d669041b5ee7fae71f0f1b458fed36}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+strdup@{M\+E\+M\+\_\+strdup}}
+\index{M\+E\+M\+\_\+strdup@{M\+E\+M\+\_\+strdup}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+strdup}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+E\+M\+\_\+strdup(
+\begin{DoxyParamCaption}
+\item[{}]{str}
+\end{DoxyParamCaption}
+)~({\bf M\+E\+M\+\_\+strdup\+\_\+func}({\bf M\+E\+M\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R}, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, str))}\label{_m_e_m_8h_a05d669041b5ee7fae71f0f1b458fed36}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+\+Controller@{M\+E\+M\+\_\+\+Controller}}
+\index{M\+E\+M\+\_\+\+Controller@{M\+E\+M\+\_\+\+Controller}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf M\+E\+M\+\_\+\+Controller\+\_\+tag}$\ast$ {\bf M\+E\+M\+\_\+\+Controller}}\label{_m_e_m_8h_a346913597e997e42b9147ecaa18866b7}
+\hypertarget{_m_e_m_8h_ade0991d07952a94a24685337fad1ca80}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+\+Error\+Handler@{M\+E\+M\+\_\+\+Error\+Handler}}
+\index{M\+E\+M\+\_\+\+Error\+Handler@{M\+E\+M\+\_\+\+Error\+Handler}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+\+Error\+Handler}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ M\+E\+M\+\_\+\+Error\+Handler) ({\bf M\+E\+M\+\_\+\+Controller}, char $\ast$, int, char $\ast$)}\label{_m_e_m_8h_ade0991d07952a94a24685337fad1ca80}
+\hypertarget{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+\+Storage@{M\+E\+M\+\_\+\+Storage}}
+\index{M\+E\+M\+\_\+\+Storage@{M\+E\+M\+\_\+\+Storage}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+\+Storage}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf M\+E\+M\+\_\+\+Storage\+\_\+tag}$\ast$ {\bf M\+E\+M\+\_\+\+Storage}}\label{_m_e_m_8h_afc904fd630ab1c716f8e0a1096f62697}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8ca}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+\+Fail\+Mode@{M\+E\+M\+\_\+\+Fail\+Mode}}
+\index{M\+E\+M\+\_\+\+Fail\+Mode@{M\+E\+M\+\_\+\+Fail\+Mode}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+\+Fail\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf M\+E\+M\+\_\+\+Fail\+Mode}}\label{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8ca}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+E\+X\+I\+T@{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+E\+X\+I\+T}!M\+E\+M.\+h@{M\+E\+M.\+h}}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+E\+X\+I\+T@{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+E\+X\+I\+T}}\item[{\em 
+\hypertarget{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8caad3aa1476bdc2802676e19269e6458da7}{}M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+E\+X\+I\+T\label{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8caad3aa1476bdc2802676e19269e6458da7}
+}]\index{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+R\+E\+T\+U\+R\+N@{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+R\+E\+T\+U\+R\+N}!M\+E\+M.\+h@{M\+E\+M.\+h}}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+R\+E\+T\+U\+R\+N@{M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+R\+E\+T\+U\+R\+N}}\item[{\em 
+\hypertarget{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8caa719c8750ef744e7c6137bf784c546e68}{}M\+E\+M\+\_\+\+F\+A\+I\+L\+\_\+\+A\+N\+D\+\_\+\+R\+E\+T\+U\+R\+N\label{_m_e_m_8h_ab9335a5fd03b90054312289c76acf8caa719c8750ef744e7c6137bf784c546e68}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{_m_e_m_8h_a6fb765ac9495dd8dd295ba90235a18e7}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func}}
+\index{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+check\+\_\+all\+\_\+blocks\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a6fb765ac9495dd8dd295ba90235a18e7}
+\hypertarget{_m_e_m_8h_afc2a58343efc869617a0d6e51d844301}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+check\+\_\+block\+\_\+func@{M\+E\+M\+\_\+check\+\_\+block\+\_\+func}}
+\index{M\+E\+M\+\_\+check\+\_\+block\+\_\+func@{M\+E\+M\+\_\+check\+\_\+block\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+check\+\_\+block\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, void $\ast$p)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+check\+\_\+block\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_afc2a58343efc869617a0d6e51d844301}
+\hypertarget{_m_e_m_8h_a548f63493f73a5f24aad1b815c0012e2}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+create\+\_\+controller@{M\+E\+M\+\_\+create\+\_\+controller}}
+\index{M\+E\+M\+\_\+create\+\_\+controller@{M\+E\+M\+\_\+create\+\_\+controller}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+create\+\_\+controller(void)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+M\+\_\+\+Controller} M\+E\+M\+\_\+create\+\_\+controller (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a548f63493f73a5f24aad1b815c0012e2}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_e_m_8h_a548f63493f73a5f24aad1b815c0012e2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_m_e_m_8h_a62d74f8e61f48b22bbac8c0568e01e06}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func}}
+\index{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, M\+E\+M\+\_\+\+Storage storage)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+dispose\+\_\+storage\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{{\bf M\+E\+M\+\_\+\+Storage}}]{storage}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a62d74f8e61f48b22bbac8c0568e01e06}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{_m_e_m_8h_a62d74f8e61f48b22bbac8c0568e01e06_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_m_e_m_8h_a194d9cdde02537c4c729e46ec90a34b2}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func}}
+\index{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func@{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, F\+I\+L\+E $\ast$fp)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+dump\+\_\+blocks\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{F\+I\+L\+E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a194d9cdde02537c4c729e46ec90a34b2}
+\hypertarget{_m_e_m_8h_af5a2561c0715fea210e7b83d5e506ab1}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+free\+\_\+func@{M\+E\+M\+\_\+free\+\_\+func}}
+\index{M\+E\+M\+\_\+free\+\_\+func@{M\+E\+M\+\_\+free\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+free\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, void $\ast$ptr)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+free\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_af5a2561c0715fea210e7b83d5e506ab1}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{_m_e_m_8h_af5a2561c0715fea210e7b83d5e506ab1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_m_e_m_8h_ad8ec74655bfd804df1dbfb9eb86debed}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+malloc\+\_\+func}}
+\index{M\+E\+M\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+malloc\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+malloc\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ M\+E\+M\+\_\+malloc\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_ad8ec74655bfd804df1dbfb9eb86debed}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{_m_e_m_8h_ad8ec74655bfd804df1dbfb9eb86debed_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_e_m_8h_ad8ec74655bfd804df1dbfb9eb86debed_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_m_e_m_8h_aabe82ed6b660debcba2fd8360838e073}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+open\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func}}
+\index{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func@{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+open\+\_\+storage\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, int page\+\_\+size)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+M\+\_\+\+Storage} M\+E\+M\+\_\+open\+\_\+storage\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{int}]{page\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_aabe82ed6b660debcba2fd8360838e073}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_e_m_8h_aabe82ed6b660debcba2fd8360838e073_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_m_e_m_8h_af603a986e48a437f160f5f2f2dd0482c}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+realloc\+\_\+func@{M\+E\+M\+\_\+realloc\+\_\+func}}
+\index{M\+E\+M\+\_\+realloc\+\_\+func@{M\+E\+M\+\_\+realloc\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+realloc\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, void $\ast$ptr, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ M\+E\+M\+\_\+realloc\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{void $\ast$}]{ptr, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_af603a986e48a437f160f5f2f2dd0482c}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{_m_e_m_8h_af603a986e48a437f160f5f2f2dd0482c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_m_e_m_8h_a9a3c83d2c94377f42c890e51ced47928}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+set\+\_\+error\+\_\+handler@{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler}}
+\index{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler@{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+set\+\_\+error\+\_\+handler(\+M\+E\+M\+\_\+\+Controller controller, M\+E\+M\+\_\+\+Error\+Handler handler)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+set\+\_\+error\+\_\+handler (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{{\bf M\+E\+M\+\_\+\+Error\+Handler}}]{handler}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a9a3c83d2c94377f42c890e51ced47928}
+\hypertarget{_m_e_m_8h_a992f775eae9dce8fa70435ff1d3253f2}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode@{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode}}
+\index{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode@{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode(\+M\+E\+M\+\_\+\+Controller controller, M\+E\+M\+\_\+\+Fail\+Mode mode)}]{\setlength{\rightskip}{0pt plus 5cm}void M\+E\+M\+\_\+set\+\_\+fail\+\_\+mode (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{{\bf M\+E\+M\+\_\+\+Fail\+Mode}}]{mode}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a992f775eae9dce8fa70435ff1d3253f2}
+\hypertarget{_m_e_m_8h_ac91908fc1cabc1f8bb0bd8d0750ad65a}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func}}
+\index{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func@{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, M\+E\+M\+\_\+\+Storage storage, size\+\_\+t size)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ M\+E\+M\+\_\+storage\+\_\+malloc\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{{\bf M\+E\+M\+\_\+\+Storage}}]{storage, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_ac91908fc1cabc1f8bb0bd8d0750ad65a}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_e_m_8h_ac91908fc1cabc1f8bb0bd8d0750ad65a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{_m_e_m_8h_a774244c6363979b4e8702f09bdb21360}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!M\+E\+M\+\_\+strdup\+\_\+func@{M\+E\+M\+\_\+strdup\+\_\+func}}
+\index{M\+E\+M\+\_\+strdup\+\_\+func@{M\+E\+M\+\_\+strdup\+\_\+func}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{M\+E\+M\+\_\+strdup\+\_\+func(\+M\+E\+M\+\_\+\+Controller controller, char $\ast$filename, int line, char $\ast$str)}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ M\+E\+M\+\_\+strdup\+\_\+func (
+\begin{DoxyParamCaption}
+\item[{{\bf M\+E\+M\+\_\+\+Controller}}]{controller, }
+\item[{char $\ast$}]{filename, }
+\item[{int}]{line, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{_m_e_m_8h_a774244c6363979b4e8702f09bdb21360}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{_m_e_m_8h_a774244c6363979b4e8702f09bdb21360_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_m_e_m_8h_a4b46ae32bec7a147a5142a31148e1950}{}\index{M\+E\+M.\+h@{M\+E\+M.\+h}!mem\+\_\+default\+\_\+controller@{mem\+\_\+default\+\_\+controller}}
+\index{mem\+\_\+default\+\_\+controller@{mem\+\_\+default\+\_\+controller}!M\+E\+M.\+h@{M\+E\+M.\+h}}
+\subsubsection[{mem\+\_\+default\+\_\+controller}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+M\+\_\+\+Controller} mem\+\_\+default\+\_\+controller}\label{_m_e_m_8h_a4b46ae32bec7a147a5142a31148e1950}

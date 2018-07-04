@@ -1,0 +1,296 @@
+Grammar
+
+    0 $accept: line_list $end
+
+    1 line_list: line
+    2          | line_list line
+
+    3 line: expression CR
+    4     | error CR
+
+    5 expression: term
+    6           | expression ADD term
+    7           | expression SUB term
+
+    8 term: primary_expression
+    9     | term MUL primary_expression
+   10     | term DIV primary_expression
+
+   11 primary_expression: DOUBLE_LITERAL
+   12                   | LP expression RP
+   13                   | SUB primary_expression
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256) 4
+DOUBLE_LITERAL (258) 11
+ADD (259) 6
+SUB (260) 7 13
+MUL (261) 9
+DIV (262) 10
+CR (263) 3 4
+LP (264) 12
+RP (265) 12
+
+
+Nonterminals, with rules where they appear
+
+$accept (11)
+    on left: 0
+line_list (12)
+    on left: 1 2, on right: 0 2
+line (13)
+    on left: 3 4, on right: 1 2
+expression (14)
+    on left: 5 6 7, on right: 3 6 7 12
+term (15)
+    on left: 8 9 10, on right: 5 6 7 9 10
+primary_expression (16)
+    on left: 11 12 13, on right: 8 9 10 13
+
+
+state 0
+
+    0 $accept: . line_list $end
+
+    error           shift, and go to state 1
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    line_list           go to state 5
+    line                go to state 6
+    expression          go to state 7
+    term                go to state 8
+    primary_expression  go to state 9
+
+
+state 1
+
+    4 line: error . CR
+
+    CR  shift, and go to state 10
+
+
+state 2
+
+   11 primary_expression: DOUBLE_LITERAL .
+
+    $default  reduce using rule 11 (primary_expression)
+
+
+state 3
+
+   13 primary_expression: SUB . primary_expression
+
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    primary_expression  go to state 11
+
+
+state 4
+
+   12 primary_expression: LP . expression RP
+
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    expression          go to state 12
+    term                go to state 8
+    primary_expression  go to state 9
+
+
+state 5
+
+    0 $accept: line_list . $end
+    2 line_list: line_list . line
+
+    $end            shift, and go to state 13
+    error           shift, and go to state 1
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    line                go to state 14
+    expression          go to state 7
+    term                go to state 8
+    primary_expression  go to state 9
+
+
+state 6
+
+    1 line_list: line .
+
+    $default  reduce using rule 1 (line_list)
+
+
+state 7
+
+    3 line: expression . CR
+    6 expression: expression . ADD term
+    7           | expression . SUB term
+
+    ADD  shift, and go to state 15
+    SUB  shift, and go to state 16
+    CR   shift, and go to state 17
+
+
+state 8
+
+    5 expression: term .
+    9 term: term . MUL primary_expression
+   10     | term . DIV primary_expression
+
+    MUL  shift, and go to state 18
+    DIV  shift, and go to state 19
+
+    $default  reduce using rule 5 (expression)
+
+
+state 9
+
+    8 term: primary_expression .
+
+    $default  reduce using rule 8 (term)
+
+
+state 10
+
+    4 line: error CR .
+
+    $default  reduce using rule 4 (line)
+
+
+state 11
+
+   13 primary_expression: SUB primary_expression .
+
+    $default  reduce using rule 13 (primary_expression)
+
+
+state 12
+
+    6 expression: expression . ADD term
+    7           | expression . SUB term
+   12 primary_expression: LP expression . RP
+
+    ADD  shift, and go to state 15
+    SUB  shift, and go to state 16
+    RP   shift, and go to state 20
+
+
+state 13
+
+    0 $accept: line_list $end .
+
+    $default  accept
+
+
+state 14
+
+    2 line_list: line_list line .
+
+    $default  reduce using rule 2 (line_list)
+
+
+state 15
+
+    6 expression: expression ADD . term
+
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    term                go to state 21
+    primary_expression  go to state 9
+
+
+state 16
+
+    7 expression: expression SUB . term
+
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    term                go to state 22
+    primary_expression  go to state 9
+
+
+state 17
+
+    3 line: expression CR .
+
+    $default  reduce using rule 3 (line)
+
+
+state 18
+
+    9 term: term MUL . primary_expression
+
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    primary_expression  go to state 23
+
+
+state 19
+
+   10 term: term DIV . primary_expression
+
+    DOUBLE_LITERAL  shift, and go to state 2
+    SUB             shift, and go to state 3
+    LP              shift, and go to state 4
+
+    primary_expression  go to state 24
+
+
+state 20
+
+   12 primary_expression: LP expression RP .
+
+    $default  reduce using rule 12 (primary_expression)
+
+
+state 21
+
+    6 expression: expression ADD term .
+    9 term: term . MUL primary_expression
+   10     | term . DIV primary_expression
+
+    MUL  shift, and go to state 18
+    DIV  shift, and go to state 19
+
+    $default  reduce using rule 6 (expression)
+
+
+state 22
+
+    7 expression: expression SUB term .
+    9 term: term . MUL primary_expression
+   10     | term . DIV primary_expression
+
+    MUL  shift, and go to state 18
+    DIV  shift, and go to state 19
+
+    $default  reduce using rule 7 (expression)
+
+
+state 23
+
+    9 term: term MUL primary_expression .
+
+    $default  reduce using rule 9 (term)
+
+
+state 24
+
+   10 term: term DIV primary_expression .
+
+    $default  reduce using rule 10 (term)

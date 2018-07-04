@@ -1,0 +1,5 @@
+<map id="initialize_debug_write_fp" name="initialize_debug_write_fp">
+<area shape="rect" id="node2" href="$debug_8c.html#a0c1780e12c9d6f8a530f066f2238fb0c" title="DBG_assert_func" alt="" coords="239,5,365,31"/>
+<area shape="rect" id="node3" href="$debug_8c.html#aeab62926ea49327c85c524065b7a7c57" title="DBG_panic_func" alt="" coords="241,55,363,80"/>
+<area shape="rect" id="node4" href="$debug_8c.html#a7ec36ae099a057535c1d0210fab4a1ce" title="DBG_debug_write_func" alt="" coords="221,104,384,129"/>
+</map>

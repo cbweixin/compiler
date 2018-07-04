@@ -1,0 +1,22 @@
+<map id="add_native_functions" name="add_native_functions">
+<area shape="rect" id="node2" href="$interface_8c.html#a940149828fe093b31374c316022a981a" title="CRB_add_native_function" alt="" coords="201,5,377,31"/>
+<area shape="rect" id="node5" href="$crowbar_8h.html#afd9b29acf8ee4de629e9fd2e2a350cff" title="crb_nv_print_proc" alt="" coords="225,55,353,80"/>
+<area shape="rect" id="node15" href="$crowbar_8h.html#a5da1be103895e1c7986c85986ce15734" title="crb_nv_fopen_proc" alt="" coords="221,104,357,129"/>
+<area shape="rect" id="node16" href="$crowbar_8h.html#a892791ade3f1367b740e1c1865ebaba3" title="crb_nv_fclose_proc" alt="" coords="220,153,357,179"/>
+<area shape="rect" id="node18" href="$crowbar_8h.html#a36549d790976cc75ec50e868672f135c" title="crb_nv_fgets_proc" alt="" coords="223,252,354,277"/>
+<area shape="rect" id="node21" href="$crowbar_8h.html#adca22eca0878132bd9828eca844fd7cc" title="crb_nv_fputs_proc" alt="" coords="223,203,354,228"/>
+<area shape="rect" id="node3" href="$crowbar_8h.html#a8dfd4f4888177a9a82f347010ecac09d" title="crb_malloc" alt="" coords="456,5,542,31"/>
+<area shape="rect" id="node4" href="$util_8c.html#ab77643d55a3706343943e894fc5df4e9" title="crb_get_current_interpreter" alt="" coords="620,5,803,31"/>
+<area shape="rect" id="node6" href="$crowbar_8h.html#aa159c26774b9ecac10e28b0c0227cbfc" title="crb_runtime_error" alt="" coords="435,153,562,179"/>
+<area shape="rect" id="node7" href="$error_8c.html#a55439ce228411bbdb845262236939908" title="self_check" alt="" coords="670,104,754,129"/>
+<area shape="rect" id="node8" href="$error_8c.html#a0816785df93b0bebb51bd3889135cab0" title="clear_v_string" alt="" coords="660,153,764,179"/>
+<area shape="rect" id="node9" href="$error_8c.html#a8e20da369644405f7331f2cdf7d5b834" title="format_message" alt="" coords="651,203,772,228"/>
+<area shape="rect" id="node10" href="$error_8c.html#af8e5dc7031de55a51ea433a46f1734b6" title="create_message_argument" alt="" coords="851,128,1035,153"/>
+<area shape="rect" id="node11" href="$error_8c.html#ab3c18369b9fff4277439cec44fdbd002" title="add_character" alt="" coords="890,177,996,203"/>
+<area shape="rect" id="node13" href="$error_8c.html#ad7105cbb9467f70c251b8541842c25ea" title="search_argument" alt="" coords="880,276,1006,301"/>
+<area shape="rect" id="node14" href="$error_8c.html#ac47c3cc1355dfa5ac6e250683381a6f0" title="add_string" alt="" coords="901,227,985,252"/>
+<area shape="rect" id="node12" href="$error_8c.html#ac7e9bd08d068851e31a5b6d408004638" title="my_strlen" alt="" coords="1083,203,1162,228"/>
+<area shape="rect" id="node17" href="$native_8c.html#a1abbb089a34d593323cdc9f59e7b9ed4" title="check_native_pointer" alt="" coords="425,203,572,228"/>
+<area shape="rect" id="node19" href="$crowbar_8h.html#aaf9bdec547b71fdbd7e82893991dfd26" title="crb_create_crowbar\l_string" alt="" coords="429,252,568,291"/>
+<area shape="rect" id="node20" href="$string__pool_8c.html#a467ed6f94b5e6413495137961c8120a3" title="alloc_crb_string" alt="" coords="654,259,769,284"/>
+</map>

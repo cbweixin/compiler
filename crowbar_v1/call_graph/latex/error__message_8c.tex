@@ -1,0 +1,61 @@
+\hypertarget{error__message_8c}{}\section{error\+\_\+message.\+c File Reference}
+\label{error__message_8c}\index{error\+\_\+message.\+c@{error\+\_\+message.\+c}}
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}crowbar.\+h\char`\"{}}\\*
+Include dependency graph for error\+\_\+message.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{error__message_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_message_format}{Message\+Format} \hyperlink{error__message_8c_a3fd9f0632665a8969194d8230496b662}{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format} \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{struct_message_format}{Message\+Format} \hyperlink{error__message_8c_a05777b8f423208c1edefc73dedf245b8}{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{error__message_8c_a3fd9f0632665a8969194d8230496b662}{}\index{error\+\_\+message.\+c@{error\+\_\+message.\+c}!crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format}}
+\index{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format}!error\+\_\+message.\+c@{error\+\_\+message.\+c}}
+\subsubsection[{crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Format} crb\+\_\+compile\+\_\+error\+\_\+message\+\_\+format\mbox{[}$\,$\mbox{]}}\label{error__message_8c_a3fd9f0632665a8969194d8230496b662}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"dummy"}\},
+    \{\textcolor{stringliteral}{"syntax error happens around ($(token))"}\},
+    \{\textcolor{stringliteral}{"incorrect character ($(bad\_char))"}\},
+    \{\textcolor{stringliteral}{"function name duplication ($(name))"}\},
+    \{\textcolor{stringliteral}{"dummy"}\},
+\}
+\end{DoxyCode}
+\hypertarget{error__message_8c_a05777b8f423208c1edefc73dedf245b8}{}\index{error\+\_\+message.\+c@{error\+\_\+message.\+c}!crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format}}
+\index{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format@{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format}!error\+\_\+message.\+c@{error\+\_\+message.\+c}}
+\subsubsection[{crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Message\+Format} crb\+\_\+runtime\+\_\+error\+\_\+message\+\_\+format\mbox{[}$\,$\mbox{]}}\label{error__message_8c_a05777b8f423208c1edefc73dedf245b8}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \{\textcolor{stringliteral}{"dummy"}\},
+    \{\textcolor{stringliteral}{"can not find variable ($(name))"}\},
+    \{\textcolor{stringliteral}{"can not find function ($(name))"}\},
+    \{\textcolor{stringliteral}{"passed in parameters are more than expected"}\},
+    \{\textcolor{stringliteral}{"passed in parameters are less than expected"}\},
+    \{\textcolor{stringliteral}{"boolean expression must have a bool type"}\},
+    \{\textcolor{stringliteral}{"the operator of minus must be numerical"}\},
+    \{\textcolor{stringliteral}{"the type of binocular operator is incorrect $(operator)"}\},
+    \{\textcolor{stringliteral}{"$(operator) can not be applied to boolean"}\},
+    \{\textcolor{stringliteral}{"please pass path and operator type of file which need fopen()"}\},
+    \{\textcolor{stringliteral}{"fclose() need to pass in file pointer"}\},
+    \{\textcolor{stringliteral}{"fgets() need to pass in file pointer"}\},
+    \{\textcolor{stringliteral}{"fputs() need to pass in file pointer"}\},
+    \{\textcolor{stringliteral}{"nul can only be applicable for == and !=, can not be applicable for ($(operator))"}\},
+    \{\textcolor{stringliteral}{"can not divide by 0"}\},
+    \{\textcolor{stringliteral}{"global variable $(name) doesn't exist"}\},
+    \{\textcolor{stringliteral}{"can not use global out side of function"}\},
+    \{\textcolor{stringliteral}{"operator $(operator) can not apply to string"}\},
+    \{\textcolor{stringliteral}{"dummy"}\},
+\}
+\end{DoxyCode}

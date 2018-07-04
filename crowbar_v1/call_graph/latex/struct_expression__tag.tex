@@ -1,0 +1,81 @@
+\hypertarget{struct_expression__tag}{}\section{Expression\+\_\+tag Struct Reference}
+\label{struct_expression__tag}\index{Expression\+\_\+tag@{Expression\+\_\+tag}}
+
+
+{\ttfamily \#include $<$crowbar.\+h$>$}
+
+
+
+Collaboration diagram for Expression\+\_\+tag\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_expression__tag__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{crowbar_8h_a51ad9989dafb48362f7e9354d68fe720}{Expression\+Type} \hyperlink{struct_expression__tag_a6e554d04874c28168b1294ad4860c2dc}{type}
+\item 
+int \hyperlink{struct_expression__tag_a00e220318941223a55e140e8ed0abff8}{line\+\_\+number}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{_c_r_b__dev_8h_a5000f2b447c9132c07d7f1cf66134a69}{CRB\_Boolean} \hyperlink{struct_expression__tag_aab2eb6d343ff191cb3017ae63a3588e3}{boolean\_value}\\
+\>int \hyperlink{struct_expression__tag_a5b693b70a19d0fcd9a59861f71c14d7d}{int\_value}\\
+\>double \hyperlink{struct_expression__tag_a23f1bc42ce2726e7c1ab776e88e2529e}{double\_value}\\
+\>char $\ast$ \hyperlink{struct_expression__tag_a850dde0947b60a3a0a0aaf1d1509bbe1}{string\_value}\\
+\>char $\ast$ \hyperlink{struct_expression__tag_a135bf93dc623a22f1f6eab611d65efc4}{identifier}\\
+\>\hyperlink{struct_assign_expression}{AssignExpression} \hyperlink{struct_expression__tag_a889fe74ac3b67e574a1117850019aaad}{assign\_expression}\\
+\>\hyperlink{struct_binary_expression}{BinaryExpression} \hyperlink{struct_expression__tag_aa855e521467183437ce1e72cc6bca675}{binary\_expression}\\
+\>\hyperlink{crowbar_8h_a070c6feb370aad8a9665ca315bf6ed4a}{Expression} $\ast$ \hyperlink{struct_expression__tag_a87097a9f90ba91c0ff09983029b582e9}{minus\_expression}\\
+\>\hyperlink{struct_function_call_expression}{FunctionCallExpression} \hyperlink{struct_expression__tag_ad1e62b0e65d2885da97209927845d444}{function\_call\_expression}\\
+\} \hyperlink{struct_expression__tag_a0bb1fed3e5d9b4a6601d6783eb6bb9c3}{u}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{struct_expression__tag_a889fe74ac3b67e574a1117850019aaad}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!assign\+\_\+expression@{assign\+\_\+expression}}
+\index{assign\+\_\+expression@{assign\+\_\+expression}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{assign\+\_\+expression}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Assign\+Expression} Expression\+\_\+tag\+::assign\+\_\+expression}\label{struct_expression__tag_a889fe74ac3b67e574a1117850019aaad}
+\hypertarget{struct_expression__tag_aa855e521467183437ce1e72cc6bca675}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!binary\+\_\+expression@{binary\+\_\+expression}}
+\index{binary\+\_\+expression@{binary\+\_\+expression}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{binary\+\_\+expression}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Binary\+Expression} Expression\+\_\+tag\+::binary\+\_\+expression}\label{struct_expression__tag_aa855e521467183437ce1e72cc6bca675}
+\hypertarget{struct_expression__tag_aab2eb6d343ff191cb3017ae63a3588e3}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!boolean\+\_\+value@{boolean\+\_\+value}}
+\index{boolean\+\_\+value@{boolean\+\_\+value}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{boolean\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\+R\+B\+\_\+\+Boolean} Expression\+\_\+tag\+::boolean\+\_\+value}\label{struct_expression__tag_aab2eb6d343ff191cb3017ae63a3588e3}
+\hypertarget{struct_expression__tag_a23f1bc42ce2726e7c1ab776e88e2529e}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!double\+\_\+value@{double\+\_\+value}}
+\index{double\+\_\+value@{double\+\_\+value}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{double\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}double Expression\+\_\+tag\+::double\+\_\+value}\label{struct_expression__tag_a23f1bc42ce2726e7c1ab776e88e2529e}
+\hypertarget{struct_expression__tag_ad1e62b0e65d2885da97209927845d444}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!function\+\_\+call\+\_\+expression@{function\+\_\+call\+\_\+expression}}
+\index{function\+\_\+call\+\_\+expression@{function\+\_\+call\+\_\+expression}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{function\+\_\+call\+\_\+expression}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Function\+Call\+Expression} Expression\+\_\+tag\+::function\+\_\+call\+\_\+expression}\label{struct_expression__tag_ad1e62b0e65d2885da97209927845d444}
+\hypertarget{struct_expression__tag_a135bf93dc623a22f1f6eab611d65efc4}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!identifier@{identifier}}
+\index{identifier@{identifier}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{identifier}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Expression\+\_\+tag\+::identifier}\label{struct_expression__tag_a135bf93dc623a22f1f6eab611d65efc4}
+\hypertarget{struct_expression__tag_a5b693b70a19d0fcd9a59861f71c14d7d}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!int\+\_\+value@{int\+\_\+value}}
+\index{int\+\_\+value@{int\+\_\+value}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{int\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}int Expression\+\_\+tag\+::int\+\_\+value}\label{struct_expression__tag_a5b693b70a19d0fcd9a59861f71c14d7d}
+\hypertarget{struct_expression__tag_a00e220318941223a55e140e8ed0abff8}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!line\+\_\+number@{line\+\_\+number}}
+\index{line\+\_\+number@{line\+\_\+number}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{line\+\_\+number}]{\setlength{\rightskip}{0pt plus 5cm}int Expression\+\_\+tag\+::line\+\_\+number}\label{struct_expression__tag_a00e220318941223a55e140e8ed0abff8}
+\hypertarget{struct_expression__tag_a87097a9f90ba91c0ff09983029b582e9}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!minus\+\_\+expression@{minus\+\_\+expression}}
+\index{minus\+\_\+expression@{minus\+\_\+expression}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{minus\+\_\+expression}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression}$\ast$ Expression\+\_\+tag\+::minus\+\_\+expression}\label{struct_expression__tag_a87097a9f90ba91c0ff09983029b582e9}
+\hypertarget{struct_expression__tag_a850dde0947b60a3a0a0aaf1d1509bbe1}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!string\+\_\+value@{string\+\_\+value}}
+\index{string\+\_\+value@{string\+\_\+value}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{string\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Expression\+\_\+tag\+::string\+\_\+value}\label{struct_expression__tag_a850dde0947b60a3a0a0aaf1d1509bbe1}
+\hypertarget{struct_expression__tag_a6e554d04874c28168b1294ad4860c2dc}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!type@{type}}
+\index{type@{type}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expression\+Type} Expression\+\_\+tag\+::type}\label{struct_expression__tag_a6e554d04874c28168b1294ad4860c2dc}
+\hypertarget{struct_expression__tag_a0bb1fed3e5d9b4a6601d6783eb6bb9c3}{}\index{Expression\+\_\+tag@{Expression\+\_\+tag}!u@{u}}
+\index{u@{u}!Expression\+\_\+tag@{Expression\+\_\+tag}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   Expression\+\_\+tag\+::u}\label{struct_expression__tag_a0bb1fed3e5d9b4a6601d6783eb6bb9c3}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{crowbar_8h}{crowbar.\+h}\end{DoxyCompactItemize}

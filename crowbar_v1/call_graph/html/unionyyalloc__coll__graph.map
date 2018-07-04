@@ -1,0 +1,19 @@
+<map id="yyalloc" name="yyalloc">
+<area shape="rect" id="node2" href="$union_y_y_s_t_y_p_e.html" title="YYSTYPE" alt="" coords="2173,264,2255,289"/>
+<area shape="rect" id="node3" href="$struct_parameter_list__tag.html" title="ParameterList_tag" alt="" coords="1890,43,2020,68"/>
+<area shape="rect" id="node4" href="$struct_argument_list__tag.html" title="ArgumentList_tag" alt="" coords="5,500,131,525"/>
+<area shape="rect" id="node7" href="$struct_function_call_expression.html" title="FunctionCallExpression" alt="" coords="239,500,401,525"/>
+<area shape="rect" id="node5" href="$struct_expression__tag.html" title="Expression_tag" alt="" coords="598,551,712,576"/>
+<area shape="rect" id="node6" href="$struct_assign_expression.html" title="AssignExpression" alt="" coords="874,809,1001,835"/>
+<area shape="rect" id="node8" href="$struct_binary_expression.html" title="BinaryExpression" alt="" coords="875,556,1000,581"/>
+<area shape="rect" id="node9" href="$struct_statement__tag.html" title="Statement_tag" alt="" coords="1393,505,1501,531"/>
+<area shape="rect" id="node12" href="$struct_while_statement.html" title="WhileStatement" alt="" coords="2156,556,2272,581"/>
+<area shape="rect" id="node15" href="$struct_return_statement.html" title="ReturnStatement" alt="" coords="1025,505,1147,531"/>
+<area shape="rect" id="node16" href="$struct_for_statement.html" title="ForStatement" alt="" coords="2163,684,2265,709"/>
+<area shape="rect" id="node17" href="$struct_if_statement.html" title="IfStatement" alt="" coords="1187,381,1276,407"/>
+<area shape="rect" id="node18" href="$struct_elsif__tag.html" title="Elsif_tag" alt="" coords="901,272,974,297"/>
+<area shape="rect" id="node14" href="$struct_statement_list__tag.html" title="StatementList_tag" alt="" coords="1627,505,1756,531"/>
+<area shape="rect" id="node10" href="$struct_global_statement.html" title="GlobalStatement" alt="" coords="1171,447,1292,472"/>
+<area shape="rect" id="node11" href="$struct_identifier_list__tag.html" title="IdentifierList_tag" alt="" coords="878,381,997,407"/>
+<area shape="rect" id="node13" href="$struct_block.html" title="Block" alt="" coords="1928,505,1982,531"/>
+</map>
