@@ -332,6 +332,7 @@ function gtestfunc2() {
     print("gtest.." + gtest + "\n");
 }
 
+print("gtest before is : "+gtest + "\n");
 gtestfunc();
 gtestfunc2();
 print("gtest.." + gtest + "\n");

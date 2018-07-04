@@ -1,1 +1,7 @@
-print("hoge\tpiyo\n\\n");
+function func(a) {
+    return a;
+}
+
+a = func("abc");
+
+print("a.." + a + "\n");

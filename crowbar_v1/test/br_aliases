@@ -1,11 +1,29 @@
 command alias bfl breakpoint set -f %1 -l %2
+command alias bfn breakpoint set -n %1
+bfn crb_create_if_statement
+bfn crb_create_block
+bfn crb_create_boolean_expression
+bfn crb_chain_statement_list
+bfn crb_chain_parameter
+bfn crb_create_return_statement
+bfn crb_create_function_call_expression
+bfn crb_function_define
+bfn execute_if_statement
+bfn execute_elsif
+bfn crb_create_for_statement
+bfn crb_create_break_statement
+bfn crb_refer_string
+bfn crb_release_string
+bfn crb_literal_to_crb_string
+bfn crb_create_crowbar_string
 bfl main.c 21
-bfl create.c 121
-bfl create.c 152
-bfl create.c 207
-bfl execute.c 298
-bfl eval.c 746
-bfl eval.c 683
-bfl eval.c 656
-bfl eval.c 587
+#bfl string.c 15
+#bfl string.c 45
+#bfl string.c 58
+#bfl string.c 109
+#bfl execute.c 298
+#bfl eval.c 746
+#bfl eval.c 683
+#bfl eval.c 656
+#bfl eval.c 587
 

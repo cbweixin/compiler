@@ -11,10 +11,13 @@ static int st_look_ahead_token_exists;
 static void
 my_get_token(Token *token)
 {
-    if (st_look_ahead_token_exists) {
+    if (st_look_ahead_token_exists)
+    {
         *token = st_look_ahead_token;
         st_look_ahead_token_exists = 0;
-    } else {
+    }
+    else
+    {
         get_token(token);
     }
 }
@@ -37,26 +40,36 @@ parse_primary_expression()
     int minus_flag = 0;
 
     my_get_token(&token);
-    if (token.kind == SUB_OPERATOR_TOKEN) {
+    if (token.kind == SUB_OPERATOR_TOKEN)
+    {
         minus_flag = 1;
-    } else {
+    }
+    else
+    {
         unget_token(&token);
     }
 
     my_get_token(&token);
-    if (token.kind == NUMBER_TOKEN) {
+    if (token.kind == NUMBER_TOKEN)
+    {
         value = token.value;
-    } else if (token.kind == LEFT_PAREN_TOKEN) {
+    }
+    else if (token.kind == LEFT_PAREN_TOKEN)
+    {
         value = parse_expression();
         my_get_token(&token);
-        if (token.kind != RIGHT_PAREN_TOKEN) {
+        if (token.kind != RIGHT_PAREN_TOKEN)
+        {
             fprintf(stderr, "missing ')' error.\n");
             exit(1);
         }
-    } else {
+    }
+    else
+    {
         unget_token(&token);
     }
-    if (minus_flag) {
+    if (minus_flag)
+    {
         value = -value;
     }
     return value;
@@ -70,17 +83,22 @@ parse_term()
     Token token;
 
     v1 = parse_primary_expression();
-    for (;;) {
+    for (;;)
+    {
         my_get_token(&token);
         if (token.kind != MUL_OPERATOR_TOKEN
-            && token.kind != DIV_OPERATOR_TOKEN) {
+                && token.kind != DIV_OPERATOR_TOKEN)
+        {
             unget_token(&token);
             break;
         }
         v2 = parse_primary_expression();
-        if (token.kind == MUL_OPERATOR_TOKEN) {
+        if (token.kind == MUL_OPERATOR_TOKEN)
+        {
             v1 *= v2;
-        } else if (token.kind == DIV_OPERATOR_TOKEN) {
+        }
+        else if (token.kind == DIV_OPERATOR_TOKEN)
+        {
             v1 /= v2;
         }
     }
@@ -96,19 +114,26 @@ parse_expression()
 
 
     v1 = parse_term();
-    for (;;) {
+    for (;;)
+    {
         my_get_token(&token);
-        if (token.kind != ADD_OPERATOR_TOKEN 
-            && token.kind != SUB_OPERATOR_TOKEN) {
+        if (token.kind != ADD_OPERATOR_TOKEN
+                && token.kind != SUB_OPERATOR_TOKEN)
+        {
             unget_token(&token);
             break;
         }
         v2 = parse_term();
-        if (token.kind == ADD_OPERATOR_TOKEN) {
+        if (token.kind == ADD_OPERATOR_TOKEN)
+        {
             v1 += v2;
-        } else if (token.kind == SUB_OPERATOR_TOKEN) {
+        }
+        else if (token.kind == SUB_OPERATOR_TOKEN)
+        {
             v1 -= v2;
-        } else {
+        }
+        else
+        {
             unget_token(&token);
         }
     }
@@ -133,7 +158,8 @@ main(int argc, char **argv)
     char line[LINE_BUF_SIZE];
     double value;
 
-    while (fgets(line, LINE_BUF_SIZE, stdin) != NULL) {
+    while (fgets(line, LINE_BUF_SIZE, stdin) != NULL)
+    {
         set_line(line);
         value = parse_line();
         printf(">>%f\n", value);
@@ -141,4 +167,4 @@ main(int argc, char **argv)
 
     return 0;
 }
-#endif 
+#endif
