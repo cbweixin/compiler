@@ -8,6 +8,9 @@ public class ASTLeaf extends ASTree {
     private static ArrayList<ASTree> empty = new ArrayList<ASTree>();
     protected Token token;
 
+    public ASTLeaf(Token t) {
+        token = t;
+    }
     @Override
     public ASTree child(int i) {
         throw new IndexOutOfBoundsException();

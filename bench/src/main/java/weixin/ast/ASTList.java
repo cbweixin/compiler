@@ -5,6 +5,10 @@ import java.util.List;
 public class ASTList extends ASTree {
     protected List<ASTree> children;
 
+    public ASTList(List<ASTree> list) {
+        children = list;
+    }
+
     @Override
     public ASTree child(int i) {
         return children.get(i);
