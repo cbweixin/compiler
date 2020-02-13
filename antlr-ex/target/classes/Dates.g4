@@ -1,0 +1,12 @@
+grammar Dates;
+r: (element (divider? element)*);
+element: (daterange | singledate);
+daterange: date minus date;
+singledate: date;
+minus: '-' | '–';
+divider: '/';
+date: day '.' month ('.')?;
+day: INT;
+month: INT;
+INT: [0-9]+;
+WS: [ \t\r\n]+ -> skip ;
