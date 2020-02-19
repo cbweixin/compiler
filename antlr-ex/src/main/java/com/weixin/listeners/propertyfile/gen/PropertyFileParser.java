@@ -17,7 +17,7 @@ public class PropertyFileParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, ID=3, STRING=4;
+		T__0=1, T__1=2, ID=3, STRING=4, LINE_COMMENT=5;
 	public static final int
 		RULE_file = 0, RULE_prop = 1;
 	private static String[] makeRuleNames() {
@@ -35,7 +35,7 @@ public class PropertyFileParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, "ID", "STRING"
+			null, null, null, "ID", "STRING", "LINE_COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -199,7 +199,7 @@ public class PropertyFileParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\6\21\4\2\t\2\4\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\7\21\4\2\t\2\4\3"+
 		"\t\3\3\2\6\2\b\n\2\r\2\16\2\t\3\3\3\3\3\3\3\3\3\3\3\3\2\2\4\2\4\2\2\2"+
 		"\17\2\7\3\2\2\2\4\13\3\2\2\2\6\b\5\4\3\2\7\6\3\2\2\2\b\t\3\2\2\2\t\7\3"+
 		"\2\2\2\t\n\3\2\2\2\n\3\3\2\2\2\13\f\7\5\2\2\f\r\7\3\2\2\r\16\7\6\2\2\16"+
