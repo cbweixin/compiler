@@ -1,5 +1,9 @@
-package com.weixin.listeners.propertyfile.gen;
+package com.weixin.listeners.propertyfile;
 
+import com.weixin.listeners.propertyfile.gen.PropertyFileBaseListener;
+import com.weixin.listeners.propertyfile.gen.PropertyFileLexer;
+import com.weixin.listeners.propertyfile.gen.PropertyFileParser;
+import com.weixin.listeners.propertyfile.gen.PropertyFileParser.PropContext;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +21,7 @@ public class TestPropertyFile {
     Map<String, String> props = new OrderedHashMap<String, String>();
 
     @Override
-    public void exitProp(PropertyFileParser.PropContext ctx) {
+    public void exitProp(PropContext ctx) {
       String id = ctx.ID().getText(); // prop : ID '=' STRING '\n' ;
       String value = ctx.STRING().getText();
       System.out.printf("id : %s, value : %s\n", id, value);
