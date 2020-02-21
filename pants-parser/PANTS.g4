@@ -23,7 +23,7 @@ dependencies_item : DEPENDENCIES '=' '[' dependent_list ']' ','? NEWLINE?;
 dependent_list : (dependent_entry)* ;
 dependent_entry : STRING ','? NEWLINE?;
 sources_item : SOURCES '=' GLOBS'('STRING')' ','?;
-main_item : MAIN '=' '"' TEXT '"' ',';
+main_item : MAIN '=' STRING2 ','?;
 
 
 
@@ -37,7 +37,7 @@ GLOBS : 'globs';
 MAIN : 'main';
 STRING :  '\'' (ESC | ~["\\])*? '\'' ;
 NEWLINE :'\r'? '\n' ;     // return newlines to parser (end-statement signal)
-TEXT : (ESC | ~["\\])*? ;
+STRING2 : '"'(ESC | ~["\\]).*?'"' ;
 
 fragment ESC :   '\\' (["\\/bfnrt] | UNICODE) ;
 fragment UNICODE : 'u' HEX HEX HEX HEX ;
