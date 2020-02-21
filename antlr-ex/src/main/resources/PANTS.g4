@@ -29,7 +29,7 @@ main_item : MAIN '=' STRING ',';
 
 JAVA_LIBRARY : 'java_library';
 JAR_LIBRARY : 'jar_library';
-JVM_LIBRARY : 'jvm_library';
+JVM_LIBRARY : 'jvm_binary';
 NAME : 'name';
 DEPENDENCIES : 'dependencies';
 SOURCES : 'sources';
