@@ -1,0 +1,11 @@
+jar_library(
+  name = 'core',
+  jars = [
+    scala_jar(org = 'com.twitter', name = 'finagle-core', rev = FINAGLE_REV, excludes = [
+      exclude(org = 'io.netty', name = 'netty'),
+    ])
+  ],
+  dependencies = [
+    '3rdparty/jvm/io/netty:netty',
+  ]
+)

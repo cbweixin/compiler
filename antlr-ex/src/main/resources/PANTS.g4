@@ -1,0 +1,45 @@
+grammar PANTS;
+
+pants : stmt_list ;
+stmt_list : (stmt)* ;
+stmt : java_lib_stmt
+     | jvm_lib_stmt
+     | jar_lib_stmt
+     ;
+
+java_lib_stmt : JAVA_LIBRARY '(' lib_item_list ')' ;
+jar_lib_stmt : JAR_LIBRARY '(' lib_item_list ')' ;
+jvm_lib_stmt : JVM_LIBRARY '(' lib_item_list ')' ;
+
+lib_item_list : (lib_item '\n'? )*;
+lib_item : name_item
+         | dependencies_item
+         | sources_item
+         | main_item
+         ;
+
+name_item : NAME '=' STRING ',';
+dependencies_item : DEPENDENCIES '=' '[' dependent_list ']' ',' '\n'?;
+dependent_list : (dependent_entry)* ;
+dependent_entry : STRING ',' '\n'?;
+sources_item : SOURCES '=' GLOBS'('STRING')' ',';
+main_item : MAIN '=' STRING ',';
+
+
+
+JAVA_LIBRARY : 'java_library';
+JAR_LIBRARY : 'jar_library';
+JVM_LIBRARY : 'jvm_library';
+NAME : 'name';
+DEPENDENCIES : 'dependencies';
+SOURCES : 'sources';
+GLOBS : 'globs';
+MAIN : 'main';
+STRING :  '\'' (ESC | ~["\\])*? '\'' ;
+
+fragment ESC :   '\\' (["\\/bfnrt] | UNICODE) ;
+fragment UNICODE : 'u' HEX HEX HEX HEX ;
+fragment HEX : [0-9a-fA-F] ;
+
+WS  :   [ \t\r\n]+ -> skip ; // Define whitespace rule, toss it out
+
