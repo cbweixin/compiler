@@ -30,7 +30,12 @@ scala_jar_entries: (scala_jar_entry)*;
 java_jar_entry: JAR '(' jar_coordinates ')' ','? NEWLINE?;
 scala_jar_entry: SCALA_JAR '(' jar_coordinates ')' ','? NEWLINE?;
 
-jar_coordinates: ORG '=' SINGLE_QUOTED_STRING ',' NAME '=' SINGLE_QUOTED_STRING ',' REV '=' SINGLE_QUOTED_STRING ','?;
+jar_coordinate: ORG '=' SINGLE_QUOTED_STRING ','? 
+				| NAME '=' SINGLE_QUOTED_STRING ','? 
+				| REV '=' SINGLE_QUOTED_STRING ','?;
+
+jar_coordinates: (jar_coordinate)*;
+
 name_item: NAME '=' SINGLE_QUOTED_STRING ',';
 dependencies_item:
 	DEPENDENCIES '=' '[' dependent_list ']' ','? NEWLINE?;

@@ -1,6 +1,7 @@
 jar_library(
   name = 'java-jwt',
   jars = [
-    jar(org='com.auth0', name='java-jwt', rev='3.4.0')
+    jar(org='com.auth0', name='java-jwt', rev='3.4.0'),
+    jar(org='com.auth0', name='java-jwt', rev='3.4.0'),
   ]
 )
