@@ -1,5 +1,4 @@
-java_library(
-    name='lib',
+java_library(name='lib',
     dependencies=[
       '3rdparty/jvm/org/apache/flink:connector-kafka',
       '3rdparty/jvm/org/apache/flink:connector-kinesis',

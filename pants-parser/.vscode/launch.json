@@ -7,7 +7,7 @@
             "request": "launch",
             "input": "pants3.txt",
             "grammar": "PANTS.g4",
-            "startRule": "start",
+            "startRule": "pants",
             "printParseTree": true,
             "visualParseTree": true
         }

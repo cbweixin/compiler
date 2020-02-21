@@ -15,13 +15,13 @@ lib_item:
 	| sources_item
 	| main_item;
 
-name_item: NAME '=' STRING ',';
+name_item: NAME '=' SINGLE_QUOTED_STRING ',';
 dependencies_item:
 	DEPENDENCIES '=' '[' dependent_list ']' ','? NEWLINE?;
 dependent_list: (dependent_entry)*;
-dependent_entry: STRING ','? NEWLINE?;
-sources_item: SOURCES '=' GLOBS '(' STRING ')' ','?;
-main_item: MAIN '=' STRING2 ','?;
+dependent_entry: SINGLE_QUOTED_STRING ','? NEWLINE?;
+sources_item: SOURCES '=' GLOBS '(' SINGLE_QUOTED_STRING ')' ','?;
+main_item: MAIN '=' DOUBLE_QUOTED_STRING ','?;
 
 JAVA_LIBRARY: 'java_library';
 JAR_LIBRARY: 'jar_library';
@@ -31,10 +31,10 @@ DEPENDENCIES: 'dependencies';
 SOURCES: 'sources';
 GLOBS: 'globs';
 MAIN: 'main';
-STRING: '\'' (ESC | ~["\\])*? '\'';
+SINGLE_QUOTED_STRING: '\'' (ESC | ~["\\])*? '\''; 
 NEWLINE:
 	'\r'? '\n'; // return newlines to parser (end-statement signal)
-STRING2: '"' (ESC | ~["\\]) .*? '"';
+DOUBLE_QUOTED_STRING: '"' (ESC | ~["\\]) .*? '"';
 
 fragment ESC: '\\' (["\\/bfnrt] | UNICODE);
 fragment UNICODE: 'u' HEX HEX HEX HEX;

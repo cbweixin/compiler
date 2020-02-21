@@ -18,7 +18,7 @@ public class PANTSParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, JAVA_LIBRARY=7, JAR_LIBRARY=8, 
 		JVM_LIBRARY=9, NAME=10, DEPENDENCIES=11, SOURCES=12, GLOBS=13, MAIN=14, 
-		STRING=15, NEWLINE=16, STRING2=17, WS=18;
+		SINGLE_QUOTED_STRING=15, NEWLINE=16, DOUBLE_QUOTED_STRING=17, WS=18;
 	public static final int
 		RULE_pants = 0, RULE_stmt_list = 1, RULE_stmt = 2, RULE_java_lib_stmt = 3, 
 		RULE_jar_lib_stmt = 4, RULE_jvm_lib_stmt = 5, RULE_lib_item_list = 6, 
@@ -36,8 +36,8 @@ public class PANTSParser extends Parser {
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, "JAVA_LIBRARY", "JAR_LIBRARY", 
-		"JVM_LIBRARY", "NAME", "DEPENDENCIES", "SOURCES", "GLOBS", "MAIN", "STRING", 
-		"NEWLINE", "STRING2", "WS"
+		"JVM_LIBRARY", "NAME", "DEPENDENCIES", "SOURCES", "GLOBS", "MAIN", "SINGLE_QUOTED_STRING", 
+		"NEWLINE", "DOUBLE_QUOTED_STRING", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -471,7 +471,7 @@ public class PANTSParser extends Parser {
 
 	public static class Name_itemContext extends ParserRuleContext {
 		public TerminalNode NAME() { return getToken(PANTSParser.NAME, 0); }
-		public TerminalNode STRING() { return getToken(PANTSParser.STRING, 0); }
+		public TerminalNode SINGLE_QUOTED_STRING() { return getToken(PANTSParser.SINGLE_QUOTED_STRING, 0); }
 		public Name_itemContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -489,7 +489,7 @@ public class PANTSParser extends Parser {
 			setState(72);
 			match(T__2);
 			setState(73);
-			match(STRING);
+			match(SINGLE_QUOTED_STRING);
 			setState(74);
 			match(T__3);
 			}
@@ -590,7 +590,7 @@ public class PANTSParser extends Parser {
 			setState(90);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==STRING) {
+			while (_la==SINGLE_QUOTED_STRING) {
 				{
 				{
 				setState(87);
@@ -615,7 +615,7 @@ public class PANTSParser extends Parser {
 	}
 
 	public static class Dependent_entryContext extends ParserRuleContext {
-		public TerminalNode STRING() { return getToken(PANTSParser.STRING, 0); }
+		public TerminalNode SINGLE_QUOTED_STRING() { return getToken(PANTSParser.SINGLE_QUOTED_STRING, 0); }
 		public TerminalNode NEWLINE() { return getToken(PANTSParser.NEWLINE, 0); }
 		public Dependent_entryContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -631,7 +631,7 @@ public class PANTSParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(93);
-			match(STRING);
+			match(SINGLE_QUOTED_STRING);
 			setState(95);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
@@ -668,7 +668,7 @@ public class PANTSParser extends Parser {
 	public static class Sources_itemContext extends ParserRuleContext {
 		public TerminalNode SOURCES() { return getToken(PANTSParser.SOURCES, 0); }
 		public TerminalNode GLOBS() { return getToken(PANTSParser.GLOBS, 0); }
-		public TerminalNode STRING() { return getToken(PANTSParser.STRING, 0); }
+		public TerminalNode SINGLE_QUOTED_STRING() { return getToken(PANTSParser.SINGLE_QUOTED_STRING, 0); }
 		public Sources_itemContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -691,7 +691,7 @@ public class PANTSParser extends Parser {
 			setState(103);
 			match(T__0);
 			setState(104);
-			match(STRING);
+			match(SINGLE_QUOTED_STRING);
 			setState(105);
 			match(T__1);
 			setState(107);
@@ -719,7 +719,7 @@ public class PANTSParser extends Parser {
 
 	public static class Main_itemContext extends ParserRuleContext {
 		public TerminalNode MAIN() { return getToken(PANTSParser.MAIN, 0); }
-		public TerminalNode STRING2() { return getToken(PANTSParser.STRING2, 0); }
+		public TerminalNode DOUBLE_QUOTED_STRING() { return getToken(PANTSParser.DOUBLE_QUOTED_STRING, 0); }
 		public Main_itemContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -738,7 +738,7 @@ public class PANTSParser extends Parser {
 			setState(110);
 			match(T__2);
 			setState(111);
-			match(STRING2);
+			match(DOUBLE_QUOTED_STRING);
 			setState(113);
 			_errHandler.sync(this);
 			_la = _input.LA(1);

@@ -18,7 +18,7 @@ public class PANTSLexer extends Lexer {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, JAVA_LIBRARY=7, JAR_LIBRARY=8, 
 		JVM_LIBRARY=9, NAME=10, DEPENDENCIES=11, SOURCES=12, GLOBS=13, MAIN=14, 
-		STRING=15, NEWLINE=16, STRING2=17, WS=18;
+		SINGLE_QUOTED_STRING=15, NEWLINE=16, DOUBLE_QUOTED_STRING=17, WS=18;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -29,8 +29,8 @@ public class PANTSLexer extends Lexer {
 
 	public static final String[] ruleNames = {
 		"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "JAVA_LIBRARY", "JAR_LIBRARY", 
-		"JVM_LIBRARY", "NAME", "DEPENDENCIES", "SOURCES", "GLOBS", "MAIN", "STRING", 
-		"NEWLINE", "STRING2", "ESC", "UNICODE", "HEX", "WS"
+		"JVM_LIBRARY", "NAME", "DEPENDENCIES", "SOURCES", "GLOBS", "MAIN", "SINGLE_QUOTED_STRING", 
+		"NEWLINE", "DOUBLE_QUOTED_STRING", "ESC", "UNICODE", "HEX", "WS"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -39,8 +39,8 @@ public class PANTSLexer extends Lexer {
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, "JAVA_LIBRARY", "JAR_LIBRARY", 
-		"JVM_LIBRARY", "NAME", "DEPENDENCIES", "SOURCES", "GLOBS", "MAIN", "STRING", 
-		"NEWLINE", "STRING2", "WS"
+		"JVM_LIBRARY", "NAME", "DEPENDENCIES", "SOURCES", "GLOBS", "MAIN", "SINGLE_QUOTED_STRING", 
+		"NEWLINE", "DOUBLE_QUOTED_STRING", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
