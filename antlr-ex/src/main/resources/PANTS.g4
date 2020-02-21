@@ -11,7 +11,7 @@ java_lib_stmt : JAVA_LIBRARY '(' lib_item_list ')' ;
 jar_lib_stmt : JAR_LIBRARY '(' lib_item_list ')' ;
 jvm_lib_stmt : JVM_LIBRARY '(' lib_item_list ')' ;
 
-lib_item_list : (lib_item '\n'? )*;
+lib_item_list : (lib_item NEWLINE? )*;
 lib_item : name_item
          | dependencies_item
          | sources_item
@@ -19,10 +19,10 @@ lib_item : name_item
          ;
 
 name_item : NAME '=' STRING ',';
-dependencies_item : DEPENDENCIES '=' '[' dependent_list ']' ',' '\n'?;
+dependencies_item : DEPENDENCIES '=' '[' dependent_list ']' ','? NEWLINE?;
 dependent_list : (dependent_entry)* ;
-dependent_entry : STRING ',' '\n'?;
-sources_item : SOURCES '=' GLOBS'('STRING')' ',';
+dependent_entry : STRING ','? NEWLINE?;
+sources_item : SOURCES '=' GLOBS'('STRING')' ','?;
 main_item : MAIN '=' STRING ',';
 
 
@@ -36,6 +36,7 @@ SOURCES : 'sources';
 GLOBS : 'globs';
 MAIN : 'main';
 STRING :  '\'' (ESC | ~["\\])*? '\'' ;
+NEWLINE :'\r'? '\n' ;     // return newlines to parser (end-statement signal)
 
 fragment ESC :   '\\' (["\\/bfnrt] | UNICODE) ;
 fragment UNICODE : 'u' HEX HEX HEX HEX ;
