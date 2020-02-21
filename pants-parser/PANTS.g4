@@ -5,7 +5,7 @@ stmt_list: (stmt)*;
 stmt: java_lib_stmt | jvm_lib_stmt | jar_lib_stmt;
 
 java_lib_stmt: JAVA_LIBRARY '(' lib_item_list ')';
-jar_lib_stmt: JAR_LIBRARY '(' lib_item_list ')';
+jar_lib_stmt: JAR_LIBRARY '(' jars_item_list ')';
 jvm_lib_stmt: JVM_LIBRARY '(' lib_item_list ')';
 
 lib_item_list: (lib_item NEWLINE?)*;
@@ -15,6 +15,22 @@ lib_item:
 	| sources_item
 	| main_item;
 
+
+jars_item_list : (jars_item NEWLINE?)*;
+jars_item : name_item
+		| dependencies_item
+		| java_jar_list
+		| scala_jar_list
+		;
+
+java_jar_list : JARS '=' '[' java_jar_entries ']' ','? NEWLINE?;
+scala_jar_list : SCALA_JAR '=' '[' scala_jar_entries ']' ','? NEWLINE? ;
+java_jar_entries : (java_jar_entry)*;
+scala_jar_entries: (scala_jar_entry)*;
+java_jar_entry: JAR '(' jar_coordinates ')' ','? NEWLINE?;
+scala_jar_entry: SCALA_JAR '(' jar_coordinates ')' ','? NEWLINE?;
+
+jar_coordinates: ORG '=' SINGLE_QUOTED_STRING ',' NAME '=' SINGLE_QUOTED_STRING ',' REV '=' SINGLE_QUOTED_STRING ','?;
 name_item: NAME '=' SINGLE_QUOTED_STRING ',';
 dependencies_item:
 	DEPENDENCIES '=' '[' dependent_list ']' ','? NEWLINE?;
@@ -26,7 +42,12 @@ main_item: MAIN '=' DOUBLE_QUOTED_STRING ','?;
 JAVA_LIBRARY: 'java_library';
 JAR_LIBRARY: 'jar_library';
 JVM_LIBRARY: 'jvm_binary';
+JARS: 'jars';
+JAR: 'jar';
+SCALA_JAR: 'scala_jar';
 NAME: 'name';
+ORG: 'org';
+REV: 'rev';
 DEPENDENCIES: 'dependencies';
 SOURCES: 'sources';
 GLOBS: 'globs';

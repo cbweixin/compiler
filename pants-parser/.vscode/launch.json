@@ -5,7 +5,7 @@
             "name": "Debug ANTLR4 grammar",
             "type": "antlr-debug",
             "request": "launch",
-            "input": "pants3.txt",
+            "input": "pants4.txt",
             "grammar": "PANTS.g4",
             "startRule": "pants",
             "printParseTree": true,
