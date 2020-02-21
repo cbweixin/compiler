@@ -1,0 +1,16 @@
+java_library(
+    name='lib',
+    dependencies=[
+      '3rdparty/jvm/org/apache/flink:connector-kafka',
+      '3rdparty/jvm/org/apache/flink:connector-kinesis',
+      '3rdparty/jvm/org/apache/flink:streaming-java',
+      'backend/src/java/com/tinder/backend/shared/clients/dynamo',
+      'backend/src/java/com/tinder/backend/shared/common',
+      'backend/src/java/com/tinder/backend/shared/config',
+      'backend/src/java/com/tinder/backend/shared/model/dynamodb/serialization',
+      'chipotle/src/java/com/tinder/chipotle/dynamodb/flink/serialization',
+      'backend/src/resources/dynamo',
+    ],
+    sources=globs('*.java')
+)
+
