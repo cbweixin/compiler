@@ -16,9 +16,9 @@ public class PANTSParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, JAVA_LIBRARY=7, JAR_LIBRARY=8, 
-		JVM_LIBRARY=9, NAME=10, DEPENDENCIES=11, SOURCES=12, GLOBS=13, MAIN=14, 
-		STRING=15, NEWLINE=16, STRING2=17, WS=18;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, JAVA_LIBRARY=8, 
+		JAR_LIBRARY=9, JVM_LIBRARY=10, NAME=11, DEPENDENCIES=12, SOURCES=13, GLOBS=14, 
+		MAIN=15, STRING=16, NEWLINE=17, STRING2=18, TEXT=19, WS=20;
 	public static final int
 		RULE_pants = 0, RULE_stmt_list = 1, RULE_stmt = 2, RULE_java_lib_stmt = 3, 
 		RULE_jar_lib_stmt = 4, RULE_jvm_lib_stmt = 5, RULE_lib_item_list = 6, 
@@ -31,13 +31,14 @@ public class PANTSParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'('", "')'", "'='", "','", "'['", "']'", "'java_library'", "'jar_library'", 
-		"'jvm_binary'", "'name'", "'dependencies'", "'sources'", "'globs'", "'main'"
+		null, "'('", "')'", "'='", "'''", "','", "'['", "']'", "'java_library'", 
+		"'jar_library'", "'jvm_binary'", "'name'", "'dependencies'", "'sources'", 
+		"'globs'", "'main'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, null, null, "JAVA_LIBRARY", "JAR_LIBRARY", 
+		null, null, null, null, null, null, null, null, "JAVA_LIBRARY", "JAR_LIBRARY", 
 		"JVM_LIBRARY", "NAME", "DEPENDENCIES", "SOURCES", "GLOBS", "MAIN", "STRING", 
-		"NEWLINE", "STRING2", "WS"
+		"NEWLINE", "STRING2", "TEXT", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -471,7 +472,7 @@ public class PANTSParser extends Parser {
 
 	public static class Name_itemContext extends ParserRuleContext {
 		public TerminalNode NAME() { return getToken(PANTSParser.NAME, 0); }
-		public TerminalNode STRING() { return getToken(PANTSParser.STRING, 0); }
+		public TerminalNode TEXT() { return getToken(PANTSParser.TEXT, 0); }
 		public Name_itemContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -489,9 +490,13 @@ public class PANTSParser extends Parser {
 			setState(72);
 			match(T__2);
 			setState(73);
-			match(STRING);
-			setState(74);
 			match(T__3);
+			setState(74);
+			match(TEXT);
+			setState(75);
+			match(T__3);
+			setState(76);
+			match(T__4);
 			}
 		}
 		catch (RecognitionException re) {
@@ -524,32 +529,32 @@ public class PANTSParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
-			match(DEPENDENCIES);
-			setState(77);
-			match(T__2);
 			setState(78);
-			match(T__4);
+			match(DEPENDENCIES);
 			setState(79);
-			dependent_list();
+			match(T__2);
 			setState(80);
 			match(T__5);
+			setState(81);
+			dependent_list();
 			setState(82);
+			match(T__6);
+			setState(84);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__3) {
+			if (_la==T__4) {
 				{
-				setState(81);
-				match(T__3);
+				setState(83);
+				match(T__4);
 				}
 			}
 
-			setState(85);
+			setState(87);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				{
-				setState(84);
+				setState(86);
 				match(NEWLINE);
 				}
 				break;
@@ -587,17 +592,17 @@ public class PANTSParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(90);
+			setState(92);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==STRING) {
 				{
 				{
-				setState(87);
+				setState(89);
 				dependent_entry();
 				}
 				}
-				setState(92);
+				setState(94);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -630,24 +635,24 @@ public class PANTSParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(93);
-			match(STRING);
 			setState(95);
+			match(STRING);
+			setState(97);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__3) {
+			if (_la==T__4) {
 				{
-				setState(94);
-				match(T__3);
+				setState(96);
+				match(T__4);
 				}
 			}
 
-			setState(98);
+			setState(100);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==NEWLINE) {
 				{
-				setState(97);
+				setState(99);
 				match(NEWLINE);
 				}
 			}
@@ -682,25 +687,25 @@ public class PANTSParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(100);
-			match(SOURCES);
-			setState(101);
-			match(T__2);
 			setState(102);
-			match(GLOBS);
+			match(SOURCES);
 			setState(103);
-			match(T__0);
+			match(T__2);
 			setState(104);
-			match(STRING);
+			match(GLOBS);
 			setState(105);
-			match(T__1);
+			match(T__0);
+			setState(106);
+			match(STRING);
 			setState(107);
+			match(T__1);
+			setState(109);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__3) {
+			if (_la==T__4) {
 				{
-				setState(106);
-				match(T__3);
+				setState(108);
+				match(T__4);
 				}
 			}
 
@@ -733,19 +738,19 @@ public class PANTSParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(109);
-			match(MAIN);
-			setState(110);
-			match(T__2);
 			setState(111);
-			match(STRING2);
+			match(MAIN);
+			setState(112);
+			match(T__2);
 			setState(113);
+			match(STRING2);
+			setState(115);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if (_la==T__3) {
+			if (_la==T__4) {
 				{
-				setState(112);
-				match(T__3);
+				setState(114);
+				match(T__4);
 				}
 			}
 
@@ -763,34 +768,34 @@ public class PANTSParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\24v\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26x\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
 		"\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\3\2\3\2\3\3\7\3\"\n\3\f\3\16\3%\13"+
 		"\3\3\4\3\4\3\4\5\4*\n\4\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\7\3"+
 		"\7\3\7\3\7\3\7\3\b\3\b\5\b=\n\b\7\b?\n\b\f\b\16\bB\13\b\3\t\3\t\3\t\3"+
-		"\t\5\tH\n\t\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13\5\13U\n"+
-		"\13\3\13\5\13X\n\13\3\f\7\f[\n\f\f\f\16\f^\13\f\3\r\3\r\5\rb\n\r\3\r\5"+
-		"\re\n\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16n\n\16\3\17\3\17\3\17\3"+
-		"\17\5\17t\n\17\3\17\2\2\20\2\4\6\b\n\f\16\20\22\24\26\30\32\34\2\2\2v"+
-		"\2\36\3\2\2\2\4#\3\2\2\2\6)\3\2\2\2\b+\3\2\2\2\n\60\3\2\2\2\f\65\3\2\2"+
-		"\2\16@\3\2\2\2\20G\3\2\2\2\22I\3\2\2\2\24N\3\2\2\2\26\\\3\2\2\2\30_\3"+
-		"\2\2\2\32f\3\2\2\2\34o\3\2\2\2\36\37\5\4\3\2\37\3\3\2\2\2 \"\5\6\4\2!"+
-		" \3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$\5\3\2\2\2%#\3\2\2\2&*\5\b\5"+
-		"\2\'*\5\f\7\2(*\5\n\6\2)&\3\2\2\2)\'\3\2\2\2)(\3\2\2\2*\7\3\2\2\2+,\7"+
-		"\t\2\2,-\7\3\2\2-.\5\16\b\2./\7\4\2\2/\t\3\2\2\2\60\61\7\n\2\2\61\62\7"+
-		"\3\2\2\62\63\5\16\b\2\63\64\7\4\2\2\64\13\3\2\2\2\65\66\7\13\2\2\66\67"+
-		"\7\3\2\2\678\5\16\b\289\7\4\2\29\r\3\2\2\2:<\5\20\t\2;=\7\22\2\2<;\3\2"+
+		"\t\5\tH\n\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13"+
+		"\5\13W\n\13\3\13\5\13Z\n\13\3\f\7\f]\n\f\f\f\16\f`\13\f\3\r\3\r\5\rd\n"+
+		"\r\3\r\5\rg\n\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16p\n\16\3\17\3\17"+
+		"\3\17\3\17\5\17v\n\17\3\17\2\2\20\2\4\6\b\n\f\16\20\22\24\26\30\32\34"+
+		"\2\2\2x\2\36\3\2\2\2\4#\3\2\2\2\6)\3\2\2\2\b+\3\2\2\2\n\60\3\2\2\2\f\65"+
+		"\3\2\2\2\16@\3\2\2\2\20G\3\2\2\2\22I\3\2\2\2\24P\3\2\2\2\26^\3\2\2\2\30"+
+		"a\3\2\2\2\32h\3\2\2\2\34q\3\2\2\2\36\37\5\4\3\2\37\3\3\2\2\2 \"\5\6\4"+
+		"\2! \3\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$\5\3\2\2\2%#\3\2\2\2&*\5\b"+
+		"\5\2\'*\5\f\7\2(*\5\n\6\2)&\3\2\2\2)\'\3\2\2\2)(\3\2\2\2*\7\3\2\2\2+,"+
+		"\7\n\2\2,-\7\3\2\2-.\5\16\b\2./\7\4\2\2/\t\3\2\2\2\60\61\7\13\2\2\61\62"+
+		"\7\3\2\2\62\63\5\16\b\2\63\64\7\4\2\2\64\13\3\2\2\2\65\66\7\f\2\2\66\67"+
+		"\7\3\2\2\678\5\16\b\289\7\4\2\29\r\3\2\2\2:<\5\20\t\2;=\7\23\2\2<;\3\2"+
 		"\2\2<=\3\2\2\2=?\3\2\2\2>:\3\2\2\2?B\3\2\2\2@>\3\2\2\2@A\3\2\2\2A\17\3"+
 		"\2\2\2B@\3\2\2\2CH\5\22\n\2DH\5\24\13\2EH\5\32\16\2FH\5\34\17\2GC\3\2"+
-		"\2\2GD\3\2\2\2GE\3\2\2\2GF\3\2\2\2H\21\3\2\2\2IJ\7\f\2\2JK\7\5\2\2KL\7"+
-		"\21\2\2LM\7\6\2\2M\23\3\2\2\2NO\7\r\2\2OP\7\5\2\2PQ\7\7\2\2QR\5\26\f\2"+
-		"RT\7\b\2\2SU\7\6\2\2TS\3\2\2\2TU\3\2\2\2UW\3\2\2\2VX\7\22\2\2WV\3\2\2"+
-		"\2WX\3\2\2\2X\25\3\2\2\2Y[\5\30\r\2ZY\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]"+
-		"\3\2\2\2]\27\3\2\2\2^\\\3\2\2\2_a\7\21\2\2`b\7\6\2\2a`\3\2\2\2ab\3\2\2"+
-		"\2bd\3\2\2\2ce\7\22\2\2dc\3\2\2\2de\3\2\2\2e\31\3\2\2\2fg\7\16\2\2gh\7"+
-		"\5\2\2hi\7\17\2\2ij\7\3\2\2jk\7\21\2\2km\7\4\2\2ln\7\6\2\2ml\3\2\2\2m"+
-		"n\3\2\2\2n\33\3\2\2\2op\7\20\2\2pq\7\5\2\2qs\7\23\2\2rt\7\6\2\2sr\3\2"+
-		"\2\2st\3\2\2\2t\35\3\2\2\2\16#)<@GTW\\adms";
+		"\2\2GD\3\2\2\2GE\3\2\2\2GF\3\2\2\2H\21\3\2\2\2IJ\7\r\2\2JK\7\5\2\2KL\7"+
+		"\6\2\2LM\7\25\2\2MN\7\6\2\2NO\7\7\2\2O\23\3\2\2\2PQ\7\16\2\2QR\7\5\2\2"+
+		"RS\7\b\2\2ST\5\26\f\2TV\7\t\2\2UW\7\7\2\2VU\3\2\2\2VW\3\2\2\2WY\3\2\2"+
+		"\2XZ\7\23\2\2YX\3\2\2\2YZ\3\2\2\2Z\25\3\2\2\2[]\5\30\r\2\\[\3\2\2\2]`"+
+		"\3\2\2\2^\\\3\2\2\2^_\3\2\2\2_\27\3\2\2\2`^\3\2\2\2ac\7\22\2\2bd\7\7\2"+
+		"\2cb\3\2\2\2cd\3\2\2\2df\3\2\2\2eg\7\23\2\2fe\3\2\2\2fg\3\2\2\2g\31\3"+
+		"\2\2\2hi\7\17\2\2ij\7\5\2\2jk\7\20\2\2kl\7\3\2\2lm\7\22\2\2mo\7\4\2\2"+
+		"np\7\7\2\2on\3\2\2\2op\3\2\2\2p\33\3\2\2\2qr\7\21\2\2rs\7\5\2\2su\7\24"+
+		"\2\2tv\7\7\2\2ut\3\2\2\2uv\3\2\2\2v\35\3\2\2\2\16#)<@GVY^cfou";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
