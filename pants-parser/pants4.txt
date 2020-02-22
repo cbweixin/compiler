@@ -9,3 +9,8 @@ jar_library(
     jar(org='com.fasterxml.jackson.core', name='jackson-core', rev=JACKSON_REV)
   ]
 )
+jar_library(name='shapeless',
+  jars=[
+    scala_jar(org = 'com.chuusai', name = 'shapeless', rev ='2.3.3')
+  ]
+)

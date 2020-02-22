@@ -1,7 +1,7 @@
 grammar PANTS;
 
 pants: stmt_list;
-stmt_list: (stmt)*;
+stmt_list: (stmt NEWLINE?)*;
 stmt: java_lib_stmt | jvm_lib_stmt | jar_lib_stmt | var_declare;
 
 var_declare: IDENTIFIER '=' SINGLE_QUOTED_STRING NEWLINE?;
