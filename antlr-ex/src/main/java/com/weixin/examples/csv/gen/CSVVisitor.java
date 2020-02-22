@@ -29,9 +29,24 @@ public interface CSVVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRow(CSVParser.RowContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CSVParser#field}.
+	 * Visit a parse tree produced by the {@code text}
+	 * labeled alternative in {@link CSVParser#field}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitField(CSVParser.FieldContext ctx);
+	T visitText(CSVParser.TextContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code string}
+	 * labeled alternative in {@link CSVParser#field}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitString(CSVParser.StringContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code empty}
+	 * labeled alternative in {@link CSVParser#field}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEmpty(CSVParser.EmptyContext ctx);
 }

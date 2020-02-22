@@ -38,5 +38,19 @@ public class CSVBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements CS
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitField(CSVParser.FieldContext ctx) { return visitChildren(ctx); }
+	@Override public T visitText(CSVParser.TextContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitString(CSVParser.StringContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitEmpty(CSVParser.EmptyContext ctx) { return visitChildren(ctx); }
 }

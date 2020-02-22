@@ -6,9 +6,9 @@ hdr : row ; // head row, need to handle specially
 row : field (',' field)* '\r'? '\n' ;
 
 field
-    :   TEXT
-    |   STRING
-    |
+    :   TEXT    # text
+    |   STRING  # string
+    |           # empty
     ;
 
 TEXT : ~[,\n\r"]+ ;

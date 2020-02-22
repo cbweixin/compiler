@@ -1,5 +1,4 @@
-// Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/resources/CSV.g4 by ANTLR 4.8
-package com.weixin.examples.csv.gen;
+// Generated from /Users/xinwei/Documents/weixin/study-antlr/code/listeners/CSV.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class CSVParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -20,25 +19,16 @@ public class CSVParser extends Parser {
 		T__0=1, T__1=2, T__2=3, TEXT=4, STRING=5;
 	public static final int
 		RULE_file = 0, RULE_hdr = 1, RULE_row = 2, RULE_field = 3;
-	private static String[] makeRuleNames() {
-		return new String[] {
-			"file", "hdr", "row", "field"
-		};
-	}
-	public static final String[] ruleNames = makeRuleNames();
+	public static final String[] ruleNames = {
+		"file", "hdr", "row", "field"
+	};
 
-	private static String[] makeLiteralNames() {
-		return new String[] {
-			null, "','", "'\r'", "'\n'"
-		};
-	}
-	private static final String[] _LITERAL_NAMES = makeLiteralNames();
-	private static String[] makeSymbolicNames() {
-		return new String[] {
-			null, null, null, null, "TEXT", "STRING"
-		};
-	}
-	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
+	private static final String[] _LITERAL_NAMES = {
+		null, "','", "'\r'", "'\n'"
+	};
+	private static final String[] _SYMBOLIC_NAMES = {
+		null, null, null, null, "TEXT", "STRING"
+	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
 	/**
@@ -88,7 +78,6 @@ public class CSVParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-
 	public static class FileContext extends ParserRuleContext {
 		public HdrContext hdr() {
 			return getRuleContext(HdrContext.class,0);
@@ -103,19 +92,6 @@ public class CSVParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_file; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).enterFile(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).exitFile(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVVisitor ) return ((CSVVisitor<? extends T>)visitor).visitFile(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FileContext file() throws RecognitionException {
@@ -162,19 +138,6 @@ public class CSVParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_hdr; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).enterHdr(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).exitHdr(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVVisitor ) return ((CSVVisitor<? extends T>)visitor).visitHdr(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final HdrContext hdr() throws RecognitionException {
@@ -209,19 +172,6 @@ public class CSVParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_row; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).enterRow(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).exitRow(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVVisitor ) return ((CSVVisitor<? extends T>)visitor).visitRow(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final RowContext row() throws RecognitionException {
@@ -288,52 +238,13 @@ public class CSVParser extends Parser {
 	public static class StringContext extends FieldContext {
 		public TerminalNode STRING() { return getToken(CSVParser.STRING, 0); }
 		public StringContext(FieldContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).enterString(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).exitString(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVVisitor ) return ((CSVVisitor<? extends T>)visitor).visitString(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	public static class TextContext extends FieldContext {
 		public TerminalNode TEXT() { return getToken(CSVParser.TEXT, 0); }
 		public TextContext(FieldContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).enterText(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).exitText(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVVisitor ) return ((CSVVisitor<? extends T>)visitor).visitText(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 	public static class EmptyContext extends FieldContext {
 		public EmptyContext(FieldContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).enterEmpty(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CSVListener ) ((CSVListener)listener).exitEmpty(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CSVVisitor ) return ((CSVVisitor<? extends T>)visitor).visitEmpty(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FieldContext field() throws RecognitionException {
