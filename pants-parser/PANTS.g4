@@ -15,24 +15,20 @@ lib_item:
 	| sources_item
 	| main_item;
 
+jars_item_list: (jars_item NEWLINE?)*;
+jars_item: name_item | dependencies_item | jar_list;
 
-jars_item_list : (jars_item NEWLINE?)*;
-jars_item : name_item
-		| dependencies_item
-		| java_jar_list
-		| scala_jar_list
-		;
-
-java_jar_list : JARS '=' '[' java_jar_entries ']' ','? NEWLINE?;
-scala_jar_list : SCALA_JAR '=' '[' scala_jar_entries ']' ','? NEWLINE? ;
-java_jar_entries : (java_jar_entry)*;
-scala_jar_entries: (scala_jar_entry)*;
+jar_list: JARS '=' '[' jar_entries ']' ','? NEWLINE?;
+jar_entries: (jar_entry)*;
+jar_entry: java_jar_entry | scala_jar_entry;
 java_jar_entry: JAR '(' jar_coordinates ')' ','? NEWLINE?;
-scala_jar_entry: SCALA_JAR '(' jar_coordinates ')' ','? NEWLINE?;
+scala_jar_entry:
+	SCALA_JAR '(' jar_coordinates ')' ','? NEWLINE?;
 
-jar_coordinate: ORG '=' SINGLE_QUOTED_STRING ','? 
-				| NAME '=' SINGLE_QUOTED_STRING ','? 
-				| REV '=' SINGLE_QUOTED_STRING ','?;
+jar_coordinate:
+	ORG '=' SINGLE_QUOTED_STRING ','?
+	| NAME '=' SINGLE_QUOTED_STRING ','?
+	| REV '=' SINGLE_QUOTED_STRING ','?;
 
 jar_coordinates: (jar_coordinate)*;
 
@@ -41,7 +37,8 @@ dependencies_item:
 	DEPENDENCIES '=' '[' dependent_list ']' ','? NEWLINE?;
 dependent_list: (dependent_entry)*;
 dependent_entry: SINGLE_QUOTED_STRING ','? NEWLINE?;
-sources_item: SOURCES '=' GLOBS '(' SINGLE_QUOTED_STRING ')' ','?;
+sources_item:
+	SOURCES '=' GLOBS '(' SINGLE_QUOTED_STRING ')' ','?;
 main_item: MAIN '=' DOUBLE_QUOTED_STRING ','?;
 
 JAVA_LIBRARY: 'java_library';
@@ -57,7 +54,7 @@ DEPENDENCIES: 'dependencies';
 SOURCES: 'sources';
 GLOBS: 'globs';
 MAIN: 'main';
-SINGLE_QUOTED_STRING: '\'' (ESC | ~["\\])*? '\''; 
+SINGLE_QUOTED_STRING: '\'' (ESC | ~["\\])*? '\'';
 NEWLINE:
 	'\r'? '\n'; // return newlines to parser (end-statement signal)
 DOUBLE_QUOTED_STRING: '"' (ESC | ~["\\]) .*? '"';

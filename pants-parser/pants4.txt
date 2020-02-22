@@ -3,5 +3,6 @@ jar_library(
   jars = [
     jar(org='com.auth0', name='java-jwt', rev='3.4.0'),
     jar(org='com.auth0', name='java-jwt', rev='3.4.0'),
+    scala_jar(org='com.tinder', name='bonfire', rev='2.1.6')
   ]
 )
