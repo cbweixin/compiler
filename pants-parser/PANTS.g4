@@ -2,7 +2,9 @@ grammar PANTS;
 
 pants: stmt_list;
 stmt_list: (stmt)*;
-stmt: java_lib_stmt | jvm_lib_stmt | jar_lib_stmt;
+stmt: java_lib_stmt | jvm_lib_stmt | jar_lib_stmt | var_declare;
+
+var_declare: IDENTIFIER '=' SINGLE_QUOTED_STRING NEWLINE?;
 
 java_lib_stmt: JAVA_LIBRARY '(' lib_item_list ')';
 jar_lib_stmt: JAR_LIBRARY '(' jars_item_list ')';
@@ -28,7 +30,7 @@ scala_jar_entry:
 jar_coordinate:
 	ORG '=' SINGLE_QUOTED_STRING ','?
 	| NAME '=' SINGLE_QUOTED_STRING ','?
-	| REV '=' SINGLE_QUOTED_STRING ','?;
+	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER)','?;
 
 jar_coordinates: (jar_coordinate)*;
 
@@ -58,10 +60,14 @@ SINGLE_QUOTED_STRING: '\'' (ESC | ~["\\])*? '\'';
 NEWLINE:
 	'\r'? '\n'; // return newlines to parser (end-statement signal)
 DOUBLE_QUOTED_STRING: '"' (ESC | ~["\\]) .*? '"';
+IDENTIFIER: Letter LetterOrDigit*; // variable must start with letter
 
 fragment ESC: '\\' (["\\/bfnrt] | UNICODE);
 fragment UNICODE: 'u' HEX HEX HEX HEX;
 fragment HEX: [0-9a-fA-F];
+fragment LetterOrDigit: Letter | [0-9];
+
+fragment Letter: [a-zA-Z$_];
 
 WS: [ \t\r\n]+ -> skip; // Define whitespace rule, toss it out
 

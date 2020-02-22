@@ -1,8 +1,11 @@
+ACKSON_REV = '2.8.4'
+JACKSON_REV_2_6_6 = '2.6.6'
+
 jar_library(
-  name = 'java-jwt',
+  name = 'core',
   jars = [
-    jar(org='com.auth0', name='java-jwt', rev='3.4.0'),
-    jar(org='com.auth0', name='java-jwt', rev='3.4.0'),
-    scala_jar(org='com.tinder', name='bonfire', rev='2.1.6')
+    jar(org='com.fasterxml.jackson.core', name='jackson-annotations', rev=JACKSON_REV),
+    jar(org='com.fasterxml.jackson.core', name='jackson-databind', rev=JACKSON_REV),
+    jar(org='com.fasterxml.jackson.core', name='jackson-core', rev=JACKSON_REV)
   ]
 )
