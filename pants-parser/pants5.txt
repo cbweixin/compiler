@@ -1,0 +1,13 @@
+jar_library(
+  name='aws-java-sdk-v2-sts',
+  dependencies = [
+    '3rdparty/jvm/com/fasterxml/jackson:core-2.6.6'
+  ],
+  jars = [
+    jar(org = 'software.amazon.awssdk', name = 'sts', rev = '2.3.9', excludes = [
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-annotations'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-databind'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-core'),
+    ])
+  ]
+)

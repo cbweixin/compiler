@@ -1,0 +1,203 @@
+jar_library(
+  name = 'amazon-kinesis-producer',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'amazon-kinesis-producer', rev = '0.12.8')
+  ]
+)
+
+jar_library(
+  name = 'amazon-kinesis-producer-0.12.11',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'amazon-kinesis-producer', rev = '0.12.11')
+  ]
+)
+
+jar_library(
+  name = 'amazon-kinesis-client',
+  dependencies = [
+    '3rdparty/jvm/com/fasterxml/jackson:dataformat-cbor',
+    '3rdparty/jvm/org/slf4j:jcl-over-slf4j'
+  ],
+  jars = [
+    jar(org = 'com.amazonaws', name = 'amazon-kinesis-client', rev = '1.9.0', excludes = [
+      exclude(org = 'com.fasterxml.jackson.dataformat', name = 'jackson-dataformat-cbor'),
+      exclude(org = 'commons-logging', name = 'commons-logging'),
+    ])
+  ]
+)
+
+jar_library(
+  name = 'amazon-kinesis-client-1.11.2',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'amazon-kinesis-client', rev = '1.11.2')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-glue',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-glue', rev = '1.11.595')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-pinpoint',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-pinpoint', rev = '1.11.595')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-ses',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-ses', rev = '1.11.98')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-sns',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-sns', rev = '1.11.313')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-s3',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-s3', rev = '1.11.56')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-sts',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-sts', rev = '1.11.56')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-dynamodb',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-dynamodb', rev = '1.11.319')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-sqs',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-sqs', rev = '1.11.60')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-dynamodb-streams-kinesis-adapter',
+  dependencies = [
+    ':amazon-kinesis-client-1.11.2',
+  ],
+  jars = [
+    jar(org = 'com.amazonaws', name = 'dynamodb-streams-kinesis-adapter', rev = '1.5.0', excludes = [
+      exclude(org = 'com.amazonaws', name = 'amazon-kinesis-client'),
+      ])
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-core',
+  dependencies = [
+    '3rdparty/jvm/com/fasterxml/jackson:dataformat-cbor',
+  ],
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-core', rev = '1.11.319', excludes = [
+      exclude(org = 'com.fasterxml.jackson.dataformat', name = 'jackson-dataformat-cbor'),
+    ])
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-core-1.11.519',
+  dependencies = [
+    '3rdparty/jvm/com/fasterxml/jackson:dataformat-cbor',
+  ],
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-core', rev = '1.11.519', excludes = [
+      exclude(org = 'com.fasterxml.jackson.dataformat', name = 'jackson-dataformat-cbor'),
+    ], force=True)
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-cloudwatch',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-cloudwatch', rev = '1.11.198')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-sagemaker',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-sagemaker', rev = '1.11.252')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-athena',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-athena', rev = '1.11.308')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-sagemakerruntime',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-sagemakerruntime', rev = '1.11.252')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-v2-s3',
+  dependencies = [
+    '3rdparty/jvm/com/fasterxml/jackson:core-2.6.6'
+  ],
+  jars = [
+    jar(org = 'software.amazon.awssdk', name = 's3', rev = '2.3.9', excludes = [
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-annotations'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-databind'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-core'),
+    ])
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-v2-sts',
+  dependencies = [
+    '3rdparty/jvm/com/fasterxml/jackson:core-2.6.6'
+  ],
+  jars = [
+    jar(org = 'software.amazon.awssdk', name = 'sts', rev = '2.3.9', excludes = [
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-annotations'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-databind'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-core'),
+    ])
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-secretsmanager',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-secretsmanager', rev = '1.11.332')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-rekognition',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-rekognition', rev = '1.11.447')
+  ]
+)
+
+jar_library(
+  name='aws-java-sdk-emr',
+  jars = [
+    jar(org = 'com.amazonaws', name = 'aws-java-sdk-emr', rev = '1.11.482')
+  ]
+)

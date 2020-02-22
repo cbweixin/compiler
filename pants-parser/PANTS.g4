@@ -1,5 +1,6 @@
 grammar PANTS;
 
+// parser rule
 pants: stmt_list;
 stmt_list: (stmt NEWLINE?)*;
 stmt: java_lib_stmt | jvm_lib_stmt | jar_lib_stmt | var_declare;
@@ -27,13 +28,26 @@ java_jar_entry: JAR '(' jar_coordinates ')' ','? NEWLINE?;
 scala_jar_entry:
 	SCALA_JAR '(' jar_coordinates ')' ','? NEWLINE?;
 
+
+jar_coordinates: (jar_coordinate)*;
 jar_coordinate:
 	ORG '=' SINGLE_QUOTED_STRING ','?
 	| NAME '=' SINGLE_QUOTED_STRING ','?
 	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?
-	| INTRANSITIVE '=' BOOL_VALUE ','?;
+	| INTRANSITIVE '=' BOOL_VALUE ','?
+	| FORCE '=' BOOL_VALUE ','?
+	| excludes_list ','?
+	;
 
-jar_coordinates: (jar_coordinate)*;
+excludes_list: EXCLUDES '=' '[' exclude_entries ']' ','? NEWLINE?;
+exclude_entries: (exclude_entry)*;
+exclude_entry: EXCLUDE '(' exclude_coordinates ')' ','? NEWLINE?;
+exclude_coordinates: (exclude_coordinate)*;
+exclude_coordinate: 
+	ORG '=' SINGLE_QUOTED_STRING ','?
+	| NAME '=' SINGLE_QUOTED_STRING ','?
+	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?
+	;
 
 name_item: NAME '=' SINGLE_QUOTED_STRING ',';
 dependencies_item:
@@ -43,6 +57,8 @@ dependent_entry: SINGLE_QUOTED_STRING ','? NEWLINE?;
 sources_item:
 	SOURCES '=' GLOBS '(' SINGLE_QUOTED_STRING ')' ','?;
 main_item: MAIN '=' DOUBLE_QUOTED_STRING ','?;
+
+// lexer
 
 JAVA_LIBRARY: 'java_library';
 JAR_LIBRARY: 'jar_library';
@@ -54,6 +70,9 @@ NAME: 'name';
 ORG: 'org';
 REV: 'rev';
 INTRANSITIVE: 'intransitive';
+EXCLUDES: 'excludes';
+EXCLUDE: 'exclude';
+FORCE: 'force';
 DEPENDENCIES: 'dependencies';
 SOURCES: 'sources';
 GLOBS: 'globs';
