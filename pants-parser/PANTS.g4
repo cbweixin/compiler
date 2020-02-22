@@ -30,9 +30,8 @@ scala_jar_entry:
 jar_coordinate:
 	ORG '=' SINGLE_QUOTED_STRING ','?
 	| NAME '=' SINGLE_QUOTED_STRING ','?
-	// | INTRANSITIVE '=' ('True' | 'False') ','?
-	| INTRANSITIVE '=' BOOL_VALUE ','?
-	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?;
+	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?
+	| INTRANSITIVE '=' BOOL_VALUE ','?;
 
 jar_coordinates: (jar_coordinate)*;
 
