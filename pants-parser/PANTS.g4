@@ -28,7 +28,6 @@ java_jar_entry: JAR '(' jar_coordinates ')' ','? NEWLINE?;
 scala_jar_entry:
 	SCALA_JAR '(' jar_coordinates ')' ','? NEWLINE?;
 
-
 jar_coordinates: (jar_coordinate)*;
 jar_coordinate:
 	ORG '=' SINGLE_QUOTED_STRING ','?
@@ -36,18 +35,18 @@ jar_coordinate:
 	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?
 	| INTRANSITIVE '=' BOOL_VALUE ','?
 	| FORCE '=' BOOL_VALUE ','?
-	| excludes_list ','?
-	;
+	| excludes_list ','?;
 
-excludes_list: EXCLUDES '=' '[' exclude_entries ']' ','? NEWLINE?;
+excludes_list:
+	EXCLUDES '=' '[' exclude_entries ']' ','? NEWLINE?;
 exclude_entries: (exclude_entry)*;
-exclude_entry: EXCLUDE '(' exclude_coordinates ')' ','? NEWLINE?;
+exclude_entry:
+	EXCLUDE '(' exclude_coordinates ')' ','? NEWLINE?;
 exclude_coordinates: (exclude_coordinate)*;
-exclude_coordinate: 
+exclude_coordinate:
 	ORG '=' SINGLE_QUOTED_STRING ','?
 	| NAME '=' SINGLE_QUOTED_STRING ','?
-	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?
-	;
+	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?;
 
 name_item: NAME '=' SINGLE_QUOTED_STRING ',';
 dependencies_item:
