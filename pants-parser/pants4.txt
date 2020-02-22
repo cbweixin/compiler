@@ -11,6 +11,7 @@ jar_library(
 )
 jar_library(name='shapeless',
   jars=[
-    scala_jar(org = 'com.chuusai', name = 'shapeless', rev ='2.3.3')
+    scala_jar(org = 'com.chuusai', name = 'shapeless', rev ='2.3.3',
+            intransitive = True )
   ]
 )

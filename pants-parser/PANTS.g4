@@ -30,7 +30,9 @@ scala_jar_entry:
 jar_coordinate:
 	ORG '=' SINGLE_QUOTED_STRING ','?
 	| NAME '=' SINGLE_QUOTED_STRING ','?
-	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER)','?;
+	// | INTRANSITIVE '=' ('True' | 'False') ','?
+	| INTRANSITIVE '=' BOOL_VALUE ','?
+	| REV '=' (SINGLE_QUOTED_STRING | IDENTIFIER) ','?;
 
 jar_coordinates: (jar_coordinate)*;
 
@@ -52,15 +54,19 @@ SCALA_JAR: 'scala_jar';
 NAME: 'name';
 ORG: 'org';
 REV: 'rev';
+INTRANSITIVE: 'intransitive';
 DEPENDENCIES: 'dependencies';
 SOURCES: 'sources';
 GLOBS: 'globs';
 MAIN: 'main';
+BOOL_VALUE: 'True' | 'False';
+
 SINGLE_QUOTED_STRING: '\'' (ESC | ~["\\])*? '\'';
 NEWLINE:
 	'\r'? '\n'; // return newlines to parser (end-statement signal)
 DOUBLE_QUOTED_STRING: '"' (ESC | ~["\\]) .*? '"';
-IDENTIFIER: Letter LetterOrDigit*; // variable must start with letter
+IDENTIFIER:
+	Letter LetterOrDigit*; // variable must start with letter
 
 fragment ESC: '\\' (["\\/bfnrt] | UNICODE);
 fragment UNICODE: 'u' HEX HEX HEX HEX;
