@@ -1,16 +1,27 @@
 package com.weixin.listeners.json2xml;
 
 import com.weixin.listeners.json2xml.gen.JSONBaseListener;
+import com.weixin.listeners.json2xml.gen.JSONLexer;
 import com.weixin.listeners.json2xml.gen.JSONParser;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroup;
 import org.stringtemplate.v4.STGroupFile;
 
 public class JSON2XMLWithStringTemplate {
+
   public static class XMLEmitter extends JSONBaseListener {
+
     ParseTreeProperty<ST> xml = new ParseTreeProperty<ST>();
-    STGroup templates = new STGroupFile("XML.stg");
+    STGroup templates = new STGroupFile(
+        "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/listeners/json2xml/XML.stg");
 
     @Override
     public void exitJson(JSONParser.JsonContext ctx) {
@@ -83,11 +94,32 @@ public class JSON2XMLWithStringTemplate {
     }
 
     public static String stripQuotes(String s) {
-      if ( s==null || s.charAt(0)!='"' ) {
+      if (s == null || s.charAt(0) != '"') {
         return s;
       }
-      return s.substring(1, s.length()-1);
+      return s.substring(1, s.length() - 1);
     }
   }
 
+  public static void main(String[] args) throws IOException {
+    String inputFile = null;
+    if (args.length > 0) {
+      inputFile = args[0];
+    }
+    InputStream is = System.in;
+    if (inputFile != null) {
+      is = new FileInputStream(inputFile);
+    }
+
+    JSONLexer lexer = new JSONLexer(CharStreams.fromStream(is));
+    CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+    JSONParser parser = new JSONParser(tokenStream);
+    ParseTree tree = parser.json();
+
+    ParseTreeWalker walker = new ParseTreeWalker();
+    XMLEmitter listener = new XMLEmitter();
+    walker.walk(listener, tree);
+    System.out.println(listener.xml.get(tree).render());
+
+  }
 }
