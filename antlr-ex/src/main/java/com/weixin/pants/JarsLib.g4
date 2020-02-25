@@ -86,6 +86,11 @@ FORCE:
 	'force';
 DEPENDENCIES:
 	'dependencies';
+
+BOOL_VALUE:
+	'True'
+	| 'False';
+
 SINGLE_QUOTED_STRING:
 	'\'' (ESC | ~["\\])*? '\'';
 NEWLINE:
