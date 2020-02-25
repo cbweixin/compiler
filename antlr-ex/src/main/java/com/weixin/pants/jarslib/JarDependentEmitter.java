@@ -24,12 +24,11 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   public void exitJar_coordinates(JarsLibParser.Jar_coordinatesContext ctx) {
     StringBuilder sb = new StringBuilder();
     for(Jar_coordinateContext coordinateContext: ctx.jar_coordinate()){
-      if(coordinateContext.start.getType() != JarsLibParser.RULE_exclude_entries){
-        sb.append(getXML(coordinateContext));
-        sb.append('\n');
-      }
+      sb.append(getXML(coordinateContext));
+      sb.append('\n');
     }
     setXML(ctx,sb.toString());
+    System.out.println(sb.toString());
   }
 
   @Override
@@ -52,8 +51,19 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     String ver = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
 //    System.out.println(ver);
     setXML(ctx,ver);
+  }
+
+  @Override public void exitExclude_jars_list(JarsLibParser.Exclude_jars_listContext ctx) {
+    String text = getXML(ctx.excludes_list());
+    setXML(ctx,text);
+  }
+
+  @Override public void exitExcludes_list(JarsLibParser.Excludes_listContext ctx) {
+    String text = getXML(ctx.exclude_entries());
+    setXML(ctx, getXML(ctx.exclude_entries()));
 
   }
+
 
   @Override public void exitExclude_entries(JarsLibParser.Exclude_entriesContext ctx) {
     StringBuilder sb = new StringBuilder();
@@ -63,7 +73,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     }
 
     setXML(ctx,sb.toString());
-    System.out.println(sb.toString());
+//    System.out.println(sb.toString());
 
   }
 
