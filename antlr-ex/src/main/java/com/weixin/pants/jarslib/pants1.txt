@@ -8,6 +8,11 @@ jar_library(
       exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-annotations'),
       exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-databind'),
       exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-core'),
+    ]),
+    jar(org = 'software.amazon.awskd', name = 'abc', rev = '3.3.8', excludes = [
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-annotations'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-databind'),
+      exclude(org = 'com.fasterxml.jackson.core', name = 'jackson-core'),
     ])
   ]
 )

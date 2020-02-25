@@ -5,6 +5,7 @@ import com.weixin.pants.jarslib.gen.JarsLibParser;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
+import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_entryContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 
@@ -20,6 +21,34 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     xml.put(ctx, s);
   }
 
+  @Override public void exitJar_list(JarsLibParser.Jar_listContext ctx) {
+    String text = getXML(ctx.jar_entries());
+    setXML(ctx,text);
+    System.out.println(text);
+
+  }
+
+  @Override public void exitJar_entries(JarsLibParser.Jar_entriesContext ctx) {
+    StringBuilder sb = new StringBuilder();
+    for(Jar_entryContext jcxt: ctx.jar_entry()){
+      sb.append(getXML(jcxt));
+    }
+    setXML(ctx,sb.toString());
+//    System.out.println(sb.toString());
+  }
+
+  @Override public void exitJar_entry(JarsLibParser.Jar_entryContext ctx) {
+    String text = getXML(ctx.java_jar_entry());
+    setXML(ctx,text);
+//    System.out.println(text);
+  }
+
+  @Override public void exitJava_jar_entry(JarsLibParser.Java_jar_entryContext ctx) {
+    String text = getXML(ctx.jar_coordinates());
+    setXML(ctx,text);
+//    System.out.println(text);
+  }
+
   @Override
   public void exitJar_coordinates(JarsLibParser.Jar_coordinatesContext ctx) {
     StringBuilder sb = new StringBuilder();
@@ -28,7 +57,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       sb.append('\n');
     }
     setXML(ctx,sb.toString());
-    System.out.println(sb.toString());
+//    System.out.println(sb.toString());
   }
 
   @Override
