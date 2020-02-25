@@ -79,10 +79,39 @@ public class TempateTest {
     columnList.add("phone");
     sqlST.add("columns", columnList);
     sqlST.add("condition", "dt='2017-04-04'");
-    System.out.print(sqlST.render());
+    System.out.println(sqlST.render());
 
   }
 
+  public static void test9() {
+    STGroup stg = new STGroupFile(
+        "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/templatestest/dataExtarctSql.stg");
+    ST sqlST = stg.getInstanceOf("sqlTemplate2");
+
+    List<String> columnList = new LinkedList<String>();
+    columnList.add("order_id");
+    columnList.add("price");
+    columnList.add("phone");
+    columnList.add("user");
+
+    sqlST.add("columns", columnList);
+    sqlST.add("condition", "dt='2017-04-04'");
+    sqlST.add("joinKey", "user");
+    sqlST.add("tableName", "orderTable");
+
+    List<String> childColumnList = new LinkedList<String>();
+    childColumnList.add("user");
+    childColumnList.add("userLeave");
+    childColumnList.add("userLocation");
+    sqlST.add("childColumns", childColumnList);
+    sqlST.add("childJoinKey", "user");
+    sqlST.add("childTableName", "userTable");
+
+    String result = sqlST.render();
+
+    System.out.println(result);
+
+  }
   public static void main(String[] args) {
     test1();
     test2();
@@ -92,6 +121,7 @@ public class TempateTest {
     test6();
     test7();
     test8();
+    test9();
   }
 
 }
