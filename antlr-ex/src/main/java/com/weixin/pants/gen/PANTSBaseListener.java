@@ -1,4 +1,4 @@
-// Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/resources/PANTS.g4 by ANTLR 4.8
+// Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/PANTS.g4 by ANTLR 4.8
 package com.weixin.pants.gen;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -208,6 +208,18 @@ public class PANTSBaseListener implements PANTSListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterJar_coordinates(PANTSParser.Jar_coordinatesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitJar_coordinates(PANTSParser.Jar_coordinatesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterJar_coordinate(PANTSParser.Jar_coordinateContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -220,13 +232,61 @@ public class PANTSBaseListener implements PANTSListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterJar_coordinates(PANTSParser.Jar_coordinatesContext ctx) { }
+	@Override public void enterExcludes_list(PANTSParser.Excludes_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitJar_coordinates(PANTSParser.Jar_coordinatesContext ctx) { }
+	@Override public void exitExcludes_list(PANTSParser.Excludes_listContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExclude_entries(PANTSParser.Exclude_entriesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExclude_entries(PANTSParser.Exclude_entriesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExclude_entry(PANTSParser.Exclude_entryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExclude_entry(PANTSParser.Exclude_entryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExclude_coordinates(PANTSParser.Exclude_coordinatesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExclude_coordinates(PANTSParser.Exclude_coordinatesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExclude_coordinate(PANTSParser.Exclude_coordinateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExclude_coordinate(PANTSParser.Exclude_coordinateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

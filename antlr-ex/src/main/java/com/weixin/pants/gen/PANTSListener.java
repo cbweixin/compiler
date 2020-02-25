@@ -1,4 +1,4 @@
-// Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/resources/PANTS.g4 by ANTLR 4.8
+// Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/PANTS.g4 by ANTLR 4.8
 package com.weixin.pants.gen;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -168,6 +168,16 @@ public interface PANTSListener extends ParseTreeListener {
 	 */
 	void exitScala_jar_entry(PANTSParser.Scala_jar_entryContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link PANTSParser#jar_coordinates}.
+	 * @param ctx the parse tree
+	 */
+	void enterJar_coordinates(PANTSParser.Jar_coordinatesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PANTSParser#jar_coordinates}.
+	 * @param ctx the parse tree
+	 */
+	void exitJar_coordinates(PANTSParser.Jar_coordinatesContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link PANTSParser#jar_coordinate}.
 	 * @param ctx the parse tree
 	 */
@@ -178,15 +188,55 @@ public interface PANTSListener extends ParseTreeListener {
 	 */
 	void exitJar_coordinate(PANTSParser.Jar_coordinateContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link PANTSParser#jar_coordinates}.
+	 * Enter a parse tree produced by {@link PANTSParser#excludes_list}.
 	 * @param ctx the parse tree
 	 */
-	void enterJar_coordinates(PANTSParser.Jar_coordinatesContext ctx);
+	void enterExcludes_list(PANTSParser.Excludes_listContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link PANTSParser#jar_coordinates}.
+	 * Exit a parse tree produced by {@link PANTSParser#excludes_list}.
 	 * @param ctx the parse tree
 	 */
-	void exitJar_coordinates(PANTSParser.Jar_coordinatesContext ctx);
+	void exitExcludes_list(PANTSParser.Excludes_listContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PANTSParser#exclude_entries}.
+	 * @param ctx the parse tree
+	 */
+	void enterExclude_entries(PANTSParser.Exclude_entriesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PANTSParser#exclude_entries}.
+	 * @param ctx the parse tree
+	 */
+	void exitExclude_entries(PANTSParser.Exclude_entriesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PANTSParser#exclude_entry}.
+	 * @param ctx the parse tree
+	 */
+	void enterExclude_entry(PANTSParser.Exclude_entryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PANTSParser#exclude_entry}.
+	 * @param ctx the parse tree
+	 */
+	void exitExclude_entry(PANTSParser.Exclude_entryContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PANTSParser#exclude_coordinates}.
+	 * @param ctx the parse tree
+	 */
+	void enterExclude_coordinates(PANTSParser.Exclude_coordinatesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PANTSParser#exclude_coordinates}.
+	 * @param ctx the parse tree
+	 */
+	void exitExclude_coordinates(PANTSParser.Exclude_coordinatesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link PANTSParser#exclude_coordinate}.
+	 * @param ctx the parse tree
+	 */
+	void enterExclude_coordinate(PANTSParser.Exclude_coordinateContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link PANTSParser#exclude_coordinate}.
+	 * @param ctx the parse tree
+	 */
+	void exitExclude_coordinate(PANTSParser.Exclude_coordinateContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link PANTSParser#name_item}.
 	 * @param ctx the parse tree

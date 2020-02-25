@@ -1,4 +1,4 @@
-// Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/resources/PANTS.g4 by ANTLR 4.8
+// Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/PANTS.g4 by ANTLR 4.8
 package com.weixin.pants.gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -107,17 +107,47 @@ public interface PANTSVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitScala_jar_entry(PANTSParser.Scala_jar_entryContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PANTSParser#jar_coordinates}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitJar_coordinates(PANTSParser.Jar_coordinatesContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PANTSParser#jar_coordinate}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitJar_coordinate(PANTSParser.Jar_coordinateContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PANTSParser#jar_coordinates}.
+	 * Visit a parse tree produced by {@link PANTSParser#excludes_list}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitJar_coordinates(PANTSParser.Jar_coordinatesContext ctx);
+	T visitExcludes_list(PANTSParser.Excludes_listContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PANTSParser#exclude_entries}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExclude_entries(PANTSParser.Exclude_entriesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PANTSParser#exclude_entry}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExclude_entry(PANTSParser.Exclude_entryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PANTSParser#exclude_coordinates}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExclude_coordinates(PANTSParser.Exclude_coordinatesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PANTSParser#exclude_coordinate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExclude_coordinate(PANTSParser.Exclude_coordinateContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PANTSParser#name_item}.
 	 * @param ctx the parse tree
