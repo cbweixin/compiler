@@ -2,12 +2,9 @@
 package com.weixin.tour.xmllexer.gen;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class XMLLexer extends Lexer {
@@ -90,7 +87,7 @@ public class XMLLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "XMLLexer.g4"; }
+	public String getGrammarFileName() { return "com/weixin/tour/xmllexer/XMLLexer.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

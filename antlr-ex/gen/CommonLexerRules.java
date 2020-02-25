@@ -83,7 +83,7 @@ public class CommonLexerRules extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "CommonLexerRules.g4"; }
+	public String getGrammarFileName() { return "com/weixin/tour/exprwithimport/CommonLexerRules.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

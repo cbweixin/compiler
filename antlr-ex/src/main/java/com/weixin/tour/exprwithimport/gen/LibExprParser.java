@@ -3,11 +3,8 @@ package com.weixin.tour.exprwithimport.gen;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class LibExprParser extends Parser {
@@ -75,7 +72,7 @@ public class LibExprParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "LibExpr.g4"; }
+	public String getGrammarFileName() { return "com/weixin/tour/exprwithimport/LibExpr.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

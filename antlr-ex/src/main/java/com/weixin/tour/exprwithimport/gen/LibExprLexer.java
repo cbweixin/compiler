@@ -2,12 +2,9 @@
 package com.weixin.tour.exprwithimport.gen;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class LibExprLexer extends Lexer {
@@ -88,7 +85,7 @@ public class LibExprLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "LibExpr.g4"; }
+	public String getGrammarFileName() { return "com/weixin/tour/exprwithimport/LibExpr.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
