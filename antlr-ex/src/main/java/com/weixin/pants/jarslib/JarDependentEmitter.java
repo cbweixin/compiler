@@ -119,17 +119,20 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       sb.append('\n');
     }
 
+    // remove the last added `\n`, which makes the xml format looks ugly.
+    int l = sb.length();
+    sb.deleteCharAt(l-1);
     setXML(ctx, sb.toString());
-//    System.out.println(sb.toString());
+    System.out.println(sb.toString());
 
   }
 
   @Override
   public void exitExclude_entry(JarsLibParser.Exclude_entryContext ctx) {
     String text = getXML(ctx.exclude_coordinates());
-    ST st = stg.getInstanceOf("coordinatesTemplate");
-    st.add("coordinates", text);
-    System.out.println(st.render());
+    ST st = stg.getInstanceOf("entryTemplate");
+    st.add("entry", text);
+//    System.out.println(st.render());
     setXML(ctx, st.render());
 //    System.out.println(text);
   }
@@ -139,8 +142,11 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     StringBuilder sb = new StringBuilder();
     for (Exclude_coordinateContext ectx : ctx.exclude_coordinate()) {
       sb.append(getXML(ectx));
-//      sb.append('\n');
+      sb.append('\n');
     }
+    // remove the last added `\n`, which makes the xml format looks ugly.
+    int l = sb.length();
+    sb.deleteCharAt(l-1);
 
     setXML(ctx, sb.toString());
 //    System.out.println(sb.toString());

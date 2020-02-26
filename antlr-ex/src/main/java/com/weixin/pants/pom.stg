@@ -10,9 +10,10 @@ versionTemplate(ver) ::= <<
 \<version><ver>\</version>
 >>
 
-coordinatesTemplate(coordinates) ::= <<
+
+entryTemplate(entry) ::= <<
 \<dependency>
-    <coordinates;seperator="\n">
+    <entry>
 \</dependency>
 >>
 
