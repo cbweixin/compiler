@@ -21,3 +21,7 @@ select <childColumns;separator=",">
 from <childTableName>
 where 1=1 <if(childCdtion)>and <childCdtion><endif>
 >>
+
+
+test(name) ::= "<name:bracket(); separator=\", \">"
+bracket(x) ::= "[<x>]"

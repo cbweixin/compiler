@@ -1,0 +1,21 @@
+groupIdTemplate(id) ::= <<
+\<groupId><id>\</groupId>
+>>
+
+artifactIdTemplate(id) ::= <<
+\<artifactId><id>\</artifactId>
+>>
+
+versionTemplate(ver) ::= <<
+\<version><ver>\</version>
+>>
+
+coordinatesTemplate(coordinates) ::= <<
+\<dependency>
+    <coordinates;seperator="\n">
+\</dependency>
+>>
+
+
+
+

@@ -8,10 +8,15 @@ import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_entryContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
+import org.stringtemplate.v4.ST;
+import org.stringtemplate.v4.STGroup;
+import org.stringtemplate.v4.STGroupFile;
 
 public class JarDependentEmitter extends JarsLibBaseListener {
 
   ParseTreeProperty<String> xml = new ParseTreeProperty<String>();
+  STGroup stg = new STGroupFile(
+      "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/pom.stg");
 
   String getXML(ParseTree ctx) {
     return xml.get(ctx);
@@ -21,126 +26,153 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     xml.put(ctx, s);
   }
 
-  @Override public void exitJar_list(JarsLibParser.Jar_listContext ctx) {
+  @Override
+  public void exitJar_list(JarsLibParser.Jar_listContext ctx) {
     String text = getXML(ctx.jar_entries());
-    setXML(ctx,text);
-    System.out.println(text);
+    setXML(ctx, text);
+//    System.out.println(text);
 
   }
 
-  @Override public void exitJar_entries(JarsLibParser.Jar_entriesContext ctx) {
+  @Override
+  public void exitJar_entries(JarsLibParser.Jar_entriesContext ctx) {
     StringBuilder sb = new StringBuilder();
-    for(Jar_entryContext jcxt: ctx.jar_entry()){
+    for (Jar_entryContext jcxt : ctx.jar_entry()) {
       sb.append(getXML(jcxt));
     }
-    setXML(ctx,sb.toString());
+    setXML(ctx, sb.toString());
 //    System.out.println(sb.toString());
   }
 
-  @Override public void exitJar_entry(JarsLibParser.Jar_entryContext ctx) {
+  @Override
+  public void exitJar_entry(JarsLibParser.Jar_entryContext ctx) {
     String text = getXML(ctx.java_jar_entry());
-    setXML(ctx,text);
+    setXML(ctx, text);
 //    System.out.println(text);
   }
 
-  @Override public void exitJava_jar_entry(JarsLibParser.Java_jar_entryContext ctx) {
+  @Override
+  public void exitJava_jar_entry(JarsLibParser.Java_jar_entryContext ctx) {
     String text = getXML(ctx.jar_coordinates());
-    setXML(ctx,text);
+    setXML(ctx, text);
 //    System.out.println(text);
   }
 
   @Override
   public void exitJar_coordinates(JarsLibParser.Jar_coordinatesContext ctx) {
     StringBuilder sb = new StringBuilder();
-    for(Jar_coordinateContext coordinateContext: ctx.jar_coordinate()){
+    for (Jar_coordinateContext coordinateContext : ctx.jar_coordinate()) {
       sb.append(getXML(coordinateContext));
       sb.append('\n');
     }
-    setXML(ctx,sb.toString());
+    setXML(ctx, sb.toString());
 //    System.out.println(sb.toString());
   }
 
   @Override
   public void exitGroupid(JarsLibParser.GroupidContext ctx) {
     String groupId = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-//    System.out.println(groupId);
-    setXML(ctx,groupId);
+    ST st = stg.getInstanceOf("groupIdTemplate");
+    st.add("id", groupId);
+//    System.out.println(st.render());
+    setXML(ctx, st.render());
 
   }
 
   @Override
   public void exitArtifactid(JarsLibParser.ArtifactidContext ctx) {
     String aId = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-//    System.out.println(aId);
-    setXML(ctx,aId);
+    ST st = stg.getInstanceOf("artifactIdTemplate");
+    st.add("id", aId);
+//    System.out.println(st.render());
+    setXML(ctx, st.render());
   }
 
   @Override
   public void exitVersion(JarsLibParser.VersionContext ctx) {
     String ver = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-//    System.out.println(ver);
-    setXML(ctx,ver);
+    ST st = stg.getInstanceOf("versionTemplate");
+    st.add("ver", ver);
+//    System.out.println(st.render());
+    setXML(ctx, st.render());
   }
 
-  @Override public void exitExclude_jars_list(JarsLibParser.Exclude_jars_listContext ctx) {
+  @Override
+  public void exitExclude_jars_list(JarsLibParser.Exclude_jars_listContext ctx) {
     String text = getXML(ctx.excludes_list());
-    setXML(ctx,text);
+    setXML(ctx, text);
   }
 
-  @Override public void exitExcludes_list(JarsLibParser.Excludes_listContext ctx) {
+  @Override
+  public void exitExcludes_list(JarsLibParser.Excludes_listContext ctx) {
     String text = getXML(ctx.exclude_entries());
     setXML(ctx, getXML(ctx.exclude_entries()));
 
   }
 
 
-  @Override public void exitExclude_entries(JarsLibParser.Exclude_entriesContext ctx) {
+  @Override
+  public void exitExclude_entries(JarsLibParser.Exclude_entriesContext ctx) {
     StringBuilder sb = new StringBuilder();
-    for(Exclude_entryContext ectx : ctx.exclude_entry()){
+    for (Exclude_entryContext ectx : ctx.exclude_entry()) {
       sb.append(getXML(ectx));
       sb.append('\n');
     }
 
-    setXML(ctx,sb.toString());
+    setXML(ctx, sb.toString());
 //    System.out.println(sb.toString());
 
   }
 
-  @Override public void exitExclude_entry(JarsLibParser.Exclude_entryContext ctx) {
+  @Override
+  public void exitExclude_entry(JarsLibParser.Exclude_entryContext ctx) {
     String text = getXML(ctx.exclude_coordinates());
-    setXML(ctx,text);
+    ST st = stg.getInstanceOf("coordinatesTemplate");
+    st.add("coordinates", text);
+    System.out.println(st.render());
+    setXML(ctx, st.render());
 //    System.out.println(text);
   }
 
-  @Override public void exitExclude_coordinates(JarsLibParser.Exclude_coordinatesContext ctx) {
+  @Override
+  public void exitExclude_coordinates(JarsLibParser.Exclude_coordinatesContext ctx) {
     StringBuilder sb = new StringBuilder();
-    for(Exclude_coordinateContext ectx : ctx.exclude_coordinate()) {
+    for (Exclude_coordinateContext ectx : ctx.exclude_coordinate()) {
       sb.append(getXML(ectx));
-      sb.append('\n');
+//      sb.append('\n');
     }
 
-    setXML(ctx,sb.toString());
+    setXML(ctx, sb.toString());
 //    System.out.println(sb.toString());
 
   }
 
-  @Override public void exitExclude_groupid(JarsLibParser.Exclude_groupidContext ctx) {
+  @Override
+  public void exitExclude_groupid(JarsLibParser.Exclude_groupidContext ctx) {
     String groupId = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-//    System.out.println(groupId);
-    setXML(ctx,groupId);
+    ST st = stg.getInstanceOf("groupIdTemplate");
+    st.add("id", groupId);
+//    System.out.println(st.render());
+    setXML(ctx, st.render());
 
   }
 
-  @Override public void enterExclude_artifactid(JarsLibParser.Exclude_artifactidContext ctx) {
+  @Override
+  public void enterExclude_artifactid(JarsLibParser.Exclude_artifactidContext ctx) {
     String aId = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-//    System.out.println(aId);
-    setXML(ctx,aId);
-
+    ST st = stg.getInstanceOf("artifactIdTemplate");
+    st.add("id", aId);
+//    System.out.println(st.render());
+    setXML(ctx, st.render());
   }
 
-  @Override public void enterExclude_version(JarsLibParser.Exclude_versionContext ctx) {
+  @Override
+  public void enterExclude_version(JarsLibParser.Exclude_versionContext ctx) {
     String ver = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-    setXML(ctx,ver);
+    ST st = stg.getInstanceOf("versionTemplate");
+    st.add("ver", ver);
+//    System.out.println(st.render());
+    setXML(ctx, st.render());
 
   }
 
