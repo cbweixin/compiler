@@ -1,5 +1,5 @@
 // Generated from /Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/PANTS.g4 by ANTLR 4.8
-package com.weixin.pants.gen;
+package com.weixin.pants.javalib.gen;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -44,7 +44,7 @@ public class PANTSLexer extends Lexer {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'='", "'('", "')'", "'['", "']'", "','", "'java_library'", "'jvm_binary'", 
+			null, "'('", "')'", "'='", "','", "'['", "']'", "'java_library'", "'jvm_binary'", 
 			"'sources'", "'globs'", "'main'", null, "'jar_library'", "'jars'", "'jar'", 
 			"'scala_jar'", "'name'", "'org'", "'rev'", "'intransitive'", "'excludes'", 
 			"'exclude'", "'force'", "'dependencies'"
@@ -155,9 +155,9 @@ public class PANTSLexer extends Lexer {
 		"\u00af\3\2\2\2\'\u00b3\3\2\2\2)\u00b7\3\2\2\2+\u00c4\3\2\2\2-\u00cd\3"+
 		"\2\2\2/\u00d5\3\2\2\2\61\u00db\3\2\2\2\63\u00f1\3\2\2\2\65\u00f3\3\2\2"+
 		"\2\67\u00fe\3\2\2\29\u0102\3\2\2\2;\u0109\3\2\2\2=\u010e\3\2\2\2?\u0114"+
-		"\3\2\2\2A\u0118\3\2\2\2C\u011a\3\2\2\2E\u011d\3\2\2\2GH\7?\2\2H\4\3\2"+
-		"\2\2IJ\7*\2\2J\6\3\2\2\2KL\7+\2\2L\b\3\2\2\2MN\7]\2\2N\n\3\2\2\2OP\7_"+
-		"\2\2P\f\3\2\2\2QR\7.\2\2R\16\3\2\2\2ST\7l\2\2TU\7c\2\2UV\7x\2\2VW\7c\2"+
+		"\3\2\2\2A\u0118\3\2\2\2C\u011a\3\2\2\2E\u011d\3\2\2\2GH\7*\2\2H\4\3\2"+
+		"\2\2IJ\7+\2\2J\6\3\2\2\2KL\7?\2\2L\b\3\2\2\2MN\7.\2\2N\n\3\2\2\2OP\7]"+
+		"\2\2P\f\3\2\2\2QR\7_\2\2R\16\3\2\2\2ST\7l\2\2TU\7c\2\2UV\7x\2\2VW\7c\2"+
 		"\2WX\7a\2\2XY\7n\2\2YZ\7k\2\2Z[\7d\2\2[\\\7t\2\2\\]\7c\2\2]^\7t\2\2^_"+
 		"\7{\2\2_\20\3\2\2\2`a\7l\2\2ab\7x\2\2bc\7o\2\2cd\7a\2\2de\7d\2\2ef\7k"+
 		"\2\2fg\7p\2\2gh\7c\2\2hi\7t\2\2ij\7{\2\2j\22\3\2\2\2kl\7u\2\2lm\7q\2\2"+
