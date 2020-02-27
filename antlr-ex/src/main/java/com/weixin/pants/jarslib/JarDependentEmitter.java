@@ -65,8 +65,12 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       sb.append(getXML(coordinateContext));
       sb.append('\n');
     }
-    setXML(ctx, sb.toString());
-//    System.out.println(sb.toString());
+    sb = removeLastNewLine(sb);
+    ST st = stg.getInstanceOf("entriesTemplate");
+    st.add("tag", "dependency");
+    st.add("value", sb.toString());
+    System.out.println(st.render());
+    setXML(ctx, st.render());
   }
 
   @Override
@@ -100,7 +104,11 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   @Override
   public void exitExclude_jars_list(JarsLibParser.Exclude_jars_listContext ctx) {
     String text = getXML(ctx.excludes_list());
-    setXML(ctx, text);
+    ST st = stg.getInstanceOf("entriesTemplate");
+    st.add("tag", "exclusions");
+    st.add("value", text);
+//    System.out.println(st.render());
+    setXML(ctx, st.render());
 
   }
 
@@ -134,7 +142,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     ST st = stg.getInstanceOf("entryTemplate");
     st.add("tag", "exclusion");
     st.add("entry", text);
-    System.out.println(st.render());
+//    System.out.println(st.render());
     setXML(ctx, st.render());
 //    System.out.println(text);
   }

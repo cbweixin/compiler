@@ -17,6 +17,13 @@ entryTemplate(tag,entry) ::= <<
 \</<tag>\>
 >>
 
+entriesTemplate(tag,value) ::= <<
+\<<tag>\>
+    <value>
+\</<tag>\>
+>>
+
+
 
 
 
