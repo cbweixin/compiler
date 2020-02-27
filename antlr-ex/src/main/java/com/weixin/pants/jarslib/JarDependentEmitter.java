@@ -2,6 +2,7 @@ package com.weixin.pants.jarslib;
 
 import com.weixin.pants.jarslib.gen.JarsLibBaseListener;
 import com.weixin.pants.jarslib.gen.JarsLibParser;
+import com.weixin.pants.jarslib.gen.JarsLibParser.Dependent_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
@@ -25,6 +26,43 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   void setXML(ParseTree ctx, String s) {
     xml.put(ctx, s);
   }
+
+  @Override public void exitJars_item(JarsLibParser.Jars_itemContext ctx) {
+    System.out.println(ctx.start.getType() == JarsLibParser.NAME);
+//    System.out.println(ctx.name_item().SINGLE_QUOTED_STRING());
+//    System.out.println(getXML(ctx.dependencies_item()));
+//    System.out.println(getXML(ctx.jar_list()));
+
+  }
+
+  @Override public void exitDependencies_item(JarsLibParser.Dependencies_itemContext ctx) {
+    String depends = getXML(ctx.dependent_list());
+//    System.out.println(depends);
+    setXML(ctx, depends);
+
+  }
+
+
+  @Override public void exitDependent_list(JarsLibParser.Dependent_listContext ctx) {
+    StringBuilder sb = new StringBuilder();
+    for(Dependent_entryContext dctx : ctx.dependent_entry())
+    {
+     sb.append(getXML(dctx));
+     sb.append("\n");
+    }
+    removeLastNewLine(sb);
+    setXML(ctx, sb.toString());
+//    System.out.println(sb.toString());
+
+  }
+
+
+  @Override public void exitDependent_entry(JarsLibParser.Dependent_entryContext ctx) {
+    String depend = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
+    setXML(ctx,depend);
+//    System.out.printf(depend);
+  }
+
 
   @Override
   public void exitJar_list(JarsLibParser.Jar_listContext ctx) {
@@ -69,7 +107,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     ST st = stg.getInstanceOf("entriesTemplate");
     st.add("tag", "dependency");
     st.add("value", sb.toString());
-    System.out.println(st.render());
+//    System.out.println(st.render());
     setXML(ctx, st.render());
   }
 
