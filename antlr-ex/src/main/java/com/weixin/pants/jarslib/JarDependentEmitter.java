@@ -101,12 +101,14 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   public void exitExclude_jars_list(JarsLibParser.Exclude_jars_listContext ctx) {
     String text = getXML(ctx.excludes_list());
     setXML(ctx, text);
+
   }
 
   @Override
   public void exitExcludes_list(JarsLibParser.Excludes_listContext ctx) {
     String text = getXML(ctx.exclude_entries());
-    setXML(ctx, getXML(ctx.exclude_entries()));
+    setXML(ctx, text);
+//    System.out.println(text);
 
   }
 
@@ -120,10 +122,9 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     }
 
     // remove the last added `\n`, which makes the xml format looks ugly.
-    int l = sb.length();
-    sb.deleteCharAt(l-1);
+    sb = removeLastNewLine(sb);
     setXML(ctx, sb.toString());
-    System.out.println(sb.toString());
+//    System.out.println(sb.toString());
 
   }
 
@@ -131,8 +132,9 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   public void exitExclude_entry(JarsLibParser.Exclude_entryContext ctx) {
     String text = getXML(ctx.exclude_coordinates());
     ST st = stg.getInstanceOf("entryTemplate");
+    st.add("tag", "exclusion");
     st.add("entry", text);
-//    System.out.println(st.render());
+    System.out.println(st.render());
     setXML(ctx, st.render());
 //    System.out.println(text);
   }
@@ -145,10 +147,8 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       sb.append('\n');
     }
     // remove the last added `\n`, which makes the xml format looks ugly.
-    int l = sb.length();
-    sb.deleteCharAt(l-1);
 
-    setXML(ctx, sb.toString());
+    setXML(ctx, removeLastNewLine(sb).toString());
 //    System.out.println(sb.toString());
 
   }
@@ -180,6 +180,12 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 //    System.out.println(st.render());
     setXML(ctx, st.render());
 
+  }
+
+  public StringBuilder removeLastNewLine(StringBuilder sb){
+    int l = sb.length();
+    sb.deleteCharAt(l-1);
+    return sb;
   }
 
 

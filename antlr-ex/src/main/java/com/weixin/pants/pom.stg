@@ -11,10 +11,10 @@ versionTemplate(ver) ::= <<
 >>
 
 
-entryTemplate(entry) ::= <<
-\<dependency>
+entryTemplate(tag,entry) ::= <<
+\<<tag>\>
     <entry>
-\</dependency>
+\</<tag>\>
 >>
 
 
