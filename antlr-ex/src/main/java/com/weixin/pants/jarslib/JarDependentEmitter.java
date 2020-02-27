@@ -27,15 +27,19 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     xml.put(ctx, s);
   }
 
-  @Override public void exitJars_item(JarsLibParser.Jars_itemContext ctx) {
-    System.out.println(ctx.start.getType() == JarsLibParser.NAME);
-//    System.out.println(ctx.name_item().SINGLE_QUOTED_STRING());
-//    System.out.println(getXML(ctx.dependencies_item()));
-//    System.out.println(getXML(ctx.jar_list()));
-
+  @Override
+  public void exitJars_item(JarsLibParser.Jars_itemContext ctx) {
+    if (ctx.start.getType() == JarsLibParser.NAME) {
+      System.out.println(ctx.name_item().SINGLE_QUOTED_STRING());
+    } else if (ctx.start.getType() == JarsLibParser.DEPENDENCIES) {
+      System.out.println(getXML(ctx.dependencies_item()));
+    } else if(ctx.start.getType() == JarsLibParser.JARS){
+      System.out.println(getXML(ctx.jar_list()));
+    }
   }
 
-  @Override public void exitDependencies_item(JarsLibParser.Dependencies_itemContext ctx) {
+  @Override
+  public void exitDependencies_item(JarsLibParser.Dependencies_itemContext ctx) {
     String depends = getXML(ctx.dependent_list());
 //    System.out.println(depends);
     setXML(ctx, depends);
@@ -43,12 +47,12 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   }
 
 
-  @Override public void exitDependent_list(JarsLibParser.Dependent_listContext ctx) {
+  @Override
+  public void exitDependent_list(JarsLibParser.Dependent_listContext ctx) {
     StringBuilder sb = new StringBuilder();
-    for(Dependent_entryContext dctx : ctx.dependent_entry())
-    {
-     sb.append(getXML(dctx));
-     sb.append("\n");
+    for (Dependent_entryContext dctx : ctx.dependent_entry()) {
+      sb.append(getXML(dctx));
+      sb.append("\n");
     }
     removeLastNewLine(sb);
     setXML(ctx, sb.toString());
@@ -57,9 +61,10 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   }
 
 
-  @Override public void exitDependent_entry(JarsLibParser.Dependent_entryContext ctx) {
+  @Override
+  public void exitDependent_entry(JarsLibParser.Dependent_entryContext ctx) {
     String depend = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-    setXML(ctx,depend);
+    setXML(ctx, depend);
 //    System.out.printf(depend);
   }
 
@@ -228,9 +233,9 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   }
 
-  public StringBuilder removeLastNewLine(StringBuilder sb){
+  public StringBuilder removeLastNewLine(StringBuilder sb) {
     int l = sb.length();
-    sb.deleteCharAt(l-1);
+    sb.deleteCharAt(l - 1);
     return sb;
   }
 
