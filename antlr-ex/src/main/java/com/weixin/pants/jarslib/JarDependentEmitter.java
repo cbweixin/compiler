@@ -1,5 +1,8 @@
 package com.weixin.pants.jarslib;
 
+import static com.weixin.pants.utils.Utils.removeLastNewLine;
+import static com.weixin.pants.utils.Utils.stripSingleQuotes;
+
 import com.weixin.pants.datastore.DependenciesMap;
 import com.weixin.pants.datastore.VariablesMap;
 import com.weixin.pants.jarslib.gen.JarsLibBaseListener;
@@ -10,6 +13,7 @@ import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jars_itemContext;
+import com.weixin.pants.utils.Utils;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.stringtemplate.v4.ST;
@@ -19,8 +23,7 @@ import org.stringtemplate.v4.STGroupFile;
 public class JarDependentEmitter extends JarsLibBaseListener {
 
   ParseTreeProperty<String> xml = new ParseTreeProperty<String>();
-  STGroup stg = new STGroupFile(
-      "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/pom.stg");
+  STGroup stg = Utils.stg;
   private boolean isScalaJar = false;
 
   String getXML(ParseTree ctx) {
@@ -31,12 +34,13 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     xml.put(ctx, s);
   }
 
-  @Override public void enterVar_declare(JarsLibParser.Var_declareContext ctx) {
+  @Override
+  public void enterVar_declare(JarsLibParser.Var_declareContext ctx) {
     // I bet the varible declaration would be at very beginning. otherwise it would be too complicated
     // to parse.
     String name = ctx.IDENTIFIER().getText();
     String value = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-    VariablesMap.INSTANCE.setVariable(name,value);
+    VariablesMap.INSTANCE.setVariable(name, value);
   }
 
   @Override
@@ -56,9 +60,10 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     removeLastNewLine(sb);
     setXML(ctx, sb.toString());
     if (name.trim().length() > 0) {
+      removeLastNewLine(sb);
       DependenciesMap.INSTANCE.setDependency(name, sb.toString());
     }
-    if(DependenciesMap.INSTANCE.getDependency("aws-java-sdk-v2-sts") != null){
+    if (DependenciesMap.INSTANCE.getDependency("aws-java-sdk-v2-sts") != null) {
       System.out.println(DependenciesMap.INSTANCE.getDependency("aws-java-sdk-v2-sts"));
     }
   }
@@ -105,11 +110,10 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       //
       String[] pathAndName = depend.split(":");
       String path = pathAndName[0];
-      String name = pathAndName[1];
-      String basePath = "/Users/xinwei/Documents/tinder/github/palo";
-      String fullPath = basePath + "/" + path + "/BUILD";
+      String name = pathAndName.length > 1 ? pathAndName[1]
+          : pathAndName[0].substring(pathAndName[0].lastIndexOf("/") + 1);
       ThirdPartyDependencyGenerator generator = new ThirdPartyDependencyGenerator();
-      String entry = generator.getDependency(fullPath, name);
+      String entry = generator.getDependency(path, name);
       setXML(ctx, entry);
 //      System.out.println(entry);
     } else {
@@ -215,7 +219,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
         : ctx.IDENTIFIER().getText();
     String ver = stripSingleQuotes(text);
     // for version variable,JACKSON_REV_2_6_6 , we need to get its literal value
-    if(VariablesMap.INSTANCE.getVariable(ver) != null){
+    if (VariablesMap.INSTANCE.getVariable(ver) != null) {
       ver = VariablesMap.INSTANCE.getVariable(ver);
     }
     ST st = stg.getInstanceOf("versionTemplate");
@@ -304,17 +308,4 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     setXML(ctx, st.render());
   }
 
-  public StringBuilder removeLastNewLine(StringBuilder sb) {
-    int l = sb.length();
-    sb.deleteCharAt(l - 1);
-    return sb;
-  }
-
-
-  public String stripSingleQuotes(String s) {
-    if (s == null || s.charAt(0) != '\'') {
-      return s;
-    }
-    return s.substring(1, s.length() - 1);
-  }
 }

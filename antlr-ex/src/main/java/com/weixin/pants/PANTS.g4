@@ -20,6 +20,7 @@ lib_item:
 	name_item
 	| dependencies_item
 	| sources_item
+	| strict_deps
 	| main_item;
 
 
@@ -33,6 +34,8 @@ dependent_entry:
 	SINGLE_QUOTED_STRING ','? NEWLINE?;
 sources_item:
 	SOURCES '=' GLOBS '(' SINGLE_QUOTED_STRING ')' ','?;
+strict_deps:
+  STRICTDEPS '=' BOOL_VALUE ','?;
 main_item:
 	MAIN '=' DOUBLE_QUOTED_STRING ','?;
 
@@ -48,6 +51,7 @@ GLOBS:
 	'globs';
 MAIN:
 	'main';
-
+STRICTDEPS:
+	'strict_deps';
 DOUBLE_QUOTED_STRING:
 	'"' (ESC | ~["\\]) .*? '"';

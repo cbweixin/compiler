@@ -83,6 +83,12 @@ public interface PANTSVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSources_item(PANTSParser.Sources_itemContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PANTSParser#strict_deps}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStrict_deps(PANTSParser.Strict_depsContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PANTSParser#main_item}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

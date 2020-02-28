@@ -1,0 +1,17 @@
+java_library(
+    name='common',
+    dependencies=[
+        '3rdparty/jvm/com/google/guava:guava',
+        '3rdparty/jvm/com/googlecode/json-simple:json-simple',
+        '3rdparty/jvm/io/prometheus:simpleclient',
+        '3rdparty/jvm/org/apache/commons:commons-lang3',
+        '3rdparty/jvm/org/apache/httpcomponents:httpasyncclient',
+        '3rdparty/jvm/org/apache/httpcomponents:httpclient',
+        '3rdparty/jvm/org/json4s:jackson',
+        '3rdparty/jvm/org/json4s:json4s-datatype-joda',
+        'backend/src/java/com/tinder/backend/shared/enums',
+        'common/src/java/com/tinder/enums',
+    ],
+    strict_deps=True,
+    sources=globs('*.java'),
+)

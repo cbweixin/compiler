@@ -1,5 +1,7 @@
 package com.weixin.pants.jarslib;
 
+import static com.weixin.pants.utils.Utils.basePath;
+
 import com.weixin.pants.datastore.DependenciesMap;
 import com.weixin.pants.jarslib.gen.JarsLibLexer;
 import com.weixin.pants.jarslib.gen.JarsLibParser;
@@ -26,12 +28,13 @@ public class ThirdPartyDependencyGenerator {
   }
 
   public String getDependency(String inputFile, String name){
+    String fullPath = basePath + "/" + inputFile + "/BUILD";
     String dependent = DependenciesMap.INSTANCE.getDependency(name);
     if(dependent!= null){
      return DependenciesMap.INSTANCE.getDependency(name);
     }
     try {
-      InputStream is = new FileInputStream(inputFile);
+      InputStream is = new FileInputStream(fullPath);
       process(is);
       dependent = DependenciesMap.INSTANCE.getDependency(name);
     } catch (FileNotFoundException e) {

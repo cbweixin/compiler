@@ -160,6 +160,18 @@ public class PANTSBaseListener implements PANTSListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStrict_deps(PANTSParser.Strict_depsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStrict_deps(PANTSParser.Strict_depsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMain_item(PANTSParser.Main_itemContext ctx) { }
 	/**
 	 * {@inheritDoc}

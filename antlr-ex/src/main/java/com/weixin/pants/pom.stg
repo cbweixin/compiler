@@ -25,6 +25,17 @@ entriesTemplate(tag,value) ::= <<
 \</<tag>\>
 >>
 
+object(fields) ::= <<
+
+<fields; separator="\n">
+
+>>
+
+itemsTemplate(tag, fields) ::= <<
+\<<tag>\>
+    <object(fields)>
+\</<tag>\>
+>>
 
 
 
