@@ -1,6 +1,7 @@
 package com.weixin.pants.jarslib;
 
 import com.weixin.pants.datastore.DependenciesMap;
+import com.weixin.pants.datastore.VariablesMap;
 import com.weixin.pants.jarslib.gen.JarsLibBaseListener;
 import com.weixin.pants.jarslib.gen.JarsLibParser;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Dependent_entryContext;
@@ -30,6 +31,14 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   void setXML(ParseTree ctx, String s) {
     xml.put(ctx, s);
+  }
+
+  @Override public void enterVar_declare(JarsLibParser.Var_declareContext ctx) {
+    String name = ctx.IDENTIFIER().getText();
+    String value = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
+    VariablesMap.INSTANCE.setVariable(name,value);
+
+
   }
 
   @Override
@@ -205,6 +214,10 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     String text = ctx.SINGLE_QUOTED_STRING() != null ? ctx.SINGLE_QUOTED_STRING().getText()
         : ctx.IDENTIFIER().getText();
     String ver = stripSingleQuotes(text);
+    // for version variable,JACKSON_REV_2_6_6 , we need to get its literal value
+    if(VariablesMap.INSTANCE.getVariable(ver) != null){
+      ver = VariablesMap.INSTANCE.getVariable(ver);
+    }
     ST st = stg.getInstanceOf("versionTemplate");
     st.add("ver", ver);
 //    System.out.println(st.render());
