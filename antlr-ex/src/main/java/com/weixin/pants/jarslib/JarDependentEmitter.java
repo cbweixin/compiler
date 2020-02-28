@@ -9,6 +9,8 @@ import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jars_itemContext;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.stringtemplate.v4.ST;
@@ -30,35 +32,36 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     xml.put(ctx, s);
   }
 
-  @Override public void exitJars_item_list(JarsLibParser.Jars_item_listContext ctx) {
+  @Override
+  public void exitJars_item_list(JarsLibParser.Jars_item_listContext ctx) {
 
     StringBuilder sb = new StringBuilder();
     String name = "";
-    for(Jars_itemContext jctx : ctx.jars_item()){
-      if(jctx.start.getType() == JarsLibParser.NAME){
-       name = getXML(jctx);
-       continue;
+    for (Jars_itemContext jctx : ctx.jars_item()) {
+      if (jctx.start.getType() == JarsLibParser.NAME) {
+        name = getXML(jctx);
+        continue;
       }
       sb.append(getXML(jctx));
       sb.append("\n");
 //      System.out.println(getXML(jctx));
     }
     removeLastNewLine(sb);
-    setXML(ctx,sb.toString());
-    if(name.trim().length() > 0){
+    setXML(ctx, sb.toString());
+    if (name.trim().length() > 0) {
       DependenciesMap.INSTANCE.setDependency(name, sb.toString());
     }
-    System.out.println(DependenciesMap.INSTANCE.getDependency(name));
+//    System.out.println(DependenciesMap.INSTANCE.getDependency(name));
   }
 
   @Override
   public void exitJars_item(JarsLibParser.Jars_itemContext ctx) {
     if (ctx.start.getType() == JarsLibParser.NAME) {
       String name = stripSingleQuotes(ctx.name_item().SINGLE_QUOTED_STRING().getText());
-      setXML(ctx,name);
+      setXML(ctx, name);
     } else if (ctx.start.getType() == JarsLibParser.DEPENDENCIES) {
       setXML(ctx, getXML(ctx.dependencies_item()));
-    } else if(ctx.start.getType() == JarsLibParser.JARS){
+    } else if (ctx.start.getType() == JarsLibParser.JARS) {
       setXML(ctx, getXML(ctx.jar_list()));
     }
   }
@@ -89,6 +92,19 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   @Override
   public void exitDependent_entry(JarsLibParser.Dependent_entryContext ctx) {
     String depend = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
+    if (depend.startsWith("3rdparty")) {
+      //
+      String[] pathAndName = depend.split(":");
+      String path = pathAndName[0];
+      String name = pathAndName[1];
+      String basePath = "/Users/xinwei/Documents/tinder/github/palo";
+      String fullPath = basePath + "/" + path + "/BUILD";
+      ThirdPartyDependencyGenerator generator = new ThirdPartyDependencyGenerator();
+      String entry = generator.getDependency(fullPath, name);
+      System.out.println(entry);
+    } else {
+      System.out.println("impossible");
+    }
     setXML(ctx, depend);
 //    System.out.printf(depend);
   }
@@ -115,17 +131,16 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   @Override
   public void exitJar_entry(JarsLibParser.Jar_entryContext ctx) {
     StringBuilder sb = new StringBuilder();
-    if(ctx.start.getType() == JarsLibParser.RULE_jar_entry){
+    if (ctx.start.getType() == JarsLibParser.RULE_jar_entry) {
       String text = getXML(ctx.java_jar_entry());
       sb.append(text);
       sb.append("\n");
-      setXML(ctx,sb.toString());
-    }
-    else{
+      setXML(ctx, sb.toString());
+    } else {
       String text = getXML(ctx.scala_jar_entry());
       sb.append(text);
       sb.append("\n");
-      setXML(ctx,sb.toString());
+      setXML(ctx, sb.toString());
     }
   }
 
@@ -136,11 +151,13 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 //    System.out.println(text);
   }
 
-  @Override public void enterScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
+  @Override
+  public void enterScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
     isScalaJar = true;
   }
 
-  @Override public void exitScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
+  @Override
+  public void exitScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
     String text = getXML(ctx.jar_coordinates());
     setXML(ctx, text);
 //    System.out.println(text);
@@ -184,7 +201,10 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   @Override
   public void exitVersion(JarsLibParser.VersionContext ctx) {
-    String ver = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
+    // version could be : 1.2.6 or a variable - JACKSON_REV_2_6_6
+    String text = ctx.SINGLE_QUOTED_STRING() != null ? ctx.SINGLE_QUOTED_STRING().getText()
+        : ctx.IDENTIFIER().getText();
+    String ver = stripSingleQuotes(text);
     ST st = stg.getInstanceOf("versionTemplate");
     st.add("ver", ver);
 //    System.out.println(st.render());
@@ -266,19 +286,9 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     String aId = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
     ST st = stg.getInstanceOf("artifactIdTemplate");
     st.add("id", aId);
-    st.add("condition",isScalaJar);
+    st.add("condition", isScalaJar);
 //    System.out.println(st.render());
     setXML(ctx, st.render());
-  }
-
-  @Override
-  public void enterExclude_version(JarsLibParser.Exclude_versionContext ctx) {
-    String ver = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
-    ST st = stg.getInstanceOf("versionTemplate");
-    st.add("ver", ver);
-//    System.out.println(st.render());
-    setXML(ctx, st.render());
-
   }
 
   public StringBuilder removeLastNewLine(StringBuilder sb) {
