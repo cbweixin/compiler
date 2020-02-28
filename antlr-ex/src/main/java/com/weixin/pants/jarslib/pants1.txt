@@ -13,6 +13,8 @@ jar_library(
       exclude(org = 'com.slowerxml.jackson.core', name = 'jackson-annotations'),
       exclude(org = 'com.slowerxml.jackson.core', name = 'jackson-databind'),
       exclude(org = 'com.slowerxml.jackson.core', name = 'jackson-core'),
-    ])
+    ]),
+    scala_jar(org = 'com.databricks', name = 'spark-redshift', rev ='3.0.0-preview1'),
+    scala_jar(org = 'com.databricks', name = 'spark-avro', rev = '4.0.0')
   ]
 )

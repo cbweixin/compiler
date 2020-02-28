@@ -18,6 +18,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   ParseTreeProperty<String> xml = new ParseTreeProperty<String>();
   STGroup stg = new STGroupFile(
       "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/pom.stg");
+  private boolean isScalaJar = false;
 
   String getXML(ParseTree ctx) {
     return xml.get(ctx);
@@ -30,11 +31,11 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   @Override
   public void exitJars_item(JarsLibParser.Jars_itemContext ctx) {
     if (ctx.start.getType() == JarsLibParser.NAME) {
-      System.out.println(ctx.name_item().SINGLE_QUOTED_STRING());
+//      System.out.println(ctx.name_item().SINGLE_QUOTED_STRING());
     } else if (ctx.start.getType() == JarsLibParser.DEPENDENCIES) {
-      System.out.println(getXML(ctx.dependencies_item()));
+//      System.out.println(getXML(ctx.dependencies_item()));
     } else if(ctx.start.getType() == JarsLibParser.JARS){
-      System.out.println(getXML(ctx.jar_list()));
+//      System.out.println(getXML(ctx.jar_list()));
     }
   }
 
@@ -100,6 +101,16 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     setXML(ctx, text);
 //    System.out.println(text);
   }
+  @Override public void enterScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
+    isScalaJar = true;
+  }
+
+  @Override public void exitScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
+    String text = getXML(ctx.jar_coordinates());
+    setXML(ctx, text);
+    System.out.println(text);
+    isScalaJar = false;
+  }
 
   @Override
   public void exitJar_coordinates(JarsLibParser.Jar_coordinatesContext ctx) {
@@ -131,6 +142,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     String aId = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
     ST st = stg.getInstanceOf("artifactIdTemplate");
     st.add("id", aId);
+    st.add("condition", isScalaJar);
 //    System.out.println(st.render());
     setXML(ctx, st.render());
   }
@@ -219,6 +231,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     String aId = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
     ST st = stg.getInstanceOf("artifactIdTemplate");
     st.add("id", aId);
+    st.add("condition",isScalaJar);
 //    System.out.println(st.render());
     setXML(ctx, st.render());
   }
