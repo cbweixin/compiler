@@ -1,5 +1,6 @@
 package com.weixin.pants.jarslib;
 
+import com.weixin.pants.datastore.DependenciesMap;
 import com.weixin.pants.jarslib.gen.JarsLibBaseListener;
 import com.weixin.pants.jarslib.gen.JarsLibParser;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Dependent_entryContext;
@@ -7,6 +8,7 @@ import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_entryContext;
+import com.weixin.pants.jarslib.gen.JarsLibParser.Jars_itemContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.stringtemplate.v4.ST;
@@ -28,14 +30,36 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     xml.put(ctx, s);
   }
 
+  @Override public void exitJars_item_list(JarsLibParser.Jars_item_listContext ctx) {
+
+    StringBuilder sb = new StringBuilder();
+    String name = "";
+    for(Jars_itemContext jctx : ctx.jars_item()){
+      if(jctx.start.getType() == JarsLibParser.NAME){
+       name = getXML(jctx);
+       continue;
+      }
+      sb.append(getXML(jctx));
+      sb.append("\n");
+//      System.out.println(getXML(jctx));
+    }
+    removeLastNewLine(sb);
+    setXML(ctx,sb.toString());
+    if(name.trim().length() > 0){
+      DependenciesMap.INSTANCE.setDependency(name, sb.toString());
+    }
+    System.out.println(DependenciesMap.INSTANCE.getDependency(name));
+  }
+
   @Override
   public void exitJars_item(JarsLibParser.Jars_itemContext ctx) {
     if (ctx.start.getType() == JarsLibParser.NAME) {
-//      System.out.println(ctx.name_item().SINGLE_QUOTED_STRING());
+      String name = stripSingleQuotes(ctx.name_item().SINGLE_QUOTED_STRING().getText());
+      setXML(ctx,name);
     } else if (ctx.start.getType() == JarsLibParser.DEPENDENCIES) {
-//      System.out.println(getXML(ctx.dependencies_item()));
+      setXML(ctx, getXML(ctx.dependencies_item()));
     } else if(ctx.start.getType() == JarsLibParser.JARS){
-//      System.out.println(getXML(ctx.jar_list()));
+      setXML(ctx, getXML(ctx.jar_list()));
     }
   }
 
@@ -85,7 +109,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       sb.append(getXML(jcxt));
     }
     setXML(ctx, sb.toString());
-    System.out.println(sb.toString());
+//    System.out.println(sb.toString());
   }
 
   @Override
