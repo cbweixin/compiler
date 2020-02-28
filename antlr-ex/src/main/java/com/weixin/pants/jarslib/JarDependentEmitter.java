@@ -10,8 +10,6 @@ import com.weixin.pants.jarslib.gen.JarsLibParser.Exclude_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jars_itemContext;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.stringtemplate.v4.ST;
@@ -34,11 +32,11 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   }
 
   @Override public void enterVar_declare(JarsLibParser.Var_declareContext ctx) {
+    // I bet the varible declaration would be at very beginning. otherwise it would be too complicated
+    // to parse.
     String name = ctx.IDENTIFIER().getText();
     String value = stripSingleQuotes(ctx.SINGLE_QUOTED_STRING().getText());
     VariablesMap.INSTANCE.setVariable(name,value);
-
-
   }
 
   @Override
@@ -60,7 +58,9 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     if (name.trim().length() > 0) {
       DependenciesMap.INSTANCE.setDependency(name, sb.toString());
     }
-//    System.out.println(DependenciesMap.INSTANCE.getDependency(name));
+    if(DependenciesMap.INSTANCE.getDependency("aws-java-sdk-v2-sts") != null){
+      System.out.println(DependenciesMap.INSTANCE.getDependency("aws-java-sdk-v2-sts"));
+    }
   }
 
   @Override
@@ -110,11 +110,11 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       String fullPath = basePath + "/" + path + "/BUILD";
       ThirdPartyDependencyGenerator generator = new ThirdPartyDependencyGenerator();
       String entry = generator.getDependency(fullPath, name);
-      System.out.println(entry);
+      setXML(ctx, entry);
+//      System.out.println(entry);
     } else {
       System.out.println("impossible");
     }
-    setXML(ctx, depend);
 //    System.out.printf(depend);
   }
 
