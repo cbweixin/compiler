@@ -85,14 +85,24 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       sb.append(getXML(jcxt));
     }
     setXML(ctx, sb.toString());
-//    System.out.println(sb.toString());
+    System.out.println(sb.toString());
   }
 
   @Override
   public void exitJar_entry(JarsLibParser.Jar_entryContext ctx) {
-    String text = getXML(ctx.java_jar_entry());
-    setXML(ctx, text);
-//    System.out.println(text);
+    StringBuilder sb = new StringBuilder();
+    if(ctx.start.getType() == JarsLibParser.RULE_jar_entry){
+      String text = getXML(ctx.java_jar_entry());
+      sb.append(text);
+      sb.append("\n");
+      setXML(ctx,sb.toString());
+    }
+    else{
+      String text = getXML(ctx.scala_jar_entry());
+      sb.append(text);
+      sb.append("\n");
+      setXML(ctx,sb.toString());
+    }
   }
 
   @Override
@@ -101,6 +111,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     setXML(ctx, text);
 //    System.out.println(text);
   }
+
   @Override public void enterScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
     isScalaJar = true;
   }
@@ -108,7 +119,7 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   @Override public void exitScala_jar_entry(JarsLibParser.Scala_jar_entryContext ctx) {
     String text = getXML(ctx.jar_coordinates());
     setXML(ctx, text);
-    System.out.println(text);
+//    System.out.println(text);
     isScalaJar = false;
   }
 
