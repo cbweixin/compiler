@@ -114,11 +114,9 @@ public class JarDependentEmitter extends JarsLibBaseListener {
       ThirdPartyDependencyGenerator generator = new ThirdPartyDependencyGenerator();
       String entry = generator.getDependency(path, name);
       setXML(ctx, entry);
-//      System.out.println(entry);
     } else {
       System.out.println("impossible");
     }
-//    System.out.printf(depend);
   }
 
 
@@ -127,7 +125,6 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     String text = getXML(ctx.jar_entries());
     setXML(ctx, text);
 //    System.out.println(text);
-
   }
 
   @Override
@@ -139,22 +136,17 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     ST st = stg.getInstanceOf("object");
     st.add("fields",list);
     setXML(ctx, st.render());
-//    System.out.println(sb.toString());
   }
 
   @Override
   public void exitJar_entry(JarsLibParser.Jar_entryContext ctx) {
-    ST st = stg.getInstanceOf("object");
     String text ;
     if (ctx.start.getType() == JarsLibParser.RULE_jar_entry) {
       text = getXML(ctx.java_jar_entry());
     } else {
       text = getXML(ctx.scala_jar_entry());
     }
-    if(text != null){
-      st.add("fields",text);
-      setXML(ctx, st.render());
-    }
+    setXML(ctx, text);
   }
 
   @Override
@@ -189,7 +181,6 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
 
     setXML(ctx, st.render());
-//    System.out.println(st.render());
   }
 
   @Override
