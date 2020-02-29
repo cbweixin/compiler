@@ -186,8 +186,10 @@ public class JarDependentEmitter extends JarsLibBaseListener {
     ST st = stg.getInstanceOf("itemsTemplate");
     st.add("tag", "dependency");
     st.add("fields", list);
-//    System.out.println(st.render());
+
+
     setXML(ctx, st.render());
+//    System.out.println(st.render());
   }
 
   @Override

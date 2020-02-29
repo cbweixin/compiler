@@ -15,6 +15,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class ThirdPartyDependencyGenerator {
+
   public void process(InputStream is) throws IOException {
     JarsLibLexer lex = new JarsLibLexer(CharStreams.fromStream(is));
     CommonTokenStream tokens = new CommonTokenStream(lex);
@@ -23,15 +24,20 @@ public class ThirdPartyDependencyGenerator {
 
     ParseTreeWalker walker = new ParseTreeWalker();
     JarDependentEmitter emitter = new JarDependentEmitter();
-    walker.walk(emitter,tree);
+    walker.walk(emitter, tree);
 
   }
 
-  public String getDependency(String inputFile, String name){
+  public String getDependency(String inputFile, String name) {
     String fullPath = basePath + "/" + inputFile + "/BUILD";
     String dependent = DependenciesMap.INSTANCE.getDependency(name);
-    if(dependent!= null){
-     return DependenciesMap.INSTANCE.getDependency(name);
+    // deduplicate, there might be duplicate dependency, for ex
+    //  '3rdparty/jvm/org/apache/httpcomponents:httpasyncclient',
+    //  '3rdparty/jvm/org/apache/httpcomponents:httpclient',
+    // httpasyncclient and httpclient has common dependencies, which would make duplicate entry here
+    // in backend/src/java/com/tinder/backend/shared/common/BUILD
+    if (dependent != null) {
+      return DependenciesMap.INSTANCE.getDependency(name);
     }
     try {
       InputStream is = new FileInputStream(fullPath);
@@ -46,7 +52,6 @@ public class ThirdPartyDependencyGenerator {
     return dependent;
 
   }
-
 
 
   public static void main(String[] args) throws IOException {
