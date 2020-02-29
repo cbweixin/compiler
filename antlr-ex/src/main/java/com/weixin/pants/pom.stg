@@ -8,27 +8,19 @@ artifactIdTemplate(id,condition) ::= <%
 <endif>
 %>
 
+coordinatesTemplate(groupId, artifactId,tag) ::= <<
+\<<tag>\>
+  <groupIdTemplate(groupId)>
+  <artifactIdTemplate(artifactId, false)>
+\</<tag>\>
+>>
+
 versionTemplate(ver) ::= <<
 \<version><ver>\</version>
 >>
 
-
-entryTemplate(tag,entry) ::= <<
-\<<tag>\>
-    <entry>
-\</<tag>\>
->>
-
-entriesTemplate(tag,value) ::= <<
-\<<tag>\>
-    <value>
-\</<tag>\>
->>
-
 object(fields) ::= <<
-
 <fields; separator="\n">
-
 >>
 
 itemsTemplate(tag, fields) ::= <<

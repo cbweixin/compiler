@@ -1,6 +1,5 @@
 package com.weixin.pants.jarslib;
 
-import static com.weixin.pants.utils.Utils.removeLastNewLine;
 import static com.weixin.pants.utils.Utils.stripSingleQuotes;
 
 import com.weixin.pants.datastore.DependenciesMap;
@@ -14,11 +13,12 @@ import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_coordinateContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jar_entryContext;
 import com.weixin.pants.jarslib.gen.JarsLibParser.Jars_itemContext;
 import com.weixin.pants.utils.Utils;
+import java.util.ArrayList;
+import java.util.List;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroup;
-import org.stringtemplate.v4.STGroupFile;
 
 public class JarDependentEmitter extends JarsLibBaseListener {
 
@@ -46,22 +46,22 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   @Override
   public void exitJars_item_list(JarsLibParser.Jars_item_listContext ctx) {
 
-    StringBuilder sb = new StringBuilder();
+    List<String> list = new ArrayList<>();
     String name = "";
     for (Jars_itemContext jctx : ctx.jars_item()) {
       if (jctx.start.getType() == JarsLibParser.NAME) {
         name = getXML(jctx);
         continue;
       }
-      sb.append(getXML(jctx));
-      sb.append("\n");
+      list.add(getXML(jctx));
 //      System.out.println(getXML(jctx));
     }
-    removeLastNewLine(sb);
-    setXML(ctx, sb.toString());
+    ST st = stg.getInstanceOf("object");
+    st.add("fields", list);
+
+    setXML(ctx, st.render());
     if (name.trim().length() > 0) {
-      removeLastNewLine(sb);
-      DependenciesMap.INSTANCE.setDependency(name, sb.toString());
+      DependenciesMap.INSTANCE.setDependency(name, st.render());
     }
     if (DependenciesMap.INSTANCE.getDependency("aws-java-sdk-v2-sts") != null) {
       System.out.println(DependenciesMap.INSTANCE.getDependency("aws-java-sdk-v2-sts"));
@@ -91,14 +91,13 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   @Override
   public void exitDependent_list(JarsLibParser.Dependent_listContext ctx) {
-    StringBuilder sb = new StringBuilder();
+    List<String> list = new ArrayList<>();
     for (Dependent_entryContext dctx : ctx.dependent_entry()) {
-      sb.append(getXML(dctx));
-      sb.append("\n");
+      list.add(getXML(dctx));
     }
-    removeLastNewLine(sb);
-    setXML(ctx, sb.toString());
-//    System.out.println(sb.toString());
+    ST st = stg.getInstanceOf("object");
+    st.add("fields", list);
+    setXML(ctx, st.render());
 
   }
 
@@ -133,27 +132,28 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   @Override
   public void exitJar_entries(JarsLibParser.Jar_entriesContext ctx) {
-    StringBuilder sb = new StringBuilder();
+    List<String> list = new ArrayList<>();
     for (Jar_entryContext jcxt : ctx.jar_entry()) {
-      sb.append(getXML(jcxt));
+      list.add(getXML(jcxt));
     }
-    setXML(ctx, sb.toString());
+    ST st = stg.getInstanceOf("object");
+    st.add("fields",list);
+    setXML(ctx, st.render());
 //    System.out.println(sb.toString());
   }
 
   @Override
   public void exitJar_entry(JarsLibParser.Jar_entryContext ctx) {
-    StringBuilder sb = new StringBuilder();
+    ST st = stg.getInstanceOf("object");
+    String text ;
     if (ctx.start.getType() == JarsLibParser.RULE_jar_entry) {
-      String text = getXML(ctx.java_jar_entry());
-      sb.append(text);
-      sb.append("\n");
-      setXML(ctx, sb.toString());
+      text = getXML(ctx.java_jar_entry());
     } else {
-      String text = getXML(ctx.scala_jar_entry());
-      sb.append(text);
-      sb.append("\n");
-      setXML(ctx, sb.toString());
+      text = getXML(ctx.scala_jar_entry());
+    }
+    if(text != null){
+      st.add("fields",text);
+      setXML(ctx, st.render());
     }
   }
 
@@ -179,15 +179,13 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   @Override
   public void exitJar_coordinates(JarsLibParser.Jar_coordinatesContext ctx) {
-    StringBuilder sb = new StringBuilder();
+    List<String> list  =  new ArrayList<>();
     for (Jar_coordinateContext coordinateContext : ctx.jar_coordinate()) {
-      sb.append(getXML(coordinateContext));
-      sb.append('\n');
+      list.add(getXML(coordinateContext));
     }
-    sb = removeLastNewLine(sb);
-    ST st = stg.getInstanceOf("entriesTemplate");
+    ST st = stg.getInstanceOf("itemsTemplate");
     st.add("tag", "dependency");
-    st.add("value", sb.toString());
+    st.add("fields", list);
 //    System.out.println(st.render());
     setXML(ctx, st.render());
   }
@@ -231,9 +229,9 @@ public class JarDependentEmitter extends JarsLibBaseListener {
   @Override
   public void exitExclude_jars_list(JarsLibParser.Exclude_jars_listContext ctx) {
     String text = getXML(ctx.excludes_list());
-    ST st = stg.getInstanceOf("entriesTemplate");
+    ST st = stg.getInstanceOf("itemsTemplate");
     st.add("tag", "exclusions");
-    st.add("value", text);
+    st.add("fields", text);
 //    System.out.println(st.render());
     setXML(ctx, st.render());
 
@@ -250,25 +248,24 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   @Override
   public void exitExclude_entries(JarsLibParser.Exclude_entriesContext ctx) {
-    StringBuilder sb = new StringBuilder();
+    List<String> list = new ArrayList<>();
     for (Exclude_entryContext ectx : ctx.exclude_entry()) {
-      sb.append(getXML(ectx));
-      sb.append('\n');
+      list.add(getXML(ectx));
     }
 
-    // remove the last added `\n`, which makes the xml format looks ugly.
-    sb = removeLastNewLine(sb);
-    setXML(ctx, sb.toString());
-//    System.out.println(sb.toString());
+    ST st = stg.getInstanceOf("itemsTemplate");
+    st.add("tag", "dependency");
+    st.add("fields", list);
+    setXML(ctx, st.render());
 
   }
 
   @Override
   public void exitExclude_entry(JarsLibParser.Exclude_entryContext ctx) {
     String text = getXML(ctx.exclude_coordinates());
-    ST st = stg.getInstanceOf("entryTemplate");
+    ST st = stg.getInstanceOf("itemsTemplate");
     st.add("tag", "exclusion");
-    st.add("entry", text);
+    st.add("fields", text);
 //    System.out.println(st.render());
     setXML(ctx, st.render());
 //    System.out.println(text);
@@ -276,14 +273,14 @@ public class JarDependentEmitter extends JarsLibBaseListener {
 
   @Override
   public void exitExclude_coordinates(JarsLibParser.Exclude_coordinatesContext ctx) {
-    StringBuilder sb = new StringBuilder();
+    List<String> list = new ArrayList<>();
     for (Exclude_coordinateContext ectx : ctx.exclude_coordinate()) {
-      sb.append(getXML(ectx));
-      sb.append('\n');
-    }
-    // remove the last added `\n`, which makes the xml format looks ugly.
+      list.add(getXML(ectx));
 
-    setXML(ctx, removeLastNewLine(sb).toString());
+    }
+    ST st = stg.getInstanceOf("object");
+    st.add("fields",list);
+    setXML(ctx, st.render());
 //    System.out.println(sb.toString());
 
   }

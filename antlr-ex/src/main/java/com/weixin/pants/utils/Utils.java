@@ -8,12 +8,6 @@ public class Utils {
   public static STGroup stg = new STGroupFile(
       "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/pants/pom.stg");
 
-  public static StringBuilder removeLastNewLine(StringBuilder sb) {
-    int l = sb.length();
-    sb.deleteCharAt(l - 1);
-    return sb;
-  }
-
 
   public static String stripSingleQuotes(String s) {
     if (s == null || s.charAt(0) != '\'') {
