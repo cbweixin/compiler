@@ -1,13 +1,14 @@
 {
     "version": "2.0.0",
     "configurations": [
+
         {
             "name": "Debug ANTLR4 grammar",
             "type": "antlr-debug",
             "request": "launch",
-            "input": "pants4.txt",
-            "grammar": "PANTS.g4",
-            "startRule": "pants",
+            "input": "jars1.txt",
+            "grammar": "JarsLib.g4",
+            "startRule": "jarslib",
             "printParseTree": true,
             "visualParseTree": true
         }

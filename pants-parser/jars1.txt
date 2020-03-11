@@ -1,0 +1,25 @@
+jar_library(name='core',
+  jars=[
+    scala_jar(org='org.json4s', name='json4s-core', rev='3.2.11')
+  ]
+)
+
+jar_library(name='jackson',
+  jars=[
+    scala_jar(org='org.json4s', name='json4s-jackson', rev='3.2.11')
+  ]
+)
+
+jar_library(name='jackson-3.5.3',
+  jars=[
+    scala_jar(org='org.json4s', name='json4s-jackson', rev='3.5.3', force=True)
+  ]
+)
+
+jar_library(
+  name = 'json4s-datatype-joda',
+  jars = [
+    jar(org='com.fasterxml.jackson.datatype', name='jackson-datatype-joda', rev='2.6.2')
+  ]
+)
+
