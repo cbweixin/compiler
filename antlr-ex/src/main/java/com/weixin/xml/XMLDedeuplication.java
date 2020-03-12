@@ -17,6 +17,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -24,7 +25,7 @@ import org.xml.sax.SAXException;
 
 public class XMLDedeuplication {
 
-  private static final Set<String> jars  = new HashSet<>();
+  private static final Set<String> jars = new HashSet<>();
 
   public static void readXML(String filePath) {
     try {
@@ -39,28 +40,28 @@ public class XMLDedeuplication {
       NodeList list = doc.getElementsByTagName("dependency");
       System.out.println("list.getLength() = " + list.getLength());
 
-
       List<Element> needToRemove = new ArrayList<>();
 
       for (int i = 0; i < list.getLength(); i++) {
 
         Element element = (Element) list.item(i);
-        String groupId = element.getElementsByTagName("groupId").item(0).getFirstChild().getNodeValue();
-        String aId = element.getElementsByTagName("artifactId").item(0).getFirstChild().getNodeValue();
+        String groupId = element.getElementsByTagName("groupId").item(0).getFirstChild()
+            .getNodeValue();
+        String aId = element.getElementsByTagName("artifactId").item(0).getFirstChild()
+            .getNodeValue();
         NodeList versions = element.getElementsByTagName("version");
         String version = "";
-        if(versions != null && versions.getLength() > 0){
+        if (versions != null && versions.getLength() > 0) {
           version = versions.item(0).getFirstChild().getNodeValue();
         }
 
         System.out.println("element at " + i);
         String coordinates = groupId + ":" + aId + ":" + version;
         System.out.println("coordinates = " + coordinates);
-        if(jars.contains(coordinates)){
+        if (jars.contains(coordinates)) {
           needToRemove.add(element);
 //          element.getParentNode().removeChild(element);
-        }
-        else{
+        } else {
           jars.add(coordinates);
         }
 //        System.out.println("groupId = " + groupId);
@@ -69,7 +70,7 @@ public class XMLDedeuplication {
 //        System.out.println("XMLDedeuplication.readXML");
       }
 
-      for(Element e : needToRemove){
+      for (Element e : needToRemove) {
         e.getParentNode().removeChild(e);
       }
 
@@ -89,7 +90,8 @@ public class XMLDedeuplication {
   public static String documentToString(Document document) {
     try {
       TransformerFactory tf = TransformerFactory.newInstance();
-      Transformer trans = tf.newTransformer();
+      Transformer trans = tf.newTransformer(new StreamSource(
+          "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/resources/strip-space.xsl"));
       trans.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
       trans.setOutputProperty(OutputKeys.METHOD, "xml");
       trans.setOutputProperty(OutputKeys.INDENT, "yes");
