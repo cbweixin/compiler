@@ -5,6 +5,7 @@
 
   <xsl:strip-space elements="*"/>
 
+  <!-- https://stackoverflow.com/questions/17210368/what-this-stands-for-in-xsl-match-node -->
   <xsl:template match="@*|node()">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
