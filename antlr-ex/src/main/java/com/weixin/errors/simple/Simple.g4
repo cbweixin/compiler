@@ -14,10 +14,11 @@ member
         {System.out.println("method: "+$f.text);}
     ;
 
+// fix ambiguity
 stat:   expr ';'
-        {System.out.println("found expr: "+$stat.text);}
+        {System.out.println("found expr: "+$expr.text);}
     |   ID '=' expr ';'
-        {System.out.println("found assign: "+$stat.text);}
+        {System.out.println("found assign: "+$ID.text + " = " + $expr.text + ";");}
     ;
 
 expr:   INT
