@@ -54,7 +54,7 @@ public class TestErrorListener {
     parser.removeErrorListeners(); // remove ConsoleErrorListener
     parser.addErrorListener(new VerboseListener());
     ParseTree tree = parser.prog();
-//    System.out.println(tree.toStringTree(parser));
+    System.out.println(tree.toStringTree(parser));
   }
 
 
