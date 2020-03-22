@@ -1,7 +1,7 @@
 grammar PredNotify;
 
 assign
-    : ID '=' v=INT {if ($v.int==0) notifyListeners("values must be > 0");} ';'
+    : ID '=' v=INT {if ($v.int==0) notifyErrorListeners("values must be > 0");} ';'
     ;
 
 INT :   [0-9]+ ;

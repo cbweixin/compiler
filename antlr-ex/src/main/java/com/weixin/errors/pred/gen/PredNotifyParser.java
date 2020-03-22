@@ -124,7 +124,7 @@ public class PredNotifyParser extends Parser {
 			match(T__0);
 			setState(4);
 			((AssignContext)_localctx).v = match(INT);
-			if ((((AssignContext)_localctx).v!=null?Integer.valueOf(((AssignContext)_localctx).v.getText()):0)==0) notifyListeners("values must be > 0");
+			if ((((AssignContext)_localctx).v!=null?Integer.valueOf(((AssignContext)_localctx).v.getText()):0)==0) notifyErrorListeners("values must be > 0");
 			setState(6);
 			match(T__1);
 			}
