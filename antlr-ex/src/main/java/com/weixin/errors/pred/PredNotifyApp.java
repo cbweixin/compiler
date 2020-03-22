@@ -1,7 +1,7 @@
-package com.weixin.errors.vecmsg;
+package com.weixin.errors.pred;
 
-import com.weixin.errors.vecmsg.gen.VecMsgLexer;
-import com.weixin.errors.vecmsg.gen.VecMsgParser;
+import com.weixin.errors.pred.gen.PredNotifyLexer;
+import com.weixin.errors.pred.gen.PredNotifyParser;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +9,8 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-public class VecMsgApp {
+public class PredNotifyApp {
+
   public static void main(String[] args) throws IOException {
     String inputFile = null;
     if (args.length > 0) {
@@ -20,10 +21,10 @@ public class VecMsgApp {
       is = new FileInputStream(inputFile);
     }
 
-    VecMsgLexer lexer = new VecMsgLexer(CharStreams.fromStream(is));
+    PredNotifyLexer lexer = new PredNotifyLexer(CharStreams.fromStream(is));
     CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-    VecMsgParser parser = new VecMsgParser(tokenStream);
-    ParseTree tree = parser.vec4();
+    PredNotifyParser parser = new PredNotifyParser(tokenStream);
+    ParseTree tree = parser.assign();
     System.out.println("tree = " + tree.toStringTree(parser));
 
   }
