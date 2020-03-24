@@ -1,6 +1,5 @@
 package com.weixin.tpdsl.parsing.llk;
 
-import com.weixin.tpdsl.parsing.nestedlist.Lexer;
 import com.weixin.tpdsl.parsing.nestedlist.Token;
 
 public abstract class Parser {

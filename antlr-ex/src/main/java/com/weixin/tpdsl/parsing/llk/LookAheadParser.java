@@ -5,7 +5,7 @@ import com.weixin.tpdsl.parsing.nestedlist.Lexer;
 public class LookAheadParser extends Parser {
 
 
-  public LookAheadParser(Lexer input, int k) {
+  public LookAheadParser(LookAheadLexer input, int k) {
     super(input, k);
   }
 
