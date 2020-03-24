@@ -24,7 +24,6 @@ public abstract class Parser {
     lookAhead[p] = input.nextToken();
     p = (p + 1) % k;
   }
-
   public Token LT(int i) {
     return lookAhead[(p + i - 1) % k];  // circular fetch token
   }
