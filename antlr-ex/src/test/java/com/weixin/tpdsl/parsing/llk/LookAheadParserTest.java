@@ -31,8 +31,17 @@ class LookAheadParserTest {
       parser.list();
     });
 
-
   }
 
+  @Test
+  public void testFail2() {
+    LookAheadLexer lexer = new LookAheadLexer("[a,b=c,[d,e=6,[b,d]]");
+    LookAheadParser parser = new LookAheadParser(lexer, 2);
+
+    assertThrows(java.lang.Error.class, () -> {
+      // java.lang.Error: invalid character: 6
+      parser.list();
+    });
+  }
 
 }
