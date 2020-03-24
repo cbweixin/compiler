@@ -15,6 +15,14 @@ class LookAheadParserTest {
   }
 
   @Test
+  void list2() {
+    LookAheadLexer lexer = new LookAheadLexer("[a,b=c,[d,e=h,[f,g]]]");
+    LookAheadParser parser = new LookAheadParser(lexer, 2);
+
+    parser.list();
+  }
+
+  @Test
   public void testFail() {
     LookAheadLexer lexer = new LookAheadLexer("[a,b=c,,[d,e]]");
     LookAheadParser parser = new LookAheadParser(lexer, 2);
