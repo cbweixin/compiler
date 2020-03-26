@@ -83,5 +83,23 @@ public abstract class Parser {
     }
   }
 
+  public int mark() {
+    markers.add(p);
+    return p;
+  }
+
+  public void release() {
+    int marker = markers.get(markers.size() - 1);
+    markers.remove(markers.size() - 1);
+    seek(marker);
+  }
+
+  public void seek(int index) {
+    p = index;
+  }
+
+  public boolean isSpeculating() {
+    return markers.size() > 0;
+  }
 
 }
