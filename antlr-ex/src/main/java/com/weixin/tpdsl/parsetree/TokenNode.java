@@ -1,4 +1,6 @@
-package com.weixin.tpdsl.enhancedparsing.memoize;
+package com.weixin.tpdsl.parsetree;
+
+import com.weixin.tpdsl.parsing.nestedlist.Token;
 
 /***
  * Excerpted from "Language Implementation Patterns",
@@ -8,19 +10,9 @@ package com.weixin.tpdsl.enhancedparsing.memoize;
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
-public class Token {
-
-  public int type;
-  public String text;
-
-  public Token(int type, String text) {
-    this.type = type;
-    this.text = text;
-  }
-
-  @Override
-  public String toString() {
-    String tname = BacktrackLexer.tokenNames[type];
-    return "<'" + text + "'," + tname + ">";
-  }
+public class TokenNode extends ParseTree {
+  public Token token;
+  public TokenNode(Token token) { this.token = token; }
 }
+
+
