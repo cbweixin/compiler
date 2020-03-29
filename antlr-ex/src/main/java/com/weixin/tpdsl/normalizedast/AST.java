@@ -1,4 +1,4 @@
-package com.weixin.tpdsl.homegeneousast;
+package com.weixin.tpdsl.normalizedast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +21,12 @@ public class AST {
   List<AST> children;
 
   public AST() {
+    ;
     // for making nil-rooted nodes
   }
 
-  public AST(Token token) {
-    this.token = token;
+  public AST(Token t) {
+    token = t;
   }
 
   /**
@@ -36,7 +37,7 @@ public class AST {
   }
 
   /**
-   * External visitors execute the same action for all nodes with same node type while walking.
+   * External visitors need unique int per node for id purposes while walking.
    */
   public int getNodeType() {
     return token.type;
@@ -58,7 +59,7 @@ public class AST {
    */
   @Override
   public String toString() {
-    return token != null ? token.toString() : "nil";
+    return token.toString();
   }
 
   /**
@@ -74,7 +75,7 @@ public class AST {
       buf.append(this.toString());
       buf.append(' ');
     }
-    for (int i = 0; i < children.size(); i++) {
+    for (int i = 0; children != null && i < children.size(); i++) {
       // normalized (unnamed) children
       AST t = (AST) children.get(i);
       if (i > 0) {
