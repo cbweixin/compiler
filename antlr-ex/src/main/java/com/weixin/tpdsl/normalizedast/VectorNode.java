@@ -11,17 +11,14 @@ package com.weixin.tpdsl.normalizedast;
 
 import java.util.List;
 
-/**
- * A flat tree ==  tree with nil root: (nil child1 child2 ...)
- */
-public class ListNode extends ExprNode {
+public class VectorNode extends ExprNode {
 
-  public ListNode(Token t, List<ExprNode> elements) {
-    // track vector token; most likely it's an imaginary token
+  public VectorNode(Token t, List<ExprNode> elements) {
+    // track vector token; likely to be imaginary token
     super(t);
     evalType = tVECTOR;
     for (ExprNode e : elements) {
       addChild(e);
-    } // all elements as kids
+    } // add as kids
   }
 }

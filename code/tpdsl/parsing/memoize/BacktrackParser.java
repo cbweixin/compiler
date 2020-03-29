@@ -65,6 +65,7 @@ public class BacktrackParser extends Parser {
         match(BacktrackLexer.RBRACK);
     }
 
+
     /** Map input position to FAILED or previous stop token index.
      *  null implies we've not parsed this rule at that index.
      */
