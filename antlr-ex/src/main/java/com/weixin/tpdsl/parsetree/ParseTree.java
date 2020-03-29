@@ -1,6 +1,5 @@
 package com.weixin.tpdsl.parsetree;
 
-import com.weixin.tpdsl.parsing.nestedlist.Token;
 import java.util.ArrayList;
 import java.util.List;
 
