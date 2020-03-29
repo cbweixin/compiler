@@ -13,6 +13,7 @@ public class Token {
   public static final int INVALID_TOKEN_TYPE = 0;
   public static final int PLUS = 1; // token types
   public static final int INT = 2;
+  public static final int MUL = 3;
 
   public int type;
   public String text;
