@@ -14,7 +14,7 @@ public class EnhanceAdapter extends ClassVisitor {
   private final TraceClassVisitor tracer;
 
 
-  public EnhancerAdapter(ClassVisitor cv) {
+  public EnhanceAdapter(ClassVisitor cv) {
     super(ASM6, cv);
     PrintWriter pw = new PrintWriter(System.out);
     tracer = new TraceClassVisitor(cv, pw);
