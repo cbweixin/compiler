@@ -14,7 +14,7 @@ public class ClassGenerator {
   public static void main(String[] args) throws IOException {
     ClassReader classReader = new ClassReader("HelloWorlder");
     ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
-//    ClassAdapter classAdapter = new AddASMHelloWorlderClassAdapter(classWriter);
+    ClassAdapter classAdapter = new AddASMHelloWorlderClassAdapter(classWriter);
 //    classReader.accept(classAdapter, ClassReader.SKIP_DEBUG);
     byte[] data = classWriter.toByteArray();
     File file = new File("Account.class");

@@ -20,13 +20,13 @@ public class Agent {
             ClassReader reader = new ClassReader(classfileBuffer);
             // specify COMPUTE_MAXS 新生成字节码需要自动计算操作数栈的最大值，否则会报错
             ClassWriter writer = new ClassWriter(reader, COMPUTE_MAXS);
-            ClassVisitor cv = new EnhancerAdapter(writer);
+            ClassVisitor cv = new EnhanceAdapter(writer);
             reader.accept(cv, 0);
             System.out.println("io/libriraries/asm/agent/Person transformed");
 
-
             // debug file to disk for auditing
-            try (FileOutputStream fos = new FileOutputStream("F:\\Person.class")) {
+            try (FileOutputStream fos = new FileOutputStream(
+                "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/asmsample2/Person.class")) {
               fos.write(writer.toByteArray());
             } catch (IOException e) {
               e.printStackTrace();
