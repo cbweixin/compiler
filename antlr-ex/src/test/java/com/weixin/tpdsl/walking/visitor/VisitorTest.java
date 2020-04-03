@@ -2,6 +2,8 @@ package com.weixin.tpdsl.walking.visitor;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -41,14 +43,36 @@ class VisitorTest {
 
   @Test
   public void printVisitorTest() {
+    // get reference for System.out, prepare for restore in future
+    PrintStream stdout = System.out;
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(baos));
+
+    String expectedOutput = "x=3+4\nprint x*[2, 3, 4]\n";
     PrintVisitor visitor = new PrintVisitor();
+    // output would be in baos
     statList.visit(visitor);
+    // restore System.out, so we can print to console now
+    String actuOutput = baos.toString().replaceAll("\r","");
+    System.setOut(stdout);
+    System.out.println(actuOutput);
+    assertEquals(expectedOutput, actuOutput);
   }
 
   @Test
   public void independentPrintVisitorTest() {
+    PrintStream stdout = System.out;
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(baos));
+
+    String expectedOutput = "x=3+4\nprint x*[2, 3, 4]\n";
     IndependentPrintVisitor visitor = new IndependentPrintVisitor();
     visitor.print(statList);
+    // restore System.out, so we can print to console now
+    String actuOutput = baos.toString().replaceAll("\r","");
+    System.setOut(stdout);
+    System.out.println(actuOutput);
+    assertEquals(expectedOutput, actuOutput);
   }
 
 
