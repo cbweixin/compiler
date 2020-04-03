@@ -8,21 +8,18 @@ package com.weixin.tpdsl.walking.visitor;
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
-public class AddNode extends ExprNode {
+public class AssignNode extends StatNode {
 
-  // named, node-specific, irregular children
-  ExprNode left, right;
+  VarNode id;
+  ExprNode value;
 
-  public AddNode(ExprNode left, Token t, ExprNode right) {
+  public AssignNode(VarNode id, Token t, ExprNode value) {
     super(t);
-    this.left = left;
-    this.right = right;
+    this.id = id;
+    this.value = value;
   }
 
-  @Override
   public void visit(VecMathVisitor visitor) {
     visitor.visit(this);
   }
 }
-
-

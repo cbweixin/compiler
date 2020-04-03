@@ -8,15 +8,10 @@ package com.weixin.tpdsl.walking.visitor;
  * We make no guarantees that this code is fit for any purpose.
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
-public class AddNode extends ExprNode {
+public class IntNode extends ExprNode {
 
-  // named, node-specific, irregular children
-  ExprNode left, right;
-
-  public AddNode(ExprNode left, Token t, ExprNode right) {
+  public IntNode(Token t) {
     super(t);
-    this.left = left;
-    this.right = right;
   }
 
   @Override
