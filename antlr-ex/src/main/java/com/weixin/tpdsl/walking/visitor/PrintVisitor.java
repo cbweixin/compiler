@@ -10,6 +10,7 @@ package com.weixin.tpdsl.walking.visitor;
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
 public class PrintVisitor implements VecMathVisitor {
+
   @Override
   public void visit(AssignNode n) {
     n.id.visit(this);
@@ -20,7 +21,9 @@ public class PrintVisitor implements VecMathVisitor {
 
   @Override
   public void visit(StatListNode n) {
-    for (StatNode p : n.elements) p.visit(this);
+    for (StatNode p : n.elements) {
+      p.visit(this);
+    }
   }
 
   @Override
@@ -64,10 +67,12 @@ public class PrintVisitor implements VecMathVisitor {
   @Override
   public void visit(VectorNode n) {
     System.out.print("[");
-    if ( n.elements!=null ) {
-      for (int i=0; i<n.elements.size(); i++) {
+    if (n.elements != null) {
+      for (int i = 0; i < n.elements.size(); i++) {
         ExprNode child = n.elements.get(i);
-        if ( i>0 ) System.out.print(", ");
+        if (i > 0) {
+          System.out.print(", ");
+        }
         child.visit(this);
       }
     }
