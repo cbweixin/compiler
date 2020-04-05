@@ -1,3 +1,5 @@
+package com.weixin.tpdsl.walking.treegrammar;
+
 /***
  * Excerpted from "Language Implementation Patterns",
  * published by The Pragmatic Bookshelf.
@@ -6,8 +8,12 @@
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
 ***/
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
+
+import org.antlr.runtime.ANTLRInputStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RuleReturnScope;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
 
 public class Test {
     public static void main(String[] args) throws Exception {

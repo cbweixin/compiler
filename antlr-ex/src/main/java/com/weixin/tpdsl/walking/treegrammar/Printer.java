@@ -46,7 +46,9 @@ public class Printer extends TreeParser {
         }
         
 
+    @Override
     public String[] getTokenNames() { return Printer.tokenNames; }
+    @Override
     public String getGrammarFileName() { return "/Users/parrt/research/book/TPDSL/Book/code/walking/tree-grammar/Printer.g"; }
 
      void print(String s) { System.out.print(s); } 
