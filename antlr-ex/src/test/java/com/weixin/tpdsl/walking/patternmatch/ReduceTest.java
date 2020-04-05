@@ -42,4 +42,25 @@ class ReduceTest {
     System.out.println("Simplified tree: " + t.toStringTree());
     assertEquals("(= x (<< 3 2))", t.toStringTree());
   }
+
+  @Test
+  public void testRedue2() throws RecognitionException {
+    // Create lexer/parser to build trees from stdin
+    VecMathLexer lex = new VecMathLexer(new ANTLRStringStream("x = 4 * (3+3)"));
+    CommonTokenStream tokens = new CommonTokenStream(lex);
+    VecMathParser p = new VecMathParser(tokens);
+    // launch parser by calling start rule
+    RuleReturnScope r = p.prog();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
+
+    System.out.println("Original tree: " + t.toStringTree());
+    assertEquals("(= x (* 4 (+ 3 3)))", t.toStringTree());
+    CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
+    Reduce red = new Reduce(nodes);
+    // walk t, trace transforms
+    t = (CommonTree) red.downup(t, true);
+    System.out.println("Simplified tree: " + t.toStringTree());
+    assertEquals("(= x (* 4 (<< 3 1)))", t.toStringTree());
+  }
 }
