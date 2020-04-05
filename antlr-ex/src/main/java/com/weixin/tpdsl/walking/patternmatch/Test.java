@@ -30,14 +30,17 @@ public class Test {
     VecMathLexer lex = new VecMathLexer(input);
     CommonTokenStream tokens = new CommonTokenStream(lex);
     VecMathParser p = new VecMathParser(tokens);
-    RuleReturnScope r = p.prog();   // launch parser by calling start rule
-    CommonTree t = (CommonTree) r.getTree();   // get tree result
+    // launch parser by calling start rule
+    RuleReturnScope r = p.prog();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
 
     System.out.println("Original tree: " + t.toStringTree());
     // Traverse tree down then up, applying rewrite rules
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
     Simplify s = new Simplify(nodes);
-    t = (CommonTree) s.downup(t, true); // walk t, trace transforms
+    // walk t, trace transforms
+    t = (CommonTree) s.downup(t, true);
     System.out.println("Simplified tree: " + t.toStringTree());
   }
 }
