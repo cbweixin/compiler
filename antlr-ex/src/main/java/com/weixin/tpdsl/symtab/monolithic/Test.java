@@ -7,19 +7,29 @@ package com.weixin.tpdsl.symtab.monolithic;
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
+ ***/
+
 import org.antlr.runtime.*;
 
 public class Test {
-    public static void main(String[] args) throws Exception {
-        CharStream input = null; // read from filename or stdin
-        if ( args.length>0 ) input = new ANTLRFileStream(args[0]);
-        else input = new ANTLRInputStream(System.in);
-        CymbolLexer lex = new CymbolLexer(input);  // create lexer
-        CommonTokenStream tokens = new CommonTokenStream(lex);
-        CymbolParser p = new CymbolParser(tokens); // create parser
-        SymbolTable symtab = new SymbolTable();    // create symbol table
-        p.compilationUnit(symtab);                 // launch parser
-        System.out.println("globals: "+symtab.symbols);
-    }
+
+  public static void main(String[] args) throws Exception {
+    // read from filename or stdin
+    CharStream input = null;
+      if (args.length > 0) {
+          input = new ANTLRFileStream(args[0]);
+      } else {
+          input = new ANTLRInputStream(System.in);
+      }
+    // create lexer
+    CymbolLexer lex = new CymbolLexer(input);
+    CommonTokenStream tokens = new CommonTokenStream(lex);
+    // create parser
+    CymbolParser p = new CymbolParser(tokens);
+    // create symbol table
+    SymbolTable symtab = new SymbolTable();
+    // launch parser
+    p.compilationUnit(symtab);
+    System.out.println("globals: " + symtab.symbols);
+  }
 }
