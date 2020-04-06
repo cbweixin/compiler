@@ -2,6 +2,7 @@ package com.weixin.tpdsl.walking.patternmatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
@@ -84,4 +85,5 @@ class ReduceTest {
     System.out.println("Simplified tree: " + t.toStringTree());
     assertEquals("(= x (<< (+ (+ (<< 3 1) 3) 3) 1))", t.toStringTree());
   }
+
 }
