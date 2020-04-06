@@ -20,8 +20,10 @@ public class CallGraph {
   static class Graph {
 
     // I'm using org.antlr.v4.runtime.misc: OrderedHashSet, MultiMap
-    Set<String> nodes = new OrderedHashSet<String>(); // list of functions
-    MultiMap<String, String> edges =                  // caller->callee
+    // list of functions
+    Set<String> nodes = new OrderedHashSet<String>();
+    // caller->callee
+    MultiMap<String, String> edges =
         new MultiMap<String, String>();
 
     public void edge(String source, String target) {
