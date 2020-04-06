@@ -1,6 +1,5 @@
 package com.weixin.listeners.callgraph;
 
-import com.weixin.listeners.callgraph.CallGraph.Graph;
 import com.weixin.listeners.callgraph.gen.CymbolBaseListener;
 import com.weixin.listeners.callgraph.gen.CymbolParser;
 
