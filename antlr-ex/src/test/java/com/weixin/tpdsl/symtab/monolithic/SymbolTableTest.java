@@ -30,5 +30,6 @@ class SymbolTableTest {
     System.setOut(stdout);
     System.out.println(actuOutput);
     assertEquals(expectedOutput, actuOutput);
+    assertEquals("global:{i=<i:int>, float=float, int=int}", symtab.toString());
   }
 }
