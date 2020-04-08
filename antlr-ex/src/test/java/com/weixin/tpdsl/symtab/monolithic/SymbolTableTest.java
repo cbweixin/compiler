@@ -74,4 +74,25 @@ class SymbolTableTest {
     assertEquals(expectedOutput, actuOutput);
     assertEquals("global:{k=<k:int>, float=float, int=int}", symtab.toString());
   }
+
+  @Test
+  public void testSymbolTable4() throws IOException, RecognitionException {
+    CymbolLexer lexer = new CymbolLexer(new ANTLRStringStream("int i = 5;\nint k = i + 2;"));
+    CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+    CymbolParser parser = new CymbolParser(tokenStream);
+    // create symbol table
+    SymbolTable symtab = new SymbolTable();
+
+    PrintStream stdout = System.out;
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(baos));
+
+    String expectedOutput = "line 1: ref int\nline 1: def i\nline 2: ref int\nline 2: ref to <i:int>\nline 2: def k\n";
+    parser.compilationUnit(symtab);
+    String actuOutput = baos.toString().replaceAll("\r","");
+    System.setOut(stdout);
+    System.out.println(actuOutput);
+    assertEquals(expectedOutput, actuOutput);
+    assertEquals("global:{i=<i:int>, k=<k:int>, float=float, int=int}", symtab.toString());
+  }
 }
