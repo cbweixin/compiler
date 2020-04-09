@@ -24,15 +24,20 @@ public class Test {
     CymbolLexer lex = new CymbolLexer(input);
     CommonTokenStream tokens = new CommonTokenStream(lex);
     CymbolParser p = new CymbolParser(tokens);
-    RuleReturnScope r = p.compilationUnit();   // launch parser
+    // launch parser
+    RuleReturnScope r = p.compilationUnit();
     //System.out.println("tree: "+t.toStringTree());
 
-    CommonTree t = (CommonTree) r.getTree(); // get tree result from parser
+    // get tree result from parser
+    CommonTree t = (CommonTree) r.getTree();
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
     nodes.setTokenStream(tokens);
-    SymbolTable symtab = new SymbolTable(); // make global scope, types
-    DefRef def = new DefRef(nodes, symtab); // use custom constructor
-    def.downup(t); // trigger symtab actions upon certain subtrees
+    // make global scope, types
+    SymbolTable symtab = new SymbolTable();
+    // use custom constructor
+    DefRef def = new DefRef(nodes, symtab);
+    // trigger symtab actions upon certain subtrees
+    def.downup(t);
     System.out.println("globals: " + symtab.globals);
   }
 }
