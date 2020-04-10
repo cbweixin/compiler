@@ -23,6 +23,8 @@
     <orderEntry type="library" name="Maven: org.glassfish:javax.json:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: com.ibm.icu:icu4j:61.1" level="project" />
     <orderEntry type="library" name="Maven: org.antlr:ST4:4.3" level="project" />
+    <orderEntry type="library" name="Maven: antlr:stringtemplate:2.3b6" level="project" />
+    <orderEntry type="library" name="Maven: antlr:antlr:2.7.6" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm:8.0" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-util:8.0" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-tree:8.0" level="project" />
