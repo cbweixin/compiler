@@ -27,7 +27,7 @@ public abstract class BaseScope implements Scope {
 		if (s != null) {
 			return s;
 		}
-    // if not here, check any enclosing scope
+    // if not here, check any parent scope
 		if (getParentScope() != null) {
 			return getParentScope().resolve(name);
 		}

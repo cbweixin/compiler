@@ -32,9 +32,11 @@ public class ClassSymbol extends ScopedSymbol implements Scope, Type {
   @Override
   public Scope getParentScope() {
     if (superClass == null) {
-      return enclosingScope; // globals
+      // globals
+      return enclosingScope;
     }
-    return superClass; // if not root object, return super
+    // if not root object, return super
+    return superClass;
   }
 
   /**
@@ -49,7 +51,8 @@ public class ClassSymbol extends ScopedSymbol implements Scope, Type {
     if (superClass != null) {
       return superClass.resolveMember(name);
     }
-    return null; // not found
+    // not found
+    return null;
   }
 
   @Override
