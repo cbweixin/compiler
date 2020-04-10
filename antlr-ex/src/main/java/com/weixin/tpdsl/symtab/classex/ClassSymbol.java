@@ -9,7 +9,8 @@ package com.weixin.tpdsl.symtab.classex;
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ClassSymbol extends ScopedSymbol implements Scope, Type {
 
@@ -28,6 +29,7 @@ public class ClassSymbol extends ScopedSymbol implements Scope, Type {
     this.superClass = superClass;
   }
 
+  @Override
   public Scope getParentScope() {
     if (superClass == null) {
       return enclosingScope; // globals
@@ -50,10 +52,12 @@ public class ClassSymbol extends ScopedSymbol implements Scope, Type {
     return null; // not found
   }
 
+  @Override
   public Map<String, Symbol> getMembers() {
     return members;
   }
 
+  @Override
   public String toString() {
     return "class " + name + ":{" +
         stripBrackets(members.keySet().toString()) + "}";

@@ -10,14 +10,25 @@ package com.weixin.tpdsl.symtab.classex;
  ***/
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Cymbol.g 2009-09-23 17:37:56
 
-import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
-
-import org.antlr.runtime.tree.*;
+import org.antlr.runtime.BaseRecognizer;
+import org.antlr.runtime.BitSet;
+import org.antlr.runtime.DFA;
+import org.antlr.runtime.EarlyExitException;
+import org.antlr.runtime.IntStream;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.Parser;
+import org.antlr.runtime.ParserRuleReturnScope;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeAdaptor;
+import org.antlr.runtime.tree.RewriteEarlyExitException;
+import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
+import org.antlr.runtime.tree.RewriteRuleTokenStream;
+import org.antlr.runtime.tree.TreeAdaptor;
 
 public class CymbolParser extends Parser {
 
@@ -85,10 +96,12 @@ public class CymbolParser extends Parser {
     return adaptor;
   }
 
+  @Override
   public String[] getTokenNames() {
     return CymbolParser.tokenNames;
   }
 
+  @Override
   public String getGrammarFileName() {
     return "/Users/parrt/research/book/TPDSL/Book/code/symtab/class/Cymbol.g";
   }
@@ -98,6 +111,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -253,6 +267,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -482,6 +497,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -590,6 +606,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -863,6 +880,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -1036,6 +1054,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -1198,6 +1217,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -1265,6 +1285,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -1403,6 +1424,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -1560,6 +1582,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -1973,6 +1996,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -2161,6 +2185,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -2249,6 +2274,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -2353,6 +2379,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -2674,6 +2701,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -2985,6 +3013,7 @@ public class CymbolParser extends Parser {
 
     CymbolAST tree;
 
+    @Override
     public Object getTree() {
       return tree;
     }
@@ -3330,10 +3359,12 @@ public class CymbolParser extends Parser {
       this.transition = DFA16_transition;
     }
 
+    @Override
     public String getDescription() {
       return "()* loopback of 98:6: ( options {backtrack=true; } : '.' ID '(' expressionList ')' -> ^( CALL ^( '.' $postfixExpression ID ) ) | '.' ID -> ^( '.' $postfixExpression ID ) | '(' expressionList ')' -> ^( CALL $postfixExpression) )*";
     }
 
+    @Override
     public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
       TokenStream input = (TokenStream) _input;
       int _s = s;

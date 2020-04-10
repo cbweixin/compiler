@@ -10,13 +10,15 @@ package com.weixin.tpdsl.symtab.classex;
  ***/
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g 2009-09-23 17:37:56
 
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
+import org.antlr.runtime.BitSet;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.tree.TreeFilter;
+import org.antlr.runtime.tree.TreeNodeStream;
+import org.antlr.runtime.tree.TreeRuleReturnScope;
 
 public class Ref extends TreeFilter {
 
@@ -75,10 +77,12 @@ public class Ref extends TreeFilter {
   }
 
 
+  @Override
   public String[] getTokenNames() {
     return Ref.tokenNames;
   }
 
+  @Override
   public String getGrammarFileName() {
     return "/Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g";
   }
@@ -94,6 +98,7 @@ public class Ref extends TreeFilter {
 
   // $ANTLR start "topdown"
   // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:18:1: topdown : ( enterMethod | enterClass | varDeclaration | assignment | resolveExpr );
+  @Override
   public final void topdown() throws RecognitionException {
     try {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:22:5: ( enterMethod | enterClass | varDeclaration | assignment | resolveExpr )
@@ -140,9 +145,9 @@ public class Ref extends TreeFilter {
           enterMethod();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -153,9 +158,9 @@ public class Ref extends TreeFilter {
           enterClass();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -166,9 +171,9 @@ public class Ref extends TreeFilter {
           varDeclaration();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -179,9 +184,9 @@ public class Ref extends TreeFilter {
           assignment();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -192,9 +197,9 @@ public class Ref extends TreeFilter {
           resolveExpr();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -221,18 +226,18 @@ public class Ref extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:33:9: ^( 'class' name= ID ( ^( EXTENDS sup= ID ) )? ^( MEMBERS ( . )* ) )
       {
         match(input, 20, FOLLOW_20_in_enterClass121);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         name = (CymbolAST) match(input, ID, FOLLOW_ID_in_enterClass125);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:33:27: ( ^( EXTENDS sup= ID ) )?
         int alt2 = 2;
         int LA2_0 = input.LA(1);
@@ -245,23 +250,23 @@ public class Ref extends TreeFilter {
             // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:33:28: ^( EXTENDS sup= ID )
           {
             match(input, EXTENDS, FOLLOW_EXTENDS_in_enterClass129);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
             match(input, Token.DOWN, null);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
             sup = (CymbolAST) match(input, ID, FOLLOW_ID_in_enterClass133);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
             match(input, Token.UP, null);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
           }
           break;
@@ -269,15 +274,15 @@ public class Ref extends TreeFilter {
         }
 
         match(input, MEMBERS, FOLLOW_MEMBERS_in_enterClass139);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         if (input.LA(1) == Token.DOWN) {
           match(input, Token.DOWN, null);
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
           // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:33:58: ( . )*
           loop3:
           do {
@@ -295,9 +300,9 @@ public class Ref extends TreeFilter {
                 // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:33:58: .
               {
                 matchAny(input);
-                  if (state.failed) {
-                      return;
-                  }
+                if (state.failed) {
+                  return;
+                }
 
               }
               break;
@@ -308,15 +313,15 @@ public class Ref extends TreeFilter {
           } while (true);
 
           match(input, Token.UP, null);
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
         }
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           if (sup != null) {
@@ -357,25 +362,25 @@ public class Ref extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:51:9: ^( METHOD_DECL type ID ( . )* )
       {
         match(input, METHOD_DECL, FOLLOW_METHOD_DECL_in_enterMethod175);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         pushFollow(FOLLOW_type_in_enterMethod177);
         type2 = type();
 
         state._fsp--;
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         ID1 = (CymbolAST) match(input, ID, FOLLOW_ID_in_enterMethod179);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:51:31: ( . )*
         loop4:
         do {
@@ -393,9 +398,9 @@ public class Ref extends TreeFilter {
               // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:51:31: .
             {
               matchAny(input);
-                if (state.failed) {
-                    return;
-                }
+              if (state.failed) {
+                return;
+              }
 
             }
             break;
@@ -406,9 +411,9 @@ public class Ref extends TreeFilter {
         } while (true);
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           ID1.symbol.type = (type2 != null ? type2.tsym : null); // set return type of method
@@ -452,20 +457,20 @@ public class Ref extends TreeFilter {
         }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         pushFollow(FOLLOW_type_in_varDeclaration226);
         type4 = type();
 
         state._fsp--;
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         ID3 = (CymbolAST) match(input, ID, FOLLOW_ID_in_varDeclaration228);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:62:50: ( . )?
         int alt5 = 2;
         int LA5_0 = input.LA(1);
@@ -478,9 +483,9 @@ public class Ref extends TreeFilter {
             // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:62:50: .
           {
             matchAny(input);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
           }
           break;
@@ -488,9 +493,9 @@ public class Ref extends TreeFilter {
         }
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           ID3.symbol.type = (type4 != null ? type4.tsym : null); // set return type of variable
@@ -565,33 +570,33 @@ public class Ref extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:84:15: ^( '=' expr expr )
       {
         match(input, ASSIGN, FOLLOW_ASSIGN_in_assignment321);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         pushFollow(FOLLOW_expr_in_assignment323);
         expr();
 
         state._fsp--;
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         pushFollow(FOLLOW_expr_in_assignment325);
         expr();
 
         state._fsp--;
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
       }
 
@@ -613,26 +618,26 @@ public class Ref extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:85:15: ^( EXPR expr )
       {
         match(input, EXPR, FOLLOW_EXPR_in_resolveExpr337);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         pushFollow(FOLLOW_expr_in_resolveExpr339);
         expr();
 
         state._fsp--;
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
       }
 
@@ -706,9 +711,9 @@ public class Ref extends TreeFilter {
           member5 = member();
 
           state._fsp--;
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
           if (state.backtracking == 1) {
             retval.type = member5;
           }
@@ -719,26 +724,26 @@ public class Ref extends TreeFilter {
           // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:94:9: ^( CALL expr )
         {
           match(input, CALL, FOLLOW_CALL_in_expr378);
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
 
           match(input, Token.DOWN, null);
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
           pushFollow(FOLLOW_expr_in_expr380);
           expr();
 
           state._fsp--;
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
 
           match(input, Token.UP, null);
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
 
         }
         break;
@@ -746,33 +751,33 @@ public class Ref extends TreeFilter {
           // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:95:9: ^( '+' expr expr )
         {
           match(input, 33, FOLLOW_33_in_expr392);
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
 
           match(input, Token.DOWN, null);
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
           pushFollow(FOLLOW_expr_in_expr394);
           expr();
 
           state._fsp--;
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
           pushFollow(FOLLOW_expr_in_expr396);
           expr();
 
           state._fsp--;
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
 
           match(input, Token.UP, null);
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
 
         }
         break;
@@ -783,9 +788,9 @@ public class Ref extends TreeFilter {
           id6 = id();
 
           state._fsp--;
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
           if (state.backtracking == 1) {
             retval.type = id6;
           }
@@ -796,9 +801,9 @@ public class Ref extends TreeFilter {
           // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:97:9: INT
         {
           match(input, INT, FOLLOW_INT_in_expr428);
-            if (state.failed) {
-                return retval;
-            }
+          if (state.failed) {
+            return retval;
+          }
 
         }
         break;
@@ -846,16 +851,16 @@ public class Ref extends TreeFilter {
           // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:103:9: ID
         {
           ID7 = (CymbolAST) match(input, ID, FOLLOW_ID_in_id453);
-            if (state.failed) {
-                return type;
-            }
+          if (state.failed) {
+            return type;
+          }
           if (state.backtracking == 1) {
 
             // do usual resolve(ID) then check for illegal forward references
             ID7.symbol = SymbolTable.resolveID(ID7);
-              if (ID7.symbol != null) {
-                  type = ID7.symbol.type;
-              }
+            if (ID7.symbol != null) {
+              type = ID7.symbol.type;
+            }
 
           }
 
@@ -865,9 +870,9 @@ public class Ref extends TreeFilter {
           // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:109:9: t= 'this'
         {
           t = (CymbolAST) match(input, 35, FOLLOW_35_in_id475);
-            if (state.failed) {
-                return type;
-            }
+          if (state.failed) {
+            return type;
+          }
           if (state.backtracking == 1) {
             type = SymbolTable.getEnclosingClass(t.scope);
           }
@@ -899,30 +904,30 @@ public class Ref extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Ref.g:115:9: ^( '.' m= expr ID )
       {
         match(input, 34, FOLLOW_34_in_member504);
-          if (state.failed) {
-              return type;
-          }
+        if (state.failed) {
+          return type;
+        }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return type;
-          }
+        if (state.failed) {
+          return type;
+        }
         pushFollow(FOLLOW_expr_in_member508);
         m = expr();
 
         state._fsp--;
-          if (state.failed) {
-              return type;
-          }
+        if (state.failed) {
+          return type;
+        }
         ID8 = (CymbolAST) match(input, ID, FOLLOW_ID_in_member510);
-          if (state.failed) {
-              return type;
-          }
+        if (state.failed) {
+          return type;
+        }
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return type;
-          }
+        if (state.failed) {
+          return type;
+        }
         if (state.backtracking == 1) {
 
           ClassSymbol scope = (ClassSymbol) (m != null ? m.type : null);
@@ -933,9 +938,9 @@ public class Ref extends TreeFilter {
               input.getTreeAdaptor().getTokenStartIndex(m.start),
               input.getTreeAdaptor().getTokenStopIndex(m.start))) : null) + "." + (ID8 != null ? ID8
               .getText() : null) + " to " + s);
-            if (s != null) {
-                type = s.type;
-            }
+          if (s != null) {
+            type = s.type;
+          }
 
         }
 

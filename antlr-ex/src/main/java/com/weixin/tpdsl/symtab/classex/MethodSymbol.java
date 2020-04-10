@@ -20,10 +20,12 @@ public class MethodSymbol extends ScopedSymbol {
     super(name, retType, parent);
   }
 
+  @Override
   public Map<String, Symbol> getMembers() {
     return orderedArgs;
   }
 
+  @Override
   public String getName() {
     return name + "(" + stripBrackets(orderedArgs.keySet().toString()) + ")";
   }

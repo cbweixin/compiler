@@ -25,11 +25,12 @@ public abstract class ScopedSymbol extends Symbol implements Scope {
     this.enclosingScope = enclosingScope;
   }
 
+  @Override
   public Symbol resolve(String name) {
     Symbol s = getMembers().get(name);
-      if (s != null) {
-          return s;
-      }
+    if (s != null) {
+      return s;
+    }
     // if not here, check any parent scope
     if (getParentScope() != null) {
       return getParentScope().resolve(name);
@@ -37,19 +38,23 @@ public abstract class ScopedSymbol extends Symbol implements Scope {
     return null; // not found
   }
 
+  @Override
   public void define(Symbol sym) {
     getMembers().put(sym.name, sym);
     sym.scope = this; // track the scope in each symbol
   }
 
+  @Override
   public Scope getParentScope() {
     return getEnclosingScope();
   }
 
+  @Override
   public Scope getEnclosingScope() {
     return enclosingScope;
   }
 
+  @Override
   public String getScopeName() {
     return name;
   }

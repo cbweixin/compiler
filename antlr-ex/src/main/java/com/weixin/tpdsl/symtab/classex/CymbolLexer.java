@@ -10,10 +10,14 @@ package com.weixin.tpdsl.symtab.classex;
  ***/
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Cymbol.g 2009-09-23 17:37:56
 
-import org.antlr.runtime.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
+import org.antlr.runtime.BaseRecognizer;
+import org.antlr.runtime.CharStream;
+import org.antlr.runtime.DFA;
+import org.antlr.runtime.EarlyExitException;
+import org.antlr.runtime.Lexer;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RecognizerSharedState;
 
 public class CymbolLexer extends Lexer {
 
@@ -68,6 +72,7 @@ public class CymbolLexer extends Lexer {
 
   }
 
+  @Override
   public String getGrammarFileName() {
     return "/Users/parrt/research/book/TPDSL/Book/code/symtab/class/Cymbol.g";
   }
@@ -651,6 +656,7 @@ public class CymbolLexer extends Lexer {
   }
   // $ANTLR end "SL_COMMENT"
 
+  @Override
   public void mTokens() throws RecognitionException {
     // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Cymbol.g:1:8: ( ASSIGN | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | ID | INT | WS | SL_COMMENT )
     int alt5 = 22;
@@ -938,6 +944,7 @@ public class CymbolLexer extends Lexer {
       this.transition = DFA5_transition;
     }
 
+    @Override
     public String getDescription() {
       return "1:1: Tokens : ( ASSIGN | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | ID | INT | WS | SL_COMMENT );";
     }

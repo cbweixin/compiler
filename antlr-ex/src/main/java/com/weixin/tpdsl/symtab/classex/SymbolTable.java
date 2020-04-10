@@ -67,6 +67,7 @@ public class SymbolTable {
     return null;
   }
 
+  @Override
   public String toString() {
     return globals.toString();
   }

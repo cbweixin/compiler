@@ -9,8 +9,18 @@ package com.weixin.tpdsl.symtab.classex;
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
 
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
+import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.runtime.ANTLRInputStream;
+import org.antlr.runtime.CharStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RuleReturnScope;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.TokenStream;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeAdaptor;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.antlr.runtime.tree.TreeAdaptor;
 
 public class Test {
 
@@ -23,6 +33,7 @@ public class Test {
       return new CymbolAST(token);
     }
 
+    @Override
     public Object dupNode(Object t) {
       if (t == null) {
         return null;
@@ -30,6 +41,7 @@ public class Test {
       return create(((CymbolAST) t).token);
     }
 
+    @Override
     public Object errorNode(TokenStream input, Token start, Token stop,
         RecognitionException e) {
       CymbolErrorNode t = new CymbolErrorNode(input, start, stop, e);
@@ -40,30 +52,38 @@ public class Test {
 
   public static void main(String[] args) throws Exception {
     CharStream input = null;
-      if (args.length > 0) {
-          input = new ANTLRFileStream(args[0]);
-      } else {
-          input = new ANTLRInputStream(System.in);
-      }
+    if (args.length > 0) {
+      input = new ANTLRFileStream(args[0]);
+    } else {
+      input = new ANTLRInputStream(System.in);
+    }
     // Create lexer/parser to build trees from stdin
     CymbolLexer lex = new CymbolLexer(input);
     CommonTokenStream tokens = new CommonTokenStream(lex);
     CymbolParser p = new CymbolParser(tokens);
     p.setTreeAdaptor(cymbalAdaptor);
-    RuleReturnScope r = p.compilationUnit();   // launch parser by calling start rule
-    CommonTree t = (CommonTree) r.getTree();    // get tree result
+    // launch parser by calling start rule
+    RuleReturnScope r = p.compilationUnit();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
     //System.out.println("tree: "+t.toStringTree());
     //DOTTreeGenerator dot = new DOTTreeGenerator();
     //System.out.println(dot.toDOT(t));
 
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(cymbalAdaptor, t);
     nodes.setTokenStream(tokens);
-    SymbolTable symtab = new SymbolTable(); // init symbol table
-    Def def = new Def(nodes, symtab);       // create Def phase
-    def.downup(t);                          // Do pass 1
+    // init symbol table
+    SymbolTable symtab = new SymbolTable();
+    // create Def phase
+    Def def = new Def(nodes, symtab);
+    // Do pass 1
+    def.downup(t);
     System.out.println("globals: " + symtab.globals);
-    nodes.reset(); // rewind AST node stream to root
-    Ref ref = new Ref(nodes);               // create Ref phase
-    ref.downup(t);                          // Do pass 2
+    // rewind AST node stream to root
+    nodes.reset();
+    // create Ref phase
+    Ref ref = new Ref(nodes);
+    // Do pass 2
+    ref.downup(t);
   }
 }

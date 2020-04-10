@@ -10,13 +10,15 @@ package com.weixin.tpdsl.symtab.classex;
  ***/
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g 2009-09-23 17:37:56
 
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
-import java.util.Stack;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
+import org.antlr.runtime.BitSet;
+import org.antlr.runtime.FailedPredicateException;
+import org.antlr.runtime.MismatchedSetException;
+import org.antlr.runtime.NoViableAltException;
+import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.Token;
+import org.antlr.runtime.tree.TreeFilter;
+import org.antlr.runtime.tree.TreeNodeStream;
 
 public class Def extends TreeFilter {
 
@@ -75,10 +77,12 @@ public class Def extends TreeFilter {
   }
 
 
+  @Override
   public String[] getTokenNames() {
     return Def.tokenNames;
   }
 
+  @Override
   public String getGrammarFileName() {
     return "/Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g";
   }
@@ -96,6 +100,7 @@ public class Def extends TreeFilter {
 
   // $ANTLR start "topdown"
   // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:19:1: topdown : ( enterBlock | enterMethod | enterClass | varDeclaration | atoms );
+  @Override
   public final void topdown() throws RecognitionException {
     try {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:20:5: ( enterBlock | enterMethod | enterClass | varDeclaration | atoms )
@@ -143,9 +148,9 @@ public class Def extends TreeFilter {
           enterBlock();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -156,9 +161,9 @@ public class Def extends TreeFilter {
           enterMethod();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -169,9 +174,9 @@ public class Def extends TreeFilter {
           enterClass();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -182,9 +187,9 @@ public class Def extends TreeFilter {
           varDeclaration();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -195,9 +200,9 @@ public class Def extends TreeFilter {
           atoms();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -215,6 +220,7 @@ public class Def extends TreeFilter {
 
   // $ANTLR start "bottomup"
   // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:27:1: bottomup : ( exitBlock | exitMethod | exitClass );
+  @Override
   public final void bottomup() throws RecognitionException {
     try {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:28:5: ( exitBlock | exitMethod | exitClass )
@@ -251,9 +257,9 @@ public class Def extends TreeFilter {
           exitBlock();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -264,9 +270,9 @@ public class Def extends TreeFilter {
           exitMethod();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -277,9 +283,9 @@ public class Def extends TreeFilter {
           exitClass();
 
           state._fsp--;
-            if (state.failed) {
-                return;
-            }
+          if (state.failed) {
+            return;
+          }
 
         }
         break;
@@ -303,9 +309,9 @@ public class Def extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:36:9: BLOCK
       {
         match(input, BLOCK, FOLLOW_BLOCK_in_enterBlock156);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
           currentScope = new LocalScope(currentScope);
         }
@@ -330,9 +336,9 @@ public class Def extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:39:9: BLOCK
       {
         match(input, BLOCK, FOLLOW_BLOCK_in_exitBlock177);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           System.out.println("locals: " + currentScope);
@@ -363,18 +369,18 @@ public class Def extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:48:9: ^( 'class' name= ID ( ^( EXTENDS sup= ID ) )? . )
       {
         match(input, 20, FOLLOW_20_in_enterClass208);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         name = (CymbolAST) match(input, ID, FOLLOW_ID_in_enterClass212);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:48:27: ( ^( EXTENDS sup= ID ) )?
         int alt3 = 2;
         int LA3_0 = input.LA(1);
@@ -403,23 +409,23 @@ public class Def extends TreeFilter {
             // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:48:28: ^( EXTENDS sup= ID )
           {
             match(input, EXTENDS, FOLLOW_EXTENDS_in_enterClass216);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
             match(input, Token.DOWN, null);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
             sup = (CymbolAST) match(input, ID, FOLLOW_ID_in_enterClass220);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
             match(input, Token.UP, null);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
           }
           break;
@@ -427,22 +433,22 @@ public class Def extends TreeFilter {
         }
 
         matchAny(input);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
           // def class but leave superclass blank until ref phase
           System.out.println("line " + name.getLine() +
               ": def class " + (name != null ? name.getText() : null));
           // record scope in AST for next pass
-            if (sup != null) {
-                sup.scope = currentScope;
-            }
+          if (sup != null) {
+            sup.scope = currentScope;
+          }
           ClassSymbol cs = new ClassSymbol((name != null ? name.getText() : null), currentScope,
               null);
           cs.def = name;           // point from symbol table into AST
@@ -472,9 +478,9 @@ public class Def extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:64:9: 'class'
       {
         match(input, 20, FOLLOW_20_in_exitClass256);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           System.out.println("members: " + currentScope);
@@ -505,23 +511,23 @@ public class Def extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:72:9: ^( METHOD_DECL type= . ID ( . )* )
       {
         match(input, METHOD_DECL, FOLLOW_METHOD_DECL_in_enterMethod286);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         type = (CymbolAST) input.LT(1);
         matchAny(input);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         ID1 = (CymbolAST) match(input, ID, FOLLOW_ID_in_enterMethod292);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:72:33: ( . )*
         loop4:
         do {
@@ -539,9 +545,9 @@ public class Def extends TreeFilter {
               // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:72:33: .
             {
               matchAny(input);
-                if (state.failed) {
-                    return;
-                }
+              if (state.failed) {
+                return;
+              }
 
             }
             break;
@@ -552,9 +558,9 @@ public class Def extends TreeFilter {
         } while (true);
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           System.out.println(
@@ -589,9 +595,9 @@ public class Def extends TreeFilter {
       // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:84:9: METHOD_DECL
       {
         match(input, METHOD_DECL, FOLLOW_METHOD_DECL_in_exitMethod325);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           System.out.println("args: " + currentScope);
@@ -680,18 +686,18 @@ public class Def extends TreeFilter {
         }
 
         match(input, Token.DOWN, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         type = (CymbolAST) input.LT(1);
         matchAny(input);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         ID2 = (CymbolAST) match(input, ID, FOLLOW_ID_in_varDeclaration411);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:102:52: ( . )?
         int alt5 = 2;
         int LA5_0 = input.LA(1);
@@ -704,9 +710,9 @@ public class Def extends TreeFilter {
             // /Users/parrt/research/book/TPDSL/Book/code/symtab/class/Def.g:102:52: .
           {
             matchAny(input);
-              if (state.failed) {
-                  return;
-              }
+            if (state.failed) {
+              return;
+            }
 
           }
           break;
@@ -714,9 +720,9 @@ public class Def extends TreeFilter {
         }
 
         match(input, Token.UP, null);
-          if (state.failed) {
-              return;
-          }
+        if (state.failed) {
+          return;
+        }
         if (state.backtracking == 1) {
 
           System.out

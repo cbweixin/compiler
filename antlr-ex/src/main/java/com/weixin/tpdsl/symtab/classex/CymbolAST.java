@@ -9,8 +9,8 @@ package com.weixin.tpdsl.symtab.classex;
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
 
-import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.Token;
+import org.antlr.runtime.tree.CommonTree;
 
 public class CymbolAST extends CommonTree {
 

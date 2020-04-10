@@ -28,6 +28,7 @@ public class Symbol { // A generic programming language symbol
     return name;
   }
 
+  @Override
   public String toString() {
     String s = "";
       if (scope != null) {
