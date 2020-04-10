@@ -47,4 +47,29 @@ class AggrSymtabTest {
     System.out.println("globals: " + symtab.globals);
   }
 
+  @Test
+  public void testSymTab2() throws IOException, RecognitionException {
+
+    CymbolLexer lex = new CymbolLexer(new ANTLRFileStream(
+        "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/tpdsl/symtab/aggr/t2.cymbol"));
+    CommonTokenStream tokens = new CommonTokenStream(lex);
+    CymbolParser p = new CymbolParser(tokens);
+    // launch parser
+    RuleReturnScope r = p.compilationUnit();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
+    System.out.println("tree: "+t.toStringTree());
+    DOTTreeGenerator dot = new DOTTreeGenerator();
+    System.out.println(dot.toDOT(t));
+
+    CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
+    nodes.setTokenStream(tokens);
+    SymbolTable symtab = new SymbolTable();
+    // use custom constructor
+    DefRef def = new DefRef(nodes, symtab);
+    // trigger symtab actions upon certain subtrees
+    def.downup(t);
+    System.out.println("globals: " + symtab.globals);
+  }
+
 }
