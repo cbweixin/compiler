@@ -20,9 +20,10 @@ import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeAdaptor;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.antlr.runtime.tree.DOTTreeGenerator;
 import org.antlr.runtime.tree.TreeAdaptor;
 
-public class Test {
+public class ClassTest {
 
   /**
    * An adaptor that tells ANTLR to build CymbolAST nodes
@@ -66,9 +67,9 @@ public class Test {
     RuleReturnScope r = p.compilationUnit();
     // get tree result
     CommonTree t = (CommonTree) r.getTree();
-    //System.out.println("tree: "+t.toStringTree());
-    //DOTTreeGenerator dot = new DOTTreeGenerator();
-    //System.out.println(dot.toDOT(t));
+    System.out.println("tree: "+t.toStringTree());
+    DOTTreeGenerator dot = new DOTTreeGenerator();
+    System.out.println(dot.toDOT(t));
 
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(cymbalAdaptor, t);
     nodes.setTokenStream(tokens);
@@ -81,6 +82,7 @@ public class Test {
     System.out.println("globals: " + symtab.globals);
     // rewind AST node stream to root
     nodes.reset();
+    System.out.println("start ref phase...");
     // create Ref phase
     Ref ref = new Ref(nodes);
     // Do pass 2
