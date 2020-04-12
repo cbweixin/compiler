@@ -1,0 +1,5 @@
+class A { 
+  void foo(int z) { int a; x = 3; y = z;} // forward reference to field x
+  int x;
+  int y;
+};

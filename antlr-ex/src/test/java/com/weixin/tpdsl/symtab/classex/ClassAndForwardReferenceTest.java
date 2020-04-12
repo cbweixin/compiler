@@ -113,4 +113,38 @@ class ClassAndForwardReferenceTest {
 
   }
 
+  @Test
+  public void testForwardSymbol2() throws IOException, RecognitionException {
+    // Create lexer/parser to build trees from stdin
+    CymbolLexer lex = new CymbolLexer(new ANTLRFileStream(
+        "/Users/xinwei/Documents/weixin/study-antlr/antlr-ex/src/main/java/com/weixin/tpdsl/symtab/classex/forward2.cymbol"));
+    CommonTokenStream tokens = new CommonTokenStream(lex);
+    CymbolParser p = new CymbolParser(tokens);
+    p.setTreeAdaptor(cymbalAdaptor);
+    // launch parser by calling start rule
+    RuleReturnScope r = p.compilationUnit();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
+    System.out.println("tree: " + t.toStringTree());
+    DOTTreeGenerator dot = new DOTTreeGenerator();
+    System.out.println(dot.toDOT(t));
+
+    CommonTreeNodeStream nodes = new CommonTreeNodeStream(cymbalAdaptor, t);
+    nodes.setTokenStream(tokens);
+    // init symbol table
+    SymbolTable symtab = new SymbolTable();
+    // create Def phase
+    Def def = new Def(nodes, symtab);
+    // Do pass 1
+    def.downup(t);
+    System.out.println("globals: " + symtab.globals);
+    // rewind AST node stream to root
+    nodes.reset();
+    System.out.println("start ref phase...");
+    // create Ref phase
+    Ref ref = new Ref(nodes);
+    // Do pass 2
+    ref.downup(t);
+
+  }
 }
