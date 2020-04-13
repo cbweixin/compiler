@@ -63,22 +63,29 @@ public class Test {
     CymbolLexer lex = new CymbolLexer(input);
     final TokenRewriteStream tokens = new TokenRewriteStream(lex);
     CymbolParser p = new CymbolParser(tokens);
-    p.setTreeAdaptor(CymbolAdaptor);  // create CymbolAST nodes
-    RuleReturnScope r = p.compilationUnit();   // launch parser
-    CommonTree t = (CommonTree) r.getTree();    // get tree result
+    // create CymbolAST nodes
+    p.setTreeAdaptor(CymbolAdaptor);
+    // launch parser
+    RuleReturnScope r = p.compilationUnit();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
 
     // CREATE TREE NODE STREAM FOR TREE PARSERS
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
-    nodes.setTokenStream(tokens);        // where to find tokens
+    // where to find tokens
+    nodes.setTokenStream(tokens);
     nodes.setTreeAdaptor(CymbolAdaptor);
     SymbolTable symtab = new SymbolTable();
     // DEFINE SYMBOLS
-    Def def = new Def(nodes, symtab); // pass symtab to walker
-    def.downup(t); // trigger define actions upon certain subtrees
+    // pass symtab to walker
+    Def def = new Def(nodes, symtab);
+    // trigger define actions upon certain subtrees
+    def.downup(t);
     // RESOLVE SYMBOLS, COMPUTE EXPRESSION TYPES
     nodes.reset();
     Types typeComp = new Types(nodes, symtab);
-    typeComp.downup(t); // trigger resolve/type computation actions
+    // trigger resolve/type computation actions
+    typeComp.downup(t);
 
     // WALK TREE TO DUMP SUBTREE TYPES
     TreeVisitor v = new TreeVisitor(new CommonTreeAdaptor());
