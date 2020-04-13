@@ -1,3 +1,5 @@
+package com.weixin.tpdsl.semantics.types;
+
 /***
  * Excerpted from "Language Implementation Patterns",
  * published by The Pragmatic Bookshelf.
@@ -5,8 +7,10 @@
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
+ ***/
 public interface CymbolListener {
-    public void info(String msg);
-    public void error(String msg);
+
+  public void info(String msg);
+
+  public void error(String msg);
 }
