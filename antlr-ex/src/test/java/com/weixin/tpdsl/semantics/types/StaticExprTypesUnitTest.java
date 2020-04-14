@@ -107,10 +107,10 @@ class StaticExprTypesUnitTest {
   }
 
 
-//  @Test
+  @Test
   public void testStaticsExprTypes_2() throws RecognitionException, IOException {
     CharStream input = new ANTLRInputStream(
-        this.getClass().getClassLoader().getResourceAsStream("t2.cymbol"));
+        this.getClass().getClassLoader().getResourceAsStream("structs2.cymbol"));
     // CREATE PARSER AND BUILD AST
     CymbolLexer lex = new CymbolLexer(input);
     final TokenRewriteStream tokens = new TokenRewriteStream(lex);
@@ -160,7 +160,7 @@ class StaticExprTypesUnitTest {
   }
 
 
-  @Test
+//  @Test
   public void testStaticsExprTypes_3() throws RecognitionException, IOException {
     CharStream input = new ANTLRInputStream(
         this.getClass().getClassLoader().getResourceAsStream("t3.cymbol"));
