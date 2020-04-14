@@ -2,7 +2,7 @@
 grammar Expr;
 
 @header {
-package tools;
+package com.weixin.actions.tools;
 import java.util.*;
 }
 
