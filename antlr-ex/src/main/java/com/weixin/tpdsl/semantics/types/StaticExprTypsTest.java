@@ -24,7 +24,7 @@ import org.antlr.runtime.tree.TreeAdaptor;
 import org.antlr.runtime.tree.TreeVisitor;
 import org.antlr.runtime.tree.TreeVisitorAction;
 
-public class Test {
+public class StaticExprTypsTest {
 
   /**
    * An adaptor that tells ANTLR to build CymbolAST nodes
