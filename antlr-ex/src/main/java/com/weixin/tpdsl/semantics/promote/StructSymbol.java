@@ -15,6 +15,7 @@ public class StructSymbol extends ScopedSymbol implements Type, Scope {
     public StructSymbol(String name,Scope parent) {super(name, parent);}
     /** For a.b, only look in a only to resolve b, not up scope tree */
     public Symbol resolveMember(String name) { return fields.get(name); }
+    @Override
     public Map<String, Symbol> getMembers() { return fields; }
     public String toString() {
         return "struct "+name+":{"+

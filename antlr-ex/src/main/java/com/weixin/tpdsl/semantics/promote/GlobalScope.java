@@ -7,8 +7,15 @@ package com.weixin.tpdsl.semantics.promote;
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
+ ***/
 public class GlobalScope extends BaseScope {
-    public GlobalScope() { super(null); }
-    public String getScopeName() { return "global"; }
+
+  public GlobalScope() {
+    super(null);
+  }
+
+  @Override
+  public String getScopeName() {
+    return "global";
+  }
 }
