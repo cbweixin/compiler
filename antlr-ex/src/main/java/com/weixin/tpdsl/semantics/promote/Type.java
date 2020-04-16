@@ -7,9 +7,14 @@ package com.weixin.tpdsl.semantics.promote;
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
-/** A "tag" to indicate which symbols are types */
+ ***/
+
+/**
+ * A "tag" to indicate which symbols are types
+ */
 public interface Type {
-    public String getName();
-    public int getTypeIndex();
+
+  public String getName();
+
+  public int getTypeIndex();
 }

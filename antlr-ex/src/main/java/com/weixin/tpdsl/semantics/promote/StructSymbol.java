@@ -7,20 +7,39 @@ package com.weixin.tpdsl.semantics.promote;
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
-import java.util.Map;
+ ***/
+
 import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class StructSymbol extends ScopedSymbol implements Type, Scope {
-    Map<String, Symbol> fields = new LinkedHashMap<String, Symbol>();
-    public StructSymbol(String name,Scope parent) {super(name, parent);}
-    /** For a.b, only look in a only to resolve b, not up scope tree */
-    public Symbol resolveMember(String name) { return fields.get(name); }
-    @Override
-    public Map<String, Symbol> getMembers() { return fields; }
-    public String toString() {
-        return "struct "+name+":{"+
-               stripBrackets(fields.keySet().toString())+"}";
-    }
-	@Override
-  public int getTypeIndex() { return SymbolTable.tUSER; }
+
+  Map<String, Symbol> fields = new LinkedHashMap<String, Symbol>();
+
+  public StructSymbol(String name, Scope parent) {
+    super(name, parent);
+  }
+
+  /**
+   * For a.b, only look in a only to resolve b, not up scope tree
+   */
+  public Symbol resolveMember(String name) {
+    return fields.get(name);
+  }
+
+  @Override
+  public Map<String, Symbol> getMembers() {
+    return fields;
+  }
+
+  @Override
+  public String toString() {
+    return "struct " + name + ":{" +
+        stripBrackets(fields.keySet().toString()) + "}";
+  }
+
+  @Override
+  public int getTypeIndex() {
+    return SymbolTable.tUSER;
+  }
 }
