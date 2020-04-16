@@ -28,5 +28,6 @@ public class CymbolErrorNode extends CymbolAST {
 	public int getType() { return delegate.getType(); }
 
 	public String getText() { return delegate.getText(); }
+	@Override
 	public String toString() { return delegate.toString(); }
 }

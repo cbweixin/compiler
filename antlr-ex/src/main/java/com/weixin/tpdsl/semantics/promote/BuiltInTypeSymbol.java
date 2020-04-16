@@ -6,15 +6,27 @@ package com.weixin.tpdsl.semantics.promote;
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
-/** A symbol to represent built in types such int, float primitive types */
+ ***/
+
+/**
+ * A symbol to represent built in types such int, float primitive types
+ */
 public class BuiltInTypeSymbol extends Symbol implements Type {
-    int typeIndex;
-    public BuiltInTypeSymbol(String name, int typeIndex) {
-        super(name);
-        this.typeIndex = typeIndex;
-    }
-    @Override
-    public int getTypeIndex() { return typeIndex; }
-    public String toString() { return getName(); }    
+
+  int typeIndex;
+
+  public BuiltInTypeSymbol(String name, int typeIndex) {
+    super(name);
+    this.typeIndex = typeIndex;
+  }
+
+  @Override
+  public int getTypeIndex() {
+    return typeIndex;
+  }
+
+  @Override
+  public String toString() {
+    return getName();
+  }
 }
