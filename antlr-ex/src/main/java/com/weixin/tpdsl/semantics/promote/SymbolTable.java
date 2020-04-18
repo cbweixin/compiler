@@ -114,8 +114,8 @@ public class SymbolTable {
     int tb = b.evalType.getTypeIndex(); // type index of right operand
     Type result = typeTable[ta][tb];    // operation result type
     // promote operand types to result type
-    a.promoteToType = promoteFromTo[ta][result];
-    b.promoteToType = promoteFromTo[tb][result];
+    a.promoteToType = promoteFromTo[ta][result.getTypeIndex()];
+    b.promoteToType = promoteFromTo[tb][result.getTypeIndex()];
     return result;
   }
 
