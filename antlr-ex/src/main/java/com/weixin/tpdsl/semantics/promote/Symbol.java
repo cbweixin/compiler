@@ -8,7 +8,8 @@ package com.weixin.tpdsl.semantics.promote;
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
-public class Symbol { // A generic programming language symbol
+// A generic programming language symbol
+public class Symbol {
 
   // All symbols at least have a name
   String name;
