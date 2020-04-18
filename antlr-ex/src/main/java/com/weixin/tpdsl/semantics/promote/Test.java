@@ -63,24 +63,31 @@ public class Test {
     final TokenRewriteStream tokens = new TokenRewriteStream(lex);
     CymbolParser p = new CymbolParser(tokens);
     p.setTreeAdaptor(CymbolAdaptor);
-    RuleReturnScope r = p.compilationUnit();   // launch parser
-    CommonTree t = (CommonTree) r.getTree();    // get tree result
+    // launch parser
+    RuleReturnScope r = p.compilationUnit();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
     //System.out.println("tree: "+t.toStringTree());
 
     //  CREATE TREE NODE STREAM FOR TREE PARSERS
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
-    nodes.setTokenStream(tokens);        // where to find tokens
-    nodes.setTreeAdaptor(CymbolAdaptor); // create CymbolAST nodes
+    // where to find tokens
+    nodes.setTokenStream(tokens);
+    // create CymbolAST nodes
+    nodes.setTreeAdaptor(CymbolAdaptor);
     SymbolTable symtab = new SymbolTable();
 
     // DEFINE SYMBOLS
-    Def def = new Def(nodes, symtab); // pass symtab to walker
-    def.downup(t); // trigger define actions upon certain subtrees
+    // pass symtab to walker
+    Def def = new Def(nodes, symtab);
+    // trigger define actions upon certain subtrees
+    def.downup(t);
 
     // RESOLVE SYMBOLS, COMPUTE EXPRESSION TYPES
     nodes.reset();
     Types typeComp = new Types(nodes, symtab);
-    typeComp.downup(t); // trigger resolve/type computation actions
+    // trigger resolve/type computation actions
+    typeComp.downup(t);
 
     // WALK TREE TO DUMP SUBTREE TYPES
     TreeVisitor v = new TreeVisitor(new CommonTreeAdaptor());
@@ -96,7 +103,8 @@ public class Test {
         return t;
       }
     };
-    v.visit(t, actions); // walk in postorder, showing types
+    // walk in postorder, showing types
+    v.visit(t, actions);
 
     TreeVisitorAction actions2 = new TreeVisitorAction() {
       @Override
@@ -137,15 +145,18 @@ public class Test {
    */
   static void insertCast(CymbolAST t, TokenRewriteStream tokens) {
     String cast = "(" + t.promoteToType + ")";
-    int left = t.getTokenStartIndex(); // location in token buffer
+    // location in token buffer
+    int left = t.getTokenStartIndex();
     int right = t.getTokenStopIndex();
-    Token tok = t.token;                // tok is node's token payload
+    // tok is node's token payload
+    Token tok = t.token;
     if (tok.getType() == CymbolParser.EXPR) {
       tok = ((CymbolAST) t.getChild(0)).token;
     }
     if (left == right ||
         tok.getType() == CymbolParser.INDEX ||
-        tok.getType() == CymbolParser.CALL) { // it's a single atom or a[i] or f(); don't use (...)
+        // it's a single atom or a[i] or f(); don't use (...)
+        tok.getType() == CymbolParser.CALL) {
       tokens.insertBefore(left, cast);
     } else { // need parens
       String original = tokens.toString(left, right);
