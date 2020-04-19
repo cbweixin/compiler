@@ -7,8 +7,15 @@ package com.weixin.tpdsl.semantics.safety;
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
+ ***/
 public class LocalScope extends BaseScope {
-    public LocalScope(Scope parent) { super(parent); }
-    public String getScopeName() { return "local"; }    
+
+  public LocalScope(Scope parent) {
+    super(parent);
+  }
+
+  @Override
+  public String getScopeName() {
+    return "local";
+  }
 }

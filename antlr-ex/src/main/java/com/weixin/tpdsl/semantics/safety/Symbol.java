@@ -8,12 +8,16 @@ package com.weixin.tpdsl.semantics.safety;
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
  ***/
-public class Symbol { // A generic programming language symbol
+// A generic programming language symbol
+public class Symbol {
 
-  String name;      // All symbols at least have a name
+  // All symbols at least have a name
+  String name;
   Type type;
-  Scope scope;      // All symbols know what scope contains them.
-  CymbolAST def;    // Location in AST of ID node
+  // All symbols know what scope contains them.
+  Scope scope;
+  // Location in AST of ID node
+  CymbolAST def;
 
   public Symbol(String name) {
     this.name = name;
@@ -28,14 +32,15 @@ public class Symbol { // A generic programming language symbol
     return name;
   }
 
+  @Override
   public String toString() {
     String s = "";
-      if (scope != null) {
-          s = scope.getScopeName() + ".";
-      }
-      if (type != null) {
-          return '<' + s + getName() + ":" + type + '>';
-      }
+    if (scope != null) {
+      s = scope.getScopeName() + ".";
+    }
+    if (type != null) {
+      return '<' + s + getName() + ":" + type + '>';
+    }
     return s + getName();
   }
 
