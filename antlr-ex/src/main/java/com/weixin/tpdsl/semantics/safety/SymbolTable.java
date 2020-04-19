@@ -35,10 +35,12 @@ public class SymbolTable {
 
   public CymbolListener listener =
       new CymbolListener() {
+        @Override
         public void info(String msg) {
           System.out.println(msg);
         }
 
+        @Override
         public void error(String msg) {
           System.err.println(msg);
         }

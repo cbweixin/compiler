@@ -1,6 +1,6 @@
 package com.weixin.tpdsl.symtab.nested;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import org.antlr.runtime.ANTLRFileStream;
@@ -33,7 +33,7 @@ class CymbolParserTest {
     RuleReturnScope r = parser.compilationUnit();
 
     CommonTree t = (CommonTree) r.getTree(); // get tree result from parser
-    System.out.println("tree: "+t.toStringTree());
+    System.out.println("tree: " + t.toStringTree());
 
     // get tree result from parser
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
@@ -58,7 +58,7 @@ class CymbolParserTest {
     RuleReturnScope r = parser.compilationUnit();
 
     CommonTree t = (CommonTree) r.getTree(); // get tree result from parser
-    System.out.println("tree: "+t.toStringTree());
+    System.out.println("tree: " + t.toStringTree());
 
     // get tree result from parser
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
