@@ -69,8 +69,8 @@ public class PromotionTest {
     // get tree result
     CommonTree t = (CommonTree) r.getTree();
     //System.out.println("tree: "+t.toStringTree());
-    DOTTreeGenerator dot = new DOTTreeGenerator();
-    System.out.println(dot.toDOT(t));
+//    DOTTreeGenerator dot = new DOTTreeGenerator();
+//    System.out.println(dot.toDOT(t));
 
 
     //  CREATE TREE NODE STREAM FOR TREE PARSERS
