@@ -20,6 +20,7 @@ import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeAdaptor;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.antlr.runtime.tree.DOTTreeGenerator;
 import org.antlr.runtime.tree.TreeAdaptor;
 import org.antlr.runtime.tree.TreeVisitor;
 import org.antlr.runtime.tree.TreeVisitorAction;
@@ -68,6 +69,8 @@ public class TypeSafeTest {
     // get tree result
     CommonTree t = (CommonTree) r.getTree();
     //System.out.println("tree: "+t.toStringTree());
+    DOTTreeGenerator dotTreeGenerator = new DOTTreeGenerator();
+    System.out.println(dotTreeGenerator.toDOT(t));
 
     //  CREATE TREE NODE STREAM FOR TREE PARSERS
     CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);

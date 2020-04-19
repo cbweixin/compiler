@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.weixin.tpdsl.semantics.safety.BaseScope</OriginalElement>
+  <nodes>
+    <node x="1739.0" y="1892.5">com.weixin.tpdsl.semantics.safety.BuiltInTypeSymbol</node>
+    <node x="197.0" y="2170.0">com.weixin.tpdsl.semantics.safety.CymbolAST</node>
+    <node x="1525.0" y="1892.5">com.weixin.tpdsl.semantics.safety.ArrayType</node>
+    <node x="200.0" y="1918.0">com.weixin.tpdsl.semantics.safety.LocalScope</node>
+    <node x="1110.0" y="1828.0">com.weixin.tpdsl.semantics.safety.ClassSymbol</node>
+    <node x="0.0" y="0.0">com.weixin.tpdsl.semantics.safety.SymbolTable</node>
+    <node x="73.47526041666652" y="1483.5">com.weixin.tpdsl.semantics.safety.BaseScope</node>
+    <node x="795.0" y="1866.5">com.weixin.tpdsl.semantics.safety.StructSymbol</node>
+    <node x="430.0" y="1905.0">com.weixin.tpdsl.semantics.safety.MethodSymbol</node>
+    <node x="1507.6875" y="1097.0">com.weixin.tpdsl.semantics.safety.Symbol</node>
+    <node x="752.9752604166667" y="1470.0">com.weixin.tpdsl.semantics.safety.ScopedSymbol</node>
+    <node x="1475.0052083333333" y="1573.0">com.weixin.tpdsl.semantics.safety.Type</node>
+    <node x="0.0" y="1918.0">com.weixin.tpdsl.semantics.safety.GlobalScope</node>
+    <node x="0.0" y="2492.0">com.weixin.tpdsl.semantics.safety.CymbolErrorNode</node>
+    <node x="727.7083333333336" y="1174.0">com.weixin.tpdsl.semantics.safety.Scope</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.weixin.tpdsl.semantics.safety.BuiltInTypeSymbol" target="com.weixin.tpdsl.semantics.safety.Type">
+      <point x="-79.75" y="-84.0" />
+      <point x="1818.75" y="1798.0" />
+      <point x="1605.3802083333333" y="1798.0" />
+      <point x="55.875" y="46.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.BuiltInTypeSymbol" target="com.weixin.tpdsl.semantics.safety.Symbol">
+      <point x="79.75" y="-84.0" />
+      <point x="1978.25" y="1450.0" />
+      <point x="1753.5208333333333" y="1450.0" />
+      <point x="98.33333333333326" y="161.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.StructSymbol" target="com.weixin.tpdsl.semantics.safety.ScopedSymbol">
+      <point x="1.1368683772161603E-13" y="-110.0" />
+      <point x="942.5000000000002" y="1808.0" />
+      <point x="925.4752604166667" y="1808.0" />
+      <point x="0.0" y="149.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.StructSymbol" target="com.weixin.tpdsl.semantics.safety.Scope">
+      <point x="-98.33333333333314" y="-110.0" />
+      <point x="844.166666666667" y="1798.0" />
+      <point x="742.4752604166667" y="1798.0" />
+      <point x="742.4752604166667" y="1450.0" />
+      <point x="819.5833333333336" y="1450.0" />
+      <point x="-30.625" y="84.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.LocalScope" target="com.weixin.tpdsl.semantics.safety.BaseScope">
+      <point x="0.0" y="-58.5" />
+      <point x="305.0" y="1808.0" />
+      <point x="287.9752604166665" y="1808.0" />
+      <point x="71.5" y="135.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.ClassSymbol" target="com.weixin.tpdsl.semantics.safety.Type">
+      <point x="131.66666666666674" y="-148.5" />
+      <point x="1439.1666666666667" y="1808.0" />
+      <point x="1530.8802083333333" y="1808.0" />
+      <point x="-18.625" y="46.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.ArrayType" target="com.weixin.tpdsl.semantics.safety.Type">
+      <point x="-48.5" y="-84.0" />
+      <point x="1573.5" y="1808.0" />
+      <point x="1568.1302083333333" y="1808.0" />
+      <point x="18.625" y="46.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.StructSymbol" target="com.weixin.tpdsl.semantics.safety.Type">
+      <point x="98.33333333333337" y="-110.0" />
+      <point x="1040.8333333333335" y="1798.0" />
+      <point x="1493.6302083333333" y="1798.0" />
+      <point x="-55.875" y="46.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.GlobalScope" target="com.weixin.tpdsl.semantics.safety.BaseScope">
+      <point x="0.0" y="-58.5" />
+      <point x="90.0" y="1808.0" />
+      <point x="144.97526041666652" y="1808.0" />
+      <point x="-71.5" y="135.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.ArrayType" target="com.weixin.tpdsl.semantics.safety.Symbol">
+      <point x="48.5" y="-84.0" />
+      <point x="1670.5" y="1808.0" />
+      <point x="1655.1875" y="1808.0" />
+      <point x="0.0" y="161.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.ClassSymbol" target="com.weixin.tpdsl.semantics.safety.ScopedSymbol">
+      <point x="-131.66666666666652" y="-148.5" />
+      <point x="1175.8333333333335" y="1788.0" />
+      <point x="1040.4752604166667" y="1788.0" />
+      <point x="115.00000000000011" y="149.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.BaseScope" target="com.weixin.tpdsl.semantics.safety.Scope">
+      <point x="0.0" y="-135.5" />
+      <point x="216.47526041666652" y="1440.0" />
+      <point x="758.3333333333336" y="1440.0" />
+      <point x="-91.875" y="84.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.CymbolErrorNode" target="com.weixin.tpdsl.semantics.safety.CymbolAST">
+      <point x="0.0" y="-135.5" />
+      <point x="0.0" y="136.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.ClassSymbol" target="com.weixin.tpdsl.semantics.safety.Scope">
+      <point x="0.0" y="-148.5" />
+      <point x="1307.5" y="1788.0" />
+      <point x="1340.1458333333335" y="1788.0" />
+      <point x="1340.1458333333335" y="1440.0" />
+      <point x="942.0833333333336" y="1440.0" />
+      <point x="91.875" y="84.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.ScopedSymbol" target="com.weixin.tpdsl.semantics.safety.Scope">
+      <point x="-86.24999999999989" y="-149.0" />
+      <point x="839.2252604166667" y="1450.0" />
+      <point x="880.8333333333336" y="1450.0" />
+      <point x="30.625" y="84.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.ScopedSymbol" target="com.weixin.tpdsl.semantics.safety.Symbol">
+      <point x="86.25000000000011" y="-149.0" />
+      <point x="1011.7252604166667" y="1450.0" />
+      <point x="1556.8541666666667" y="1450.0" />
+      <point x="-98.33333333333326" y="161.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.semantics.safety.MethodSymbol" target="com.weixin.tpdsl.semantics.safety.ScopedSymbol">
+      <point x="0.0" y="-71.5" />
+      <point x="602.5" y="1808.0" />
+      <point x="810.4752604166667" y="1808.0" />
+      <point x="-115.0" y="149.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="642.0" y="2491.5" />
+  <SelectedNodes>
+    <node>com.weixin.tpdsl.semantics.safety.BaseScope</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

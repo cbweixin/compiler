@@ -15,7 +15,8 @@ import org.antlr.runtime.TokenStream;
 public class SymbolTable {
 
   // arithmetic types defined in order from narrowest to widest
-  public static final int tUSER = 0; // user-defined type (struct)
+  // user-defined type (struct)
+  public static final int tUSER = 0;
   public static final int tBOOLEAN = 1;
   public static final int tCHAR = 2;
   public static final int tINT = 3;
@@ -123,9 +124,12 @@ public class SymbolTable {
   }
 
   public Type getResultType(Type[][] typeTable, CymbolAST a, CymbolAST b) {
-    int ta = a.evalType.getTypeIndex(); // type index of left operand
-    int tb = b.evalType.getTypeIndex(); // type index of right operand
-    Type result = typeTable[ta][tb];    // operation result type
+    // type index of left operand
+    int ta = a.evalType.getTypeIndex();
+    // type index of right operand
+    int tb = b.evalType.getTypeIndex();
+    // operation result type
+    Type result = typeTable[ta][tb];
     if (result == _void) {
       listener.error(text(a) + ", " +
           text(b) + " have incompatible types in " +
@@ -166,22 +170,26 @@ public class SymbolTable {
     if (a.evalType != _boolean) {
       listener.error(text(a) + " must have boolean type in " +
           text((CymbolAST) a.getParent()));
-      return _boolean; // even though wrong, assume result boolean
+      // even though wrong, assume result boolean
+      return _boolean;
     }
     return a.evalType;
   }
 
   public Type arrayIndex(CymbolAST id, CymbolAST index) {
     Symbol s = id.scope.resolve(id.getText());
-    id.symbol = s;                               // annotate AST
-    if (s.getClass() != VariableSymbol.class || // ensure it's an array
+    // annotate AST
+    id.symbol = s;
+    // ensure it's an array
+    if (s.getClass() != VariableSymbol.class ||
         s.type.getClass() != ArrayType.class) {
       listener.error(text(id) + " must be an array variable in " +
           text((CymbolAST) id.getParent()));
       return _void;
     }
     VariableSymbol vs = (VariableSymbol) s;
-    Type t = ((ArrayType) vs.type).elementType;   // get element type
+    // get element type
+    Type t = ((ArrayType) vs.type).elementType;
     int texpr = index.evalType.getTypeIndex();
     // promote the index expr if necessary to int
     index.promoteToType = promoteFromTo[texpr][tINT];
@@ -204,7 +212,8 @@ public class SymbolTable {
     id.symbol = ms;
     int i = 0;
 
-    for (Symbol a : ms.orderedArgs.values()) { // for each arg
+    // for each arg
+    for (Symbol a : ms.orderedArgs.values()) {
       CymbolAST argAST = (CymbolAST) args.get(i++);
 
       // get argument expression type and expected type
@@ -233,16 +242,20 @@ public class SymbolTable {
           text((CymbolAST) expr.getParent()));
       return _void;
     }
-    StructSymbol scope = (StructSymbol) expr.evalType;// get scope of left
-    Symbol s = scope.resolveMember(field.getText());// resolve ID in scope
+    // get scope of left
+    StructSymbol scope = (StructSymbol) expr.evalType;
+    // resolve ID in scope
+    Symbol s = scope.resolveMember(field.getText());
     field.symbol = s;
-    return s.type;           // return ID's type
+    // return ID's type
+    return s.type;
   }
 
   // assignnment stuff (arg assignment in call())
 
   public void declinit(CymbolAST declID, CymbolAST init) {
-    int te = init.evalType.getTypeIndex(); // promote expr to decl type?
+    // promote expr to decl type?
+    int te = init.evalType.getTypeIndex();
     int tdecl = declID.symbol.type.getTypeIndex();
     declID.evalType = declID.symbol.type;
     init.promoteToType = promoteFromTo[te][tdecl];
