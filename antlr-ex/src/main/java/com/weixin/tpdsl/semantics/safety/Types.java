@@ -99,10 +99,12 @@ public class Types extends TreeFilter {
   }
 
 
+  @Override
   public String[] getTokenNames() {
     return Types.tokenNames;
   }
 
+  @Override
   public String getGrammarFileName() {
     return "/Users/parrt/research/book/TPDSL/Book/code/semantics/safety/Types.g";
   }
@@ -118,6 +120,7 @@ public class Types extends TreeFilter {
 
   // $ANTLR start "bottomup"
   // /Users/parrt/research/book/TPDSL/Book/code/semantics/safety/Types.g:17:1: bottomup : ( exprRoot | decl | ret | assignment | ifstat );
+  @Override
   public final void bottomup() throws RecognitionException {
     try {
       // /Users/parrt/research/book/TPDSL/Book/code/semantics/safety/Types.g:18:5: ( exprRoot | decl | ret | assignment | ifstat )
