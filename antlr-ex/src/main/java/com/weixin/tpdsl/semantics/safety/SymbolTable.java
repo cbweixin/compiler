@@ -116,9 +116,9 @@ public class SymbolTable {
 
   protected void initTypeSystem() {
     for (Type t : indexToType) {
-        if (t != null) {
-            globals.define((BuiltInTypeSymbol) t);
-        }
+      if (t != null) {
+        globals.define((BuiltInTypeSymbol) t);
+      }
     }
   }
 
@@ -293,13 +293,14 @@ public class SymbolTable {
 
   public String text(CymbolAST t) {
     String ts = "";
-      if (t.evalType != null) {
-          ts = ":<" + t.evalType + ">";
-      }
+    if (t.evalType != null) {
+      ts = ":<" + t.evalType + ">";
+    }
     return tokens.toString(t.getTokenStartIndex(),
         t.getTokenStopIndex()) + ts;
   }
 
+  @Override
   public String toString() {
     return globals.toString();
   }
