@@ -156,4 +156,78 @@ class ObjectOrientedTypesTestTest {
     System.out.println(tokens);
 
   }
+
+  @Test
+  public void objectOrientedTypesTest2() throws IOException, RecognitionException {
+    CharStream input = new ANTLRInputStream(
+        getClass().getClassLoader().getResourceAsStream("oov.cymbol"));
+    CymbolLexer lex = new CymbolLexer(input);
+    final TokenRewriteStream tokens = new TokenRewriteStream(lex);
+    CymbolParser p = new CymbolParser(tokens);
+    p.setTreeAdaptor(CymbolAdaptor);
+    // launch parser
+    RuleReturnScope r = p.compilationUnit();
+    // get tree result
+    CommonTree t = (CommonTree) r.getTree();
+    //System.out.println("tree: "+t.toStringTree());
+    DOTTreeGenerator generator = new DOTTreeGenerator();
+    System.out.println(generator.toDOT(t));
+
+    //  CREATE TREE NODE STREAM FOR TREE PARSERS
+    CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
+    // where to find tokens
+    nodes.setTokenStream(tokens);
+    // create CymbolAST nodes
+    nodes.setTreeAdaptor(CymbolAdaptor);
+    SymbolTable symtab = new SymbolTable(tokens);
+
+    // DEFINE SYMBOLS
+    // pass symtab to walker
+    Def def = new Def(nodes, symtab);
+    // trigger define actions upon certain subtrees
+    def.downup(t);
+
+    // RESOLVE SYMBOLS, COMPUTE EXPRESSION TYPES
+    nodes.reset();
+    Types typeComp = new Types(nodes, symtab);
+    // trigger resolve/type computation actions
+    typeComp.downup(t);
+
+    // WALK TREE TO DUMP SUBTREE TYPES
+    TreeVisitor v = new TreeVisitor(new CommonTreeAdaptor());
+    TreeVisitorAction actions = new TreeVisitorAction() {
+      @Override
+      public Object pre(Object t) {
+        return t;
+      }
+
+      @Override
+      public Object post(Object t) {
+        showTypesAndPromotions((CymbolAST) t, tokens);
+        return t;
+      }
+    };
+    // walk in postorder, showing types
+    v.visit(t, actions);
+
+    TreeVisitorAction actions2 = new TreeVisitorAction() {
+      @Override
+      public Object pre(Object t) {
+        return t;
+      }
+
+      @Override
+      public Object post(Object t) {
+        CymbolAST u = (CymbolAST) t;
+        if (u.promoteToType != null) {
+          insertCast(u, tokens);
+        }
+        return t;
+      }
+    };
+    v.visit(t, actions2);
+
+    System.out.println(tokens);
+
+  }
 }
