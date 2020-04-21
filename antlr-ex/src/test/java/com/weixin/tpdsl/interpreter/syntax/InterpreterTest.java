@@ -37,4 +37,11 @@ class InterpreterTest {
     Interpreter interp = new Interpreter();
     interp.interp(input);
   }
+
+  @Test
+  public void SqlInterpreterTest5() throws IOException, RecognitionException {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t5.q");
+    Interpreter interp = new Interpreter();
+    interp.interp(input);
+  }
 }
