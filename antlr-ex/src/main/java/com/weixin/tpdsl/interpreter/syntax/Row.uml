@@ -3,27 +3,16 @@
   <ID>JAVA</ID>
   <OriginalElement>com.weixin.tpdsl.interpreter.syntax.Row</OriginalElement>
   <nodes>
-    <node x="407.0" y="0.0">com.weixin.tpdsl.interpreter.syntax.ResultSet</node>
     <node x="0.0" y="0.0">com.weixin.tpdsl.interpreter.syntax.Row</node>
+    <node x="407.0" y="0.0">com.weixin.tpdsl.interpreter.syntax.ResultSet</node>
     <node x="21.0" y="321.0">com.weixin.tpdsl.interpreter.syntax.Table</node>
   </nodes>
   <notes />
-  <edges>
-    <edge source="com.weixin.tpdsl.interpreter.syntax.Row" target="com.weixin.tpdsl.interpreter.syntax.Table">
-      <point x="135.75" y="135.5" />
-      <point x="316.75" y="296.0" />
-      <point x="301.0" y="296.0" />
-      <point x="120.0" y="-174.5" />
-    </edge>
-    <edge source="com.weixin.tpdsl.interpreter.syntax.Table" target="com.weixin.tpdsl.interpreter.syntax.Row">
-      <point x="40.0" y="-174.5" />
-      <point x="221.0" y="296.0" />
-      <point x="226.25" y="296.0" />
-      <point x="45.25" y="135.5" />
-    </edge>
-  </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="61.0" y="319.5" />
-  <SelectedNodes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.9260869565217391" x="342.5" y="335.0" />
+  <SelectedNodes>
+    <node>com.weixin.tpdsl.interpreter.syntax.Row</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
