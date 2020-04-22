@@ -1,8 +1,5 @@
 package com.weixin.tpdsl.interpreter.syntax;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.antlr.runtime.RecognitionException;
