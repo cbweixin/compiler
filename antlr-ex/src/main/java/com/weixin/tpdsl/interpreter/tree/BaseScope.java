@@ -32,13 +32,15 @@ public abstract class BaseScope implements Scope {
     if (getParentScope() != null) {
       return getParentScope().resolve(name);
     }
-    return null; // not found
+    // not found
+    return null;
   }
 
   @Override
   public void define(Symbol sym) {
     symbols.put(sym.name, sym);
-    sym.scope = this; // track the scope in each symbol
+    // track the scope in each symbol
+    sym.scope = this;
   }
 
   public Scope getParentScope() {
