@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.weixin.tpdsl.interpreter.tree.BaseScope</OriginalElement>
+  <nodes>
+    <node x="130.87499999999994" y="0.0">com.weixin.tpdsl.interpreter.tree.Symbol</node>
+    <node x="880.5" y="855.0">com.weixin.tpdsl.interpreter.tree.PieAST</node>
+    <node x="1036.0" y="654.5">com.weixin.tpdsl.interpreter.tree.LocalScope</node>
+    <node x="619.75" y="25.0">com.weixin.tpdsl.interpreter.tree.Scope</node>
+    <node x="0.0" y="384.5">com.weixin.tpdsl.interpreter.tree.VariableSymbol</node>
+    <node x="1304.0" y="855.0">com.weixin.tpdsl.interpreter.tree.ReturnValue</node>
+    <node x="176.0" y="855.0">com.weixin.tpdsl.interpreter.tree.MemorySpace</node>
+    <node x="521.0" y="616.0">com.weixin.tpdsl.interpreter.tree.StructSymbol</node>
+    <node x="272.0" y="281.5">com.weixin.tpdsl.interpreter.tree.ScopedSymbol</node>
+    <node x="0.0" y="1176.5">com.weixin.tpdsl.interpreter.tree.FunctionSpace</node>
+    <node x="1291.0" y="0.0">com.weixin.tpdsl.interpreter.tree.Interpreter</node>
+    <node x="679.0" y="1022.0">com.weixin.tpdsl.interpreter.tree.PieErrorNode</node>
+    <node x="190.0" y="616.0">com.weixin.tpdsl.interpreter.tree.FunctionSymbol</node>
+    <node x="886.625" y="269.0">com.weixin.tpdsl.interpreter.tree.BaseScope</node>
+    <node x="331.0" y="1151.0">com.weixin.tpdsl.interpreter.tree.StructInstance</node>
+    <node x="836.0" y="654.5">com.weixin.tpdsl.interpreter.tree.GlobalScope</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.weixin.tpdsl.interpreter.tree.StructInstance" target="com.weixin.tpdsl.interpreter.tree.MemorySpace">
+      <point x="0.0" y="-84.0" />
+      <point x="482.5" y="1126.0" />
+      <point x="390.5" y="1126.0" />
+      <point x="71.5" y="123.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.PieErrorNode" target="com.weixin.tpdsl.interpreter.tree.PieAST">
+      <point x="0.0" y="-33.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.StructSymbol" target="com.weixin.tpdsl.interpreter.tree.ScopedSymbol">
+      <point x="-73.75" y="-97.0" />
+      <point x="594.75" y="591.0" />
+      <point x="492.5" y="591.0" />
+      <point x="73.5" y="136.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.VariableSymbol" target="com.weixin.tpdsl.interpreter.tree.Symbol">
+      <point x="0.0" y="-33.0" />
+      <point x="126.0" y="244.0" />
+      <point x="181.37499999999994" y="244.0" />
+      <point x="-50.5" y="109.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.FunctionSpace" target="com.weixin.tpdsl.interpreter.tree.MemorySpace">
+      <point x="0.0" y="-58.5" />
+      <point x="155.5" y="1126.0" />
+      <point x="247.5" y="1126.0" />
+      <point x="-71.5" y="123.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.GlobalScope" target="com.weixin.tpdsl.interpreter.tree.BaseScope">
+      <point x="0.0" y="-58.5" />
+      <point x="926.0" y="591.0" />
+      <point x="958.125" y="591.0" />
+      <point x="-71.5" y="148.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.ScopedSymbol" target="com.weixin.tpdsl.interpreter.tree.Scope">
+      <point x="73.5" y="-136.0" />
+      <point x="492.5" y="244.0" />
+      <point x="660.5833333333334" y="244.0" />
+      <point x="-81.66666666666669" y="84.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.LocalScope" target="com.weixin.tpdsl.interpreter.tree.BaseScope">
+      <point x="0.0" y="-58.5" />
+      <point x="1141.0" y="591.0" />
+      <point x="1101.125" y="591.0" />
+      <point x="71.5" y="148.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.StructSymbol" target="com.weixin.tpdsl.interpreter.tree.Scope">
+      <point x="73.75" y="-97.0" />
+      <point x="0.0" y="84.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.FunctionSymbol" target="com.weixin.tpdsl.interpreter.tree.ScopedSymbol">
+      <point x="0.0" y="-97.0" />
+      <point x="-73.5" y="136.0" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.ScopedSymbol" target="com.weixin.tpdsl.interpreter.tree.Symbol">
+      <point x="-73.5" y="-136.0" />
+      <point x="345.5" y="244.0" />
+      <point x="282.37499999999994" y="244.0" />
+      <point x="50.5" y="109.5" />
+    </edge>
+    <edge source="com.weixin.tpdsl.interpreter.tree.BaseScope" target="com.weixin.tpdsl.interpreter.tree.Scope">
+      <point x="0.0" y="-148.5" />
+      <point x="1029.625" y="244.0" />
+      <point x="823.9166666666667" y="244.0" />
+      <point x="81.66666666666674" y="84.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="798.0" y="300.0" />
+  <SelectedNodes>
+    <node>com.weixin.tpdsl.interpreter.tree.BaseScope</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
