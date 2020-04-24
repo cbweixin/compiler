@@ -17,6 +17,7 @@ import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenRewriteStream;
+import org.antlr.runtime.tree.DOTTreeGenerator;
 
 public class Interpreter {
 
@@ -71,6 +72,8 @@ public class Interpreter {
     if (parser.getNumberOfSyntaxErrors() == 0) {
       root = (PieAST) r.getTree();
       //System.out.println("tree: "+root.toStringTree());
+      DOTTreeGenerator generator = new DOTTreeGenerator();
+      System.out.println(generator.toDOT(root));
       block(root);
     }
   }
