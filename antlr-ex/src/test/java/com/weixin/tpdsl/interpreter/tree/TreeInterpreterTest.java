@@ -44,4 +44,11 @@ class TreeInterpreterTest {
     interp.interp(input);
   }
 
+  @Test
+  public void testApplePie() throws IOException, RecognitionException {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("apple.pie");
+    Interpreter interp = new Interpreter();
+    interp.interp(input);
+  }
+
 }
