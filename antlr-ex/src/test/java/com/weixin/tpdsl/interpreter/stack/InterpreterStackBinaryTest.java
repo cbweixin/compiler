@@ -43,5 +43,15 @@ class InterpreterStackBinaryTest {
   }
 
 
+  @Test
+  public void testT1Pcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t1.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
 
 }
