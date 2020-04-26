@@ -75,4 +75,59 @@ class InterpreterStackBinaryTest {
     interpreter.disassemble();
     interpreter.coredump();
   }
+
+  @Test
+  public void testT4Pcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t4.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
+  @Test
+  public void testT5Pcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t5.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
+  @Test
+  public void testT6Pcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t6.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
+  @Test
+  public void testT7Pcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t7.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
+  @Test
+  public void testT8Pcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t8.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
 }
