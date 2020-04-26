@@ -58,4 +58,10 @@ class TreeInterpreterTest {
     interp.interp(input);
   }
 
+  @Test
+  public void testLoopPie() throws IOException, RecognitionException {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("loop.pie");
+    Interpreter interp = new Interpreter();
+    interp.interp(input);
+  }
 }
