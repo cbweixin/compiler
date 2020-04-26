@@ -51,4 +51,11 @@ class TreeInterpreterTest {
     interp.interp(input);
   }
 
+  @Test
+  public void testLookupPie() throws IOException, RecognitionException {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("lookup.pie");
+    Interpreter interp = new Interpreter();
+    interp.interp(input);
+  }
+
 }
