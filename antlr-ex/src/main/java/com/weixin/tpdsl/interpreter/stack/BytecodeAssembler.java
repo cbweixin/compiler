@@ -24,6 +24,7 @@ public class BytecodeAssembler extends AssemblerParser {
 
   // initial code memory size
   public static final int INITIAL_CODE_SIZE = 1024;
+  // That dictionary maps instruction names to integer byte-codes
   protected Map<String, Integer> instructionOpcodeMapping =
       new HashMap<String, Integer>();
   // label scope
