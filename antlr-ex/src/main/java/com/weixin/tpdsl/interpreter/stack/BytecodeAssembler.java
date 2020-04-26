@@ -22,6 +22,7 @@ import org.antlr.runtime.TokenStream;
  */
 public class BytecodeAssembler extends AssemblerParser {
 
+  // initial code memory size
   public static final int INITIAL_CODE_SIZE = 1024;
   protected Map<String, Integer> instructionOpcodeMapping =
       new HashMap<String, Integer>();
@@ -136,9 +137,12 @@ public class BytecodeAssembler extends AssemblerParser {
         v = getRegisterNumber(operandToken);
         break;
     }
-    ensureCapacity(ip + 4);  // expand code array if necessary
-    writeInt(code, ip, v); // write operand to code byte array
-    ip += 4;               // we've written four bytes
+    // expand code array if necessary
+    ensureCapacity(ip + 4);
+    // write operand to code byte array
+    writeInt(code, ip, v);
+    // we've written four bytes
+    ip += 4;
   }
 
   protected int getConstantPoolIndex(Object o) {
