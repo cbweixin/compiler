@@ -88,6 +88,14 @@ public class BytecodeAssembler extends AssemblerParser {
     }
     int opcode = opcodeI.intValue();
     ensureCapacity(ip + 1);
+    // notice in BytecodeDefinition,we have
+    // public static final short INSTR_IADD = 1;
+    // notice opcode is short type, which 16 bits, 2 byte,  , but int is 32 bits , ie 4 bytes
+    // so we need to use mask 0xFF? but 0xFF is only 8 bits. how to handle 16 bits?
+    // as we know, the opcode range is from 0 -> 25, which is falls within [0, 2^8 -1], also
+    // in java , `&` only applied to `int` , `byte` is signed type, `& 0xFF` retrive the unsigned
+    // value , also related to value promotion, see this link :
+    // https://stackoverflow.com/questions/11380062/what-does-value-0xff-do-in-java
     code[ip++] = (byte) (opcode & 0xFF);
   }
 
