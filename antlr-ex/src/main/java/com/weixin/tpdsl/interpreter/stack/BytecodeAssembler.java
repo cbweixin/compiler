@@ -25,16 +25,20 @@ public class BytecodeAssembler extends AssemblerParser {
   public static final int INITIAL_CODE_SIZE = 1024;
   protected Map<String, Integer> instructionOpcodeMapping =
       new HashMap<String, Integer>();
-  protected Map<String, LabelSymbol> labels = // label scope
+  // label scope
+  protected Map<String, LabelSymbol> labels =
       new HashMap<String, LabelSymbol>();
   /**
    * All float and string literals have unique int index in constant pool. We put FunctionSymbols in
    * here too.
    */
   protected List<Object> constPool = new ArrayList<Object>();
-  protected int ip = 0; // Instruction address pointer; used to fill code
-  protected byte[] code = new byte[INITIAL_CODE_SIZE]; // code memory
-  protected int dataSize; // set via .globals
+  // Instruction address pointer; used to fill code
+  protected int ip = 0;
+  // code memory
+  protected byte[] code = new byte[INITIAL_CODE_SIZE];
+  // set via .globals
+  protected int dataSize;
   protected FunctionSymbol mainFunction;
 
   /**
