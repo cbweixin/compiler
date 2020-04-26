@@ -243,7 +243,8 @@ public class Interpreter {
           operands[++sp] = (char) getIntOperand();
           break;
         case BytecodeDefinition.INSTR_ICONST:
-          operands[++sp] = getIntOperand(); // push operand
+          // push operand
+          operands[++sp] = getIntOperand();
           break;
         case BytecodeDefinition.INSTR_FCONST:
         case BytecodeDefinition.INSTR_SCONST:
