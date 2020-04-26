@@ -1,6 +1,6 @@
 .globals 2; n, i
 ; n = 100000000
-	iconst 100000000
+	iconst 10
 	gstore 0
 ; i = 0
 	iconst 0

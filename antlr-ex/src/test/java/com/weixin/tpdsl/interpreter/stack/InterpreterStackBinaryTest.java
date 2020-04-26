@@ -130,4 +130,38 @@ class InterpreterStackBinaryTest {
     interpreter.disassemble();
     interpreter.coredump();
   }
+
+  @Test
+  public void testStructPcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("struct.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
+  @Test
+  public void testLoopPcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("loop.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
+  @Test
+  public void testFactorialPcode() throws Exception {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("factorial.pcode");
+    Interpreter interpreter = new Interpreter();
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
 }
