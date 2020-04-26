@@ -64,4 +64,11 @@ class TreeInterpreterTest {
     Interpreter interp = new Interpreter();
     interp.interp(input);
   }
+
+  @Test
+  public void testStructPie() throws IOException, RecognitionException {
+    InputStream input = getClass().getClassLoader().getResourceAsStream("struct.pie");
+    Interpreter interp = new Interpreter();
+    interp.interp(input);
+  }
 }
