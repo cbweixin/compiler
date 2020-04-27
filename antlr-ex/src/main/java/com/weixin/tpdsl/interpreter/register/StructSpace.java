@@ -1,3 +1,5 @@
+package com.weixin.tpdsl.interpreter.register;
+
 /***
  * Excerpted from "Language Implementation Patterns",
  * published by The Pragmatic Bookshelf.
@@ -5,11 +7,20 @@
  * courses, books, articles, and the like. Contact us if you are in doubt.
  * We make no guarantees that this code is fit for any purpose. 
  * Visit http://www.pragmaticprogrammer.com/titles/tpdsl for more book information.
-***/
+ ***/
+
 import java.util.Arrays;
 
 public class StructSpace {
-	Object[] fields;
-    public StructSpace(int nfields) { this.fields = new Object[nfields]; }
-    public String toString() { return Arrays.toString(fields); }
+
+  Object[] fields;
+
+  public StructSpace(int nfields) {
+    this.fields = new Object[nfields];
+  }
+
+  @Override
+  public String toString() {
+    return Arrays.toString(fields);
+  }
 }
