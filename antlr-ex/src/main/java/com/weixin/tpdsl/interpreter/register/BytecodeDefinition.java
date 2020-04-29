@@ -18,7 +18,8 @@ public class BytecodeDefinition {
 
   public static class Instruction {
 
-    String name; // E.g., "iadd", "call"
+    // E.g., "iadd", "call"
+    String name;
     int[] type = new int[3];
     int n = 0;
 
@@ -47,39 +48,62 @@ public class BytecodeDefinition {
   }
 
   // INSTRUCTION BYTECODES (byte is signed; use a short to keep 0..255)
-  public static final short INSTR_IADD = 1;    // int add
+  // int add
+  public static final short INSTR_IADD = 1;
   public static final short INSTR_ISUB = 2;
   public static final short INSTR_IMUL = 3;
-  public static final short INSTR_ILT = 4;     // int less than
-  public static final short INSTR_IEQ = 5;     // int equal
-  public static final short INSTR_FADD = 6;    // float add
+  // int less than
+  public static final short INSTR_ILT = 4;
+  // int equal
+  public static final short INSTR_IEQ = 5;
+  // float add
+  public static final short INSTR_FADD = 6;
   public static final short INSTR_FSUB = 7;
   public static final short INSTR_FMUL = 8;
-  public static final short INSTR_FLT = 9;     // float less than
+  // float less than
+  public static final short INSTR_FLT = 9;
   public static final short INSTR_FEQ = 10;
-  public static final short INSTR_ITOF = 11;   // int to float
+  // int to float
+  public static final short INSTR_ITOF = 11;
   public static final short INSTR_CALL = 12;
-  public static final short INSTR_RET = 13;    // return with/without value
-  public static final short INSTR_BR = 14;     // branch
-  public static final short INSTR_BRT = 15;    // branch if true
-  public static final short INSTR_BRF = 16;    // branch if false
-  public static final short INSTR_CCONST = 17;  // load constant char
-  public static final short INSTR_ICONST = 18;  // load constant integer
-  public static final short INSTR_FCONST = 19;  // load constant float
-  public static final short INSTR_SCONST = 20;  // load constant string
-  public static final short INSTR_GLOAD = 21;   // load from global memory
-  public static final short INSTR_GSTORE = 22;  // store in global memory
-  public static final short INSTR_FLOAD = 23;   // field load
-  public static final short INSTR_FSTORE = 24;  // store field
-  public static final short INSTR_MOVE = 25;   // reg to reg move
-  public static final short INSTR_PRINT = 26;   // print reg
-  public static final short INSTR_STRUCT = 27; // create new struct
-  public static final short INSTR_NULL = 28;   // load null into register
+  // return with/without value
+  public static final short INSTR_RET = 13;
+  // branch
+  public static final short INSTR_BR = 14;
+  // branch if true
+  public static final short INSTR_BRT = 15;
+  // branch if false
+  public static final short INSTR_BRF = 16;
+  // load constant char
+  public static final short INSTR_CCONST = 17;
+  // load constant integer
+  public static final short INSTR_ICONST = 18;
+  // load constant float
+  public static final short INSTR_FCONST = 19;
+  // load constant string
+  public static final short INSTR_SCONST = 20;
+  // load from global memory
+  public static final short INSTR_GLOAD = 21;
+  // store in global memory
+  public static final short INSTR_GSTORE = 22;
+  // field load
+  public static final short INSTR_FLOAD = 23;
+  // store field
+  public static final short INSTR_FSTORE = 24;
+  // reg to reg move
+  public static final short INSTR_MOVE = 25;
+  // print reg
+  public static final short INSTR_PRINT = 26;
+  // create new struct
+  public static final short INSTR_STRUCT = 27;
+  // load null into register
+  public static final short INSTR_NULL = 28;
   public static final short INSTR_HALT = 29;
 
   public static Instruction[] instructions = new Instruction[]{
       null, // <INVALID>
-      new Instruction("iadd", REG, REG, REG), // index is the opcode
+      // index is the opcode
+      new Instruction("iadd", REG, REG, REG),
       new Instruction("isub", REG, REG, REG),
       new Instruction("imul", REG, REG, REG),
       new Instruction("ilt", REG, REG, REG),
