@@ -29,6 +29,16 @@ class RegisterInterpreterTest {
     interpreter.coredump();
   }
 
+  @Test
+  public void testT3Rcode() throws Exception {
+    Interpreter interpreter = new Interpreter();
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t3.rcode");
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
 
   @Test
   public void testT4Rcode() throws Exception {
