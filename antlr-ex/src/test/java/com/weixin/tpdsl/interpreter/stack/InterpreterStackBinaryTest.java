@@ -56,6 +56,7 @@ class InterpreterStackBinaryTest {
 
   @Test
   public void testT2Pcode() throws Exception {
+    // forward references
     InputStream input = getClass().getClassLoader().getResourceAsStream("t2.pcode");
     Interpreter interpreter = new Interpreter();
     load(interpreter, input);
@@ -142,7 +143,7 @@ class InterpreterStackBinaryTest {
     interpreter.coredump();
   }
 
-  @Test
+//  @Test
   public void testLoopPcode() throws Exception {
     InputStream input = getClass().getClassLoader().getResourceAsStream("loop.pcode");
     Interpreter interpreter = new Interpreter();

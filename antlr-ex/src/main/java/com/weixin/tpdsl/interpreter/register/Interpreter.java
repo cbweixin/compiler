@@ -132,7 +132,8 @@ public class Interpreter {
       if (trace) {
         trace();
       }
-      ip++; //jump to next instruction or first byte of operand
+      //jump to next instruction or first byte of operand
+      ip++;
       // shortcut to current registers
       Object r[] = calls[fp].registers;
       switch (opcode) {
@@ -309,8 +310,8 @@ public class Interpreter {
   }
 
   /**
-   * Pull off 4 bytes starting at ip and return 32-bit signed int value. Return with ip pointing
-   * *after* last byte of operand.  The byte-order is high byte down to low byte, left to right.
+   * Pull off 4 bytes starting at ip and return 32-bit signed int value. Return with ip pointing *after* last byte of
+   * operand.  The byte-order is high byte down to low byte, left to right.
    */
   protected int getIntOperand() {
     int word = BytecodeAssembler.getInt(code, ip);

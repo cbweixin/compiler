@@ -37,7 +37,8 @@ public class BytecodeAssembler extends AssemblerParser {
   protected int ip = 0;
   // code memory
   protected byte[] code = new byte[INITIAL_CODE_SIZE];
-  protected int dataSize; // set via .globals
+  // set via .globals
+  protected int dataSize;
   protected FunctionSymbol mainFunction;
 
   /**

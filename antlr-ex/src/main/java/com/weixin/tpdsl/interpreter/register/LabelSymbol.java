@@ -67,10 +67,8 @@ public class LabelSymbol {
     // need to patch up all references to this symbol
     Vector<Integer> opndsToPatch = forwardReferences;
     for (int addrToPatch : opndsToPatch) {
-            /*
-		    System.out.println("updating operand at addr "+
-                    addr+" to be "+getAddress());
-		    */
+      System.out.println("forwardReferences updating operand at addr "+
+          addrToPatch+" to be "+ address);
       BytecodeAssembler.writeInt(code, addrToPatch, address);
     }
   }

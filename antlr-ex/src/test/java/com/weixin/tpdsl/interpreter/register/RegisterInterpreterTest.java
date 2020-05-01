@@ -19,6 +19,18 @@ class RegisterInterpreterTest {
   }
 
   @Test
+  public void testT2Rcode() throws Exception {
+    Interpreter interpreter = new Interpreter();
+    InputStream input = getClass().getClassLoader().getResourceAsStream("t2.rcode");
+    load(interpreter, input);
+    interpreter.trace = true;
+    interpreter.exec();
+    interpreter.disassemble();
+    interpreter.coredump();
+  }
+
+
+  @Test
   public void testT4Rcode() throws Exception {
     Interpreter interpreter = new Interpreter();
     InputStream input = getClass().getClassLoader().getResourceAsStream("t4.rcode");

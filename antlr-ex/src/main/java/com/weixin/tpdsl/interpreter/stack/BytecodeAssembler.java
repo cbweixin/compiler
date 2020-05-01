@@ -123,7 +123,8 @@ public class BytecodeAssembler extends AssemblerParser {
   protected void genOperand(Token operandToken) {
     String text = operandToken.getText();
     int v = 0;
-    switch (operandToken.getType()) { // switch on token type
+    // switch on token type
+    switch (operandToken.getType()) {
       case INT:
         v = Integer.valueOf(text);
         break;
@@ -155,9 +156,9 @@ public class BytecodeAssembler extends AssemblerParser {
   }
 
   protected int getConstantPoolIndex(Object o) {
-      if (constPool.contains(o)) {
-          return constPool.indexOf(o);
-      }
+    if (constPool.contains(o)) {
+      return constPool.indexOf(o);
+    }
     constPool.add(o);
     return constPool.size() - 1;
   }
@@ -166,7 +167,8 @@ public class BytecodeAssembler extends AssemblerParser {
     return constPool.toArray();
   }
 
-  protected int getRegisterNumber(Token rtoken) { // convert "rN" -> N
+  // convert "rN" -> N
+  protected int getRegisterNumber(Token rtoken) {
     String rs = rtoken.getText();
     rs = rs.substring(1);
     return Integer.valueOf(rs);
@@ -194,7 +196,8 @@ public class BytecodeAssembler extends AssemblerParser {
       // assume it's a forward code reference; record opnd address
       sym = new LabelSymbol(id, ip, true);
       sym.isDefined = false;
-      labels.put(id, sym); // add to symbol table
+      // add to symbol table
+      labels.put(id, sym);
     } else {
       if (sym.isForwardRef) {
         // address is unknown, must simply add to forward ref list
@@ -205,30 +208,33 @@ public class BytecodeAssembler extends AssemblerParser {
         return sym.address;
       }
     }
-    return 0; // we don't know the real address yet
+    // we don't know the real address yet
+    return 0;
   }
 
   @Override
   protected void defineFunction(Token idToken, int args, int locals) {
     String name = idToken.getText();
     FunctionSymbol f = new FunctionSymbol(name, args, locals, ip);
-      if (name.equals("main")) {
-          mainFunction = f;
-      }
+    if (name.equals("main")) {
+      mainFunction = f;
+    }
     // Did someone referred to this function before it was defined?
     // if so, replace element in constant pool (at same index)
-      if (constPool.contains(f)) {
-          constPool.set(constPool.indexOf(f), f);
-      } else {
-          getConstantPoolIndex(f); // save into constant pool
-      }
+    if (constPool.contains(f)) {
+      constPool.set(constPool.indexOf(f), f);
+    } else {
+      // save into constant pool
+      getConstantPoolIndex(f);
+    }
   }
 
   protected int getFunctionIndex(String id) {
     int i = constPool.indexOf(new FunctionSymbol(id));
-      if (i >= 0) {
-          return i; // already in system; return index.
-      }
+    if (i >= 0) {
+      // already in system; return index.
+      return i;
+    }
     // must be a forward function reference
     // create the constant pool entry; we'll fill in later
     return getConstantPoolIndex(new FunctionSymbol(id));
@@ -245,7 +251,8 @@ public class BytecodeAssembler extends AssemblerParser {
     LabelSymbol sym = (LabelSymbol) labels.get(id);
     if (sym == null) {
       LabelSymbol csym = new LabelSymbol(id, ip, false);
-      labels.put(id, csym); // add to symbol table
+      // add to symbol table
+      labels.put(id, csym);
     } else {
       if (sym.isForwardRef) {
         // we have found definition of forward
