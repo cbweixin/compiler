@@ -1,7 +1,7 @@
 grammar Make;
 
 // START: ctor
-@members {
+members {
 MakeGenerator gen;
 public MakeParser(TokenStream input, MakeGenerator gen) {
     super(input);

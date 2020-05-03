@@ -21,7 +21,7 @@ import org.antlr.runtime.TokenStream;
 
 public class MakeParser extends Parser {
 
-  public static final String[] TOKEN_NAMES = new String[]{
+  public static final String[] tokenNames = new String[]{
       "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ITEM", "ACTION", "COMMENT", "WS", "':'", "'\\n'"
   };
   public static final int WS = 7;
@@ -64,7 +64,7 @@ public class MakeParser extends Parser {
 
   @Override
   public String[] getTokenNames() {
-    return MakeParser.TOKEN_NAMES;
+    return MakeParser.tokenNames;
   }
 
   @Override

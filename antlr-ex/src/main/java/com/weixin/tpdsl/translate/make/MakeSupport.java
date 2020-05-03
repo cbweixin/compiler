@@ -18,7 +18,7 @@ public class MakeSupport {
   Map<String, Target> targets = new HashMap<String, Target>();
 
   public int build(String target) throws Exception {
-    // System.out.println("target="+target);
+    System.out.println("target=" + target);
     Target t = targets.get(target);
     if (t == null) {
       // nothing to do; no target
@@ -35,7 +35,7 @@ public class MakeSupport {
       File depFile = new File(dep);
       // if not there or modified after target, make that dependency and the target
       if (!depFile.exists() || depFile.lastModified() > targetFile.lastModified()) {
-        // System.out.println(dep+" doesn't exist or newer than "+target);
+        System.out.println(dep + " doesn't exist or newer than " + target);
         buildTarget = true;
         int errorCode = build(dep);
         if (errorCode != 0) {

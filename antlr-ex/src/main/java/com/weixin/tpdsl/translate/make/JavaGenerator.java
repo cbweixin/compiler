@@ -25,6 +25,7 @@ public class JavaGenerator implements MakeGenerator {
     out = new PrintWriter(new FileWriter(javafile));
   }
 
+  @Override
   public void start() {
     out.println(
         "import java.io.IOException;\n" +
@@ -33,6 +34,7 @@ public class JavaGenerator implements MakeGenerator {
             "        Target target = null;\n");
   }
 
+  @Override
   public void finish() {
     out.println(
         "    }   \n" +
@@ -51,21 +53,25 @@ public class JavaGenerator implements MakeGenerator {
     out.close();
   }
 
+  @Override
   public void target(String t) {
     t = t.trim();
     out.println("\ttarget = new Target(\"" + t + "\");");
   }
 
+  @Override
   public void dependency(String d) {
     d = d.trim();
     out.println("\ttarget.addDependency(\"" + d + "\");");
   }
 
+  @Override
   public void action(String a) {
     a = a.trim();
     out.println("\ttarget.addAction(\"" + a + "\");");
   }
 
+  @Override
   public void endTarget(String t) {
     t = t.trim();
     out.println("\ttargets.put(\"" + t + "\", target);");
