@@ -91,6 +91,7 @@ public class MakeLexer extends Lexer {
 
   }
 
+  @Override
   public String getGrammarFileName() {
     return "Make.g";
   }
@@ -388,6 +389,7 @@ public class MakeLexer extends Lexer {
     }
   }
 
+  @Override
   public void mTokens() throws RecognitionException {
     // Make.g:1:8: ( T__8 | T__9 | ITEM | ACTION | COMMENT | WS )
     int alt6 = 6;
@@ -454,10 +456,12 @@ public class MakeLexer extends Lexer {
       this.transition = DFA6_transition;
     }
 
+    @Override
     public String getDescription() {
       return "1:1: Tokens : ( T__8 | T__9 | ITEM | ACTION | COMMENT | WS );";
     }
 
+    @Override
     public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
       IntStream input = _input;
       int _s = s;
