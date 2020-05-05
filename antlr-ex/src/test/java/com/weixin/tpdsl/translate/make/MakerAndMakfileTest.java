@@ -29,4 +29,15 @@ class MakerAndMakfileTest {
     }
   }
 
+  @Test
+  public void runGeneratedClass() throws Exception {
+    // the above test already generate a class named `makefile1Gen`
+    // it generated at the project root folder, check the commit historyt
+    // I manually move it to the test folder and change the package name
+    makefile1Gen m = new makefile1Gen();
+    m.build("go");
+  }
+
+
+
 }

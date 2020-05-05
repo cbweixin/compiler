@@ -1,3 +1,5 @@
+package com.weixin.tpdsl.translate.make;
+
 import java.io.IOException;
 class makefile1Gen extends MakeSupport {
     public makefile1Gen() throws IOException {
