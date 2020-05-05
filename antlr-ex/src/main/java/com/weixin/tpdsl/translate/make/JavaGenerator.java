@@ -21,7 +21,7 @@ public class JavaGenerator implements MakeGenerator {
   public JavaGenerator(String makefile) throws IOException {
     this.makefile = makefile;
     String javafile = makefile + ".java";
-    //System.out.println(makefile+" to "+javafile);
+    System.out.println(makefile+" to "+javafile);
     out = new PrintWriter(new FileWriter(javafile));
   }
 
